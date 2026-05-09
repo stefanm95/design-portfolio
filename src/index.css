@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@import "@fontsource/inter";
+@import "@fontsource/cormorant-garamond/600.css";
+@import "./styles/theme.css";
+@import "./styles/animations.css";
+@import "./styles//typography.css";
+
+:root {
+  --background: #111111;
+  --surface: #1a1a1a;
+
+  --text-primary: #f5f3ef;
+  --text-secondary: #a1a1a1;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  --accent: #c6a972;
+
+  --container-width: 1440px;
+
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+
+  font-family: Inter, system-ui, sans-serif;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+
+  background: var(--background);
+  color: var(--text-primary);
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.font-display {
+  font-family: "Satoshi", sans-serif;
+}
+
+.font-architectural {
+  font-family: "Switzer", sans-serif;
+}
+
+.font-body {
+  font-family: "Inter", sans-serif;
+}
+
+.font-editorial {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.font-castlegar {
+  font-family: "Castlegar", serif;
+}
