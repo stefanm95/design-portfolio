@@ -14,7 +14,6 @@ export default function SmoothScroll() {
 
     function raf(time: number) {
       lenis.raf(time);
-
       frameId = requestAnimationFrame(raf);
     }
 
@@ -22,7 +21,6 @@ export default function SmoothScroll() {
 
     return () => {
       cancelAnimationFrame(frameId);
-
       lenis.destroy();
     };
   }, []);

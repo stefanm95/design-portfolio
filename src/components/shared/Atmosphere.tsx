@@ -10,8 +10,7 @@ export default function Atmosphere() {
           pointer-events-none
           fixed inset-0
 
-          opacity-[0.18]
-          mix-blend-soft-light
+          opacity-[0.025]
         '
         style={{
           backgroundImage:
@@ -34,7 +33,7 @@ export default function Atmosphere() {
           w-[90vw]
 
           rounded-full
-          blur-3xl
+          blur-[120px]
 
           opacity-[0.45]
         '
@@ -57,7 +56,7 @@ export default function Atmosphere() {
           w-[70vw]
 
           rounded-full
-          blur-3xl
+          blur-[120px]
 
           opacity-[0.28]
         '
@@ -74,7 +73,6 @@ export default function Atmosphere() {
           fixed inset-0
 
           opacity-[0.035]
-          mix-blend-screen
         '
         style={{
           backgroundImage:
@@ -95,8 +93,8 @@ export default function Atmosphere() {
 
           w-[34vw]
 
-          opacity-[0.12]
-          mix-blend-screen
+          opacity-[0.025]
+          
         '
         style={{
           backgroundImage:
