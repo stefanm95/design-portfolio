@@ -80,7 +80,7 @@ export default function ExperienceVisualBackground() {
 
           -translate-x-1/2
 
-          bg-gradient-to-r
+          bg-linear-to
           from-transparent
           via-white/[0.035]
           to-transparent
@@ -108,7 +108,7 @@ export default function ExperienceVisualBackground() {
 
           w-[20%]
 
-          bg-gradient-to-l
+          bg-linear-to
           from-black/40
           to-transparent
         '
