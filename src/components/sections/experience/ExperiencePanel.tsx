@@ -36,7 +36,7 @@ export default function ExperiencePanel({
         shadow-[0_12px_60px_rgba(0,0,0,0.22)]
 
         transition-all
-        duration-90
+        duration-1600
         ease-[cubic-bezier(0.22,1,0.36,1)]
 
         lg:group-hover/stack:opacity-40

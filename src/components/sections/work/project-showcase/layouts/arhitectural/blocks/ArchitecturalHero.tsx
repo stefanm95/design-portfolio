@@ -42,7 +42,7 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
                 scale-[1.01]
 
                 transition-transform
-                duration-[2400ms]
+                duration-1600
                 ease-out
 
                 group-hover:scale-[1.03]

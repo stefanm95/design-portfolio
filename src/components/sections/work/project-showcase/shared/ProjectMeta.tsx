@@ -34,7 +34,7 @@ export default function ProjectMeta({ project, index }: Props) {
             className='
               max-w-[10ch]
 
-              text-[4.8rem]
+              text-[3.8rem]
               leading-[0.9]
 
               md:text-[7rem]

@@ -12,13 +12,23 @@ export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
   if (!system) return null;
 
   return (
-    <section className='grid grid-cols-12 gap-y-20 xl:gap-x-16'>
+    <section
+      className='
+        relative
+
+        grid
+        grid-cols-12
+
+        gap-y-20
+        xl:gap-x-20
+      '
+    >
       {/* LEFT */}
-      <div className='col-span-12 xl:col-span-5'>
+      <div className='col-span-12 xl:col-span-4'>
         <div className='sticky top-32 space-y-10'>
           <Label>PROCESS & SYSTEMS</Label>
 
-          <Heading as='h3' className='max-w-[10ch]'>
+          <Heading as='h3' className='max-w-[11ch]'>
             Structured interaction translated into cinematic rhythm.
           </Heading>
 
@@ -38,17 +48,93 @@ export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
       </div>
 
       {/* RIGHT */}
-      <div className='col-span-12 xl:col-span-7'>
+      <div className='col-span-12 xl:col-span-8'>
         <FadeIn>
           <div
             className='
-              overflow-hidden
+              relative
 
-              border
-              border-white/[0.06]
+              xl:translate-y-12
             '
           >
-            <img src={system} alt='' className='w-full object-cover' />
+            {/* ATMOSPHERIC GLOW */}
+            <div
+              className='
+                absolute
+                inset-0
+
+                scale-110
+
+                opacity-60
+                blur-3xl
+
+                bg-[radial-gradient(circle_at_70%_40%,rgba(103,80,255,0.16),transparent_42%)]
+              '
+            />
+
+            {/* IMAGE */}
+            <div className='relative overflow-hidden'>
+              <img
+                src={system}
+                alt=''
+                className='
+                  w-full
+                  object-cover
+                '
+              />
+
+              {/* DEPTH OVERLAY */}
+              <div
+                className='
+                  absolute
+                  inset-0
+
+                  bg-linear-to-t
+                  from-black/30
+                  via-transparent
+                  to-black/10
+                '
+              />
+            </div>
+
+            {/* FLOATING DETAIL */}
+            <div
+              className='
+                pointer-events-none
+
+                absolute
+                -bottom-10
+                left-10
+
+                hidden
+                xl:block
+              '
+            >
+              <div
+                className='
+                  flex
+                  items-center
+                  gap-3
+
+                  text-[10px]
+                  uppercase
+                  tracking-[0.24em]
+
+                  text-white/34
+                '
+              >
+                <div
+                  className='
+                    h-px
+                    w-16
+
+                    bg-white/14
+                  '
+                />
+
+                <span>Interaction Systems</span>
+              </div>
+            </div>
           </div>
         </FadeIn>
       </div>
