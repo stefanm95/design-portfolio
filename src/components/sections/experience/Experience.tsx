@@ -191,9 +191,9 @@ export default function Experience() {
                     key={item}
                     className='
             border
-            border-white/[0.08]
+            border-white/8
 
-            bg-white/[0.03]
+            bg-white/3
 
             px-4
             py-2
@@ -203,7 +203,7 @@ export default function Experience() {
             tracking-[0.22em]
             text-white/38
 
-            backdrop-blur-xl
+            backdrop-blur-sm
           '
                   >
                     {item}

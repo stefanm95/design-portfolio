@@ -73,7 +73,7 @@ export default function RightSideVisual() {
         '
         style={{
           backgroundImage:
-            "url('/textures/glass/fabio-troyli-stzrfbcWPP8-unsplash.jpg')",
+            "url('/textures/glass/fabio-troyli-stzrfbcWPP8-unsplash.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           mixBlendMode: "screen",
@@ -125,7 +125,7 @@ export default function RightSideVisual() {
         '
         style={{
           backgroundImage:
-            "url('/textures/glass/zhiqiang-wang-tMgP-wH4ux0-unsplash.jpg')",
+            "url('/textures/glass/zhiqiang-wang-tMgP-wH4ux0-unsplash.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           mixBlendMode: "screen",

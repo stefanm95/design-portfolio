@@ -22,25 +22,25 @@ export default function ExperiencePanel({
 
         sm:w-[300px]
 
-        lg:h-[200px]
+        lg:h-50
         lg:w-[320px]
 
         overflow-hidden
 
         border
-        border-white/[0.05]
+        border-white/5
 
-        bg-white/[0.025]
+        bg-white/2.5
         backdrop-blur-[20px]
 
         shadow-[0_12px_60px_rgba(0,0,0,0.22)]
 
         transition-all
-        duration-[1400ms]
+        duration-1400
         ease-[cubic-bezier(0.22,1,0.36,1)]
 
         lg:group-hover/stack:opacity-40
-        hover:!opacity-100
+        hover:opacity-100!
 
         hover:-translate-y-2
         lg:hover:translate-x-6
@@ -97,7 +97,7 @@ export default function ExperiencePanel({
           opacity-0
 
           transition-opacity
-          duration-[1200ms]
+          duration-1200
 
           group-hover:opacity-100
 

@@ -15,7 +15,7 @@ export default function Atmosphere() {
         '
         style={{
           backgroundImage:
-            "url('/textures/stone/black-painted-wall-texture-background.jpg')",
+            "url('/textures/stone/black-painted-wall-texture-background.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -78,7 +78,7 @@ export default function Atmosphere() {
         '
         style={{
           backgroundImage:
-            "url('/textures/glass/zhiqiang-wang-tMgP-wH4ux0-unsplash.jpg')",
+            "url('/textures/glass/zhiqiang-wang-tMgP-wH4ux0-unsplash.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -100,7 +100,7 @@ export default function Atmosphere() {
         '
         style={{
           backgroundImage:
-            "url('/textures/glass/fabio-troyli-stzrfbcWPP8-unsplash.jpg')",
+            "url('/textures/glass/fabio-troyli-stzrfbcWPP8-unsplash.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
