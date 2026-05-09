@@ -5,6 +5,7 @@ import GridOverlay from "@/components/shared/GridOverlay";
 import NoiseOverlay from "@/components/shared/NoiseOverlay";
 import Philosophy from "./components/sections/philosophy/Philosophy";
 import SelectedWork from "./components/sections/work/SelectedWork";
+import Experience from "@/components/sections/experience/Experience";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         {/* <Philosophy /> */}
         <Philosophy />
         <SelectedWork />
+        <Experience />
       </main>
     </>
   );

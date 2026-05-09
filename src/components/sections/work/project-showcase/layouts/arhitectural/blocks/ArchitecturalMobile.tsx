@@ -52,7 +52,7 @@ export default function ArchitecturalMobile({ project }: ProjectBlockProps) {
       >
         {/* LEFT */}
         <FadeIn delay={0.05}>
-          <div className='w-[220px] translate-y-16 xl:w-[260px]'>
+          <div className='w-[220px] translate-y-10 xl:w-[240px]'>
             <div
               className='
                 overflow-hidden
