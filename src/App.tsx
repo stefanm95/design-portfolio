@@ -6,6 +6,8 @@ import NoiseOverlay from "@/components/shared/NoiseOverlay";
 import Philosophy from "./components/sections/philosophy/Philosophy";
 import SelectedWork from "./components/sections/work/SelectedWork";
 import Experience from "@/components/sections/experience/Experience";
+import About from "./components/sections/about/About";
+import Contact from "./components/sections/contact/Contact";
 
 export default function App() {
   return (
@@ -22,6 +24,8 @@ export default function App() {
         <Philosophy />
         <SelectedWork />
         <Experience />
+        <About />
+        <Contact />
       </main>
     </>
   );
