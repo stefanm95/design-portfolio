@@ -70,7 +70,7 @@ export default function Experience() {
 
             -translate-x-1/2
 
-            bg-gradient-to-b
+            bg-linear-to-b
             from-transparent
             via-white/10
             to-transparent
@@ -155,7 +155,7 @@ export default function Experience() {
         h-px
         w-24
 
-        bg-gradient-to-r
+        bg-linear-to-r
         from-white/20
         to-transparent
       '

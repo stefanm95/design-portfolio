@@ -196,7 +196,7 @@ export default function ExperiencePanel({
 
           w-px
 
-          bg-gradient-to-b
+          bg-linear-to-b
           from-transparent
           via-white/10
           to-transparent

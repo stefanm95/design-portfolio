@@ -92,7 +92,7 @@ export default function ArchitecturalShowcase({ project }: ProjectBlockProps) {
                 absolute
                 inset-0
 
-                bg-gradient-to-t
+                bg-linear-to-t
                 from-black/50
                 via-transparent
                 to-black/10
@@ -177,7 +177,7 @@ export default function ArchitecturalShowcase({ project }: ProjectBlockProps) {
 
           rounded-[28px]
 
-          bg-gradient-to-t
+          bg-linear-to-t
           from-black/30
           via-transparent
           to-transparent

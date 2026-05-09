@@ -59,7 +59,7 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
               absolute
               inset-0
 
-              bg-gradient-to-b
+              bg-linear-to-b
               from-black/10
               via-transparent
               to-black/90
