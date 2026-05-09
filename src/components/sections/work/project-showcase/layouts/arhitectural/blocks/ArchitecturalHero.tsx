@@ -1,6 +1,6 @@
 import FadeIn from "@/components/motion/FadeIn";
 
-import type { ProjectBlockProps } from "../../../types";
+import type { ProjectBlockProps } from "../../../shared/types";
 
 export default function ArchitecturalHero({ project }: ProjectBlockProps) {
   const hero = project.media.hero?.[0];
@@ -24,11 +24,11 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
             border
             border-white/[0.05]
 
-            bg-black
+            bg-transparent
           '
         >
           {/* IMAGE */}
-          <div className='relative h-full w-full'>
+          <div className='relative h-[80vh] w-full'>
             <img
               src={hero}
               alt={project.title}
@@ -36,7 +36,7 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
                 h-full
                 w-full
 
-                object-cover
+                object-contain
                 object-center
 
                 scale-[1.01]
@@ -45,7 +45,7 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
                 duration-1600
                 ease-out
 
-                group-hover:scale-[1.03]
+                group-hover:scale-[0.99]
               '
             />
           </div>
@@ -62,7 +62,7 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
               bg-linear-to-b
               from-black/10
               via-transparent
-              to-black/90
+              to-black/30
             '
           />
 
@@ -72,7 +72,7 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
               absolute
               inset-0
 
-              bg-[radial-gradient(circle_at_center,transparent_45%,rgba(0,0,0,0.62))]
+              bg-[radial-gradient(circle_at_center,transparent_45%,rgba(0,0,0,0.22))]
             '
           />
 

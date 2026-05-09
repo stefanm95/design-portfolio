@@ -47,12 +47,7 @@ export default function ArchitecturalShowcaseDesktop({
 
       {/* MAIN VISUAL */}
       <FadeIn key={primary}>
-        <a
-          href={project.liveUrl}
-          target='_blank'
-          rel='noreferrer'
-          className='block'
-        >
+        <div rel='noreferrer' className='block'>
           <div
             className='
               group
@@ -75,7 +70,7 @@ export default function ArchitecturalShowcaseDesktop({
                 duration-[2200ms]
                 ease-out
 
-                group-hover:scale-[1.015]
+                group-hover:scale-[0.98]
               '
             />
 
@@ -105,7 +100,7 @@ export default function ArchitecturalShowcaseDesktop({
               '
             />
           </div>
-        </a>
+        </div>
       </FadeIn>
 
       {/* SWITCHER */}

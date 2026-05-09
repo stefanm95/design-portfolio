@@ -4,7 +4,7 @@ import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
 
-import type { ProjectBlockProps } from "../../../types";
+import type { ProjectBlockProps } from "../../../shared/types";
 
 export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
   const system = project.media.systems?.[0];
@@ -53,7 +53,7 @@ export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
           <div
             className='
               relative
-
+              cursor-pointer
               xl:translate-y-12
             '
           >
@@ -66,7 +66,7 @@ export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
                 scale-110
 
                 opacity-60
-                blur-3xl
+                blur-sm
 
                 bg-[radial-gradient(circle_at_70%_40%,rgba(103,80,255,0.16),transparent_42%)]
               '
@@ -79,7 +79,12 @@ export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
                 alt=''
                 className='
                   w-full
-                  object-cover
+                  object-contain
+                  transition-transform
+                duration-[2200ms]
+                opacity-80
+                ease-out
+                group-hover:scale-[0.98]
                 '
               />
 

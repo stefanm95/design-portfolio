@@ -1,6 +1,6 @@
 import FadeIn from "@/components/motion/FadeIn";
 
-import type { ProjectShowcaseProps } from "../../types";
+import type { ProjectShowcaseProps } from "../../shared/types";
 
 import ProjectAtmosphere from "./blocks/ProjectAtmosphere";
 import ProjectEditorial from "./blocks/ProjectEditorial";

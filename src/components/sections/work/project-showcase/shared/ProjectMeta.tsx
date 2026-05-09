@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import Display from "@/components/typography/Display";
 import Text from "@/components/typography/Text";
 
-import type { ProjectBlockProps } from "../types";
+import type { ProjectBlockProps } from "./types";
 
 type Props = ProjectBlockProps & {
   index: number;

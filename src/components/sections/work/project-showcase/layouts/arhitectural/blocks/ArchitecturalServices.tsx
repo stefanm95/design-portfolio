@@ -4,7 +4,7 @@ import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
 
-import type { ProjectBlockProps } from "../../../types";
+import type { ProjectBlockProps } from "../../../shared/types";
 
 export default function ArchitecturalServices({ project }: ProjectBlockProps) {
   const services = project.media.services ?? [];

@@ -34,6 +34,7 @@ export default function ExperiencePanel({
         backdrop-blur-[20px]
 
         shadow-[0_12px_60px_rgba(0,0,0,0.22)]
+        cursor-pointer
 
         transition-all
         duration-1600

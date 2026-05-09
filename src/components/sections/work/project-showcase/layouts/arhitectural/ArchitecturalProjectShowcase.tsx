@@ -1,10 +1,10 @@
 import FadeIn from "@/components/motion/FadeIn";
 
-import type { ProjectShowcaseProps } from "../../types";
+import type { ProjectShowcaseProps } from "../../shared/types";
 
 import ArchitecturalHero from "./blocks/ArchitecturalHero";
-import ArchitecturalMobile from "./blocks/ArchitecturalMobile";
-import ArchitecturalShowcase from "./blocks/ArchitecturalShowcase";
+import ArchitecturalMobile from "./blocks/mobile/ArchitecturalMobile";
+import ArchitecturalShowcase from "./blocks/showcase/ArchitecturalShowcase";
 import ArchitecturalSystems from "./blocks/ArchitecturalSystems";
 
 import ProjectDivider from "../../shared/ProjectDivider";

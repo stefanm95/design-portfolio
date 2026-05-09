@@ -1,4 +1,4 @@
-import type { ProjectShowcaseProps } from "./types";
+import type { ProjectShowcaseProps } from "./shared/types";
 
 import ArchitecturalProjectShowcase from "./layouts/arhitectural/ArchitecturalProjectShowcase";
 

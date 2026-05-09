@@ -3,7 +3,7 @@ import FadeIn from "@/components/motion/FadeIn";
 import Heading from "@/components/typography/Heading";
 import Text from "@/components/typography/Text";
 
-import type { ProjectBlockProps } from "../../../types";
+import type { ProjectBlockProps } from "../../../shared/types";
 
 import ProjectSectionLabel from "../../../shared/ProjectSectionLabel";
 

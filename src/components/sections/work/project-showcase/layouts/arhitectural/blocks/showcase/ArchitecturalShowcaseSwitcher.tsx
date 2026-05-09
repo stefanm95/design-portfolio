@@ -17,7 +17,6 @@ export default function ArchitecturalShowcaseSwitcher({
         flex
         items-center
         gap-3
-
         overflow-x-auto
 
         pb-2
@@ -33,7 +32,7 @@ export default function ArchitecturalShowcaseSwitcher({
             group
             relative
             shrink-0
-
+            cursor-pointer
             overflow-hidden
 
             transition-all
