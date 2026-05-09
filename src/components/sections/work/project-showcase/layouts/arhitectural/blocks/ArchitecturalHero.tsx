@@ -20,7 +20,7 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
             group
             relative
             overflow-hidden
-
+      
             border
             border-white/[0.05]
 
@@ -36,8 +36,8 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
                 h-full
                 w-full
 
-                object-contain
-                object-top
+                object-cover
+                object-center
 
                 scale-[1.01]
 

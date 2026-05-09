@@ -32,13 +32,13 @@ export default function ProjectMeta({ project, index }: Props) {
             as='h2'
             variant='secondary'
             className='
-              max-w-[10ch]
+              max-w-[32ch]
 
               text-[3.8rem]
               leading-[0.9]
 
-              md:text-[7rem]
-              xl:text-[8.5rem]
+              md:text-[6rem]
+              xl:text-[7.5rem]
             '
           >
             {project.title}
