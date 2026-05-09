@@ -1,93 +1,58 @@
 import FadeIn from "@/components/motion/FadeIn";
 
 import Heading from "@/components/typography/Heading";
+import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
 
 import type { ProjectBlockProps } from "../../../types";
 
-import ProjectSectionLabel from "../../../shared/ProjectSectionLabel";
-
 export default function ArchitecturalServices({ project }: ProjectBlockProps) {
-  const image = project.media.services?.[0];
-
-  if (!image) {
-    return null;
-  }
+  const services = project.media.services ?? [];
 
   return (
-    <FadeIn>
-      <section className='grid grid-cols-12 gap-y-20 xl:gap-x-16'>
-        <div className='col-span-12 xl:col-span-4'>
-          <div className='sticky top-32 space-y-10'>
-            <ProjectSectionLabel>
-              Modular Service Architecture
-            </ProjectSectionLabel>
+    <section className='space-y-20'>
+      <div className='max-w-[760px] space-y-8'>
+        <Label>SERVICE ARCHITECTURE</Label>
 
-            <Heading
-              as='h3'
-              className='
-                max-w-[9ch]
+        <Heading as='h3' className='max-w-[12ch]'>
+          Spatial service presentation with editorial pacing.
+        </Heading>
 
-                text-5xl
-                leading-[0.94]
+        <Text
+          className='
+            max-w-[40ch]
 
-                text-white/92
+            leading-[1.9]
+            text-white/44
+          '
+        >
+          Structured navigation systems, cinematic service galleries, and
+          layered visual hierarchy designed to create clarity while preserving
+          immersive atmosphere.
+        </Text>
+      </div>
 
-                md:text-6xl
-              '
-            >
-              Structured layouts built for premium conversion flows.
-            </Heading>
-
-            <Text
-              className='
-                max-w-[32ch]
-
-                text-[15px]
-                leading-[1.9]
-
-                text-white/42
-              '
-            >
-              The platform uses modular spatial sections, cinematic hierarchy,
-              and asymmetric composition to guide users through services,
-              projects, and consultation experiences.
-            </Text>
-          </div>
-        </div>
-
-        <div className='col-span-12 xl:col-span-8'>
-          <div
-            className='
-              relative
-              overflow-hidden
-
-              border
-              border-white/6
-
-              bg-black/20
-            '
-          >
-            <img
-              alt='Architectural services layout'
-              className='h-full w-full object-cover'
-              src={image}
-            />
-
+      <div className='grid grid-cols-12 gap-10'>
+        {services.map((image, index) => (
+          <FadeIn key={image} delay={index * 0.1}>
             <div
-              className='
-                absolute
-                inset-0
+              className={`
+                overflow-hidden
+                border
+                border-white/[0.06]
 
-                bg-linear-to-t
-                from-black/40
-                via-transparent
-                to-transparent
-              '
-            />
-          </div>
-        </div>
-      </section>
-    </FadeIn>
+                ${
+                  index === 0
+                    ? "col-span-12 xl:col-span-8"
+                    : "col-span-12 xl:col-span-4"
+                }
+              `}
+            >
+              <img src={image} alt='' className='w-full object-cover' />
+            </div>
+          </FadeIn>
+        ))}
+      </div>
+    </section>
   );
 }

@@ -113,9 +113,10 @@ export const projects: Project[] = [
         "/images/project2/showcase/projects-showcase-grid.png",
 
         "/images/project2/showcase/immersive-project-modal.png",
+      ],
 
+      showcaseMobile: [
         "/images/project2/showcase/modal-project-detail.png",
-
         "/images/project2/showcase/mobile-project-shwocase.png",
       ],
 

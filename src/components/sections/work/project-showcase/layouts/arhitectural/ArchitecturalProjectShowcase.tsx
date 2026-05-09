@@ -2,14 +2,13 @@ import FadeIn from "@/components/motion/FadeIn";
 
 import type { ProjectShowcaseProps } from "../../types";
 
-import ProjectDivider from "../../shared/ProjectDivider";
-import ProjectMeta from "../../shared/ProjectMeta";
-
 import ArchitecturalHero from "./blocks/ArchitecturalHero";
 import ArchitecturalMobile from "./blocks/ArchitecturalMobile";
-import ArchitecturalServices from "./blocks/ArchitecturalServices";
 import ArchitecturalShowcase from "./blocks/ArchitecturalShowcase";
 import ArchitecturalSystems from "./blocks/ArchitecturalSystems";
+
+import ProjectDivider from "../../shared/ProjectDivider";
+import ProjectMeta from "../../shared/ProjectMeta";
 
 export default function ArchitecturalProjectShowcase({
   project,
@@ -17,32 +16,25 @@ export default function ArchitecturalProjectShowcase({
 }: ProjectShowcaseProps) {
   return (
     <article className='relative'>
-      {/* DIVIDER */}
       <ProjectDivider />
 
-      {/* FLOW */}
-      <div className='pt-20'>
-        <div className='space-y-52 md:space-y-72'>
-          {/* META */}
-          <FadeIn>
-            <ProjectMeta index={index} project={project} />
-          </FadeIn>
+      <div className='space-y-56 pt-20 md:space-y-72'>
+        {/* INTRO */}
+        <FadeIn>
+          <ProjectMeta project={project} index={index} />
+        </FadeIn>
 
-          {/* HERO */}
-          <ArchitecturalHero project={project} />
+        {/* SPATIAL HERO */}
+        <ArchitecturalHero project={project} />
 
-          {/* SERVICES */}
-          <ArchitecturalServices project={project} />
+        {/* CURATED SHOWCASE */}
+        <ArchitecturalShowcase project={project} />
 
-          {/* SHOWCASE */}
-          <ArchitecturalShowcase project={project} />
+        {/* PROCESS INSERT */}
+        <ArchitecturalSystems project={project} />
 
-          {/* SYSTEMS */}
-          <ArchitecturalSystems project={project} />
-
-          {/* MOBILE */}
-          <ArchitecturalMobile project={project} />
-        </div>
+        {/* DEVICE COMPOSITION */}
+        <ArchitecturalMobile project={project} />
       </div>
     </article>
   );

@@ -1,106 +1,117 @@
 import FadeIn from "@/components/motion/FadeIn";
 
 import Heading from "@/components/typography/Heading";
+import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
 
 import type { ProjectBlockProps } from "../../../types";
-
-import ProjectSectionLabel from "../../../shared/ProjectSectionLabel";
+import RightSideVisual from "@/components/hero/RightSideVisual";
 
 export default function ArchitecturalMobile({ project }: ProjectBlockProps) {
-  const mobile = project.media.mobile;
+  const mobile = project.media.mobile ?? [];
 
-  if (!mobile?.length) {
-    return null;
-  }
+  if (mobile.length < 3) return null;
 
   return (
-    <FadeIn>
-      <section className='space-y-20'>
-        {/* INTRO */}
-        <div className='max-w-3xl space-y-8'>
-          <ProjectSectionLabel>
-            Responsive Spatial Experience
-          </ProjectSectionLabel>
+    <section className='relative overflow-hidden py-10'>
+      <RightSideVisual />
+      {/* HEADER */}
+      <div className='mb-28 max-w-[760px] space-y-8'>
+        <Label>RESPONSIVE EXPERIENCE</Label>
 
-          <Heading
-            as='h3'
-            className='
-              max-w-[12ch]
+        <Heading as='h3' className='max-w-[10ch]'>
+          Cinematic pacing preserved across every screen.
+        </Heading>
 
-              text-5xl
-              leading-[0.94]
+        <Text
+          className='
+            max-w-[38ch]
 
-              text-white/92
+            leading-[1.9]
+            text-white/44
+          '
+        >
+          Responsive layouts maintain atmosphere, hierarchy, and interaction
+          quality while adapting seamlessly to smaller devices.
+        </Text>
+      </div>
 
-              md:text-6xl
-            '
-          >
-            Designed to preserve cinematic pacing across every screen.
-          </Heading>
+      {/* DEVICE COMPOSITION */}
+      <div
+        className='
+          relative
 
-          <Text
-            className='
-              max-w-[42ch]
+          flex
+          flex-wrap
+          items-end
+          justify-center
 
-              text-[15px]
-              leading-[1.9]
-
-              text-white/42
-            '
-          >
-            Responsive layouts maintain atmosphere, hierarchy, and interaction
-            quality while adapting seamlessly to smaller devices.
-          </Text>
-        </div>
-
-        {/* MOBILE GRID */}
-        <div className='grid grid-cols-2 gap-5 md:grid-cols-4 grid-max-cols-[repeat(auto-fit,minmax(240px,1fr))]  lg:gap-8'>
-          {mobile.map((image) => (
+          gap-6
+          xl:gap-12
+        '
+      >
+        {/* LEFT */}
+        <FadeIn delay={0.05}>
+          <div className='w-[220px] translate-y-16 xl:w-[260px]'>
             <div
-              key={image}
               className='
-                group
-                relative
                 overflow-hidden
+                rounded-[28px]
 
                 border
-                border-white/6
+                border-white/[0.06]
 
-                bg-black/20
+                bg-white/[0.02]
+                p-3
               '
             >
-              <img
-                alt='Mobile experience'
-                className='
-                  h-full
-                  w-full
-                  object-cover
-
-                  transition-transform
-                  duration-1800
-                  ease-out
-
-                  group-hover:scale-[1.03]
-                '
-                src={image}
-              />
-
-              <div
-                className='
-                  absolute
-                  inset-0
-
-                  bg-linear-to-t
-                  from-black/10
-                  via-transparent
-                  to-transparent
-                '
-              />
+              <img src={mobile[0]} alt='' className='rounded-[20px]' />
             </div>
-          ))}
-        </div>
-      </section>
-    </FadeIn>
+          </div>
+        </FadeIn>
+
+        {/* CENTER */}
+        <FadeIn delay={0.15}>
+          <div className='w-[260px] xl:w-[320px]'>
+            <div
+              className='
+                overflow-hidden
+                rounded-[32px]
+
+                border
+                border-white/[0.08]
+
+                bg-white/[0.03]
+                p-3
+
+                shadow-[0_30px_80px_rgba(0,0,0,0.4)]
+              '
+            >
+              <img src={mobile[1]} alt='' className='rounded-[24px]' />
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* RIGHT */}
+        <FadeIn delay={0.25}>
+          <div className='w-[220px] translate-y-10 xl:w-[260px]'>
+            <div
+              className='
+                overflow-hidden
+                rounded-[28px]
+
+                border
+                border-white/[0.06]
+
+                bg-white/[0.02]
+                p-3
+              '
+            >
+              <img src={mobile[2]} alt='' className='rounded-[20px]' />
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
   );
 }

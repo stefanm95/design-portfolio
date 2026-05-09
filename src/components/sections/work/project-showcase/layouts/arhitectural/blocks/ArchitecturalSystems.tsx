@@ -7,96 +7,51 @@ import Text from "@/components/typography/Text";
 import type { ProjectBlockProps } from "../../../types";
 
 export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
-  const image = project.media.systems?.[0];
+  const system = project.media.systems?.[0];
 
-  if (!image) {
-    return null;
-  }
+  if (!system) return null;
 
   return (
-    <FadeIn>
-      <section className='grid grid-cols-12 gap-y-20 xl:gap-x-16'>
-        {/* VISUAL */}
-        <div className='col-span-12 xl:col-span-5'>
+    <section className='grid grid-cols-12 gap-y-20 xl:gap-x-16'>
+      {/* LEFT */}
+      <div className='col-span-12 xl:col-span-5'>
+        <div className='sticky top-32 space-y-10'>
+          <Label>PROCESS & SYSTEMS</Label>
+
+          <Heading as='h3' className='max-w-[10ch]'>
+            Structured interaction translated into cinematic rhythm.
+          </Heading>
+
+          <Text
+            className='
+              max-w-[32ch]
+
+              leading-[1.9]
+              text-white/44
+            '
+          >
+            Clear service flows, process hierarchy, and restrained motion
+            systems designed to support immersive navigation without
+            overwhelming the experience.
+          </Text>
+        </div>
+      </div>
+
+      {/* RIGHT */}
+      <div className='col-span-12 xl:col-span-7'>
+        <FadeIn>
           <div
             className='
-              relative
               overflow-hidden
 
               border
-              border-white/6
-
-              bg-black/20
+              border-white/[0.06]
             '
           >
-            <img
-              alt='Process system design'
-              className='h-full w-full object-cover'
-              src={image}
-            />
-
-            <div
-              className='
-                absolute
-                inset-0
-
-                bg-linear-to-t
-                from-black/20
-                via-transparent
-                to-transparent
-              '
-            />
+            <img src={system} alt='' className='w-full object-cover' />
           </div>
-        </div>
-
-        {/* CONTENT */}
-        <div
-          className='
-            col-span-12
-
-            flex items-center
-
-            xl:col-span-4
-            xl:col-start-8
-          '
-        >
-          <div className='space-y-8'>
-            <Label>Process & Systems</Label>
-
-            <Heading
-              as='h3'
-              className='
-                max-w-[10ch]
-
-                text-4xl
-                leading-[0.92]
-                tracking-[-0.06em]
-
-                text-white/92
-
-                md:text-5xl
-              '
-            >
-              Clear process structures translated into cinematic interfaces.
-            </Heading>
-
-            <Text
-              className='
-                max-w-[34ch]
-
-                text-[15px]
-                leading-[1.9]
-
-                text-white/38
-              '
-            >
-              The experience balances premium visual presentation with strong
-              usability systems, structured information flow, and modular
-              interaction design.
-            </Text>
-          </div>
-        </div>
-      </section>
-    </FadeIn>
+        </FadeIn>
+      </div>
+    </section>
   );
 }

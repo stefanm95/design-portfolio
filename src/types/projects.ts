@@ -10,6 +10,7 @@ export type ProjectMedia = {
   ui?: string[];
 
   showcase?: string[];
+  showcaseMobile?: string[];
 
   systems?: string[];
 
