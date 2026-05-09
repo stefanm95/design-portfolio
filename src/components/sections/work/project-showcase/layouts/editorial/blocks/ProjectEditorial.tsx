@@ -3,9 +3,9 @@ import FadeIn from "@/components/motion/FadeIn";
 import Heading from "@/components/typography/Heading";
 import Text from "@/components/typography/Text";
 
-import type { ProjectBlockProps } from "../types";
+import type { ProjectBlockProps } from "../../../types";
 
-import ProjectSectionLabel from "../shared/ProjectSectionLabel";
+import ProjectSectionLabel from "../../../shared/ProjectSectionLabel";
 
 export default function ProjectEditorial({ project }: ProjectBlockProps) {
   const editorial = project.media.editorial?.[0];

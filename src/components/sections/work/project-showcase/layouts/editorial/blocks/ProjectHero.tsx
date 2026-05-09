@@ -1,6 +1,6 @@
 import FadeIn from "@/components/motion/FadeIn";
 
-import type { ProjectBlockProps } from "../types";
+import type { ProjectBlockProps } from "../../../types";
 
 export default function ProjectHero({ project }: ProjectBlockProps) {
   const hero = project.media.hero?.[0];

@@ -13,6 +13,8 @@ export const projects: Project[] = [
 
     year: "2026",
 
+    layout: "editorial",
+
     stack: ["React", "TypeScript", "Framer Motion", "Tailwind"],
 
     liveUrl: "https://wedding-deni-iuli.vercel.app/",
@@ -74,6 +76,8 @@ export const projects: Project[] = [
 
     year: "2026",
 
+    layout: "architectural",
+
     stack: ["React", "TypeScript", "Framer Motion", "Tailwind", "Swiper"],
 
     liveUrl:
@@ -82,6 +86,7 @@ export const projects: Project[] = [
     accent: "cyan",
 
     featured: true,
+    status: "live",
 
     metrics: [
       {
@@ -97,28 +102,44 @@ export const projects: Project[] = [
 
     media: {
       hero: [
-        "/images/project2/hero/architectural-hero.png",
+        "/images/project2/hero/arhitectural-hero-desktop.png",
 
-        "/images/project2/hero/project-showcase-modal.png",
+        "/images/project2/hero/solar-carport-hero.png",
+
+        "/images/project2/hero/arhitectural-hero-mobile.png",
       ],
 
-      atmosphere: [
-        "/images/project2/atmosphere/dark-spatial-layout.png",
+      showcase: [
+        "/images/project2/showcase/projects-showcase-grid.png",
 
-        "/images/project2/atmosphere/premium-materiality.png",
+        "/images/project2/showcase/immersive-project-modal.png",
+
+        "/images/project2/showcase/modal-project-detail.png",
+
+        "/images/project2/showcase/mobile-project-shwocase.png",
       ],
 
-      editorial: [
-        "/images/project2/editorial/projects-showcase-grid.png",
+      systems: [
+        "/images/project2/systems/process-dynamic.png",
 
-        "/images/project2/editorial/process-timeline.png",
-
-        "/images/project2/editorial/partners-section.png",
+        "/images/project2/systems/mobile-process.png",
       ],
 
-      story: ["/images/project2/story/immersive-project-modal.png"],
+      services: [
+        "/images/project2/services/services-gallery-layout.png",
 
-      ui: ["/images/project2/ui/contact-experience.png"],
+        "/images/project2/services/services-gallery-mobile.png",
+      ],
+
+      mobile: [
+        "/images/project2/mobile/mobile-hero.png",
+
+        "/images/project2/mobile/mobile-process.png",
+
+        "/images/project2/mobile/mobile-project-section.png",
+
+        "/images/project2/mobile/mobile-services-showcase.png",
+      ],
     },
   },
 ];
