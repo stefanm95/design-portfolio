@@ -96,7 +96,7 @@ export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
                 blur-md
               '
               style={{
-                background: showcase.blooms.primary,
+                background: showcase.blooms.secondary,
               }}
             />
 

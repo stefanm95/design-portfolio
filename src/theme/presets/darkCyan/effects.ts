@@ -44,7 +44,7 @@ export const darkCyanEffects = {
   },
 
   blooms: {
-    projectHero: `
+    priamry: `
       linear-gradient(
         to top,
         rgba(139,92,246,0.05),
@@ -52,7 +52,7 @@ export const darkCyanEffects = {
       )
     `,
 
-    showcasePrimary: `
+    secondary: `
       radial-gradient(
         circle at 72% 80%,
         rgba(103,80,255,0.16),
@@ -60,7 +60,7 @@ export const darkCyanEffects = {
       )
     `,
 
-    showcaseSecondary: `
+    projectHero: `
       radial-gradient(
         circle at 20% 10%,
         rgba(0,180,255,0.08),
