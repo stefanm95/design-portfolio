@@ -1,4 +1,5 @@
 import FadeIn from "@/components/motion/FadeIn";
+import Text from "@/components/typography/Text";
 
 export default function ContactFooter() {
   return (
@@ -37,7 +38,7 @@ export default function ContactFooter() {
           inset-0
 
           opacity-[0.04]
-          mix-blend-screen
+          
         '
         style={{
           backgroundImage:
@@ -113,7 +114,7 @@ export default function ContactFooter() {
               flex
               flex-col
               gap-8
-
+              items-end
               xl:items-end
             '
           >
@@ -137,6 +138,7 @@ export default function ContactFooter() {
                 tracking-[0.28em]
 
                 text-white/70
+                
 
                 transition-all
                 duration-500
@@ -177,9 +179,9 @@ export default function ContactFooter() {
                 md:gap-8
               '
             >
-              <div>Designed & developed by Stefan Moise</div>
+              <Text>Designed & developed by Stefan Moise</Text>
 
-              <div>© 2026</div>
+              <Text className='text-lg'>© 2026</Text>
             </div>
           </div>
         </div>

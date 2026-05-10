@@ -9,7 +9,7 @@ export default function ContactAvailability() {
 
           border-t
           border-white/[0.06]
-
+          px-8
           pt-8
         '
       >

@@ -35,7 +35,7 @@ export default function AboutPrinciples() {
           top-1/2
 
           h-[140%]
-          w-[280%]
+          w-[400%]
 
           md:w-[240%]
           xl:w-[250%]
@@ -122,33 +122,46 @@ export default function AboutPrinciples() {
       {/* CONTENT */}
       <div
         className='
-          relative
-          z-10
+    relative
+    z-10
 
-          grid
-          grid-cols-1
+    grid
+    grid-cols-1
 
-          gap-y-20
+    px-6
+    sm:px-8
+    md:px-14
+    lg:px-16
+    xl:px-0
 
-          lg:grid-cols-12
-          lg:items-center
-        '
+    gap-y-20
+
+    xl:grid-cols-12
+    xl:items-center
+  '
       >
         {/* LEFT SPACER */}
-        <div className='hidden lg:block lg:col-span-5' />
+        <div className='hidden xl:block xl:col-span-5' />
 
         {/* RIGHT CONTENT */}
-        <div className='col-span-1 lg:col-span-6 lg:col-start-7'>
+        <div
+          className='
+      max-w-[720px]
+
+      xl:col-span-6
+      xl:col-start-7
+    '
+        >
           <div className='space-y-12 md:space-y-14'>
             <FadeIn>
               <div
                 className='
-                  text-[11px]
-                  uppercase
-                  tracking-[0.34em]
+            text-[11px]
+            uppercase
+            tracking-[0.34em]
 
-                  text-white/28
-                '
+            text-white/28
+          '
               >
                 EXPERIENCE PRINCIPLES
               </div>
@@ -157,17 +170,18 @@ export default function AboutPrinciples() {
             <FadeIn delay={0.06}>
               <h2
                 className='
-                  max-w-[12ch]
+            max-w-[12ch]
 
-                  text-3xl
-                  sm:text-4xl
-                  md:text-5xl
-                  lg:text-6xl
+            text-[2rem]
+            sm:text-[2.4rem]
+            md:text-5xl
+            lg:text-6xl
 
-                  leading-[0.95]
+            leading-[0.92]
+    tracking-[-0.05em]
 
-                  text-white/92
-                '
+            text-white/92
+          '
               >
                 Calm systems with cinematic intent.
               </h2>
@@ -176,13 +190,17 @@ export default function AboutPrinciples() {
             <FadeIn delay={0.12}>
               <p
                 className='
-                  max-w-[34ch]
+    max-w-[26ch]
+    sm:max-w-[30ch]
+    md:max-w-[34ch]
 
-                  text-[15px]
-                  leading-[1.9]
+    text-[14px]
+    md:text-[15px]
 
-                  text-white/42
-                '
+    leading-[1.85]
+
+    text-white/42
+  '
               >
                 Every interface is designed around pacing, atmosphere,
                 hierarchy, and emotional clarity — creating experiences that
@@ -194,17 +212,18 @@ export default function AboutPrinciples() {
             <FadeIn delay={0.18}>
               <div
                 className='
-                  flex
-                  flex-wrap
+      grid
+      grid-cols-1
+      sm:grid-cols-2
 
-                  gap-x-6
-                  gap-y-4
+      gap-x-10
+      gap-y-4
 
-                  pt-6
+      pt-6
+      md:pt-8
 
-                  md:gap-x-8
-                  md:gap-y-5
-                '
+      max-w-[28rem]
+    '
               >
                 {[
                   "Atmosphere",
@@ -215,12 +234,35 @@ export default function AboutPrinciples() {
                   <div
                     key={item}
                     className='
-                      text-sm
-                      tracking-[0.18em]
+          relative
 
-                      text-white/58
-                    '
+          pl-4
+
+          text-[11px]
+          sm:text-[12px]
+
+          uppercase
+          tracking-[0.22em]
+
+          text-white/54
+        '
                   >
+                    {/* subtle marker */}
+                    <div
+                      className='
+            absolute
+            left-0
+            top-1/2
+
+            h-px
+            w-2
+
+            -translate-y-1/2
+
+            bg-white/18
+          '
+                    />
+
                     {item}
                   </div>
                 ))}
