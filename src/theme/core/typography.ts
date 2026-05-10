@@ -71,9 +71,9 @@ export const labelTypography = {
   `,
 
   colors: {
-    primary: "text-white/38",
+    primary: "text-white/34",
 
-    muted: "text-white/22",
+    muted: "text-white/24",
 
     subtle: "text-white/18",
   },
@@ -100,6 +100,8 @@ export const textTypography = {
 
   colors: {
     primary: "text-[#a1a1a1]",
+
+    accent: "text-white/88",
 
     narrative: "text-white/44",
 

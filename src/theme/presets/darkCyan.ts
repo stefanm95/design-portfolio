@@ -1,13 +1,23 @@
-import { colors } from "../core/colors";
 import { gradients } from "../core/gradients";
-import { shadows } from "../core/shadows";
+import {
+  cinematicDisplay,
+  headingTypography,
+  labelTypography,
+  textTypography,
+} from "../core/typography";
 
 export const darkCyan = {
-  colors,
+  typography: {
+    display: cinematicDisplay,
+    heading: headingTypography,
+    label: labelTypography,
+    text: textTypography,
+  },
+
   gradients,
-  shadows,
 
   atmosphere: {
-    cyanIntensity: 0.16,
+    accent: "cyan",
+    background: "#050505",
   },
 };

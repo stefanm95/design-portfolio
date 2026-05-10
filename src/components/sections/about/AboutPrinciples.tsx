@@ -199,7 +199,7 @@ export default function AboutPrinciples() {
 
     leading-[1.85]
 
-    text-white/42
+    text-white/44
   '
               >
                 Every interface is designed around pacing, atmosphere,
