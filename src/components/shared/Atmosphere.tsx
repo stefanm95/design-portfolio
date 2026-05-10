@@ -22,7 +22,6 @@ export default function Atmosphere() {
 
       <div
         className={`
-        className={`
           pointer-events-none
           fixed
           rounded-full

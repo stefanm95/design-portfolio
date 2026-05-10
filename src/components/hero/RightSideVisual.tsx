@@ -1,137 +1,165 @@
-import { motion } from "framer-motion";
-
 import { useMousePosition } from "@/hooks/useMousePosition";
-
-import {
-  atmosphericLayout,
-  blur,
-  gradients,
-  motionPresets,
-  opacity,
-  textures,
-} from "@/theme";
+import { motion } from "framer-motion";
 
 export default function RightSideVisual() {
   const mouse = useMousePosition();
-
-  const parallax = {
-    transform: `translate3d(${mouse.x * 24}px, ${mouse.y * 24}px, 0)`,
-  };
-
   return (
-    <div className='pointer-events-none absolute inset-0 overflow-hidden'>
-      {/* MAIN VERTICAL SPINE */}
+    <div className='absolute inset-0 overflow-hidden pointer-events-none'>
+      {/* Main Vertical Spine */}
       <div
-        className={`
+        className='
           absolute
-          ${atmosphericLayout.spine}
+          left-[68%]
           top-0
 
           h-full
           w-px
 
-          ${gradients.spine.vertical}
-        `}
+          bg-linear-to-b
+          from-transparent
+          via-white/10
+          to-transparent
+        '
       />
 
-      {/* MAIN ATMOSPHERIC VOLUME */}
+      {/* Main Atmospheric Volume */}
       <motion.div
         animate={{
           opacity: [0.08, 0.16, 0.08],
           y: [0, -30, 0],
         }}
-        transition={motionPresets.slowFloat}
-        className={`
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className='
           absolute
 
-          ${atmosphericLayout.primaryVolume.position}
-          ${atmosphericLayout.primaryVolume.size}
+          left-[62%]
+          top-[-10%]
 
-          ${blur.soft}
-        `}
-        style={parallax}
+          h-[140vh]
+          w-[32vw]
+
+          blur-sm
+        '
+        style={{
+          transform: `translate3d(${mouse.x * 24}px, ${mouse.y * 24}px, 0)`,
+        }}
       />
 
-      {/* MAIN GLASS REFRACTION */}
+      {/* Main Glass Refraction */}
       <motion.div
         animate={{
           opacity: [0.08, 0.16, 0.08],
           y: [0, -18, 0],
         }}
-        transition={motionPresets.glassFloat}
-        className={`
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className='
           absolute
 
-          ${atmosphericLayout.primaryGlass.position}
-          ${atmosphericLayout.primaryGlass.size}
+          left-[72%]
+          top-[-6%]
 
-          ${blur.glass}
-        `}
+          h-[128vh]
+          w-[14vw]
+
+          blur-[2px]
+        '
         style={{
-          backgroundImage: `url('${textures.glass.primary}')`,
+          backgroundImage:
+            "url('/textures/glass/fabio-troyli-stzrfbcWPP8-unsplash.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           mixBlendMode: "screen",
         }}
       />
 
-      {/* SECONDARY REFRACTION */}
+      {/* Secondary Refraction */}
       <motion.div
         animate={{
           opacity: [0.04, 0.09, 0.04],
           x: [0, 10, 0],
         }}
-        transition={motionPresets.subtleShift}
-        className={`
+        transition={{
+          duration: 24,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className='
           absolute
 
-          ${atmosphericLayout.secondaryGlass.position}
-          ${atmosphericLayout.secondaryGlass.size}
+          left-[82%]
+          top-[10%]
 
-          ${blur.soft}
-        `}
+          h-[70vh]
+          w-[6vw]
+
+          blur-2xl
+        '
         style={{
-          background: gradients.lighting.verticalLight,
+          background:
+            "linear-gradient(to bottom, rgba(255,255,255,0.10), transparent)",
         }}
       />
 
-      {/* TEXTURE LAYER */}
+      {/* Texture Layer */}
       <div
-        className={`
+        className='
           absolute
 
-          ${atmosphericLayout.texture.position}
-          ${atmosphericLayout.texture.size}
+          left-[66%]
+          top-[18%]
 
-          ${opacity.atmosphere.glass}
-          ${blur.texture}
-        `}
+          h-[42vh]
+          w-[10vw]
+
+          opacity-[0.05]
+
+          blur-[1px]
+        '
         style={{
-          backgroundImage: `url('${textures.glass.secondary}')`,
+          backgroundImage:
+            "url('/textures/glass/zhiqiang-wang-tMgP-wH4ux0-unsplash.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           mixBlendMode: "screen",
         }}
       />
 
-      {/* BOTTOM BLOOM */}
+      {/* Bottom Bloom */}
       <motion.div
         animate={{
           opacity: [0.06, 0.14, 0.06],
           scale: [1, 1.04, 1],
         }}
-        transition={motionPresets.bloomPulse}
-        className={`
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className='
           absolute
 
-          ${atmosphericLayout.bloom.position}
-          ${atmosphericLayout.bloom.size}
+          left-[60%]
+          bottom-[-20%]
+
+          h-[34vw]
+          w-[34vw]
 
           rounded-full
-          ${blur.soft}
-          ${gradients.atmospheric.cyan}
-        `}
-        style={parallax}
+          blur-sm
+        '
+        style={{
+          background:
+            "radial-gradient(circle, rgba(0,180,255,0.08), transparent 72%)",
+          transform: `translate3d(${mouse.x * 24}px, ${mouse.y * 24}px, 0)`,
+        }}
       />
     </div>
   );
