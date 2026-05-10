@@ -52,7 +52,7 @@ export default function Experience() {
             w-[720px]
 
             rounded-full
-            blur-3xl
+            blur-sm
 
             bg-orange-400/10
           '
@@ -119,7 +119,7 @@ export default function Experience() {
           w-40
 
           rounded-full
-          blur-3xl
+          blur-sm
 
           bg-white/[0.03]
         '

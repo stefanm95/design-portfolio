@@ -109,7 +109,7 @@ export default function AboutPrinciples() {
           -translate-y-1/2
 
           rounded-full
-          blur-3xl
+          blur-sm
 
           opacity-[0.08]
         '

@@ -33,7 +33,7 @@ export default function ProjectCinematicFrame({
 
           scale-110
 
-          blur-3xl
+          blur-sm
           opacity-30
         '
         style={{

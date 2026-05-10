@@ -20,7 +20,7 @@ export default function About() {
           w-[38vw]
 
           rounded-full
-          blur-3xl
+          blur-sm
 
           opacity-[0.08]
         '

@@ -42,7 +42,7 @@ export default function RightSideVisual() {
           h-[140vh]
           w-[32vw]
 
-          blur-3xl
+          blur-sm
         '
         style={{
           transform: `translate3d(${mouse.x * 24}px, ${mouse.y * 24}px, 0)`,
@@ -153,7 +153,7 @@ export default function RightSideVisual() {
           w-[34vw]
 
           rounded-full
-          blur-3xl
+          blur-sm
         '
         style={{
           background:

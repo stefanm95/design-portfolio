@@ -155,7 +155,7 @@ export default function Contact() {
       w-[18rem]
 
       rounded-full
-      blur-3xl
+      blur-sm
 
       opacity-[0.12]
     '

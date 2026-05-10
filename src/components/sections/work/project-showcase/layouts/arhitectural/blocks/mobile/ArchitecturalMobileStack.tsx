@@ -7,7 +7,7 @@ export default function ArchitecturalMobileStack({ images }: Props) {
       <FadeIn>
         <div className=' relative overflow-hidden aspect-[16/10] bg-black/20 '>
           {/* ATMOSPHERIC GLOW */}
-          <div className=' absolute inset-0 z-[1] opacity-40 blur-3xl bg-[radial-gradient(circle_at_50%_30%,rgba(103,80,255,0.12),transparent_70%)] ' />
+          <div className=' absolute inset-0 z-[1] opacity-40 blur-sm bg-[radial-gradient(circle_at_50%_30%,rgba(103,80,255,0.12),transparent_70%)] ' />
           <img
             src={images[1]}
             alt=''

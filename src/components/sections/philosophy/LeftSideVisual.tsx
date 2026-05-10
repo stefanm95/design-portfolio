@@ -43,7 +43,7 @@ export default function LeftSideVisual() {
           h-[160vh]
           w-[34vw]
 
-          blur-3xl
+          blur-sm
         '
         style={{
           background:
@@ -161,7 +161,7 @@ export default function LeftSideVisual() {
           w-[40vw]
 
           rounded-full
-          blur-3xl
+          blur-sm
         '
         style={{
           background:

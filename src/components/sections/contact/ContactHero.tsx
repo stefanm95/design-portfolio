@@ -48,7 +48,7 @@ export default function ContactHero() {
           lg:w-[34rem]
 
           rounded-full
-          blur-3xl
+          blur-sm
 
           opacity-[0.10]
         '

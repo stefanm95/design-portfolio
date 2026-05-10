@@ -46,7 +46,7 @@ export default function Philosophy() {
           lg:w-[420px]
 
           rounded-full
-          blur-3xl
+          blur-sm
 
           opacity-6
         '

@@ -94,7 +94,7 @@ export default function ArchitecturalShowcaseDesktop({
                 inset-0
 
                 opacity-70
-                blur-3xl
+                blur-sm
 
                 bg-[radial-gradient(circle_at_72%_80%,rgba(103,80,255,0.16),transparent_40%)]
               '

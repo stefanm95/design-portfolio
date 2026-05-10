@@ -40,7 +40,7 @@ export default function ExperienceVisualBackground() {
           lg:w-[760px]
 
           rounded-full
-          blur-3xl
+          blur-sm
 
           bg-blue-500/14
         '
@@ -60,7 +60,7 @@ export default function ExperienceVisualBackground() {
           lg:w-[640px]
 
           rounded-full
-          blur-3xl
+          blur-sm
 
           bg-orange-400/14
         '

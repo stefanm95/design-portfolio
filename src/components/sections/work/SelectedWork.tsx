@@ -19,7 +19,7 @@ export default function SelectedWork() {
           w-[40vw]
 
           rounded-full
-          blur-3xl
+          blur-sm
 
           opacity-10
         '
