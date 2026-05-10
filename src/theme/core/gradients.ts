@@ -21,6 +21,12 @@ export const gradients = {
       to-transparent
     `,
 
+    verticalLeadIn: `
+      bg-linear-to-b
+      from-white/10
+      to-transparent
+    `,
+
     columnGlow: `
       bg-linear-to
       from-transparent

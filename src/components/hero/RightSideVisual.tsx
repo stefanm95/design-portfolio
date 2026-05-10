@@ -1,4 +1,5 @@
 import { useMousePosition } from "@/hooks/useMousePosition";
+import { gradients } from "@/theme";
 import { motion } from "framer-motion";
 
 export default function RightSideVisual() {
@@ -7,7 +8,7 @@ export default function RightSideVisual() {
     <div className='absolute inset-0 overflow-hidden pointer-events-none'>
       {/* Main Vertical Spine */}
       <div
-        className='
+        className={`
           absolute
           left-[68%]
           top-0
@@ -15,11 +16,8 @@ export default function RightSideVisual() {
           h-full
           w-px
 
-          bg-linear-to-b
-          from-transparent
-          via-white/10
-          to-transparent
-        '
+          ${gradients.dividers.verticalSubtle}
+        `}
       />
 
       {/* Main Atmospheric Volume */}

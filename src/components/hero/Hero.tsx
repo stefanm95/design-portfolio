@@ -6,6 +6,7 @@ import Reveal from "@/components/motion/Reveal";
 import Display from "@/components/typography/Display";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
+import { gradients, ui } from "@/theme";
 
 import RightSideVisual from "./RightSideVisual";
 
@@ -31,7 +32,7 @@ export default function Hero() {
           {/* TOP META */}
           <FadeIn>
             <div className='flex items-center gap-6'>
-              <div className='h-px w-16 bg-white/10' />
+              <div className={`h-px w-16 ${ui.dividers.subtle}`} />
 
               <Label>Frontend Developer / Creative Engineer</Label>
             </div>
@@ -73,10 +74,10 @@ export default function Hero() {
             <div className='mt-16 md:mt-20 lg:mt-24 flex flex-col md:flex-row max-w-190 md:gap-6 lg:gap-10'>
               {/* EDITORIAL MARKER */}
               <div className='relative pt-4 hidden md:block'>
-                <div className='h-px w-20 bg-white/10' />
+                <div className={`h-px w-20 ${ui.dividers.subtle}`} />
 
                 <div
-                  className='
+                  className={`
                     absolute
                     left-0
                     top-4
@@ -84,17 +85,15 @@ export default function Hero() {
                     h-20
                     w-px
 
-                    bg-linear-to-b
-                    from-white/10
-                    to-transparent
-                  '
+                    ${gradients.dividers.verticalLeadIn}
+                  `}
                 />
               </div>
 
               {/* COPY */}
               <div className='space-y-7'>
                 <Text
-                  className='
+                  className={`
                     max-w-145
 
                     text-[15px]
@@ -104,8 +103,8 @@ export default function Hero() {
                     leading-[1.9]
                     tracking-[0.01em]
 
-                    text-white/44
-                  '
+                    ${ui.text.narrative}
+                  `}
                 >
                   Crafting immersive frontend experiences through cinematic
                   motion, refined typography, and architectural digital systems.
@@ -113,7 +112,7 @@ export default function Hero() {
 
                 {/* BOTTOM META */}
                 <div
-                  className='
+                  className={`
                     flex flex-wrap
                     items-center
                     gap-3
@@ -124,12 +123,12 @@ export default function Hero() {
                     uppercase
                     tracking-[0.28em]
 
-                    text-white/24
-                  '
+                    ${ui.text.metadata}
+                  `}
                 >
                   <span>Based in Europe</span>
 
-                  <div className='h-px w-8 bg-white/10' />
+                  <div className={`h-px w-8 ${ui.dividers.subtle}`} />
 
                   <span>Available for selected projects</span>
                 </div>
