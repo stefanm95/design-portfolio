@@ -1,78 +1,67 @@
 import FadeIn from "@/components/motion/FadeIn";
+
 import Display from "@/components/typography/Display";
 import Heading from "@/components/typography/Heading";
-import { ui } from "@/theme";
+
+import { activeTheme, ui } from "@/theme";
 
 export default function ContactHero() {
+  const scene = activeTheme.scenes.contact;
+
   return (
     <section
-      className='
+      className={`
         relative
         overflow-hidden
 
-        py-28
-        md:py-32
-        lg:py-40
-        xl:py-56
-      '
+        ${scene.layout.sectionPadding}
+      `}
     >
-      {/* BASE */}
+      {/* BASE TEXTURE */}
       <div
-        className='
+        className={`
           absolute
           inset-0
-        '
+
+          ${scene.texture.opacity}
+        `}
         style={{
-          backgroundImage:
-            "url('/textures/stone/photo-ground-texture-pattern.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          opacity: 0.2,
+          backgroundImage: `url(${scene.texture.image})`,
+          backgroundSize: scene.texture.size,
+          backgroundPosition: scene.texture.position,
         }}
       />
 
-      {/* ATMOSPHERIC GRADIENT */}
+      {/* ATMOSPHERIC LIGHT */}
       <div
-        className='
+        className={`
           absolute
-
-          left-[-10%]
-          md:left-[-8%]
-          lg:left-[-10%]
-          top-[20%]
-
-          h-[28rem]
-          md:h-[30rem]
-          lg:h-[34rem]
-          w-[28rem]
-          md:w-[30rem]
-          lg:w-[34rem]
-
           rounded-full
           blur-sm
 
-          opacity-[0.10]
-        '
+          ${scene.atmosphere.primary.position}
+          ${scene.atmosphere.primary.size}
+          ${scene.atmosphere.primary.opacity}
+        `}
         style={{
-          background:
-            "radial-gradient(circle, rgba(90,180,255,0.24), transparent 72%)",
+          background: scene.atmosphere.primary.background,
         }}
       />
 
-      {/* VERTICAL LINE */}
+      {/* VERTICAL DIVIDER */}
       <div
         className={`
           absolute
           left-1/2
           top-0
 
-          hidden
-          xl:block
-
           h-full
-          w-px
 
-          ${ui.dividers.faint}
+          border-l
+
+          ${scene.dividers.vertical.visibility}
+          ${scene.dividers.vertical.width}
+          ${scene.dividers.vertical.color}
         `}
       />
 
@@ -95,9 +84,9 @@ export default function ContactHero() {
               <Heading
                 className={`
                   text-[32px]
-                  
+
                   uppercase
-                    tracking-[0.28em]
+                  tracking-[0.28em]
 
                   ${ui.text.metadata}
                 `}
@@ -116,6 +105,7 @@ export default function ContactHero() {
                   md:text-6xl
                   lg:text-7xl
                   xl:text-[6.5rem]
+
                   leading-[0.92]
 
                   ${ui.text.primary}
@@ -129,8 +119,10 @@ export default function ContactHero() {
               <p
                 className={`
                   max-w-[34ch]
-                  md:text-sm
+
                   text-base
+                  md:text-sm
+
                   leading-[1.9]
 
                   ${ui.text.tertiary}
@@ -152,11 +144,10 @@ export default function ContactHero() {
                 space-y-8
 
                 border-t
-                ${ui.borders.focus}
-
-                ${ui.borders.focusMd}
-
                 pt-8
+
+                ${ui.borders.focus}
+                ${ui.borders.focusMd}
               `}
             >
               <div className='space-y-2'>
@@ -176,12 +167,13 @@ export default function ContactHero() {
                   href='mailto:your@email.com'
                   className={`
                     text-lg
-                    ${ui.text.interactive}
 
                     transition-opacity
                     duration-500
 
                     hover:opacity-60
+
+                    ${ui.text.interactive}
                   `}
                 >
                   your@email.com

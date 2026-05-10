@@ -1,6 +1,8 @@
-import { dividersGradients } from "@/theme";
+import { activeTheme } from "@/theme";
 
 export default function ExperienceVisualBackground() {
+  const scene = activeTheme.scenes.experience;
+
   return (
     <div
       className='
@@ -11,9 +13,9 @@ export default function ExperienceVisualBackground() {
     >
       {/* TEXTURE */}
       <img
-        src='/textures/glass/nik-shuliahin-xE3S9mjUjqA-unsplash.jpg'
+        src={scene.texture.image}
         alt=''
-        className='
+        className={`
           absolute
           inset-0
 
@@ -21,81 +23,61 @@ export default function ExperienceVisualBackground() {
           w-full
 
           object-cover
-          scale-[1.08]
 
-          opacity-[0.14]
-          blur-[2px]
-        '
+          ${scene.texture.scale}
+          ${scene.texture.opacity}
+          ${scene.texture.blur}
+        `}
       />
 
-      {/* BLUE ATMOSPHERE */}
+      {/* PRIMARY ATMOSPHERE */}
       <div
-        className='
+        className={`
           absolute
-          left-[-8%]
-          top-[4%]
-
-          h-[420px]
-          w-[420px]
-
-          lg:h-[560px]
-          lg:w-[760px]
-
           rounded-full
           blur-sm
 
-          bg-blue-500/14
-        '
+          ${scene.atmosphere.primary.position}
+          ${scene.atmosphere.primary.size}
+          ${scene.atmosphere.primary.background}
+        `}
       />
 
-      {/* WARM ATMOSPHERE */}
+      {/* SECONDARY ATMOSPHERE */}
       <div
-        className='
+        className={`
           absolute
-          bottom-[-6%]
-          right-[-8%]
-
-          h-[460px]
-          w-[460px]
-
-          lg:h-[640px]
-          lg:w-[640px]
-
           rounded-full
           blur-sm
 
-          bg-orange-400/14
-        '
+          ${scene.atmosphere.secondary.position}
+          ${scene.atmosphere.secondary.size}
+          ${scene.atmosphere.secondary.background}
+        `}
       />
 
-      {/* CENTRAL LIGHT COLUMN */}
+      {/* LIGHT COLUMN */}
       <div
         className={`
           absolute
           left-1/2
           top-0
-
           h-full
-          w-[100px]
-
-          lg:w-[140px]
 
           -translate-x-1/2
 
-          ${dividersGradients.columnGlow}
-
-          blur-2xl
+          ${scene.lightColumn.width}
+          ${scene.lightColumn.blur}
+          ${scene.lightColumn.background}
         `}
       />
 
       {/* DEPTH FALLOFF */}
       <div
-        className='
-          absolute
-          inset-0
-
-          bg-[radial-gradient(circle_at_center,transparent_38%,rgba(0,0,0,0.74)_100%)]
-        '
+        className='absolute inset-0'
+        style={{
+          background: scene.falloff.vignette,
+        }}
       />
 
       {/* EDGE DARKENING */}
@@ -106,11 +88,10 @@ export default function ExperienceVisualBackground() {
           right-0
 
           w-[20%]
-
-          bg-linear-to
-          from-black/40
-          to-transparent
         '
+        style={{
+          background: scene.falloff.edge,
+        }}
       />
     </div>
   );
