@@ -1,4 +1,4 @@
-import { gradients, ui } from "@/theme";
+import { gradients, rgba, ui } from "@/theme";
 
 type Props = {
   id: string;
@@ -105,9 +105,10 @@ export default function ExperiencePanel({
           duration-700
 
           group-hover:opacity-100
-
-          bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_72%)]
         '
+        style={{
+          background: `radial-gradient(circle at center, ${rgba.whiteReflection}, transparent 72%)`,
+        }}
       />
 
       {/* CONTENT */}
@@ -164,7 +165,7 @@ export default function ExperiencePanel({
 
           {/* DESCRIPTION */}
           <p
-            className='
+            className={`
               mt-4
               max-w-[210px]
 
@@ -185,7 +186,7 @@ export default function ExperiencePanel({
 
               lg:group-hover:translate-y-0
               lg:group-hover:opacity-100
-            '
+            `}
           >
             {description}
           </p>

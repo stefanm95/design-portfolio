@@ -1,5 +1,5 @@
 import FadeIn from "@/components/motion/FadeIn";
-import { ui } from "@/theme";
+import { rgba, ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 
@@ -90,7 +90,7 @@ export default function ProjectHero({ project }: ProjectBlockProps) {
             '
             style={{
               background:
-                "linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.08) 50%, transparent 80%)",
+                `linear-gradient(120deg, transparent 20%, ${rgba.whiteReflection} 50%, transparent 80%)`,
             }}
           />
 

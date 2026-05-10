@@ -3,7 +3,7 @@ import FadeIn from "@/components/motion/FadeIn";
 import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
-import { ui } from "@/theme";
+import { rgba, ui } from "@/theme";
 
 import type { Project } from "@/types/projects";
 
@@ -97,8 +97,10 @@ export default function ArchitecturalShowcaseDesktop({
                 opacity-70
                 blur-sm
 
-                bg-[radial-gradient(circle_at_72%_80%,rgba(103,80,255,0.16),transparent_40%)]
               '
+              style={{
+                background: `radial-gradient(circle at 72% 80%, ${rgba.purpleShowcase}, transparent 40%)`,
+              }}
             />
           </div>
         </div>

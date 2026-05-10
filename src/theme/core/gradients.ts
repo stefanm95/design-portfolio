@@ -1,3 +1,5 @@
+import { rgba } from "./colors";
+
 export const gradients = {
   display: {
     primary: `
@@ -80,7 +82,7 @@ export const gradients = {
     `,
 
     columnGlow: `
-      bg-linear-to
+      bg-linear-to-b
       from-transparent
       via-white/[0.035]
       to-transparent
@@ -100,30 +102,30 @@ export const gradients = {
   },
 
   atmosphere: {
-    cyan: "radial-gradient(circle, rgba(0,180,255,0.16) 0%, transparent 72%)",
+    cyan: `radial-gradient(circle, ${rgba.cyanAtmosphere} 0%, transparent 72%)`,
 
-    gold: "radial-gradient(circle, rgba(212,175,122,0.10) 0%, transparent 72%)",
+    gold: `radial-gradient(circle, ${rgba.goldAtmosphere} 0%, transparent 72%)`,
 
     vignette:
-      "radial-gradient(circle at center, transparent 22%, rgba(0,0,0,0.78) 100%)",
+      `radial-gradient(circle at center, transparent 22%, ${rgba.vignette} 100%)`,
 
-    topFade: "linear-gradient(to bottom, rgba(0,0,0,0.76), transparent)",
+    topFade: `linear-gradient(to bottom, ${rgba.cinematicFade}, transparent)`,
   },
 
   grid: {
-    cyan: `
-      linear-gradient(to right, rgba(68,202,187,0.18) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(68,202,187,0.18) 1px, transparent 1px)
+    primary: `
+      linear-gradient(to right, ${rgba.cyanGrid} 1px, transparent 1px),
+      linear-gradient(to bottom, ${rgba.cyanGrid} 1px, transparent 1px)
     `,
 
-    monochrome: `
-      linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px)
+    subtle: `
+      linear-gradient(to right, ${rgba.whiteGrid} 1px, transparent 1px),
+      linear-gradient(to bottom, ${rgba.whiteGrid} 1px, transparent 1px)
     `,
 
-    gold: `
-      linear-gradient(to right, rgba(212,175,122,0.12) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(212,175,122,0.12) 1px, transparent 1px)
+    secondary: `
+      linear-gradient(to right, ${rgba.goldGrid} 1px, transparent 1px),
+      linear-gradient(to bottom, ${rgba.goldGrid} 1px, transparent 1px)
     `,
   },
 };

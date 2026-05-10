@@ -3,7 +3,7 @@ import FadeIn from "@/components/motion/FadeIn";
 import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
-import { ui } from "@/theme";
+import { rgba, ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 
@@ -76,8 +76,10 @@ export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
                 opacity-60
                 blur-sm
 
-                bg-[radial-gradient(circle_at_70%_40%,rgba(103,80,255,0.16),transparent_42%)]
               '
+              style={{
+                background: `radial-gradient(circle at 70% 40%, ${rgba.purpleShowcase}, transparent 42%)`,
+              }}
             />
 
             {/* IMAGE */}

@@ -1,5 +1,5 @@
 import FadeIn from "@/components/motion/FadeIn";
-import { opacityClass, ui } from "@/theme";
+import { opacityClass, rgba, ui } from "@/theme";
 
 const links = [
   {
@@ -37,7 +37,7 @@ export default function ContactLinks() {
     >
       {/* RIGHT SIDE TEXTURE PANEL */}
       <div
-        className={`
+        className='
           absolute
           inset-y-0
           right-0
@@ -78,7 +78,7 @@ export default function ContactLinks() {
 
       {/* ATMOSPHERIC GLOW */}
       <div
-        className='
+        className={`
           absolute
           right-[10%]
           top-1/2
@@ -95,7 +95,7 @@ export default function ContactLinks() {
         `}
         style={{
           background:
-            "radial-gradient(circle, rgba(90,180,255,0.28), transparent 72%)",
+            `radial-gradient(circle, ${rgba.cyanBloomStrong}, transparent 72%)`,
         }}
       />
 

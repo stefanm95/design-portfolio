@@ -1,4 +1,5 @@
 import FadeIn from "@/components/motion/FadeIn";
+import { rgba } from "@/theme";
 import ArchitecturalMobileCard from "./ArchitecturalMobileCard";
 type Props = {
   images: string[];
@@ -13,7 +14,12 @@ export default function ArchitecturalMobileCarousel({
   return (
     <div className='relative flex items-center justify-center md:bottom-40 md:left-20 xl:bottom-0 w-full min-h-[560px] lg:min-h-[620px] xl:min-h-[720px] '>
       {/* CENTER GLOW */}
-      <div className='absolute h-[420px] w-[420px] rounded-full opacity-50 blur-sm bg-[radial-gradient(circle,rgba(103,80,255,0.16),transparent_72%)] ' />
+      <div
+        className='absolute h-[420px] w-[420px] rounded-full opacity-50 blur-sm'
+        style={{
+          background: `radial-gradient(circle, ${rgba.purpleShowcase}, transparent 72%)`,
+        }}
+      />
       {/* STAGE */}
       <div className='relative flex items-center justify-center w-full max-w-[920px] h-[720px] '>
         {images.map((image, index) => {

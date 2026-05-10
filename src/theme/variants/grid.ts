@@ -1,7 +1,7 @@
 import { gradients } from "../core/gradients";
 
 export const grid = {
-  background: gradients.grid.cyan,
+  background: gradients.grid.primary,
 
   size: "120px 120px",
 
