@@ -1,3 +1,5 @@
+import { ui } from "./colors";
+
 export const cinematicDisplay = {
   base: `
     font-display
@@ -16,9 +18,7 @@ export const cinematicDisplay = {
     text-transparent
   `,
 
-  glow: `
-    drop-shadow-[0_0_30px_rgba(180,220,255,0.05)]
-  `,
+  glow: ui.glow.cinematic,
 
   variants: {
     primary: `
@@ -51,11 +51,11 @@ export const headingTypography = {
   `,
 
   colors: {
-    primary: "text-[#f5f3ef]",
+    primary: ui.text.heading,
 
-    soft: "text-white/92",
+    soft: ui.text.primary,
 
-    muted: "text-white/72",
+    muted: ui.text.secondary,
   },
 };
 
@@ -71,11 +71,11 @@ export const labelTypography = {
   `,
 
   colors: {
-    primary: "text-white/34",
+    primary: ui.text.muted,
 
-    muted: "text-white/24",
+    muted: ui.text.metadata,
 
-    subtle: "text-white/18",
+    subtle: ui.text.subtle,
   },
 };
 
@@ -99,16 +99,16 @@ export const textTypography = {
   },
 
   colors: {
-    primary: "text-[#a1a1a1]",
+    primary: ui.text.body,
 
-    accent: "text-white/88",
+    accent: ui.text.accent,
 
-    narrative: "text-white/44",
+    narrative: ui.text.narrative,
 
-    secondary: "text-white/58",
+    secondary: ui.text.secondary,
 
-    muted: "text-white/34",
+    muted: ui.text.muted,
 
-    subtle: "text-white/24",
+    subtle: ui.text.metadata,
   },
 };

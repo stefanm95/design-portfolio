@@ -1,21 +1,22 @@
 import FadeIn from "@/components/motion/FadeIn";
 import Text from "@/components/typography/Text";
+import { ui } from "@/theme";
 
 export default function ContactFooter() {
   return (
     <footer
-      className='
+      className={`
         relative
         overflow-hidden
         px-6
         md:px-8
         border-t
-        border-white/[0.05]
+        ${ui.borders.faint}
 
         py-10
         md:py-12
         lg:py-14
-      '
+      `}
     >
       {/* ATMOSPHERIC GRADIENT */}
       <div
@@ -68,40 +69,40 @@ export default function ContactFooter() {
           {/* LEFT */}
           <div className='space-y-8'>
             <div
-              className='
+              className={`
                 text-[11px]
                 uppercase
                 tracking-[0.34em]
 
-                text-white/22
-              '
+                ${ui.text.annotation}
+              `}
             >
               FINAL FRAME
             </div>
 
             <div
-              className='
+              className={`
                 max-w3xl
                 sm:text-4xl
                 md:text-5xl
                 lg:text-6xl
                 leading-[0.95]
 
-                text-white/8484
-              '
+                ${ui.text.accent}
+              `}
             >
               Let’s build something memorable.
             </div>
 
             <p
-              className='
+              className={`
                 max-w-[34ch]
 
                 text-sm
                 leading-[1.9]
 
-                text-white/34
-              '
+                ${ui.text.muted}
+              `}
             >
               Focused on cinematic digital experiences, immersive presentation
               systems, and interaction-driven interfaces crafted with precision.
@@ -121,14 +122,14 @@ export default function ContactFooter() {
             {/* CTA */}
             <a
               href='mailto:hello@yourstudio.dev'
-              className='
+              className={`
                 group
                 inline-flex
                 items-center
                 gap-4
 
                 border
-                border-white/[0.08]
+                ${ui.borders.focus}
 
                 px-6
                 py-4
@@ -137,16 +138,16 @@ export default function ContactFooter() {
                 uppercase
                 tracking-[0.28em]
 
-                text-white/70
+                ${ui.text.secondary}
                 
 
                 transition-all
                 duration-500
 
-                hover:border-white/[0.18]
-                hover:bg-white/[0.03]
+                ${ui.borders.hover}
+                ${ui.surfaces.hover}
                 hover:text-white
-              '
+              `}
             >
               Start a conversation
               <span
@@ -163,7 +164,7 @@ export default function ContactFooter() {
 
             {/* META */}
             <div
-              className='
+              className={`
                 flex
                 flex-col
                 gap-3
@@ -172,12 +173,12 @@ export default function ContactFooter() {
                 uppercase
                 tracking-[0.24em]
 
-                text-white/16
+                ${ui.text.quiet}
 
                 md:flex-row
                 md:items-center
                 md:gap-8
-              '
+              `}
             >
               <Text>Designed & developed by Stefan Moise</Text>
 

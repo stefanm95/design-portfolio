@@ -2,6 +2,7 @@ import FadeIn from "@/components/motion/FadeIn";
 
 import Heading from "@/components/typography/Heading";
 import Text from "@/components/typography/Text";
+import { ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 
@@ -30,29 +31,29 @@ export default function ProjectEditorial({ project }: ProjectBlockProps) {
 
             <Heading
               as='h3'
-              className='
+              className={`
                 max-w-lg
 
                 text-5xl
                 leading-[0.95]
 
-                text-white/92
+                ${ui.text.primary}
 
                 md:text-6xl
-              '
+              `}
             >
               Emotional storytelling through digital composition.
             </Heading>
 
             <Text
-              className='
+              className={`
                 max-w-lg
 
                 text-[15px]
                 leading-[1.9]
 
-                text-white/42
-              '
+                ${ui.text.link}
+              `}
             >
               The experience was designed with editorial pacing, cinematic
               transitions, layered typography systems, and tactile atmospheric

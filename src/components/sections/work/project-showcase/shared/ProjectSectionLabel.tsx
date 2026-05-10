@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { ui } from "@/theme";
 
 import type { ReactNode } from "react";
 
@@ -20,12 +21,12 @@ export default function ProjectSectionLabel({ children, className }: Props) {
         uppercase
         tracking-[0.34em]
 
-        text-white/26
+        ${ui.text.caption}
         `,
         className,
       )}
     >
-      <div className='h-px w-12 bg-white/10' />
+      <div className={`h-px w-12 ${ui.dividers.subtle}`} />
 
       <span>{children}</span>
     </div>

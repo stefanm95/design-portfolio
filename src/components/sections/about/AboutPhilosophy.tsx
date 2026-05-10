@@ -2,6 +2,7 @@ import FadeIn from "@/components/motion/FadeIn";
 
 import Heading from "@/components/typography/Heading";
 import Text from "@/components/typography/Text";
+import { ui } from "@/theme";
 
 export default function AboutPhilosophy() {
   return (
@@ -20,7 +21,7 @@ export default function AboutPhilosophy() {
         <FadeIn delay={0.12}>
           <div className='space-y-6 md:space-y-8'>
             <Text
-              className='
+              className={`
                 max-w-[42ch]
 
                 text-sm
@@ -28,8 +29,8 @@ export default function AboutPhilosophy() {
                 lg:text-[16px]
                 leading-[2]
 
-                text-white/46
-              '
+                ${ui.text.reading}
+              `}
             >
               My work focuses on cinematic interaction systems, editorial
               composition, motion hierarchy, and immersive frontend
@@ -37,7 +38,7 @@ export default function AboutPhilosophy() {
             </Text>
 
             <Text
-              className='
+              className={`
                 max-wsm
                 md:text-base
                 lg:text--[42ch]
@@ -45,8 +46,8 @@ export default function AboutPhilosophy() {
                 text-[16px]
                 leading-[2]
 
-                text-white/34
-              '
+                ${ui.text.muted}
+              `}
             >
               I’m especially interested in how pacing, spacing, typography, and
               restrained motion can transform interfaces from functional layouts

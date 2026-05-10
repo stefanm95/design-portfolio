@@ -1,3 +1,5 @@
+import { gradients } from "@/theme";
+
 export default function ExperienceVisualBackground() {
   return (
     <div
@@ -68,7 +70,7 @@ export default function ExperienceVisualBackground() {
 
       {/* CENTRAL LIGHT COLUMN */}
       <div
-        className='
+        className={`
           absolute
           left-1/2
           top-0
@@ -80,13 +82,10 @@ export default function ExperienceVisualBackground() {
 
           -translate-x-1/2
 
-          bg-linear-to
-          from-transparent
-          via-white/[0.035]
-          to-transparent
+          ${gradients.dividers.columnGlow}
 
           blur-2xl
-        '
+        `}
       />
 
       {/* DEPTH FALLOFF */}

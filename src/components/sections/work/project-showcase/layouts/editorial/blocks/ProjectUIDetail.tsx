@@ -3,6 +3,7 @@ import FadeIn from "@/components/motion/FadeIn";
 import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
+import { ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 
@@ -44,7 +45,7 @@ export default function ProjectUIDetail({ project }: ProjectBlockProps) {
 
               <Heading
                 as='h3'
-                className='
+                className={`
                   text-3xl
                   sm:text-4xl
                   md:text-5xl
@@ -52,22 +53,22 @@ export default function ProjectUIDetail({ project }: ProjectBlockProps) {
                   leading-[0.92]
                   tracking-[-0.05em]
                   
-                  text-white/92
-                '
+                  ${ui.text.primary}
+                `}
               >
                 Thoughtful interaction designed for clarity and emotional ease.
               </Heading>
             </div>
 
             <Text
-              className='
+              className={`
                 max-w-[28ch]
 
                 text-[15px]
                 leading-[1.9]
 
-                text-white/40
-              '
+                ${ui.text.descriptive}
+              `}
             >
               Flows are intuitive, minimal, and intentional. Each interaction
               guides the user naturally through the experience.

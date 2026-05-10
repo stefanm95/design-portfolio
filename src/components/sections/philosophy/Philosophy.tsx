@@ -5,6 +5,7 @@ import FadeIn from "@/components/motion/FadeIn";
 import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
+import { gradients, ui } from "@/theme";
 import LeftSideVisual from "./LeftSideVisual";
 
 export default function Philosophy() {
@@ -13,18 +14,15 @@ export default function Philosophy() {
       <LeftSideVisual />
       {/* Atmospheric Divider */}
       <div
-        className='
+        className={`
           absolute
           inset-x-0
           top-0
 
           h-px
 
-          bg-linear-to-r
-          from-transparent
-          via-white/8
-          to-transparent
-        '
+          ${gradients.dividers.atmospheric}
+        `}
       />
 
       {/* Ambient Bloom */}
@@ -77,7 +75,7 @@ export default function Philosophy() {
 
               <Heading
                 as='h2'
-                className='
+                className={`
                   max-w-[10ch]
 
                   text-4xl
@@ -86,8 +84,8 @@ export default function Philosophy() {
                   leading-[0.95]
                   tracking-[-0.06em]
 
-                  text-white/96
-                '
+                  ${ui.text.strong}
+                `}
               >
                 Designing interfaces that feel spatial, tactile, and emotionally
                 intentional.
@@ -101,14 +99,14 @@ export default function Philosophy() {
           <FadeIn delay={0.15}>
             <div className='space-y-8 md:space-y-10 lg:space-y-12'>
               <Text
-                className='
+                className={`
                   text-base
                   md:text-lg
                   lg:text-[17px]
                   leading-[2]
 
-                  text-white/46
-                '
+                  ${ui.text.reading}
+                `}
               >
                 I approach frontend development as a form of architectural
                 composition — balancing rhythm, typography, motion, and
@@ -117,14 +115,14 @@ export default function Philosophy() {
               </Text>
 
               <Text
-                className='
+                className={`
                   text-sm
                   md:text-base
                   lg:text-[15px]
                   leading-[1.9]
 
-                  text-white/34
-                '
+                  ${ui.text.muted}
+                `}
               >
                 My focus is NOT ONLY on building functional interfaces, but on
                 crafting visual systems with depth, clarity, and cinematic
@@ -133,7 +131,7 @@ export default function Philosophy() {
 
               {/* Metadata */}
               <div
-                className='
+                className={`
                   flex flex-col
                   md:flex-wrap
                   gap-x-8
@@ -141,22 +139,22 @@ export default function Philosophy() {
                   gap-y-5
 
                   border-t
-                  border-white/6
+                  ${ui.borders.subtle}
 
                   pt-8
                   md:pt-10
-                '
+                `}
               >
                 <div className='space-y-2'>
-                  <Label className='text-white/22'>Focus</Label>
+                  <Label className={ui.text.annotation}>Focus</Label>
 
-                  <Text className='text-white/58'>Frontend Systems</Text>
+                  <Text className={ui.text.paragraph}>Frontend Systems</Text>
                 </div>
 
                 <div className='space-y-2'>
-                  <Label className='text-white/22'>Specialties</Label>
+                  <Label className={ui.text.annotation}>Specialties</Label>
 
-                  <Text className='text-white/58'>
+                  <Text className={ui.text.paragraph}>
                     Motion / UI Architecture
                   </Text>
                 </div>

@@ -1,3 +1,5 @@
+import { ui } from "@/theme";
+
 type Props = {
   image: string;
   alt?: string;
@@ -18,7 +20,7 @@ export default function ProjectCinematicFrame({
         overflow-hidden
 
         border
-        border-white/[0.06]
+        ${ui.borders.hairline}
 
         bg-black/20
 

@@ -1,15 +1,14 @@
+import { gradients } from "@/theme";
+
 export default function ProjectDivider() {
   return (
     <div
-      className='
+      className={`
         h-px
         w-full
 
-        bg-linear-to-r
-        from-transparent
-        via-white/8
-        to-transparent
-      '
+        ${gradients.dividers.atmospheric}
+      `}
     />
   );
 }

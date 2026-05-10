@@ -1,4 +1,5 @@
 import { useMousePosition } from "@/hooks/useMousePosition";
+import { gradients } from "@/theme";
 import { motion } from "framer-motion";
 
 export default function LeftSideVisual() {
@@ -8,7 +9,7 @@ export default function LeftSideVisual() {
     <div className='absolute inset-0 overflow-hidden pointer-events-none'>
       {/* Vertical Spine */}
       <div
-        className='
+        className={`
           absolute
           left-[18%]
           top-0
@@ -16,11 +17,8 @@ export default function LeftSideVisual() {
           h-full
           w-px
 
-          bg-linear-to-b
-          from-transparent
-          via-white/8
-          to-transparent
-        '
+          ${gradients.dividers.verticalAtmospheric}
+        `}
       />
 
       {/* Main Purple Atmospheric Volume */}

@@ -1,6 +1,7 @@
 import FadeIn from "@/components/motion/FadeIn";
 import Display from "@/components/typography/Display";
 import Heading from "@/components/typography/Heading";
+import { ui } from "@/theme";
 
 export default function ContactHero() {
   return (
@@ -60,7 +61,7 @@ export default function ContactHero() {
 
       {/* VERTICAL LINE */}
       <div
-        className='
+        className={`
           absolute
           left-1/2
           top-0
@@ -71,8 +72,8 @@ export default function ContactHero() {
           h-full
           w-px
 
-          bg-white/[0.04]
-        '
+          ${ui.dividers.faint}
+        `}
       />
 
       {/* CONTENT */}
@@ -92,14 +93,14 @@ export default function ContactHero() {
           <div className='space-y-10 px-8'>
             <FadeIn>
               <Heading
-                className='
+                className={`
                   text-[32px]
                   
                   uppercase
                     tracking-[0.28em]
 
-                  text-white/24
-                '
+                  ${ui.text.metadata}
+                `}
               >
                 CONTACT
               </Heading>
@@ -107,7 +108,7 @@ export default function ContactHero() {
 
             <FadeIn delay={0.06}>
               <Display
-                className='
+                className={`
                   max-w-[11ch]
 
                   text-4xl
@@ -117,8 +118,8 @@ export default function ContactHero() {
                   xl:text-[6.5rem]
                   leading-[0.92]
 
-                  text-white/92
-                '
+                  ${ui.text.primary}
+                `}
               >
                 Designed with atmosphere and intent.
               </Display>
@@ -126,14 +127,14 @@ export default function ContactHero() {
 
             <FadeIn delay={0.12}>
               <p
-                className='
+                className={`
                   max-w-[34ch]
                   md:text-sm
                   text-base
                   leading-[1.9]
 
-                  text-white/38
-                '
+                  ${ui.text.tertiary}
+                `}
               >
                 I build cinematic digital experiences focused on pacing,
                 interaction clarity, editorial composition, and immersive
@@ -147,41 +148,41 @@ export default function ContactHero() {
         <div className='col-span-12 px-8 xl:col-span-4 xl:col-start-9'>
           <FadeIn delay={0.18}>
             <div
-              className='
+              className={`
                 space-y-8
 
                 border-t
-                border-white/[0.08]
+                ${ui.borders.focus}
 
-                md:border-white/[0.08]
+                ${ui.borders.focusMd}
 
                 pt-8
-              '
+              `}
             >
               <div className='space-y-2'>
                 <div
-                  className='
+                  className={`
                     text-[11px]
                     uppercase
                     tracking-[0.28em]
 
-                    text-white/22
-                  '
+                    ${ui.text.annotation}
+                  `}
                 >
                   Email
                 </div>
 
                 <a
                   href='mailto:your@email.com'
-                  className='
+                  className={`
                     text-lg
-                    text-white/82
+                    ${ui.text.interactive}
 
                     transition-opacity
                     duration-500
 
                     hover:opacity-60
-                  '
+                  `}
                 >
                   your@email.com
                 </a>
@@ -189,18 +190,18 @@ export default function ContactHero() {
 
               <div className='space-y-2'>
                 <div
-                  className='
+                  className={`
                     text-[11px]
                     uppercase
                     tracking-[0.28em]
 
-                    text-white/22
-                  '
+                    ${ui.text.annotation}
+                  `}
                 >
                   Availability
                 </div>
 
-                <p className='text-white/54'>
+                <p className={ui.text.supporting}>
                   Available for selected freelance projects.
                 </p>
               </div>

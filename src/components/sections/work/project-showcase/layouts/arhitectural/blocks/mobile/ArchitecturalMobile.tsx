@@ -6,6 +6,7 @@ import type { ProjectBlockProps } from "../../../../shared/types";
 import RightSideVisual from "@/components/hero/RightSideVisual";
 import ArchitecturalMobileCarousel from "./ArchitecturalMobileCarousel";
 import ArchitecturalMobileStack from "./ArchitecturalMobileStack";
+import { ui } from "@/theme";
 
 export default function ArchitecturalMobile({ project }: ProjectBlockProps) {
   const mobile = project.media.mobile ?? [];
@@ -44,7 +45,7 @@ export default function ArchitecturalMobile({ project }: ProjectBlockProps) {
             >
               Cinematic pacing preserved across every screen.
             </Heading>
-            <Text className=' max-w-[32ch] leading-[1.9] text-white/44 '>
+            <Text className={` max-w-[32ch] leading-[1.9] ${ui.text.narrative} `}>
               Responsive layouts maintain atmosphere, hierarchy, and interaction
               quality while adapting seamlessly to smaller devices.
             </Text>

@@ -8,6 +8,7 @@ import Text from "@/components/typography/Text";
 
 import ExperienceVisual from "./ExperienceVisual";
 import Heading from "@/components/typography/Heading";
+import { gradients, ui } from "@/theme";
 
 export default function Experience() {
   return (
@@ -60,7 +61,7 @@ export default function Experience() {
 
         {/* CENTRAL VERTICAL LIGHT */}
         <div
-          className='
+          className={`
             absolute
             left-1/2
             top-0
@@ -70,11 +71,8 @@ export default function Experience() {
 
             -translate-x-1/2
 
-            bg-linear-to-b
-            from-transparent
-            via-white/10
-            to-transparent
-          '
+            ${gradients.dividers.verticalSubtle}
+          `}
         />
 
         {/* VIGNETTE */}
@@ -104,13 +102,13 @@ export default function Experience() {
           <FadeIn>
             <div className='relative max-w-[760px]'>
               {/* LABEL */}
-              <Label className='text-white/30'>Experience Systems</Label>
+              <Label className={ui.text.context}>Experience Systems</Label>
 
               {/* TITLE */}
               <div className='relative mt-8'>
                 {/* SUBTLE GLOW */}
                 <div
-                  className='
+                  className={`
           absolute
           -left-10
           top-10
@@ -121,8 +119,8 @@ export default function Experience() {
           rounded-full
           blur-sm
 
-          bg-white/[0.03]
-        '
+          ${ui.surfaces.faint}
+        `}
                 />
 
                 <Heading
@@ -156,27 +154,25 @@ export default function Experience() {
 
               {/* DIVIDER */}
               <div
-                className='
+                className={`
         mt-10
         h-px
         w-24
 
-        bg-linear-to-r
-        from-white/20
-        to-transparent
-      '
+        ${gradients.dividers.leadIn}
+      `}
               />
 
               {/* DESCRIPTION */}
               <Text
-                className='
+                className={`
         mt-8
         max-w-[420px]
 
         text-sm
         leading-[1.9]
-        text-white/42
-      '
+        ${ui.text.link}
+      `}
               >
                 Cinematic digital systems shaped through motion, atmosphere and
                 spatial composition.
@@ -195,11 +191,11 @@ export default function Experience() {
                 {["Motion", "Editorial", "Spatial"].map((item) => (
                   <div
                     key={item}
-                    className='
+                    className={`
             border
-            border-white/8
+            ${ui.borders.quiet}
 
-            bg-white/3
+            ${ui.surfaces.tag}
 
             px-4
             py-2
@@ -207,10 +203,10 @@ export default function Experience() {
             text-[10px]
             uppercase
             tracking-[0.22em]
-            text-white/38
+            ${ui.text.tertiary}
 
             backdrop-blur-sm
-          '
+          `}
                   >
                     {item}
                   </div>

@@ -2,6 +2,7 @@ import ContactAvailability from "./ContactAvailability";
 import ContactFooter from "./ContactFooter";
 import ContactHero from "./ContactHero";
 import ContactLinks from "./ContactLinks";
+import { ui } from "@/theme";
 
 export default function Contact() {
   return (
@@ -182,26 +183,26 @@ export default function Contact() {
               {/* TOP */}
               <div className='space-y-6'>
                 <div
-                  className='
+                className={`
           text-[11px]
           uppercase
           tracking-[0.34em]
 
-          text-white/30
-        '
+          ${ui.text.context}
+        `}
                 >
                   CONTACT
                 </div>
 
                 <div
-                  className='
+                className={`
           max-w-[14ch]
 
           text-3xl
           leading-[1.1]
 
-          text-white/78
-        '
+          ${ui.text.interactive}
+        `}
                 >
                   Building immersive digital experiences with cinematic
                   precision.
@@ -210,14 +211,14 @@ export default function Contact() {
 
               {/* BOTTOM */}
               <div
-                className='
+                className={`
         max-w-[26ch]
 
         text-sm
         leading-[1.9]
 
-        text-white/38
-      '
+        ${ui.text.tertiary}
+      `}
               >
                 Focused on interaction atmosphere, visual pacing, editorial
                 structure, and presentation-driven interfaces.

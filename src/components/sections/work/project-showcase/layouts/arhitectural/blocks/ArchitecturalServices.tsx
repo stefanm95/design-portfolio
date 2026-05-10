@@ -3,6 +3,7 @@ import FadeIn from "@/components/motion/FadeIn";
 import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
+import { ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 
@@ -19,12 +20,12 @@ export default function ArchitecturalServices({ project }: ProjectBlockProps) {
         </Heading>
 
         <Text
-          className='
+          className={`
             max-w-[40ch]
 
             leading-[1.9]
-            text-white/44
-          '
+            ${ui.text.narrative}
+          `}
         >
           Structured navigation systems, cinematic service galleries, and
           layered visual hierarchy designed to create clarity while preserving
@@ -39,7 +40,7 @@ export default function ArchitecturalServices({ project }: ProjectBlockProps) {
               className={`
                 overflow-hidden
                 border
-                border-white/[0.06]
+                ${ui.borders.hairline}
 
                 ${
                   index === 0

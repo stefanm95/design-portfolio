@@ -3,6 +3,7 @@ import FadeIn from "@/components/motion/FadeIn";
 import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
+import { ui } from "@/theme";
 
 import type { Project } from "@/types/projects";
 
@@ -34,11 +35,11 @@ export default function ArchitecturalShowcaseMobile({
         </Heading>
 
         <Text
-          className='
+          className={`
             max-w-[30ch]
             leading-[1.85]
-            text-white/44
-          '
+            ${ui.text.narrative}
+          `}
         >
           Fullscreen project presentation designed with layered hierarchy and
           immersive visual pacing.

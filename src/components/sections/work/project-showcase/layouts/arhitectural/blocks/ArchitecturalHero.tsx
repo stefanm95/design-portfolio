@@ -1,4 +1,5 @@
 import FadeIn from "@/components/motion/FadeIn";
+import { ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 
@@ -16,16 +17,16 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
         className='block'
       >
         <div
-          className='
+          className={`
             group
             relative
             overflow-hidden
       
             border
-            border-white/[0.05]
+            ${ui.borders.faint}
 
             bg-transparent
-          '
+          `}
         >
           {/* IMAGE */}
           <div className='relative aspect-[16/9] w-full'>
@@ -124,7 +125,7 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
 
           {/* LIVE INDICATOR */}
           <div
-            className='
+            className={`
               absolute
               bottom-8
               right-8
@@ -137,8 +138,8 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
               uppercase
               tracking-[0.28em]
 
-              text-white/58
-            '
+              ${ui.text.paragraph}
+            `}
           >
             <span className='relative flex h-2 w-2'>
               <span
@@ -168,12 +169,12 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
             </span>
 
             <span
-              className='
+              className={`
                 transition-colors
                 duration-500
 
-                group-hover:text-white/82
-              '
+                ${ui.text.hoverInteractive}
+              `}
             >
               Live Experience
             </span>

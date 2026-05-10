@@ -1,4 +1,5 @@
 import FadeIn from "@/components/motion/FadeIn";
+import { ui } from "@/theme";
 
 const links = [
   {
@@ -23,16 +24,16 @@ const links = [
 export default function ContactLinks() {
   return (
     <div
-      className='
+      className={`
         relative
         overflow-hidden
 
         border
-        border-white/[0.05]
+        ${ui.borders.faint}
 
-        bg-white/[0.015]
+        ${ui.surfaces.veil}
         backdrop-blur-[2px]
-      '
+      `}
     >
       {/* RIGHT SIDE TEXTURE PANEL */}
       <div
@@ -112,15 +113,15 @@ export default function ContactLinks() {
         '
       >
         <div
-          className='
+          className={`
             mb-10
 
             text-[11px]
             uppercase
             tracking-[0.28em]
 
-            text-white/22
-          '
+            ${ui.text.annotation}
+          `}
         >
           CONNECT WITH ME
         </div>
@@ -132,26 +133,26 @@ export default function ContactLinks() {
                 href={link.href}
                 target='_blank'
                 rel='noreferrer'
-                className='
+                className={`
                   group
                   block
 
                   border-b
-                  border-white/[0.05]
+                  ${ui.borders.faint}
 
                   pb-6
-                '
+                `}
               >
                 <div
-                  className='
+                  className={`
                     mb-2
 
                     text-[11px]
                     uppercase
                     tracking-[0.28em]
 
-                    text-white/22
-                  '
+                    ${ui.text.annotation}
+                  `}
                 >
                   {link.label}
                 </div>
@@ -166,30 +167,30 @@ export default function ContactLinks() {
                   '
                 >
                   <span
-                    className='
+                    className={`
                       text-lg
-                      text-white/78
+                      ${ui.text.interactive}
 
                       transition-all
                       duration-500
 
                       group-hover:text-white
-                    '
+                    `}
                   >
                     {link.value}
                   </span>
 
                   <span
-                    className='
-                      text-white/20
+                    className={`
+                      ${ui.text.ghost}
                       relative
                       -left-100
                       transition-all
                       duration-500
 
                       group-hover:translate-x-1
-                      group-hover:text-white/60
-                    '
+                      ${ui.text.hoverSoft}
+                    `}
                   >
                     →
                   </span>

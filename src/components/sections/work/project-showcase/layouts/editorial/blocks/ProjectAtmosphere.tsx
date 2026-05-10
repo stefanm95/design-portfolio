@@ -3,6 +3,7 @@ import FadeIn from "@/components/motion/FadeIn";
 import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
+import { ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 
@@ -57,7 +58,7 @@ export default function ProjectAtmosphere({ project }: ProjectBlockProps) {
 
               <Heading
                 as='h3'
-                className='
+                className={`
                   text-3xl
                   sm:text-4xl
                   md:text-5xl
@@ -65,8 +66,8 @@ export default function ProjectAtmosphere({ project }: ProjectBlockProps) {
                   leading-[0.94]
                   tracking-[-0.05em]
 
-                  text-white/92
-                '
+                  ${ui.text.primary}
+                `}
               >
                 Building tactile digital environments through texture, glow,
                 depth, and cinematic layering.
@@ -74,14 +75,14 @@ export default function ProjectAtmosphere({ project }: ProjectBlockProps) {
             </div>
 
             <Text
-              className='
+              className={`
                 max-w-[34ch]
 
                 text-[15px]
                 leading-[1.9]
 
-                text-white/38
-              '
+                ${ui.text.tertiary}
+              `}
             >
               Every surface, shadow, and light interaction is carefully composed
               to enhance depth, emotion, and the sense of place.

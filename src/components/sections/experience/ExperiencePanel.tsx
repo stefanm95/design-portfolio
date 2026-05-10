@@ -1,3 +1,5 @@
+import { gradients, ui } from "@/theme";
+
 type Props = {
   id: string;
   title: string;
@@ -30,9 +32,9 @@ export default function ExperiencePanel({
         overflow-hidden
 
         border
-        border-white/5
+        ${ui.borders.whisper}
 
-        bg-white/2.5
+        ${ui.surfaces.panel}
         backdrop-blur-[20px]
 
         shadow-[0_12px_60px_rgba(0,0,0,0.22)]
@@ -125,11 +127,11 @@ export default function ExperiencePanel({
       >
         {/* ID */}
         <span
-          className='
+          className={`
             text-[9px]
             tracking-[0.32em]
-            text-white/18
-          '
+            ${ui.text.subtle}
+          `}
         >
           {id}
         </span>
@@ -137,7 +139,7 @@ export default function ExperiencePanel({
         <div>
           {/* TITLE */}
           <h3
-            className='
+            className={`
               max-w-[190px]
 
               text-[16px]
@@ -149,13 +151,13 @@ export default function ExperiencePanel({
               font-light
               tracking-[-0.04em]
 
-              text-white/72
+              ${ui.text.secondary}
 
               transition-all
               duration-700
 
               group-hover:text-white
-            '
+            `}
           >
             {title}
           </h3>
@@ -169,7 +171,7 @@ export default function ExperiencePanel({
               text-[12px]
               leading-[1.8]
 
-              text-white/40
+              ${ui.text.descriptive}
 
               transition-all
               duration-1000
@@ -192,18 +194,15 @@ export default function ExperiencePanel({
 
       {/* EDGE LIGHT */}
       <div
-        className='
+        className={`
           absolute
           inset-y-0
           left-0
 
           w-px
 
-          bg-linear-to-b
-          from-transparent
-          via-white/10
-          to-transparent
-        '
+          ${gradients.dividers.verticalSubtle}
+        `}
       />
     </div>
   );

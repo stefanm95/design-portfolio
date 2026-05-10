@@ -1,27 +1,28 @@
 import FadeIn from "@/components/motion/FadeIn";
 
 import Text from "@/components/typography/Text";
+import { ui } from "@/theme";
 
 export default function AboutStack() {
   return (
     <FadeIn>
       <div
-        className='
+        className={`
           border-t
-          border-white/[0.06]
+          ${ui.borders.hairline}
 
           pt-12
-        '
+        `}
       >
         <Text
-          className='
+          className={`
             max-w-[52ch]
 
             text-[15px]
             leading-[2]
 
-            text-white/34
-          '
+            ${ui.text.muted}
+          `}
         >
           Built with React, TypeScript, Framer Motion, Tailwind, and custom
           interaction systems focused on immersive presentation, editorial

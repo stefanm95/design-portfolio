@@ -1,4 +1,5 @@
 import FadeIn from "@/components/motion/FadeIn";
+import { ui } from "@/theme";
 
 export default function AboutPrinciples() {
   return (
@@ -76,7 +77,7 @@ export default function AboutPrinciples() {
 
         {/* LIGHT EDGE */}
         <div
-          className='
+          className={`
             absolute
             right-0
             top-0
@@ -84,8 +85,8 @@ export default function AboutPrinciples() {
             h-full
             w-px
 
-            bg-white/10
-          '
+            ${ui.dividers.subtle}
+          `}
         />
       </div>
 
@@ -155,13 +156,13 @@ export default function AboutPrinciples() {
           <div className='space-y-12 md:space-y-14'>
             <FadeIn>
               <div
-                className='
+                className={`
             text-[11px]
             uppercase
             tracking-[0.34em]
 
-            text-white/28
-          '
+            ${ui.text.label}
+          `}
               >
                 EXPERIENCE PRINCIPLES
               </div>
@@ -169,7 +170,7 @@ export default function AboutPrinciples() {
 
             <FadeIn delay={0.06}>
               <h2
-                className='
+                className={`
             max-w-[12ch]
 
             text-[2rem]
@@ -178,10 +179,10 @@ export default function AboutPrinciples() {
             lg:text-6xl
 
             leading-[0.92]
-    tracking-[-0.05em]
+            tracking-[-0.05em]
 
-            text-white/92
-          '
+            ${ui.text.primary}
+          `}
               >
                 Calm systems with cinematic intent.
               </h2>
@@ -189,8 +190,8 @@ export default function AboutPrinciples() {
 
             <FadeIn delay={0.12}>
               <p
-                className='
-    max-w-[26ch]
+                className={`
+                max-w-[26ch]
     sm:max-w-[30ch]
     md:max-w-[34ch]
 
@@ -199,8 +200,8 @@ export default function AboutPrinciples() {
 
     leading-[1.85]
 
-    text-white/44
-  '
+    ${ui.text.narrative}
+  `}
               >
                 Every interface is designed around pacing, atmosphere,
                 hierarchy, and emotional clarity — creating experiences that
@@ -233,7 +234,7 @@ export default function AboutPrinciples() {
                 ].map((item) => (
                   <div
                     key={item}
-                    className='
+                    className={`
           relative
 
           pl-4
@@ -244,12 +245,12 @@ export default function AboutPrinciples() {
           uppercase
           tracking-[0.22em]
 
-          text-white/54
-        '
+          ${ui.text.supporting}
+        `}
                   >
                     {/* subtle marker */}
                     <div
-                      className='
+                      className={`
             absolute
             left-0
             top-1/2
@@ -259,8 +260,8 @@ export default function AboutPrinciples() {
 
             -translate-y-1/2
 
-            bg-white/18
-          '
+            ${ui.dividers.marker}
+          `}
                     />
 
                     {item}

@@ -3,6 +3,7 @@ import FadeIn from "@/components/motion/FadeIn";
 import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
+import { ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 
@@ -40,12 +41,12 @@ export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
           </Heading>
 
           <Text
-            className='
+          className={`
               max-w-[32ch]
 
               leading-[1.9]
-              text-white/44
-            '
+              ${ui.text.narrative}
+            `}
           >
             Clear service flows, process hierarchy, and restrained motion
             systems designed to support immersive navigation without
@@ -123,7 +124,7 @@ export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
               '
             >
               <div
-                className='
+                className={`
                   flex
                   items-center
                   gap-3
@@ -132,16 +133,16 @@ export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
                   uppercase
                   tracking-[0.24em]
 
-                  text-white/34
-                '
+                  ${ui.text.muted}
+                `}
               >
                 <div
-                  className='
+                  className={`
                     h-px
                     w-16
 
-                    bg-white/14
-                  '
+                    ${ui.surfaces.chip}
+                  `}
                 />
 
                 <span>Interaction Systems</span>

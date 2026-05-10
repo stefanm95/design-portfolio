@@ -1,4 +1,5 @@
 import FadeIn from "@/components/motion/FadeIn";
+import { ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 
@@ -14,7 +15,7 @@ export default function ProjectHero({ project }: ProjectBlockProps) {
         className='block'
       >
         <div
-          className='
+          className={`
             group
             relative
             overflow-hidden
@@ -22,10 +23,10 @@ export default function ProjectHero({ project }: ProjectBlockProps) {
             aspect-[16/9]
 
             border
-            border-white/6
+            ${ui.borders.subtle}
 
             bg-black/20
-          '
+          `}
         >
           {/* IMAGE */}
           <div
@@ -111,7 +112,7 @@ export default function ProjectHero({ project }: ProjectBlockProps) {
       </a>
       {/* LIVE INDICATOR */}
       <div
-        className='
+        className={`
     absolute
     bottom-8
     right-8
@@ -124,8 +125,8 @@ export default function ProjectHero({ project }: ProjectBlockProps) {
     uppercase
     tracking-[0.28em]
 
-    text-white/58
-  '
+    ${ui.text.paragraph}
+  `}
       >
         <div className='h-2 w-2 rounded-full bg-emerald-400' />
 

@@ -1,17 +1,18 @@
 import FadeIn from "@/components/motion/FadeIn";
+import { ui } from "@/theme";
 
 export default function ContactAvailability() {
   return (
     <FadeIn delay={0.12}>
       <div
-        className='
+        className={`
           relative
 
           border-t
-          border-white/[0.06]
+          ${ui.borders.hairline}
           px-8
           pt-8
-        '
+        `}
       >
         {/* SOFT GLOW */}
         <div
@@ -29,25 +30,25 @@ export default function ContactAvailability() {
 
         <div className='space-y-4'>
           <div
-            className='
+            className={`
               text-[11px]
               uppercase
               tracking-[0.28em]
 
-              text-white/24
-            '
+              ${ui.text.metadata}
+            `}
           >
             Availability
           </div>
 
           <p
-            className='
+            className={`
               max-w-[28ch]
 
               leading-[1.9]
 
-              text-white/48
-            '
+              ${ui.text.available}
+            `}
           >
             Currently focused on selected cinematic, editorial, and
             presentation-oriented digital experiences.

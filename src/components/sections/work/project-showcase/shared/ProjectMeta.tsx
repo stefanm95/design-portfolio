@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import Display from "@/components/typography/Display";
 import Text from "@/components/typography/Text";
+import { ui } from "@/theme";
 
 import type { ProjectBlockProps } from "./types";
 
@@ -14,7 +15,7 @@ export default function ProjectMeta({ project, index }: Props) {
     <div className='relative'>
       {/* MOBILE INDEX */}
       <div
-        className='
+        className={`
           absolute
           left-0
           top-1
@@ -22,10 +23,10 @@ export default function ProjectMeta({ project, index }: Props) {
           text-[11px]
           tracking-[0.3em]
 
-          text-white/24
+          ${ui.text.metadata}
 
           lg:hidden
-        '
+        `}
       >
         {(index + 1).toString().padStart(2, "0")}
       </div>
@@ -44,12 +45,12 @@ export default function ProjectMeta({ project, index }: Props) {
         {/* DESKTOP INDEX */}
         <div className='hidden lg:block lg:col-span-2'>
           <div
-            className='
+            className={`
               text-[11px]
               tracking-[0.3em]
 
-              text-white/24
-            '
+              ${ui.text.metadata}
+            `}
           >
             {(index + 1).toString().padStart(2, "0")}
           </div>
@@ -78,13 +79,13 @@ export default function ProjectMeta({ project, index }: Props) {
             </Display>
 
             <Text
-              className='
+              className={`
                 text-[13px]
                 uppercase
                 tracking-[0.28em]
 
-                text-white/26
-              '
+                ${ui.text.caption}
+              `}
             >
               {project.subtitle}
             </Text>
@@ -95,7 +96,7 @@ export default function ProjectMeta({ project, index }: Props) {
         <div className='col-span-12 md:col-span-12 lg:col-span-4'>
           <div className='space-y-10'>
             <Text
-              className='
+              className={`
                 max-w-[34ch]
 
                 text-sm
@@ -104,8 +105,8 @@ export default function ProjectMeta({ project, index }: Props) {
 
                 leading-[1.95]
 
-                text-white/44
-              '
+                ${ui.text.narrative}
+              `}
             >
               {project.description}
             </Text>
@@ -120,21 +121,35 @@ export default function ProjectMeta({ project, index }: Props) {
               '
             >
               <div className='space-y-2'>
-                <div className='text-[10px] uppercase tracking-[0.24em] text-white/22'>
+                <div
+                  className={`
+                    text-[10px]
+                    uppercase
+                    tracking-[0.24em]
+                    ${ui.text.annotation}
+                  `}
+                >
                   Stack
                 </div>
 
-                <Text className='text-white/58'>
+                <Text className={ui.text.paragraph}>
                   {project.stack.join(" / ")}
                 </Text>
               </div>
 
               <div className='space-y-2'>
-                <div className='text-[10px] uppercase tracking-[0.24em] text-white/22'>
+                <div
+                  className={`
+                    text-[10px]
+                    uppercase
+                    tracking-[0.24em]
+                    ${ui.text.annotation}
+                  `}
+                >
                   Year
                 </div>
 
-                <Text className='text-white/58'>{project.year}</Text>
+                <Text className={ui.text.paragraph}>{project.year}</Text>
               </div>
             </div>
 
@@ -143,7 +158,7 @@ export default function ProjectMeta({ project, index }: Props) {
                 href={project.liveUrl}
                 target='_blank'
                 rel='noreferrer'
-                className='
+                className={`
                   group/link
 
                   inline-flex
@@ -156,13 +171,13 @@ export default function ProjectMeta({ project, index }: Props) {
                   uppercase
                   tracking-[0.28em]
 
-                  text-white/42
+                  ${ui.text.link}
 
                   transition-colors
                   duration-500
 
-                  hover:text-white/88
-                '
+                  ${ui.text.hover}
+                `}
               >
                 <span>Launch Experience</span>
 

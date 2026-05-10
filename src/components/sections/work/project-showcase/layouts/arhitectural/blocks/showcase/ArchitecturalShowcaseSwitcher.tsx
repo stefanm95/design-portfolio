@@ -1,3 +1,5 @@
+import { gradients } from "@/theme";
+
 type Props = {
   showcase: string[];
   active: number;
@@ -82,14 +84,12 @@ export default function ArchitecturalShowcaseSwitcher({
             />
 
             <div
-              className='
+              className={`
                 absolute
                 inset-0
 
-                bg-linear-to-t
-                from-white/[0.03]
-                to-transparent
-              '
+                ${gradients.dividers.activeOverlay}
+              `}
             />
           </div>
         </button>

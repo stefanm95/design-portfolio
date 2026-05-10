@@ -1,4 +1,46 @@
 export const gradients = {
+  dividers: {
+    atmospheric: `
+      bg-linear-to-r
+      from-transparent
+      via-white/8
+      to-transparent
+    `,
+
+    verticalAtmospheric: `
+      bg-linear-to-b
+      from-transparent
+      via-white/8
+      to-transparent
+    `,
+
+    verticalSubtle: `
+      bg-linear-to-b
+      from-transparent
+      via-white/10
+      to-transparent
+    `,
+
+    columnGlow: `
+      bg-linear-to
+      from-transparent
+      via-white/[0.035]
+      to-transparent
+    `,
+
+    leadIn: `
+      bg-linear-to-r
+      from-white/20
+      to-transparent
+    `,
+
+    activeOverlay: `
+      bg-linear-to-t
+      from-white/[0.03]
+      to-transparent
+    `,
+  },
+
   atmosphere: {
     cyan: "radial-gradient(circle, rgba(0,180,255,0.16) 0%, transparent 72%)",
 
