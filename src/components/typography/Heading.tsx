@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 import type { ElementType, ReactNode } from "react";
 
-import { headingTypography } from "@/theme";
+import { activeTheme } from "@/theme";
 
 type Props = {
   as?: ElementType;
@@ -15,6 +15,7 @@ export default function Heading({
   children,
   className,
 }: Props) {
+  const headingTypography = activeTheme.typography.heading;
   return (
     <Component
       className={cn(

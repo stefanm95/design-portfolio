@@ -1,6 +1,6 @@
-import { darkCyanGradients } from "../presets/darkCyan/gradients";
+import { darkCyanGradients } from "./gradients";
 
-export const grid = {
+export const darkCyanGrid = {
   background: darkCyanGradients.grid.primary,
 
   size: "120px 120px",
@@ -12,6 +12,7 @@ export const grid = {
 
   motion: {
     duration: 40,
+
     ease: "linear" as const,
   },
 };

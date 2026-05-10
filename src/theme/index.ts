@@ -7,10 +7,7 @@ export * from "./core/gradients/overlaysGradients";
 export * from "./core/gradients/displayGradients";
 export * from "./core/motion";
 export * from "./core/opacity";
-export * from "./core/shadows";
-export * from "./core/surfaces";
 export * from "./core/textures";
-export * from "./core/typography";
 export * from "./core/rgba";
 export * from "./core/ui";
 
@@ -24,3 +21,5 @@ export * from "./variants/noise";
 export * from "./presets/darkCyan";
 export * from "./presets/obsidianGold";
 export * from "./presets/monochrome";
+
+export * from "./config/activeTheme";

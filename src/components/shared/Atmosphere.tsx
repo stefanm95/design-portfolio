@@ -1,6 +1,8 @@
-import { atmosphere } from "@/theme";
+import { activeTheme } from "@/theme";
 
 export default function Atmosphere() {
+  const atmosphere = activeTheme.atmosphere;
+
   return (
     <>
       <div

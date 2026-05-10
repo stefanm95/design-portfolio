@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 import type { ElementType, ReactNode } from "react";
 
-import { textTypography } from "@/theme";
+import { activeTheme } from "@/theme";
 
 type Props = {
   as?: ElementType;
@@ -15,6 +15,8 @@ export default function Text({
   children,
   className,
 }: Props) {
+  const textTypography = activeTheme.typography.text;
+
   return (
     <Component
       className={cn(
