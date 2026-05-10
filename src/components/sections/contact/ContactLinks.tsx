@@ -1,5 +1,5 @@
 import FadeIn from "@/components/motion/FadeIn";
-import { ui } from "@/theme";
+import { opacityClass, ui } from "@/theme";
 
 const links = [
   {
@@ -37,7 +37,7 @@ export default function ContactLinks() {
     >
       {/* RIGHT SIDE TEXTURE PANEL */}
       <div
-        className='
+        className={`
           absolute
           inset-y-0
           right-0
@@ -91,8 +91,8 @@ export default function ContactLinks() {
           rounded-full
           blur-sm
 
-          opacity-[0.08]
-        '
+          ${opacityClass.subtle}
+        `}
         style={{
           background:
             "radial-gradient(circle, rgba(90,180,255,0.28), transparent 72%)",

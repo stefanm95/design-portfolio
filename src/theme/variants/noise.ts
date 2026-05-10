@@ -1,9 +1,10 @@
+import { opacity } from "../core/opacity";
 import { textures } from "../core/textures";
 
 export const noise = {
   texture: textures.noise.default,
 
-  opacity: "0.018",
+  opacity: opacity.noise,
 
   size: "320px 320px",
 

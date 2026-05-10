@@ -1,4 +1,5 @@
 import Section from "@/components/layout/Section";
+import { opacityClass } from "@/theme";
 
 import AboutHero from "./AboutHero";
 import AboutPhilosophy from "./AboutPhilosophy";
@@ -10,7 +11,7 @@ export default function About() {
     <Section className='relative overflow-hidden md:py-40 lg:py-48 xl:py-56'>
       {/* ATMOSPHERIC BLOOM */}
       <div
-        className='
+        className={`
           pointer-events-none
           absolute
           right-[-10%]
@@ -22,8 +23,8 @@ export default function About() {
           rounded-full
           blur-sm
 
-          opacity-[0.08]
-        '
+          ${opacityClass.subtle}
+        `}
         style={{
           background:
             "radial-gradient(circle, rgba(103,80,255,0.22), transparent 72%)",

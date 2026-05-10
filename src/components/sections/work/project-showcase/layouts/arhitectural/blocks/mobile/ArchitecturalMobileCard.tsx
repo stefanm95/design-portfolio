@@ -1,3 +1,5 @@
+import { gradients } from "@/theme";
+
 type Props = {
   image: string;
 
@@ -166,17 +168,15 @@ export default function ArchitecturalMobileCard({
             />
 
             <div
-              className='
+              className={`
                 absolute
                 inset-x-0
                 bottom-0
 
                 h-[30%]
 
-                bg-linear-to-t
-                from-black/30
-                to-transparent
-              '
+                ${gradients.overlays.fadeBottom}
+              `}
             />
           </>
         )}

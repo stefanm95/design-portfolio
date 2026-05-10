@@ -1,6 +1,7 @@
 export * from "./core/colors";
 export * from "./core/gradients";
 export * from "./core/motion";
+export * from "./core/opacity";
 export * from "./core/shadows";
 export * from "./core/surfaces";
 export * from "./core/textures";

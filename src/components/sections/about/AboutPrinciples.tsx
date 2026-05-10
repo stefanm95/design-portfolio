@@ -1,5 +1,5 @@
 import FadeIn from "@/components/motion/FadeIn";
-import { ui } from "@/theme";
+import { opacityClass, ui } from "@/theme";
 
 export default function AboutPrinciples() {
   return (
@@ -92,7 +92,7 @@ export default function AboutPrinciples() {
 
       {/* CYAN ATMOSPHERE */}
       <div
-        className='
+        className={`
           absolute
 
           left-[10%]
@@ -112,8 +112,8 @@ export default function AboutPrinciples() {
           rounded-full
           blur-sm
 
-          opacity-[0.08]
-        '
+          ${opacityClass.subtle}
+        `}
         style={{
           background:
             "radial-gradient(circle, rgba(80,180,255,0.28), transparent 72%)",

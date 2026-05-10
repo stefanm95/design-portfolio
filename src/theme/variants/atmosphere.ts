@@ -1,4 +1,5 @@
 import { gradients } from "../core/gradients";
+import { opacity } from "../core/opacity";
 import { textures } from "../core/textures";
 
 export const atmosphere = {
@@ -8,7 +9,7 @@ export const atmosphere = {
 
   stoneLayer: {
     image: textures.stone.darkWall,
-    opacity: "0.025",
+    opacity: opacity.texture,
   },
 
   cyanBloom: {
@@ -24,7 +25,7 @@ export const atmosphere = {
       w-[90vw]
     `,
 
-    opacity: "0.45",
+    opacity: opacity.bloom,
   },
 
   goldBloom: {
@@ -40,7 +41,7 @@ export const atmosphere = {
       w-[70vw]
     `,
 
-    opacity: "0.28",
+    opacity: opacity.ambient,
   },
 
   vignette: {

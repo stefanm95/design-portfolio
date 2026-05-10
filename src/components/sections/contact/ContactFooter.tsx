@@ -1,6 +1,6 @@
 import FadeIn from "@/components/motion/FadeIn";
 import Text from "@/components/typography/Text";
-import { ui } from "@/theme";
+import { opacityClass, ui } from "@/theme";
 
 export default function ContactFooter() {
   return (
@@ -34,13 +34,13 @@ export default function ContactFooter() {
 
       {/* NOISE / TEXTURE */}
       <div
-        className='
+        className={`
           absolute
           inset-0
 
-          opacity-[0.04]
+          ${opacityClass.faint}
           
-        '
+        `}
         style={{
           backgroundImage:
             "url('/textures/stone/photo-ground-texture-pattern.jpg')",

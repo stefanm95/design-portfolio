@@ -2,7 +2,7 @@ import ContactAvailability from "./ContactAvailability";
 import ContactFooter from "./ContactFooter";
 import ContactHero from "./ContactHero";
 import ContactLinks from "./ContactLinks";
-import { ui } from "@/theme";
+import { opacityClass, ui } from "@/theme";
 
 export default function Contact() {
   return (
@@ -14,7 +14,7 @@ export default function Contact() {
     >
       {/* ATMOSPHERIC BASE */}
       <div
-        className='
+        className={`
           absolute
           inset-0
 
@@ -53,8 +53,8 @@ export default function Contact() {
           rounded-full
           blur-sm
 
-          opacity-[0.08]
-        '
+          ${opacityClass.subtle}
+        `}
         style={{
           background:
             "radial-gradient(circle, rgba(90,180,255,0.22), transparent 72%)",

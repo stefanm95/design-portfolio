@@ -1,5 +1,57 @@
 export const gradients = {
+  display: {
+    primary: `
+      bg-linear-to-br
+      from-[#f3f6f8]
+      via-[#adc0cf]
+      to-[#f0d1a0]
+    `,
+
+    secondary: `
+      bg-linear-to-br
+      from-[#dce8f2]
+      via-[#9fb8c8]
+      to-[#f1cb93]
+    `,
+
+    tertiary: `
+      bg-linear-to-br
+      from-[#eef2f5]
+      via-[#a8bac7]
+      to-[#e8c48c]
+    `,
+  },
+
+  overlays: {
+    cinematic: `
+      bg-gradient-to-b
+      from-black/10
+      via-transparent
+      to-black/30
+    `,
+
+    fadeBottom: `
+      bg-linear-to-t
+      from-black/30
+      to-transparent
+    `,
+  },
+
   dividers: {
+    horizontal: `
+      bg-linear-to-r
+      from-transparent
+      via-white/8
+      to-transparent
+    `,
+
+    vertical: `
+      bg-linear-to-b
+      from-transparent
+      via-white/10
+      to-transparent
+    `,
+
     atmospheric: `
       bg-linear-to-r
       from-transparent

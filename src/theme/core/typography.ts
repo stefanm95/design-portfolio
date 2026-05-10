@@ -1,4 +1,5 @@
 import { ui } from "./colors";
+import { gradients } from "./gradients";
 
 export const cinematicDisplay = {
   base: `
@@ -21,26 +22,11 @@ export const cinematicDisplay = {
   glow: ui.glow.cinematic,
 
   variants: {
-    primary: `
-      bg-linear-to-br
-      from-[#f3f6f8]
-      via-[#adc0cf]
-      to-[#f0d1a0]
-    `,
+    primary: gradients.display.primary,
 
-    secondary: `
-      bg-linear-to-br
-      from-[#dce8f2]
-      via-[#9fb8c8]
-      to-[#f1cb93]
-    `,
+    secondary: gradients.display.secondary,
 
-    tertiary: `
-      bg-linear-to-br
-      from-[#eef2f5]
-      via-[#a8bac7]
-      to-[#e8c48c]
-    `,
+    tertiary: gradients.display.tertiary,
   },
 };
 

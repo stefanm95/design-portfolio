@@ -1,5 +1,5 @@
 import FadeIn from "@/components/motion/FadeIn";
-import { ui } from "@/theme";
+import { gradients, ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 
@@ -56,15 +56,12 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
 
           {/* DEPTH */}
           <div
-            className='
+            className={`
               absolute
               inset-0
 
-              bg-linear-to-b
-              from-black/10
-              via-transparent
-              to-black/30
-            '
+              ${gradients.overlays.cinematic}
+            `}
           />
 
           {/* FILMIC VIGNETTE */}

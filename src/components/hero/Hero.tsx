@@ -6,7 +6,7 @@ import Reveal from "@/components/motion/Reveal";
 import Display from "@/components/typography/Display";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
-import { gradients, ui } from "@/theme";
+import { gradients, opacityClass, ui } from "@/theme";
 
 import RightSideVisual from "./RightSideVisual";
 
@@ -62,7 +62,7 @@ export default function Hero() {
                   Frontend
                 </Display>
 
-                <Display variant='tertiary' className='opacity-[0.92]'>
+                <Display variant='tertiary' className={opacityClass.dominant}>
                   Experiences
                 </Display>
               </div>
