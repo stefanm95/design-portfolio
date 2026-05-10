@@ -1,19 +1,17 @@
 import Lenis from "lenis";
 import { useEffect } from "react";
 
+import { motionScroll } from "@/theme";
+
 export default function SmoothScroll() {
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.6,
-      lerp: 0.08,
-      smoothWheel: true,
-      wheelMultiplier: 0.9,
-    });
+    const lenis = new Lenis(motionScroll.cinematic);
 
     let frameId: number;
 
     function raf(time: number) {
       lenis.raf(time);
+
       frameId = requestAnimationFrame(raf);
     }
 
@@ -21,6 +19,7 @@ export default function SmoothScroll() {
 
     return () => {
       cancelAnimationFrame(frameId);
+
       lenis.destroy();
     };
   }, []);

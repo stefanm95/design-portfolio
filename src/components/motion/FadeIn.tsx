@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
+import {
+  motionDuration,
+  motionEase,
+  motionReveal,
+  motionViewport,
+} from "@/theme";
+
 type Props = {
   children: ReactNode;
   delay?: number;
@@ -11,24 +18,13 @@ export default function FadeIn({ children, delay = 0, className }: Props) {
   return (
     <motion.div
       className={className}
-      initial={{
-        opacity: 0,
-        y: 18,
-        filter: "blur(6px)",
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        filter: "blur(0px)",
-      }}
-      viewport={{
-        once: true,
-        amount: 0.15,
-      }}
+      initial={motionReveal.fadeUp.initial}
+      whileInView={motionReveal.fadeUp.animate}
+      viewport={motionViewport.reveal}
       transition={{
-        duration: 1.4,
+        duration: motionDuration.reveal,
         delay,
-        ease: [0.16, 1, 0.3, 1],
+        ease: motionEase.cinematic,
       }}
     >
       {children}

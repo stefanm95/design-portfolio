@@ -1,6 +1,10 @@
-import Container from "@/components/layout/Container";
-import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
+
+import Container from "@/components/layout/Container";
+
+import { cn } from "@/lib/utils";
+
+import { sectionSpacing } from "@/theme";
 
 type Props = {
   id?: string;
@@ -18,7 +22,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={cn("relative py-16 md:py-24 lg:py-32 xl:py-40", className)}
+      className={cn("relative", sectionSpacing.editorial, className)}
     >
       <Container className={containerClassName}>{children}</Container>
     </section>
