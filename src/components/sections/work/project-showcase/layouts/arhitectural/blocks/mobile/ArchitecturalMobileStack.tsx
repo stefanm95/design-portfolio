@@ -1,5 +1,5 @@
 import FadeIn from "@/components/motion/FadeIn";
-import { gradients } from "@/theme";
+import { overlaysGradients } from "@/theme";
 
 type Props = { images: string[] };
 export default function ArchitecturalMobileStack({ images }: Props) {
@@ -16,7 +16,9 @@ export default function ArchitecturalMobileStack({ images }: Props) {
             className=' relative z-[2] h-full w-full object-cover object-top scale-[1.02] shadow-[0_30px_90px_rgba(0,0,0,0.45)] '
           />
           {/* CINEMATIC OVERLAY */}
-          <div className={` absolute inset-0 z-[3] ${gradients.overlays.cinematic} `} />
+          <div
+            className={` absolute inset-0 z-[3] ${overlaysGradients.cinematic} `}
+          />
         </div>
       </FadeIn>
       {/* SECONDARY ROW */}

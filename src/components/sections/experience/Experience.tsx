@@ -8,7 +8,7 @@ import Text from "@/components/typography/Text";
 
 import ExperienceVisual from "./ExperienceVisual";
 import Heading from "@/components/typography/Heading";
-import { gradients, ui } from "@/theme";
+import { dividersGradients, ui } from "@/theme";
 
 export default function Experience() {
   return (
@@ -71,7 +71,7 @@ export default function Experience() {
 
             -translate-x-1/2
 
-            ${gradients.dividers.verticalSubtle}
+            ${dividersGradients.verticalSubtle}
           `}
         />
 
@@ -159,7 +159,7 @@ export default function Experience() {
         h-px
         w-24
 
-        ${gradients.dividers.leadIn}
+        ${dividersGradients.leadIn}
       `}
               />
 

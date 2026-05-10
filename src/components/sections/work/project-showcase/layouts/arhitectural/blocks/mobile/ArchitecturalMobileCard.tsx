@@ -1,4 +1,4 @@
-import { gradients } from "@/theme";
+import { overlaysGradients } from "@/theme";
 
 type Props = {
   image: string;
@@ -175,7 +175,7 @@ export default function ArchitecturalMobileCard({
 
                 h-[30%]
 
-                ${gradients.overlays.fadeBottom}
+                ${overlaysGradients.fadeBottom}
               `}
             />
           </>

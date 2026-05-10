@@ -1,4 +1,4 @@
-import { gradients, rgba, ui } from "@/theme";
+import { dividersGradients, rgba, ui } from "@/theme";
 
 type Props = {
   id: string;
@@ -202,7 +202,7 @@ export default function ExperiencePanel({
 
           w-px
 
-          ${gradients.dividers.verticalSubtle}
+          ${dividersGradients.verticalSubtle}
         `}
       />
     </div>

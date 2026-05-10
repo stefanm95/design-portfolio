@@ -1,4 +1,4 @@
-import { gradients } from "@/theme";
+import { dividersGradients } from "@/theme";
 
 export default function ExperienceVisualBackground() {
   return (
@@ -82,7 +82,7 @@ export default function ExperienceVisualBackground() {
 
           -translate-x-1/2
 
-          ${gradients.dividers.columnGlow}
+          ${dividersGradients.columnGlow}
 
           blur-2xl
         `}

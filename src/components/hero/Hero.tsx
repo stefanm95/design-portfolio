@@ -6,7 +6,7 @@ import Reveal from "@/components/motion/Reveal";
 import Display from "@/components/typography/Display";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
-import { gradients, opacityClass, ui } from "@/theme";
+import { dividersGradients, opacityClass, ui } from "@/theme";
 
 import RightSideVisual from "./RightSideVisual";
 
@@ -85,7 +85,7 @@ export default function Hero() {
                     h-20
                     w-px
 
-                    ${gradients.dividers.verticalLeadIn}
+                    ${dividersGradients.verticalLeadIn}
                   `}
                 />
               </div>

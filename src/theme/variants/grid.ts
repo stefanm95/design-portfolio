@@ -1,7 +1,7 @@
-import { gradients } from "../core/gradients";
+import { gridGradients } from "../core/gradients/gridGradients";
 
 export const grid = {
-  background: gradients.grid.primary,
+  background: gridGradients.primary,
 
   size: "120px 120px",
 

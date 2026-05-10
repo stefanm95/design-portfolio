@@ -27,12 +27,28 @@ export default function Atmosphere() {
           rounded-full
           blur-[120px]
 
-          ${atmosphere.cyanBloom.position}
-          ${atmosphere.cyanBloom.size}
+          ${atmosphere.primaryBloom.position}
+          ${atmosphere.primaryBloom.size}
         `}
         style={{
-          background: atmosphere.cyanBloom.gradient,
-          opacity: atmosphere.cyanBloom.opacity,
+          background: atmosphere.primaryBloom.gradient,
+          opacity: atmosphere.primaryBloom.opacity,
+        }}
+      />
+
+      <div
+        className={`
+          pointer-events-none
+          fixed
+          rounded-full
+          blur-[120px]
+
+          ${atmosphere.secondaryBloom.position}
+          ${atmosphere.secondaryBloom.size}
+        `}
+        style={{
+          background: atmosphere.secondaryBloom.gradient,
+          opacity: atmosphere.secondaryBloom.opacity,
         }}
       />
     </>

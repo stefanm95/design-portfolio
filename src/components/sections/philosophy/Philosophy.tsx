@@ -5,7 +5,7 @@ import FadeIn from "@/components/motion/FadeIn";
 import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
-import { gradients, ui } from "@/theme";
+import { dividersGradients, ui } from "@/theme";
 import LeftSideVisual from "./LeftSideVisual";
 
 export default function Philosophy() {
@@ -21,7 +21,7 @@ export default function Philosophy() {
 
           h-px
 
-          ${gradients.dividers.atmospheric}
+          ${dividersGradients.atmospheric}
         `}
       />
 

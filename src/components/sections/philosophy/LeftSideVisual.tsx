@@ -1,5 +1,5 @@
 import { useMousePosition } from "@/hooks/useMousePosition";
-import { gradients } from "@/theme";
+import { dividersGradients } from "@/theme";
 import { motion } from "framer-motion";
 
 export default function LeftSideVisual() {
@@ -17,7 +17,7 @@ export default function LeftSideVisual() {
           h-full
           w-px
 
-          ${gradients.dividers.verticalAtmospheric}
+          ${dividersGradients.verticalAtmospheric}
         `}
       />
 

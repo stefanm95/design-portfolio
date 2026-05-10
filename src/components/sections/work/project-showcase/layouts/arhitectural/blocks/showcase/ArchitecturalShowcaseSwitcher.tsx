@@ -1,4 +1,4 @@
-import { gradients } from "@/theme";
+import { dividersGradients } from "@/theme";
 
 type Props = {
   showcase: string[];
@@ -88,7 +88,7 @@ export default function ArchitecturalShowcaseSwitcher({
                 absolute
                 inset-0
 
-                ${gradients.dividers.activeOverlay}
+                ${dividersGradients.activeOverlay}
               `}
             />
           </div>

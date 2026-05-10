@@ -1,5 +1,5 @@
 import { useMousePosition } from "@/hooks/useMousePosition";
-import { gradients } from "@/theme";
+import { dividersGradients } from "@/theme";
 import { motion } from "framer-motion";
 
 export default function RightSideVisual() {
@@ -16,7 +16,7 @@ export default function RightSideVisual() {
           h-full
           w-px
 
-          ${gradients.dividers.verticalSubtle}
+          ${dividersGradients.verticalSubtle}
         `}
       />
 

@@ -1,4 +1,4 @@
-import { gradients } from "../core/gradients";
+import { atmosphereGradients } from "../core/gradients/atmosphereGradients";
 import { opacity } from "../core/opacity";
 import { textures } from "../core/textures";
 
@@ -12,8 +12,8 @@ export const atmosphere = {
     opacity: opacity.texture,
   },
 
-  cyanBloom: {
-    gradient: gradients.atmosphere.cyan,
+  primaryBloom: {
+    gradient: atmosphereGradients.primaryBloom,
 
     position: `
       left-[-12vw]
@@ -28,8 +28,8 @@ export const atmosphere = {
     opacity: opacity.bloom,
   },
 
-  goldBloom: {
-    gradient: gradients.atmosphere.gold,
+  secondaryBloom: {
+    gradient: atmosphereGradients.secondaryBloom,
 
     position: `
       right-[-12vw]
@@ -45,11 +45,11 @@ export const atmosphere = {
   },
 
   vignette: {
-    gradient: gradients.atmosphere.vignette,
+    gradient: atmosphereGradients.vignette,
   },
 
   topFade: {
-    gradient: gradients.atmosphere.topFade,
+    gradient: atmosphereGradients.topFade,
     height: "h-[28vh]",
   },
 };

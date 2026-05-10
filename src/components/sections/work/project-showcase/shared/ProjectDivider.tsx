@@ -1,4 +1,4 @@
-import { gradients } from "@/theme";
+import { dividersGradients } from "@/theme";
 
 export default function ProjectDivider() {
   return (
@@ -7,7 +7,7 @@ export default function ProjectDivider() {
         h-px
         w-full
 
-        ${gradients.dividers.atmospheric}
+        ${dividersGradients.atmospheric}
       `}
     />
   );

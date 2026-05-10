@@ -1,5 +1,5 @@
 import FadeIn from "@/components/motion/FadeIn";
-import { gradients, ui } from "@/theme";
+import { overlaysGradients, ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 
@@ -60,7 +60,7 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
               absolute
               inset-0
 
-              ${gradients.overlays.cinematic}
+              ${overlaysGradients.cinematic}
             `}
           />
 

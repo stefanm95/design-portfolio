@@ -1,5 +1,6 @@
-import { ui } from "./colors";
-import { gradients } from "./gradients";
+import { ui } from "./ui";
+
+import { displayGradients } from "../index";
 
 export const cinematicDisplay = {
   base: `
@@ -22,11 +23,11 @@ export const cinematicDisplay = {
   glow: ui.glow.cinematic,
 
   variants: {
-    primary: gradients.display.primary,
+    primary: displayGradients.primary,
 
-    secondary: gradients.display.secondary,
+    secondary: displayGradients.secondary,
 
-    tertiary: gradients.display.tertiary,
+    tertiary: displayGradients.tertiary,
   },
 };
 
