@@ -1,36 +1,93 @@
 export const contentWidth = {
   narrative: "max-w-[32rem]",
+
   wideNarrative: "max-w-145",
+
+  body: "max-w-[32ch]",
+
+  bodyWide: "max-w-[38ch]",
+
+  heading: "max-w-[10ch]",
+
+  editorial: "max-w-lg",
 };
 
 export const containerWidth = {
   default: "max-w-360",
+
   wide: "max-w-[1920px]",
+
   narrow: "max-w-5xl",
 };
 
-export const containerPadding = {
-  default: "px-6 md:px-10 xl:px-16",
-
-  compact: "px-5 md:px-8 xl:px-12",
-
-  cinematic: "px-6 md:px-12 xl:px-20",
-};
-
 export const layoutGrid = {
-  hero: "grid grid-cols-12 items-center",
+  hero: `
+    grid
+    grid-cols-12
+    items-center
+  `,
 
   editorial: `
     grid
     grid-cols-1
+
+    gap-y-16
+
     xl:grid-cols-12
-    xl:gap-x-20
+    xl:gap-x-24
+    xl:items-start
   `,
 
   showcase: `
     grid
+    grid-cols-1
+
     gap-y-16
     lg:gap-y-20
+
+    xl:grid-cols-12
+    xl:items-center
+    xl:gap-x-20
+  `,
+};
+
+export const stickyOffsets = {
+  default: `
+    xl:sticky
+    xl:top-24
+  `,
+
+  cinematic: `
+    xl:sticky
+    xl:top-32
+  `,
+};
+
+export const responsiveHeading = {
+  hero: `
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    xl:text-7xl
+  `,
+
+  section: `
+    text-3xl
+    sm:text-4xl
+    md:text-5xl
+    xl:text-6xl
+  `,
+};
+
+export const cinematicFrameHeights = {
+  default: `
+    min-h-[420px]
+    xl:min-h-[560px]
+  `,
+
+  large: `
+    min-h-[520px]
+    xl:min-h-[720px]
   `,
 };
 

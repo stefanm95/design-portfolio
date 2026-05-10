@@ -1,5 +1,13 @@
 import { cn } from "@/lib/utils";
+
 import type { ElementType, ReactNode } from "react";
+
+import {
+  displayEffects,
+  displayScale,
+  displayTypography,
+  gradients,
+} from "@/theme";
 
 type Variant = "primary" | "secondary" | "tertiary";
 
@@ -11,26 +19,11 @@ type Props = {
 };
 
 const variants = {
-  primary: `
-    bg-linear-to-br
-    from-[#f3f6f8]
-    via-[#adc0cf]
-    to-[#f0d1a0]
-  `,
+  primary: gradients.display.primary,
 
-  secondary: `
-    bg-linear-to-br
-    from-[#dce8f2]
-    via-[#9fb8c8]
-    to-[#f1cb93]
-  `,
+  secondary: gradients.display.secondary,
 
-  tertiary: `
-    bg-linear-to-br
-    from-[#eef2f5]
-    via-[#a8bac7]
-    to-[#e8c48c]
-  `,
+  tertiary: gradients.display.tertiary,
 };
 
 export default function Display({
@@ -42,24 +35,12 @@ export default function Display({
   return (
     <Component
       className={cn(
-        `
-        font-display
-        font-medium
+        displayTypography.base,
 
-        text-6xl
-        md:text-8xl
-        xl:text-[10rem]
+        displayScale.base,
 
-        leading-[0.88]
-        tracking-[-0.075em]
-
-        text-balance
-
-        bg-clip-text
-        text-transparent
-
-        drop-shadow-[0_0_30px_rgba(180,220,255,0.05)]
-        `,
+        displayEffects.transparent,
+        displayEffects.glow,
 
         variants[variant],
 

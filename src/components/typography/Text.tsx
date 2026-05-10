@@ -1,4 +1,7 @@
 import { cn } from "@/lib/utils";
+
+import { atmosphericText, typography } from "@/theme";
+
 import type { ElementType, ReactNode } from "react";
 
 type Props = {
@@ -14,14 +17,7 @@ export default function Text({
 }: Props) {
   return (
     <Component
-      className={cn(
-        `
-          font-body
-          leading-relaxed
-          text-[#a1a1a1]
-        `,
-        className,
-      )}
+      className={cn(typography.body, atmosphericText.secondary, className)}
     >
       {children}
     </Component>

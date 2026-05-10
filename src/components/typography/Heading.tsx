@@ -1,4 +1,7 @@
 import { cn } from "@/lib/utils";
+
+import { textColors, typography } from "@/theme";
+
 import type { ElementType, ReactNode } from "react";
 
 type Props = {
@@ -14,14 +17,7 @@ export default function Heading({
 }: Props) {
   return (
     <Component
-      className={cn(
-        `
-          font-display
-          tracking-tighter
-          text-[#f5f3ef]
-        `,
-        className,
-      )}
+      className={cn(typography.heading, textColors.heading, className)}
     >
       {children}
     </Component>

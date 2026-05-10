@@ -1,4 +1,7 @@
 import { cn } from "@/lib/utils";
+
+import { atmosphericText, metadataScale, typography } from "@/theme";
+
 import type { ElementType, ReactNode } from "react";
 
 type Props = {
@@ -15,18 +18,9 @@ export default function Label({
   return (
     <Component
       className={cn(
-        `
-        font-body
-
-        text-[10px]
-        uppercase
-
-        tracking-[0.42em]
-
-        text-white/38
-
-        md:text-xs
-        `,
+        typography.label,
+        metadataScale.label,
+        atmosphericText.secondary,
         className,
       )}
     >

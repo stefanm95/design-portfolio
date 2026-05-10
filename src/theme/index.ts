@@ -16,3 +16,5 @@ export * from "./opacity";
 export * from "./blur";
 export * from "./textures";
 export * from "./backgrounds";
+export * from "./components";
+export * from "./foundations";

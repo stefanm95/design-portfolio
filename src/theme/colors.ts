@@ -25,3 +25,7 @@ export const colors = {
     glass: "rgba(255,255,255,0.10)",
   },
 };
+
+export const textColors = {
+  heading: "text-[#f5f3ef]",
+};
