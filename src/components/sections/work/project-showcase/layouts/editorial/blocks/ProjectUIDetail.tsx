@@ -27,13 +27,16 @@ export default function ProjectUIDetail({ project }: ProjectBlockProps) {
         {/* CONTENT */}
         <div
           className='
-            relative
-            z-10
+          order-2
+          lg:order-1
 
-            lg:col-span-5
-            lg:col-start-2
-            lg:mt-24
-          '
+          relative
+          z-10
+
+          lg:col-span-5
+          lg:col-start-2
+          lg:mt-24
+        '
         >
           <div className='max-w-lg space-y-7'>
             <div className='space-y-4'>
@@ -42,10 +45,13 @@ export default function ProjectUIDetail({ project }: ProjectBlockProps) {
               <Heading
                 as='h3'
                 className='
-                  text-[clamp(2rem,4vw,3.5rem)]
-                  leading-[0.9]
-                  tracking-[-0.07em]
-
+                  text-3xl
+                  sm:text-4xl
+                  md:text-5xl
+                  
+                  leading-[0.92]
+                  tracking-[-0.05em]
+                  
                   text-white/92
                 '
               >
@@ -72,16 +78,17 @@ export default function ProjectUIDetail({ project }: ProjectBlockProps) {
         {/* VISUAL */}
         <div
           className='
-            relative
-
-            lg:col-span-5
-            lg:col-start-7
+          order-1
+          lg:order-2
+          relative
+          lg:col-span-5
+          lg:col-start-7
           '
         >
           <ProjectCinematicFrame
             image={image}
             alt='Project interface detail'
-            minHeight='min-h-[420px]'
+            minHeight='min-h-[240px] sm:min-h-[320px] md:min-h-[420px]'
           />
         </div>
       </section>

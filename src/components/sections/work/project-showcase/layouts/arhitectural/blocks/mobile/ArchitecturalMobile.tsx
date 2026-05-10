@@ -35,24 +35,26 @@ export default function ArchitecturalMobile({ project }: ProjectBlockProps) {
 
       <div
         className='
-          grid
-          grid-cols-12
+            grid
+    grid-cols-1
 
-          items-center
+    gap-y-16
+    lg:gap-y-20
 
-          gap-y-20
-          xl:gap-x-20
+    xl:grid-cols-12
+    xl:items-center
+    xl:gap-x-20
         '
       >
         {/* VISUALS */}
         <div className='col-span-12 xl:col-span-7'>
-          {/* MOBILE */}
-          <div className='md:hidden'>
+          {/* SMALL LAPTOPS + TABLETS + MOBILE */}
+          <div className='xl:hidden'>
             <ArchitecturalMobileStack images={mobile} />
           </div>
 
-          {/* TABLET + DESKTOP */}
-          <div className='hidden md:block'>
+          {/* LARGE DESKTOP */}
+          <div className='hidden xl:block'>
             <ArchitecturalMobileCarousel
               images={mobile}
               active={active}
@@ -66,7 +68,17 @@ export default function ArchitecturalMobile({ project }: ProjectBlockProps) {
           <div className='space-y-8 md:sticky md:top-32 md:space-y-10'>
             <Label>RESPONSIVE EXPERIENCE</Label>
 
-            <Heading as='h3' className='max-w-[10ch]'>
+            <Heading
+              as='h3'
+              className='
+    max-w-[10ch]
+
+    text-3xl
+    sm:text-4xl
+    md:text-5xl
+    xl:text-6xl
+  '
+            >
               Cinematic pacing preserved across every screen.
             </Heading>
 

@@ -15,16 +15,16 @@ export default function ProjectEditorial({ project }: ProjectBlockProps) {
 
   return (
     <FadeIn>
-      <section className='grid grid-cols-12 gap-y-16 xl:gap-x-32'>
+      <section className='grid grid-cols-1 gap-y-10 md:gap-y-14 xl:grid-cols-12 xl:gap-x-32'>
         {/* LEFT */}
-        <div className='col-span-12 xl:col-span-4'>
+        <div className='xl:col-span-4'>
           <div
             className=' space-y-8
 
-    xl:sticky
-    xl:top-24
+               xl:sticky
+               xl:top-24
 
-    2xl:top-32'
+               2xl:top-32'
           >
             <ProjectSectionLabel>Editorial Narrative</ProjectSectionLabel>
 
@@ -62,11 +62,11 @@ export default function ProjectEditorial({ project }: ProjectBlockProps) {
         </div>
 
         {/* RIGHT */}
-        <div className='col-span-12 xl:col-span-8'>
+        <div className='xl:col-span-8'>
           <ProjectCinematicFrame
             image={editorial}
             alt={project.title}
-            minHeight='min-h-[420px] xl:min-h-[560px]'
+            minHeight='min-h-[260px] sm:min-h-[340px] md:min-h-[420px] xl:min-h-[560px]'
           />
         </div>
       </section>

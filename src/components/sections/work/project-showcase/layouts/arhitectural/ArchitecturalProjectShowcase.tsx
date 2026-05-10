@@ -18,23 +18,37 @@ export default function ArchitecturalProjectShowcase({
     <article className='relative'>
       <ProjectDivider />
 
-      <div className='space-y-56 pt-20 md:space-y-72'>
+      <div
+        className='space-y-16
+          sm:space-y-20
+          md:space-y-28
+          lg:space-y-40
+          xl:space-y-52
+          '
+      >
         {/* INTRO */}
         <FadeIn>
           <ProjectMeta project={project} index={index} />
         </FadeIn>
 
         {/* SPATIAL HERO */}
-        <ArchitecturalHero project={project} />
-
+        <div className='mt-10 sm:mt-14 md:mt-20 lg:mt-24 xl:mt-32'>
+          <ArchitecturalHero project={project} />
+        </div>
         {/* CURATED SHOWCASE */}
-        <ArchitecturalShowcase project={project} />
+        <div className='mt-14 sm:mt-20 md:mt-28 lg:mt-40 xl:mt-52'>
+          <ArchitecturalShowcase project={project} />
+        </div>
 
         {/* PROCESS INSERT */}
-        <ArchitecturalSystems project={project} />
+        <div className='mt-14 sm:mt-20 md:mt-24 lg:mt-32 xl:mt-40'>
+          <ArchitecturalSystems project={project} />
+        </div>
 
         {/* DEVICE COMPOSITION */}
-        <ArchitecturalMobile project={project} />
+        <div className='mt-16 sm:mt-24 md:mt-32 lg:mt-48 xl:mt-56'>
+          <ArchitecturalMobile project={project} />
+        </div>
       </div>
     </article>
   );

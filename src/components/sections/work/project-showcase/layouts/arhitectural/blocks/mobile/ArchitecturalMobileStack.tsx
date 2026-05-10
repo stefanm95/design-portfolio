@@ -14,11 +14,24 @@ export default function ArchitecturalMobileStack({ images }: Props) {
         flex-col
 
         gap-5
+        sm:gap-6
+        lg:gap-8
       '
     >
-      {/* MAIN */}
+      {/* HERO FRAME */}
       <FadeIn>
-        <div className='relative overflow-hidden'>
+        <div
+          className='
+            relative
+            overflow-hidden
+
+            min-h-[340px]
+            sm:min-h-[420px]
+            md:min-h-[520px]
+            lg:min-h-[620px]
+          '
+        >
+          {/* ATMOSPHERE */}
           <div
             className='
               absolute
@@ -38,8 +51,10 @@ export default function ArchitecturalMobileStack({ images }: Props) {
               relative
               z-[2]
 
+              h-full
               w-full
-              object-cover
+
+              object-contain
 
               shadow-[0_30px_90px_rgba(0,0,0,0.4)]
             '
@@ -48,35 +63,54 @@ export default function ArchitecturalMobileStack({ images }: Props) {
       </FadeIn>
 
       {/* SECONDARY ROW */}
-      <div className='grid grid-cols-2 gap-4'>
+      <div
+        className='
+          grid
+          grid-cols-2
+
+          items-start
+
+          gap-4
+          sm:gap-5
+          md:gap-6
+        '
+      >
+        {/* LEFT */}
         <FadeIn delay={0.08}>
-          <img
-            src={images[0]}
-            alt=''
-            className='
-              w-full
-              object-cover
+          <div className='translate-y-6 sm:translate-y-8'>
+            <img
+              src={images[0]}
+              alt=''
+              className='
+                w-full
 
-              opacity-80
+                object-contain
 
-              shadow-[0_18px_50px_rgba(0,0,0,0.25)]
-            '
-          />
+                opacity-80
+
+                shadow-[0_18px_50px_rgba(0,0,0,0.25)]
+              '
+            />
+          </div>
         </FadeIn>
 
+        {/* RIGHT */}
         <FadeIn delay={0.16}>
-          <img
-            src={images[2]}
-            alt=''
-            className='
-              w-full
-              object-cover
+          <div className='-translate-y-2 sm:-translate-y-4'>
+            <img
+              src={images[2]}
+              alt=''
+              className='
+                w-full
 
-              opacity-80
+                object-contain
 
-              shadow-[0_18px_50px_rgba(0,0,0,0.25)]
-            '
-          />
+                opacity-80
+
+                shadow-[0_18px_50px_rgba(0,0,0,0.25)]
+              '
+            />
+          </div>
         </FadeIn>
       </div>
     </div>

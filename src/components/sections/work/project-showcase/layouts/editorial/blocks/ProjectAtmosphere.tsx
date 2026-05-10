@@ -18,9 +18,10 @@ export default function ProjectAtmosphere({ project }: ProjectBlockProps) {
       <section
         className='
           grid
-          items-start
-          gap-14
-
+          
+          gap-y-10
+          lg:items-start
+          lg:gap-14
           lg:grid-cols-12
         '
       >
@@ -28,6 +29,7 @@ export default function ProjectAtmosphere({ project }: ProjectBlockProps) {
         <div
           className='
             relative
+            order-1
 
             lg:col-span-5
             lg:mt-6
@@ -36,16 +38,17 @@ export default function ProjectAtmosphere({ project }: ProjectBlockProps) {
           <ProjectCinematicFrame
             image={image}
             alt='Project atmosphere'
-            minHeight='min-h-[420px]'
+            minHeight='min-h-[240px] sm:min-h-[320px] md:min-h-[420px]'
           />
         </div>
 
         {/* CONTENT */}
         <div
           className='
-            lg:col-span-5
-            lg:col-start-8
-            lg:mt-20
+          order-2
+          lg:col-span-5
+          lg:col-start-8
+          lg:mt-20
           '
         >
           <div className='max-w-lg space-y-8'>
@@ -55,13 +58,14 @@ export default function ProjectAtmosphere({ project }: ProjectBlockProps) {
               <Heading
                 as='h3'
                 className='
-                  text-4xl
-                  leading-[0.92]
-                  tracking-[-0.06em]
+                  text-3xl
+                  sm:text-4xl
+                  md:text-5xl
+
+                  leading-[0.94]
+                  tracking-[-0.05em]
 
                   text-white/92
-
-                  md:text-5xl
                 '
               >
                 Building tactile digital environments through texture, glow,
