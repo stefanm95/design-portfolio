@@ -3,6 +3,7 @@ import FadeIn from "@/components/motion/FadeIn";
 import { activeTheme, ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
+import ProjectCinematicFrame from "../../../shared/ProjectCinematicFrame";
 
 export default function ArchitecturalHero({ project }: ProjectBlockProps) {
   const hero = project.media.hero?.[0];
@@ -19,101 +20,24 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
         rel='noreferrer'
         className='block'
       >
-        <div
-          className={`
-            group
-            relative
-            overflow-hidden
-
-            border
-            ${ui.borders.faint}
-
-            bg-transparent
-
-            ${effects.shadows.cinematic}
-          `}
-        >
-          {/* IMAGE */}
-          <div className='relative aspect-[16/9] w-full'>
-            <img
-              src={hero}
-              alt={project.title}
-              className='
-                h-full
-                w-full
-
-                object-contain
-                object-center
-
-                scale-[1.01]
-
-                transition-transform
-                duration-[1800ms]
-                ease-out
-
-                group-hover:scale-[0.99]
-              '
-            />
-          </div>
-
-          {/* BASE ATMOSPHERE */}
-          <div
-            className='absolute inset-0'
-            style={{
-              background: effects.overlays.base,
-            }}
-          />
-
-          {/* CINEMATIC DEPTH */}
-          <div
-            className='absolute inset-0'
-            style={{
-              background: effects.overlays.cinematic,
-            }}
-          />
-
-          {/* FILMIC VIGNETTE */}
-          <div
-            className='absolute inset-0'
-            style={{
-              background: effects.overlays.vignette,
-            }}
-          />
-
-          {/* ATMOSPHERIC BACK FILL */}
-          <div
+        <div className='relative'>
+          <ProjectCinematicFrame
+            image={hero}
+            alt={project.title}
+            imageFit='contain'
+            minHeight='min-h-[320px] md:min-h-[520px]'
             className={`
-              absolute
-              inset-0
-
-              ${effects.atmosphericFill.scale}
-              ${effects.atmosphericFill.blur}
-              ${effects.atmosphericFill.opacity}
+              bg-transparent
+              border
+              ${ui.borders.faint}
             `}
-            style={{
-              backgroundImage: `url(${hero})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
           />
 
-          {/* LIGHT REFLECTION */}
-          <div
-            className={`
-              absolute
-              inset-0
-
-              ${effects.reflections.opacity}
-              ${effects.reflections.blend}
-            `}
-            style={{
-              background: effects.reflections.hero,
-            }}
-          />
-
-          {/* ACCENT BLOOM */}
+          {/* PROJECT HERO BLOOM */}
           <div
             className='
+              pointer-events-none
+
               absolute
               inset-x-0
               bottom-0

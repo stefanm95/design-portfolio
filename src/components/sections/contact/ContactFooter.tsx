@@ -42,8 +42,7 @@ export default function ContactFooter() {
           
         `}
         style={{
-          backgroundImage:
-            "url('/textures/stone/photo-ground-texture-pattern.jpg')",
+          backgroundImage: "url('/textures/noise.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

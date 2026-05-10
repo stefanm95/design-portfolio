@@ -3,14 +3,18 @@ import FadeIn from "@/components/motion/FadeIn";
 import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
-import { rgba, ui } from "@/theme";
+
+import { activeTheme, ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
+import ProjectCinematicFrame from "../../../shared/ProjectCinematicFrame";
 
 export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
   const system = project.media.systems?.[0];
 
   if (!system) return null;
+
+  const showcase = activeTheme.showcase;
 
   return (
     <section
@@ -27,12 +31,14 @@ export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
       {/* LEFT */}
       <div className='col-span-12 xl:col-span-4'>
         <div
-          className=' space-y-8
+          className='
+            space-y-8
 
-    xl:sticky
-    xl:top-24
+            xl:sticky
+            xl:top-24
 
-    2xl:top-32'
+            2xl:top-32
+          '
         >
           <Label>PROCESS & SYSTEMS</Label>
 
@@ -41,10 +47,10 @@ export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
           </Heading>
 
           <Text
-          className={`
+            className={`
               max-w-[32ch]
-
               leading-[1.9]
+
               ${ui.text.narrative}
             `}
           >
@@ -61,56 +67,38 @@ export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
           <div
             className='
               relative
-              cursor-pointer
+
               xl:translate-y-12
             '
           >
-            {/* ATMOSPHERIC GLOW */}
+            {/* MAIN VISUAL */}
+            <ProjectCinematicFrame
+              image={system}
+              alt='Interaction systems showcase'
+              imageFit='contain'
+              minHeight='min-h-[420px] xl:min-h-[760px]'
+              className={`
+                ${showcase.surfaces.base}
+                border
+                ${showcase.surfaces.border}
+              `}
+            />
+
+            {/* ATMOSPHERIC BLOOM */}
             <div
               className='
+                pointer-events-none
+
                 absolute
                 inset-0
 
-                scale-110
-
                 opacity-60
-                blur-sm
-
+                blur-md
               '
               style={{
-                background: `radial-gradient(circle at 70% 40%, ${rgba.purpleShowcase}, transparent 42%)`,
+                background: showcase.blooms.primary,
               }}
             />
-
-            {/* IMAGE */}
-            <div className='relative overflow-hidden'>
-              <img
-                src={system}
-                alt=''
-                className='
-                  w-full
-                  object-contain
-                  transition-transform
-                duration-[2200ms]
-                opacity-80
-                ease-out
-                group-hover:scale-[0.98]
-                '
-              />
-
-              {/* DEPTH OVERLAY */}
-              <div
-                className='
-                  absolute
-                  inset-0
-
-                  bg-linear-to-t
-                  from-black/30
-                  via-transparent
-                  to-black/10
-                '
-              />
-            </div>
 
             {/* FLOATING DETAIL */}
             <div

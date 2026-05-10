@@ -4,11 +4,12 @@ import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
 
-import { activeTheme, ui } from "@/theme";
+import { ui } from "@/theme";
 
 import type { Project } from "@/types/projects";
 
 import ArchitecturalShowcaseSwitcher from "./ArchitecturalShowcaseSwitcher";
+import ProjectCinematicFrame from "../../../../shared/ProjectCinematicFrame";
 
 type Props = {
   project: Project;
@@ -24,8 +25,6 @@ export default function ArchitecturalShowcaseDesktop({
   const showcase = project.media.showcase ?? [];
 
   const primary = showcase[active];
-
-  const showcaseTheme = activeTheme.showcase;
 
   return (
     <section className='relative hidden md:block'>
@@ -52,55 +51,12 @@ export default function ArchitecturalShowcaseDesktop({
 
       {/* MAIN VISUAL */}
       <FadeIn key={primary}>
-        <div className='block'>
-          <div
-            className='
-              group
-              relative
-              overflow-hidden
-
-              bg-black/20
-
-              cursor-pointer
-            '
-          >
-            <img
-              src={primary}
-              alt=''
-              className={`
-                w-full
-                object-cover
-
-                ${showcaseTheme.image.transition}
-                ${showcaseTheme.image.hoverScale}
-              `}
-            />
-
-            {/* ATMOSPHERE */}
-            <div
-              className={`
-                absolute
-                inset-0
-
-                ${showcaseTheme.overlays.cinematic}
-              `}
-            />
-
-            {/* BLOOM */}
-            <div
-              className='
-                absolute
-                inset-0
-
-                opacity-70
-                blur-sm
-              '
-              style={{
-                background: showcaseTheme.blooms.primary,
-              }}
-            />
-          </div>
-        </div>
+        <ProjectCinematicFrame
+          image={primary}
+          imageFit='cover'
+          minHeight='min-h-[620px]'
+          className='bg-black/20'
+        />
       </FadeIn>
 
       {/* SWITCHER */}

@@ -8,6 +8,7 @@ import { ui } from "@/theme";
 import type { Project } from "@/types/projects";
 
 import ArchitecturalShowcaseSwitcher from "./ArchitecturalShowcaseSwitcher";
+import ProjectCinematicFrame from "../../../../shared/ProjectCinematicFrame";
 
 type Props = {
   project: Project;
@@ -54,28 +55,12 @@ export default function ArchitecturalShowcaseMobile({
           rel='noreferrer'
           className='block'
         >
-          <div
-            className='
-              relative
-              overflow-hidden
-
-              bg-black/20
-            '
-          >
-            <img src={primary} alt='' className='w-full object-cover' />
-
-            <div
-              className='
-                absolute
-                inset-0
-
-                bg-linear-to-t
-                from-black/40
-                via-transparent
-                to-black/10
-              '
-            />
-          </div>
+          <ProjectCinematicFrame
+            image={primary}
+            imageFit='cover'
+            minHeight='min-h-[320px]'
+            className='bg-black/20'
+          />
         </a>
       </FadeIn>
 

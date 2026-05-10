@@ -3,15 +3,20 @@ import FadeIn from "@/components/motion/FadeIn";
 import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
-import { ui } from "@/theme";
+
+import { activeTheme, ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
+import ProjectCinematicFrame from "../../../shared/ProjectCinematicFrame";
 
 export default function ArchitecturalServices({ project }: ProjectBlockProps) {
   const services = project.media.services ?? [];
 
+  const showcase = activeTheme.showcase;
+
   return (
     <section className='space-y-20'>
+      {/* INTRO */}
       <div className='max-w-[760px] space-y-8'>
         <Label>SERVICE ARCHITECTURE</Label>
 
@@ -22,8 +27,8 @@ export default function ArchitecturalServices({ project }: ProjectBlockProps) {
         <Text
           className={`
             max-w-[40ch]
-
             leading-[1.9]
+
             ${ui.text.narrative}
           `}
         >
@@ -33,26 +38,59 @@ export default function ArchitecturalServices({ project }: ProjectBlockProps) {
         </Text>
       </div>
 
+      {/* SERVICES GRID */}
       <div className='grid grid-cols-12 gap-10'>
-        {services.map((image, index) => (
-          <FadeIn key={image} delay={index * 0.1}>
-            <div
-              className={`
-                overflow-hidden
-                border
-                ${ui.borders.hairline}
+        {services.map((image, index) => {
+          const isPrimary = index === 0;
 
-                ${
-                  index === 0
-                    ? "col-span-12 xl:col-span-8"
-                    : "col-span-12 xl:col-span-4"
-                }
-              `}
-            >
-              <img src={image} alt='' className='w-full object-cover' />
-            </div>
-          </FadeIn>
-        ))}
+          return (
+            <FadeIn key={image} delay={index * 0.1}>
+              <div
+                className={`
+                  relative
+
+                  ${
+                    isPrimary
+                      ? "col-span-12 xl:col-span-8"
+                      : "col-span-12 xl:col-span-4"
+                  }
+                `}
+              >
+                <ProjectCinematicFrame
+                  image={image}
+                  alt={`Service showcase ${index + 1}`}
+                  imageFit='cover'
+                  minHeight={
+                    isPrimary
+                      ? "min-h-[420px] xl:min-h-[720px]"
+                      : "min-h-[320px] xl:min-h-[720px]"
+                  }
+                  className={`
+                    ${showcase.surfaces.base}
+                    border
+                    ${showcase.surfaces.border}
+                  `}
+                />
+
+                {/* OPTIONAL ATMOSPHERIC BLOOM */}
+                <div
+                  className='
+                    pointer-events-none
+
+                    absolute
+                    inset-0
+
+                    opacity-50
+                    blur-md
+                  '
+                  style={{
+                    background: showcase.blooms.secondary,
+                  }}
+                />
+              </div>
+            </FadeIn>
+          );
+        })}
       </div>
     </section>
   );

@@ -2,23 +2,40 @@ import { activeTheme, ui } from "@/theme";
 
 type Props = {
   image: string;
+
   alt?: string;
 
   minHeight?: string;
+
+  imageFit?: "cover" | "contain";
+
+  className?: string;
+
+  imageClassName?: string;
+
+  priorityBloom?: boolean;
+
+  border?: boolean;
 };
 
 export default function ProjectCinematicFrame({
   image,
+
   alt = "",
+
   minHeight = "min-h-[420px] xl:min-h-[560px]",
+
+  imageFit = "contain",
+
+  className = "",
+
+  imageClassName = "",
+
+  priorityBloom = true,
+
+  border = true,
 }: Props) {
-  const overlays = activeTheme.effects.overlays;
-
-  const reflections = activeTheme.effects.reflections;
-
-  const atmosphericFill = activeTheme.effects.atmosphericFill;
-
-  const shadows = activeTheme.effects.shadows;
+  const effects = activeTheme.effects;
 
   return (
     <div
@@ -27,12 +44,12 @@ export default function ProjectCinematicFrame({
         relative
         overflow-hidden
 
-        border
-        ${ui.borders.hairline}
+        ${border ? `border ${ui.borders.hairline}` : ""}
 
-        ${shadows.cinematic}
+        ${effects.shadows.cinematic}
 
         ${minHeight}
+        ${className}
       `}
     >
       {/* ATMOSPHERIC BACKGROUND */}
@@ -41,9 +58,9 @@ export default function ProjectCinematicFrame({
           absolute
           inset-0
 
-          ${atmosphericFill.scale}
-          ${atmosphericFill.blur}
-          ${atmosphericFill.opacity}
+          ${effects.atmosphericFill.scale}
+          ${effects.atmosphericFill.blur}
+          ${effects.atmosphericFill.opacity}
         `}
         style={{
           backgroundImage: `url(${image})`,
@@ -60,10 +77,12 @@ export default function ProjectCinematicFrame({
 
           ${activeTheme.showcase.image.transition}
           ${activeTheme.showcase.image.hoverScale}
+
+          ${imageClassName}
         `}
         style={{
           backgroundImage: `url(${image})`,
-          backgroundSize: "contain",
+          backgroundSize: imageFit,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
@@ -74,7 +93,7 @@ export default function ProjectCinematicFrame({
       <div
         className='absolute inset-0'
         style={{
-          background: overlays.base,
+          background: effects.overlays.base,
         }}
       />
 
@@ -82,7 +101,7 @@ export default function ProjectCinematicFrame({
       <div
         className='absolute inset-0'
         style={{
-          background: overlays.cinematic,
+          background: effects.overlays.cinematic,
         }}
       />
 
@@ -90,23 +109,39 @@ export default function ProjectCinematicFrame({
       <div
         className='absolute inset-0'
         style={{
-          background: overlays.vignette,
+          background: effects.overlays.vignette,
         }}
       />
 
-      {/* LIGHT PASS */}
+      {/* REFLECTION */}
       <div
         className={`
           absolute
           inset-0
 
-          ${reflections.opacity}
-          ${reflections.blend}
+          ${effects.reflections.opacity}
+          ${effects.reflections.blend}
         `}
         style={{
-          background: reflections.hero,
+          background: effects.reflections.hero,
         }}
       />
+
+      {/* BLOOM */}
+      {priorityBloom && (
+        <div
+          className='
+            absolute
+            inset-0
+
+            opacity-70
+            blur-sm
+          '
+          style={{
+            background: effects.blooms.primary,
+          }}
+        />
+      )}
     </div>
   );
 }

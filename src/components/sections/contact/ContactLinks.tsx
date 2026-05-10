@@ -1,27 +1,33 @@
 import FadeIn from "@/components/motion/FadeIn";
-import { opacityClass, rgba, ui } from "@/theme";
+
+import { activeTheme } from "@/theme";
 
 const links = [
   {
     label: "Email",
     value: "hello@yourstudio.dev",
     href: "mailto:hello@yourstudio.dev",
+    status: "Primary channel",
   },
 
   {
     label: "GitHub",
     value: "github.com/yourprofile",
     href: "https://github.com/yourprofile",
+    status: "Open source",
   },
 
   {
     label: "LinkedIn",
     value: "linkedin.com/in/yourprofile",
     href: "https://linkedin.com",
+    status: "Professional network",
   },
 ];
 
 export default function ContactLinks() {
+  const contact = activeTheme.contactLinks;
+
   return (
     <div
       className={`
@@ -29,13 +35,13 @@ export default function ContactLinks() {
         overflow-hidden
 
         border
-        ${ui.borders.faint}
 
-        ${ui.surfaces.veil}
-        backdrop-blur-[2px]
+        ${contact.surface.base}
+        ${contact.surface.border}
+        ${contact.surface.blur}
       `}
     >
-      {/* RIGHT SIDE TEXTURE PANEL */}
+      {/* TEXTURE PANEL */}
       <div
         className='
           absolute
@@ -50,14 +56,13 @@ export default function ContactLinks() {
           opacity-[0.14]
         '
         style={{
-          backgroundImage:
-            "url('/textures/glass/fiona-wZuSilr-mTw-unsplash.jpg')",
+          backgroundImage: `url(${contact.textures.panel})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       />
 
-      {/* DARK FADE OVER TEXTURE */}
+      {/* TEXTURE FADE */}
       <div
         className='
           absolute
@@ -68,17 +73,15 @@ export default function ContactLinks() {
           lg:block
 
           w-[42%]
-
-          bg-gradient-to-l
-          from-black/10
-          via-black/40
-          to-transparent
         '
+        style={{
+          background: contact.overlays.textureFade,
+        }}
       />
 
       {/* ATMOSPHERIC GLOW */}
       <div
-        className={`
+        className='
           absolute
           right-[10%]
           top-1/2
@@ -91,11 +94,24 @@ export default function ContactLinks() {
           rounded-full
           blur-sm
 
-          ${opacityClass.subtle}
-        `}
+          opacity-40
+        '
         style={{
-          background:
-            `radial-gradient(circle, ${rgba.cyanBloomStrong}, transparent 72%)`,
+          background: contact.atmosphere.glow,
+        }}
+      />
+
+      {/* REFLECTION */}
+      <div
+        className='
+          absolute
+          inset-0
+
+          opacity-20
+          mix-blend-screen
+        '
+        style={{
+          background: contact.overlays.reflection,
         }}
       />
 
@@ -112,18 +128,19 @@ export default function ContactLinks() {
           md:py-10
         '
       >
+        {/* SECTION LABEL */}
         <div
           className={`
-            mb-10
+            mb-12
 
             text-[11px]
             uppercase
             tracking-[0.28em]
 
-            ${ui.text.annotation}
+            ${contact.typography.label}
           `}
         >
-          CONNECT WITH ME
+          Communication Channels
         </div>
 
         <div className='space-y-8'>
@@ -138,43 +155,64 @@ export default function ContactLinks() {
                   block
 
                   border-b
-                  ${ui.borders.faint}
+                  border-white/[0.06]
 
-                  pb-6
+                  pb-7
+
+                  ${contact.motion.card}
                 `}
               >
-                <div
-                  className={`
-                    mb-2
+                {/* TOP ROW */}
+                <div className='mb-4 flex items-center justify-between'>
+                  <div
+                    className={`
+                      text-[10px]
+                      uppercase
+                      tracking-[0.28em]
 
-                    text-[11px]
-                    uppercase
-                    tracking-[0.28em]
+                      ${contact.typography.label}
+                    `}
+                  >
+                    {link.label}
+                  </div>
 
-                    ${ui.text.annotation}
-                  `}
-                >
-                  {link.label}
+                  <div className='flex items-center gap-2'>
+                    <div
+                      className={`
+                        h-1.5
+                        w-1.5
+                        rounded-full
+
+                        ${contact.indicators.online}
+                      `}
+                    />
+
+                    <span
+                      className={`
+                        text-[10px]
+
+                        ${contact.typography.meta}
+                      `}
+                    >
+                      {link.status}
+                    </span>
+                  </div>
                 </div>
 
-                <div
-                  className='
-                    flex
-                    items-center
-                    justify-around
-
-                    gap-6
-                  '
-                >
+                {/* VALUE */}
+                <div className='flex items-end justify-between gap-6'>
                   <span
                     className={`
                       text-lg
-                      ${ui.text.interactive}
+                      md:text-[22px]
 
-                      transition-all
+                      tracking-[-0.03em]
+
+                      transition-colors
                       duration-500
 
-                      group-hover:text-white
+                      ${contact.typography.value}
+                      ${contact.typography.hover}
                     `}
                   >
                     {link.value}
@@ -182,14 +220,11 @@ export default function ContactLinks() {
 
                   <span
                     className={`
-                      ${ui.text.ghost}
-                      relative
-                      -left-100
-                      transition-all
-                      duration-500
+                      text-xl
 
-                      group-hover:translate-x-1
-                      ${ui.text.hoverSoft}
+                      ${contact.typography.meta}
+
+                      ${contact.motion.arrow}
                     `}
                   >
                     →
