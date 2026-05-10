@@ -6,12 +6,12 @@ import Text from "@/components/typography/Text";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 
+import ProjectCinematicFrame from "../../../shared/ProjectCinematicFrame";
+
 export default function ProjectAtmosphere({ project }: ProjectBlockProps) {
   const image = project.media.atmosphere?.[0];
 
-  if (!image) {
-    return null;
-  }
+  if (!image) return null;
 
   return (
     <FadeIn>
@@ -33,47 +33,11 @@ export default function ProjectAtmosphere({ project }: ProjectBlockProps) {
             lg:mt-6
           '
         >
-          {/* WARM GLOW */}
-          <div
-            className='
-              absolute
-              inset-0
-
-              scale-[1.25]
-              rounded-full
-              blur-3xl
-
-              opacity-30
-            '
-            style={{
-              background:
-                "radial-gradient(circle, rgba(198,169,114,0.10), transparent 72%)",
-            }}
+          <ProjectCinematicFrame
+            image={image}
+            alt='Project atmosphere'
+            minHeight='min-h-[420px]'
           />
-
-          <div
-            className='
-              relative
-              overflow-hidden
-
-              aspect-square
-              max-w-[420px]
-
-              bg-white/[0.02]
-            '
-          >
-            <img
-              alt='Project atmosphere'
-              className='
-                h-full
-                w-full
-                object-cover
-
-                opacity-92
-              '
-              src={image}
-            />
-          </div>
         </div>
 
         {/* CONTENT */}

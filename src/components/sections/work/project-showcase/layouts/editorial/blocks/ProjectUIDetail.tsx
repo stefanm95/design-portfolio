@@ -6,12 +6,12 @@ import Text from "@/components/typography/Text";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 
+import ProjectCinematicFrame from "../../../shared/ProjectCinematicFrame";
+
 export default function ProjectUIDetail({ project }: ProjectBlockProps) {
   const image = project.media.ui?.[0];
 
-  if (!image) {
-    return null;
-  }
+  if (!image) return null;
 
   return (
     <FadeIn>
@@ -78,44 +78,11 @@ export default function ProjectUIDetail({ project }: ProjectBlockProps) {
             lg:col-start-7
           '
         >
-          {/* ATMOSPHERIC GLOW */}
-          <div
-            className='
-              absolute
-              inset-0
-
-              scale-[1.08]
-              blur-3xl
-
-              opacity-20
-            '
-            style={{
-              background:
-                "radial-gradient(circle, rgba(255,255,255,0.06), transparent 72%)",
-            }}
+          <ProjectCinematicFrame
+            image={image}
+            alt='Project interface detail'
+            minHeight='min-h-[420px]'
           />
-
-          {/* IMAGE */}
-          <div
-            className='
-              relative
-              overflow-hidden
-
-              max-w-[420px]
-
-              bg-white/[0.02]
-            '
-          >
-            <img
-              alt='Project interface detail'
-              className='
-                h-full
-                w-full
-                object-cover
-              '
-              src={image}
-            />
-          </div>
         </div>
       </section>
     </FadeIn>

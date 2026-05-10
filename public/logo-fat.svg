@@ -1,0 +1,51 @@
+<svg
+  width="220"
+  height="220"
+  viewBox="0 0 220 220"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- M -->
+  <path
+    d="M118 165V88L145 125L172 88V165"
+    stroke="white"
+    stroke-opacity="0.92"
+    stroke-width="2"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+  />
+
+  <!-- Vertical editorial line -->
+  <path
+    d="M110 58V186"
+    stroke="white"
+    stroke-opacity="0.72"
+    stroke-width="1.4"
+  />
+
+  <!-- Updated S -->
+  <path
+    d="
+      M156 42
+      C128 34 96 42 82 62
+      C70 80 76 100 102 112
+      L128 124
+      C150 134 154 150 142 166
+      C126 186 92 188 64 174
+    "
+    stroke="white"
+    stroke-opacity="0.96"
+    stroke-width="2.4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+
+  <!-- Editorial cut -->
+  <path
+    d="M92 118H118"
+    stroke="white"
+    stroke-opacity="0.16"
+    stroke-width="1"
+  />
+</svg>

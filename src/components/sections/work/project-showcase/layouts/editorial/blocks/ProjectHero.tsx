@@ -34,17 +34,18 @@ export default function ProjectHero({ project }: ProjectBlockProps) {
               inset-0
 
               scale-[1.02]
-
+      
               transition-transform
               duration-2200
               ease-out
 
-              group-hover:scale-[1.05]
+              group-hover:scale-[0.99]
             '
             style={{
               backgroundImage: `url(${hero})`,
-              backgroundSize: "cover",
+              backgroundSize: "contain",
               backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
             }}
           />
 
@@ -59,6 +60,22 @@ export default function ProjectHero({ project }: ProjectBlockProps) {
               via-black/10
               to-black/10
             '
+          />
+          {/* BACK ATMOSPHERIC FILL */}
+          <div
+            className='
+    absolute
+    inset-0
+
+    scale-110
+    blur-sm
+    opacity-20
+  '
+            style={{
+              backgroundImage: `url(${hero})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           />
 
           {/* REFLECTION */}
@@ -86,7 +103,7 @@ export default function ProjectHero({ project }: ProjectBlockProps) {
               h-[40%]
 
               bg-linear-to-t
-              from-[#8b5cf6]/10
+              from-[#8b5cf6]/5
               to-transparent
             '
           />

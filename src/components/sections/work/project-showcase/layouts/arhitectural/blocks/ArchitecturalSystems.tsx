@@ -25,7 +25,14 @@ export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
     >
       {/* LEFT */}
       <div className='col-span-12 xl:col-span-4'>
-        <div className='sticky top-32 space-y-10'>
+        <div
+          className=' space-y-8
+
+    xl:sticky
+    xl:top-24
+
+    2xl:top-32'
+        >
           <Label>PROCESS & SYSTEMS</Label>
 
           <Heading as='h3' className='max-w-[11ch]'>

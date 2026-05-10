@@ -91,6 +91,37 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
             }}
           />
 
+          {/* BACK ATMOSPHERIC FILL */}
+          <div
+            className='
+              absolute
+              inset-0
+                    
+              scale-110
+              blur-sm
+              opacity-20
+            '
+            style={{
+              backgroundImage: `url(${hero})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+          {/* PURPLE BLOOM */}
+          <div
+            className='
+              absolute
+              inset-x-0
+              bottom-0
+
+              h-[40%]
+
+              bg-linear-to-t
+              from-[#8b5cf6]/5
+              to-transparent
+            '
+          />
+
           {/* LIVE INDICATOR */}
           <div
             className='

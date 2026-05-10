@@ -1,0 +1,61 @@
+<svg
+  width="220"
+  height="220"
+  viewBox="0 0 220 220"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Frame -->
+  <rect
+    x="36"
+    y="36"
+    width="148"
+    height="148"
+    stroke="white"
+    stroke-opacity="0.9"
+    stroke-width="6"
+  />
+
+  <!-- Editorial divider -->
+  <line
+    x1="110"
+    y1="36"
+    x2="110"
+    y2="184"
+    stroke="white"
+    stroke-opacity="0.18"
+    stroke-width="2"
+  />
+
+  <!-- S -->
+  <path
+    d="
+      M138 64
+      C124 52 96 52 84 66
+      C74 78 78 96 98 106
+      L122 118
+      C138 126 142 142 132 154
+      C120 168 94 170 76 156
+    "
+    stroke="white"
+    stroke-width="8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Minimal M -->
+  <path
+    d="
+      M126 156
+      V98
+      L146 122
+      L166 98
+      V156
+    "
+    stroke="white"
+    stroke-width="6"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+    opacity="0.9"
+  />
+</svg>

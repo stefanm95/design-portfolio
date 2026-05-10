@@ -6,16 +6,26 @@ import Text from "@/components/typography/Text";
 import type { ProjectBlockProps } from "../../../shared/types";
 
 import ProjectSectionLabel from "../../../shared/ProjectSectionLabel";
+import ProjectCinematicFrame from "../../../shared/ProjectCinematicFrame";
 
 export default function ProjectEditorial({ project }: ProjectBlockProps) {
   const editorial = project.media.editorial?.[0];
+
+  if (!editorial) return null;
 
   return (
     <FadeIn>
       <section className='grid grid-cols-12 gap-y-16 xl:gap-x-32'>
         {/* LEFT */}
         <div className='col-span-12 xl:col-span-4'>
-          <div className='sticky top-32 space-y-10'>
+          <div
+            className=' space-y-8
+
+    xl:sticky
+    xl:top-24
+
+    2xl:top-32'
+          >
             <ProjectSectionLabel>Editorial Narrative</ProjectSectionLabel>
 
             <Heading
@@ -53,36 +63,11 @@ export default function ProjectEditorial({ project }: ProjectBlockProps) {
 
         {/* RIGHT */}
         <div className='col-span-12 xl:col-span-8'>
-          <div
-            className='
-              relative
-              overflow-hidden
-
-              border
-              border-white/6
-
-              bg-black/20
-            '
-          >
-            <img
-              alt={project.title}
-              src={editorial}
-              className='h-full w-full object-cover'
-            />
-
-            {/* ATMOSPHERIC OVERLAY */}
-            <div
-              className='
-                absolute
-                inset-0
-
-                bg-linear-to-t
-                from-black/20
-                via-transparent
-                to-transparent
-              '
-            />
-          </div>
+          <ProjectCinematicFrame
+            image={editorial}
+            alt={project.title}
+            minHeight='min-h-[420px] xl:min-h-[560px]'
+          />
         </div>
       </section>
     </FadeIn>
