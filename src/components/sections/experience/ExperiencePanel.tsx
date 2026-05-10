@@ -1,4 +1,4 @@
-import { dividersGradients, rgba, ui } from "@/theme";
+import { activeTheme } from "@/theme";
 
 type Props = {
   id: string;
@@ -13,6 +13,8 @@ export default function ExperiencePanel({
   description,
   className,
 }: Props) {
+  const panel = activeTheme.experiencePanel;
+
   return (
     <div
       className={`
@@ -30,26 +32,18 @@ export default function ExperiencePanel({
         lg:left-0
 
         overflow-hidden
-
-        border
-        ${ui.borders.whisper}
-
-        ${ui.surfaces.panel}
-        backdrop-blur-[20px]
-
-        shadow-[0_12px_60px_rgba(0,0,0,0.22)]
         cursor-pointer
 
-        transition-all
-        duration-1600
-        ease-[cubic-bezier(0.22,1,0.36,1)]
+        border
 
-        lg:group-hover/stack:opacity-40
-        hover:opacity-100!
+        ${panel.surface.base}
+        ${panel.surface.border}
+        ${panel.surface.blur}
+        ${panel.surface.shadow}
 
-        hover:-translate-y-2
-        lg:hover:translate-x-6
-        hover:scale-[1.015]
+        ${panel.motion.hover}
+        ${panel.motion.stackFade}
+        ${panel.motion.transition}
 
         hover:z-20
 
@@ -58,14 +52,10 @@ export default function ExperiencePanel({
     >
       {/* ATMOSPHERIC LIGHT */}
       <div
-        className='
-          absolute
-          inset-0
-
-          opacity-60
-
-          bg-[radial-gradient(circle_at_20%_10%,rgba(120,160,255,0.10),transparent_34%),radial-gradient(circle_at_80%_90%,rgba(255,140,90,0.08),transparent_36%)]
-        '
+        className='absolute inset-0 opacity-60'
+        style={{
+          background: panel.overlays.atmosphere,
+        }}
       />
 
       {/* GLASS REFLECTION */}
@@ -78,19 +68,16 @@ export default function ExperiencePanel({
           mix-blend-screen
         '
         style={{
-          background:
-            "linear-gradient(120deg, transparent 15%, rgba(255,255,255,0.12) 45%, transparent 75%)",
+          background: panel.overlays.reflection,
         }}
       />
 
       {/* INNER SHADE */}
       <div
-        className='
-          absolute
-          inset-0
-
-          bg-[linear-gradient(180deg,rgba(255,255,255,0.04)_0%,transparent_40%,rgba(0,0,0,0.18)_100%)]
-        '
+        className='absolute inset-0'
+        style={{
+          background: panel.overlays.innerShade,
+        }}
       />
 
       {/* HOVER BLOOM */}
@@ -107,7 +94,7 @@ export default function ExperiencePanel({
           group-hover:opacity-100
         '
         style={{
-          background: `radial-gradient(circle at center, ${rgba.whiteReflection}, transparent 72%)`,
+          background: panel.overlays.hoverBloom,
         }}
       />
 
@@ -121,8 +108,9 @@ export default function ExperiencePanel({
           h-full
           flex-col
           justify-between
-          md:p-7
+
           p-5
+          md:p-7
           lg:p-7
         '
       >
@@ -131,7 +119,8 @@ export default function ExperiencePanel({
           className={`
             text-[9px]
             tracking-[0.32em]
-            ${ui.text.subtle}
+
+            ${panel.typography.id}
           `}
         >
           {id}
@@ -144,20 +133,19 @@ export default function ExperiencePanel({
               max-w-[190px]
 
               text-[16px]
-              leading-[1]
-
               sm:text-[18px]
               lg:text-[20px]
+
+              leading-[1]
 
               font-light
               tracking-[-0.04em]
 
-              ${ui.text.secondary}
-
               transition-all
               duration-700
 
-              group-hover:text-white
+              ${panel.typography.title}
+              ${panel.typography.titleHover}
             `}
           >
             {title}
@@ -172,8 +160,6 @@ export default function ExperiencePanel({
               text-[12px]
               leading-[1.8]
 
-              ${ui.text.descriptive}
-
               transition-all
               duration-1000
               ease-out
@@ -186,6 +172,8 @@ export default function ExperiencePanel({
 
               lg:group-hover:translate-y-0
               lg:group-hover:opacity-100
+
+              ${panel.typography.description}
             `}
           >
             {description}
@@ -195,15 +183,15 @@ export default function ExperiencePanel({
 
       {/* EDGE LIGHT */}
       <div
-        className={`
+        className='
           absolute
           inset-y-0
           left-0
-
           w-px
-
-          ${dividersGradients.verticalSubtle}
-        `}
+        '
+        style={{
+          background: panel.dividers.edge,
+        }}
       />
     </div>
   );

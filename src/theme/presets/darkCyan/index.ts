@@ -6,6 +6,7 @@ import { darkCyanEffects } from "./effects";
 import { darkCyanShowcase } from "./showcase";
 import { darkCyanExperienceScene } from "./experienceScene";
 import { darkCyanContactScene } from "./contactScene";
+import { darkCyanExperiencePanel } from "./experiencePanel";
 
 export const darkCyan = {
   colors: darkCyanColors,
@@ -19,6 +20,8 @@ export const darkCyan = {
   typography: darkCyanTypography,
 
   showcase: darkCyanShowcase,
+
+  experiencePanel: darkCyanExperiencePanel,
 
   scenes: {
     experience: darkCyanExperienceScene,

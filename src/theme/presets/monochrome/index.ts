@@ -2,6 +2,7 @@ import { monochromeAtmosphere } from "./atmosphere";
 import { monochromeColors } from "./colors";
 import { monochromeContactScene } from "./contactScene";
 import { monochromeEffects } from "./effects";
+import { monochromeExperiencePanel } from "./experiencePanel";
 import { monochromeExperienceScene } from "./experienceScene";
 import { monochromeGradients } from "./gradients";
 import { monochromeShowcase } from "./showcase";
@@ -19,6 +20,8 @@ export const monochrome = {
   atmosphere: monochromeAtmosphere,
 
   showcase: monochromeShowcase,
+
+  experiencePanel: monochromeExperiencePanel,
 
   scenes: {
     experience: monochromeExperienceScene,
