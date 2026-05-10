@@ -7,17 +7,6 @@ import Display from "@/components/typography/Display";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
 
-import { cn } from "@/lib/utils";
-
-import {
-  atmosphericText,
-  contentWidth,
-  headingScale,
-  metadataScale,
-  spacingScale,
-  surfaces,
-} from "@/theme";
-
 import RightSideVisual from "./RightSideVisual";
 
 export default function Hero() {
@@ -30,10 +19,9 @@ export default function Hero() {
       <div
         className='
           hero-grid
-          relative
-          z-10
-          grid
-          w-full
+          relative z-10
+
+          grid w-full
           grid-cols-12
           items-center
         '
@@ -43,7 +31,7 @@ export default function Hero() {
           {/* TOP META */}
           <FadeIn>
             <div className='flex items-center gap-6'>
-              <div className={surfaces.subtleLine} />
+              <div className='h-px w-16 bg-white/10' />
 
               <Label>Frontend Developer / Creative Engineer</Label>
             </div>
@@ -51,28 +39,29 @@ export default function Hero() {
 
           {/* DISPLAY TYPOGRAPHY */}
           <Reveal>
-            <div className={spacingScale.heroDisplay}>
+            <div className='mt-16'>
               <div className='space-y-1 md:-space-y-2'>
                 <Display>Cinematic</Display>
 
                 <Display
                   variant='secondary'
-                  className={cn(
-                    headingScale.heroSecondary,
-                    `
-                      ml-[8vw]
+                  className='
+                    ml-[8vw]
 
-                      italic
-                      font-normal
+                    text-[4.8rem]
+                    md:text-[7.4rem]
+                    xl:text-[9.2rem]
 
-                      opacity-95
-                    `,
-                  )}
+                    italic
+                    font-normal
+
+                    opacity-95
+                  '
                 >
                   Frontend
                 </Display>
 
-                <Display variant='tertiary' className={atmosphericText.glow}>
+                <Display variant='tertiary' className='opacity-[0.92]'>
                   Experiences
                 </Display>
               </div>
@@ -81,45 +70,42 @@ export default function Hero() {
 
           {/* DESCRIPTION BLOCK */}
           <FadeIn delay={0.35}>
-            <div
-              className={cn(
-                spacingScale.heroDescription,
-                `
-                  flex
-                  max-w-190
-                  flex-col
-
-                  md:flex-row
-                  md:gap-6
-
-                  lg:gap-10
-                `,
-              )}
-            >
+            <div className='mt-16 md:mt-20 lg:mt-24 flex flex-col md:flex-row max-w-190 md:gap-6 lg:gap-10'>
               {/* EDITORIAL MARKER */}
-              <div className='relative hidden pt-4 md:block'>
-                <div className={surfaces.editorialHorizontalLine} />
+              <div className='relative pt-4 hidden md:block'>
+                <div className='h-px w-20 bg-white/10' />
 
                 <div
-                  className={cn(
-                    surfaces.editorialVerticalFade,
-                    `
-                      absolute
-                      left-0
-                      top-4
-                    `,
-                  )}
+                  className='
+                    absolute
+                    left-0
+                    top-4
+
+                    h-20
+                    w-px
+
+                    bg-linear-to-b
+                    from-white/10
+                    to-transparent
+                  '
                 />
               </div>
 
               {/* COPY */}
               <div className='space-y-7'>
                 <Text
-                  className={cn(
-                    headingScale.narrative,
-                    contentWidth.wideNarrative,
-                    atmosphericText.narrative,
-                  )}
+                  className='
+                    max-w-145
+
+                    text-[15px]
+                    md:text-[16px]
+                    lg:text-[17px]
+
+                    leading-[1.9]
+                    tracking-[0.01em]
+
+                    text-white/44
+                  '
                 >
                   Crafting immersive frontend experiences through cinematic
                   motion, refined typography, and architectural digital systems.
@@ -127,23 +113,23 @@ export default function Hero() {
 
                 {/* BOTTOM META */}
                 <div
-                  className={cn(
-                    metadataScale.subtle,
-                    atmosphericText.metadata,
-                    `
-                      flex
-                      flex-wrap
-                      items-center
+                  className='
+                    flex flex-wrap
+                    items-center
+                    gap-3
+                    md:gap-4
+                    lg:gap-5
 
-                      gap-3
-                      md:gap-4
-                      lg:gap-5
-                    `,
-                  )}
+                    text-[11px]
+                    uppercase
+                    tracking-[0.28em]
+
+                    text-white/24
+                  '
                 >
                   <span>Based in Europe</span>
 
-                  <div className={surfaces.subtleDivider} />
+                  <div className='h-px w-8 bg-white/10' />
 
                   <span>Available for selected projects</span>
                 </div>

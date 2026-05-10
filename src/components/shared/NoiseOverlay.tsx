@@ -1,20 +1,21 @@
-import { atmosphereNoise } from "@/theme";
+import { noise } from "@/theme";
 
 export default function NoiseOverlay() {
   return (
     <div
       className={`
         pointer-events-none
-        fixed
-        inset-0
-
-        ${atmosphereNoise.zIndex}
-        ${atmosphereNoise.opacity}
+        fixed inset-0
+        ${noise.zIndex}
       `}
       style={{
-        backgroundImage: `url('${atmosphereNoise.texture}')`,
+        opacity: noise.opacity,
+
+        backgroundImage: `url('${noise.texture}')`,
+
         backgroundRepeat: "repeat",
-        backgroundSize: atmosphereNoise.size,
+
+        backgroundSize: noise.size,
       }}
     />
   );

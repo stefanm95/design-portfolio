@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
 
-import { textColors, typography } from "@/theme";
-
 import type { ElementType, ReactNode } from "react";
+
+import { headingTypography } from "@/theme";
 
 type Props = {
   as?: ElementType;
@@ -17,7 +17,13 @@ export default function Heading({
 }: Props) {
   return (
     <Component
-      className={cn(typography.heading, textColors.heading, className)}
+      className={cn(
+        headingTypography.base,
+
+        headingTypography.colors.primary,
+
+        className,
+      )}
     >
       {children}
     </Component>

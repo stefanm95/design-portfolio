@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
 
-import { atmosphericText, metadataScale, typography } from "@/theme";
-
 import type { ElementType, ReactNode } from "react";
+
+import { labelTypography } from "@/theme";
 
 type Props = {
   as?: ElementType;
@@ -18,9 +18,10 @@ export default function Label({
   return (
     <Component
       className={cn(
-        typography.label,
-        metadataScale.label,
-        atmosphericText.secondary,
+        labelTypography.base,
+
+        labelTypography.colors.primary,
+
         className,
       )}
     >

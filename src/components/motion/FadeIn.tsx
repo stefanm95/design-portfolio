@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+
 import type { ReactNode } from "react";
 
 import {
@@ -15,6 +16,8 @@ type Props = {
 };
 
 export default function FadeIn({ children, delay = 0, className }: Props) {
+  const preset = motionPresets.fadeIn;
+
   return (
     <motion.div
       className={className}

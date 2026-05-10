@@ -2,12 +2,7 @@ import { cn } from "@/lib/utils";
 
 import type { ElementType, ReactNode } from "react";
 
-import {
-  displayEffects,
-  displayScale,
-  displayTypography,
-  gradients,
-} from "@/theme";
+import { cinematicDisplay } from "@/theme";
 
 type Variant = "primary" | "secondary" | "tertiary";
 
@@ -16,14 +11,6 @@ type Props = {
   children: ReactNode;
   variant?: Variant;
   className?: string;
-};
-
-const variants = {
-  primary: gradients.display.primary,
-
-  secondary: gradients.display.secondary,
-
-  tertiary: gradients.display.tertiary,
 };
 
 export default function Display({
@@ -35,14 +22,11 @@ export default function Display({
   return (
     <Component
       className={cn(
-        displayTypography.base,
+        cinematicDisplay.base,
 
-        displayScale.base,
+        cinematicDisplay.glow,
 
-        displayEffects.transparent,
-        displayEffects.glow,
-
-        variants[variant],
+        cinematicDisplay.variants[variant],
 
         className,
       )}

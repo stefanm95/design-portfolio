@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import { atmosphereGrid, motionPresets } from "@/theme";
+import { grid } from "@/theme";
 
 export default function GridOverlay() {
   return (
@@ -9,30 +9,18 @@ export default function GridOverlay() {
         animate={{
           y: [0, 120],
 
-          opacity: [
-            atmosphereGrid.opacity.idle,
-            atmosphereGrid.opacity.active,
-            atmosphereGrid.opacity.idle,
-          ],
+          opacity: [grid.opacity.idle, grid.opacity.active, grid.opacity.idle],
         }}
-        transition={motionPresets.gridDrift}
-        className={`absolute ${atmosphereGrid.overlayBounds}`}
+        transition={{
+          duration: grid.motion.duration,
+          repeat: Infinity,
+          ease: grid.motion.ease,
+        }}
+        className='absolute inset-[-120px]'
         style={{
-          backgroundImage: `
-            linear-gradient(
-              to right,
-              ${atmosphereGrid.lineColor} 1px,
-              transparent 1px
-            ),
+          backgroundImage: grid.background,
 
-            linear-gradient(
-              to bottom,
-              ${atmosphereGrid.lineColor} 1px,
-              transparent 1px
-            )
-          `,
-
-          backgroundSize: atmosphereGrid.size,
+          backgroundSize: grid.size,
         }}
       />
     </div>
