@@ -22,8 +22,10 @@ export default function ExperiencePanel({
 
         sm:w-[300px]
 
-        lg:h-50
-        lg:w-[320px]
+        md:h-50
+        md:w-[320px]
+        md:left-60
+        lg:left-0
 
         overflow-hidden
 
@@ -116,7 +118,7 @@ export default function ExperiencePanel({
           h-full
           flex-col
           justify-between
-
+          md:p-7
           p-5
           lg:p-7
         '
