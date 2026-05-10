@@ -3,13 +3,12 @@ import { motion } from "framer-motion";
 import { useMousePosition } from "@/hooks/useMousePosition";
 
 import {
-  atmosphereBlend,
-  atmosphereBlur,
-  atmosphereGradients,
-  atmosphereLayout,
-  atmosphereMotion,
-  atmosphereOpacity,
-  atmosphereTextures,
+  atmosphericLayout,
+  blur,
+  gradients,
+  motionPresets,
+  opacity,
+  textures,
 } from "@/theme";
 
 export default function RightSideVisual() {
@@ -20,16 +19,18 @@ export default function RightSideVisual() {
   };
 
   return (
-    <div className='absolute inset-0 overflow-hidden pointer-events-none'>
+    <div className='pointer-events-none absolute inset-0 overflow-hidden'>
       {/* MAIN VERTICAL SPINE */}
       <div
         className={`
           absolute
-          ${atmosphereLayout.spine}
+          ${atmosphericLayout.spine}
           top-0
+
           h-full
           w-px
-          ${atmosphereGradients.verticalSpine}
+
+          ${gradients.spine.vertical}
         `}
       />
 
@@ -39,12 +40,14 @@ export default function RightSideVisual() {
           opacity: [0.08, 0.16, 0.08],
           y: [0, -30, 0],
         }}
-        transition={atmosphereMotion.slowFloat}
+        transition={motionPresets.slowFloat}
         className={`
           absolute
-          ${atmosphereLayout.primaryVolume.position}
-          ${atmosphereLayout.primaryVolume.size}
-          ${atmosphereBlur.soft}
+
+          ${atmosphericLayout.primaryVolume.position}
+          ${atmosphericLayout.primaryVolume.size}
+
+          ${blur.soft}
         `}
         style={parallax}
       />
@@ -55,18 +58,20 @@ export default function RightSideVisual() {
           opacity: [0.08, 0.16, 0.08],
           y: [0, -18, 0],
         }}
-        transition={atmosphereMotion.glassFloat}
+        transition={motionPresets.glassFloat}
         className={`
           absolute
-          ${atmosphereLayout.primaryGlass.position}
-          ${atmosphereLayout.primaryGlass.size}
-          ${atmosphereBlur.glass}
+
+          ${atmosphericLayout.primaryGlass.position}
+          ${atmosphericLayout.primaryGlass.size}
+
+          ${blur.glass}
         `}
         style={{
-          backgroundImage: `url('${atmosphereTextures.primaryGlass}')`,
+          backgroundImage: `url('${textures.glass.primary}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          mixBlendMode: atmosphereBlend.screen,
+          mixBlendMode: "screen",
         }}
       />
 
@@ -76,15 +81,17 @@ export default function RightSideVisual() {
           opacity: [0.04, 0.09, 0.04],
           x: [0, 10, 0],
         }}
-        transition={atmosphereMotion.subtleShift}
+        transition={motionPresets.subtleShift}
         className={`
           absolute
-          ${atmosphereLayout.secondaryGlass.position}
-          ${atmosphereLayout.secondaryGlass.size}
-          ${atmosphereBlur.soft}
+
+          ${atmosphericLayout.secondaryGlass.position}
+          ${atmosphericLayout.secondaryGlass.size}
+
+          ${blur.soft}
         `}
         style={{
-          background: atmosphereGradients.verticalLight,
+          background: gradients.lighting.verticalLight,
         }}
       />
 
@@ -92,16 +99,18 @@ export default function RightSideVisual() {
       <div
         className={`
           absolute
-          ${atmosphereLayout.texture.position}
-          ${atmosphereLayout.texture.size}
-          ${atmosphereOpacity.texture}
-          ${atmosphereBlur.texture}
+
+          ${atmosphericLayout.texture.position}
+          ${atmosphericLayout.texture.size}
+
+          ${opacity.atmosphere.glass}
+          ${blur.texture}
         `}
         style={{
-          backgroundImage: `url('${atmosphereTextures.secondaryGlass}')`,
+          backgroundImage: `url('${textures.glass.secondary}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          mixBlendMode: atmosphereBlend.screen,
+          mixBlendMode: "screen",
         }}
       />
 
@@ -111,18 +120,18 @@ export default function RightSideVisual() {
           opacity: [0.06, 0.14, 0.06],
           scale: [1, 1.04, 1],
         }}
-        transition={atmosphereMotion.bloomPulse}
+        transition={motionPresets.bloomPulse}
         className={`
           absolute
-          ${atmosphereLayout.bloom.position}
-          ${atmosphereLayout.bloom.size}
+
+          ${atmosphericLayout.bloom.position}
+          ${atmosphericLayout.bloom.size}
+
           rounded-full
-          ${atmosphereBlur.soft}
+          ${blur.soft}
+          ${gradients.atmospheric.cyan}
         `}
-        style={{
-          background: atmosphereGradients.cyanBloom,
-          ...parallax,
-        }}
+        style={parallax}
       />
     </div>
   );

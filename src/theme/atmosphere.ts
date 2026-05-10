@@ -1,87 +1,3 @@
-export const atmosphereMotion = {
-  slowFloat: {
-    duration: 18,
-    repeat: Infinity,
-    ease: "easeInOut" as const,
-  },
-
-  glassFloat: {
-    duration: 20,
-    repeat: Infinity,
-    ease: "easeInOut" as const,
-  },
-
-  subtleShift: {
-    duration: 24,
-    repeat: Infinity,
-    ease: "easeInOut" as const,
-  },
-
-  bloomPulse: {
-    duration: 14,
-    repeat: Infinity,
-    ease: "easeInOut" as const,
-  },
-};
-
-export const atmosphereGradients = {
-  verticalSpine: "bg-linear-to-b from-transparent via-white/10 to-transparent",
-
-  verticalLight:
-    "linear-gradient(to bottom, rgba(255,255,255,0.10), transparent)",
-
-  cyanBloom: "radial-gradient(circle, rgba(0,180,255,0.08), transparent 72%)",
-};
-
-export const atmosphereTextures = {
-  primaryGlass: "/textures/glass/fabio-troyli-stzrfbcWPP8-unsplash.webp",
-
-  secondaryGlass: "/textures/glass/zhiqiang-wang-tMgP-wH4ux0-unsplash.webp",
-};
-
-export const atmosphereBlur = {
-  soft: "blur-sm",
-  glass: "blur-[2px]",
-  texture: "blur-[1px]",
-};
-
-export const atmosphereBlend = {
-  screen: "screen" as const,
-};
-
-export const atmosphereOpacity = {
-  texture: "opacity-[0.05]",
-};
-
-export const atmosphereLayout = {
-  spine: "left-[68%]",
-
-  primaryVolume: {
-    position: "left-[62%] top-[-10%]",
-    size: "h-[140vh] w-[32vw]",
-  },
-
-  primaryGlass: {
-    position: "left-[72%] top-[-6%]",
-    size: "h-[128vh] w-[14vw]",
-  },
-
-  secondaryGlass: {
-    position: "left-[82%] top-[10%]",
-    size: "h-[70vh] w-[6vw]",
-  },
-
-  texture: {
-    position: "left-[66%] top-[18%]",
-    size: "h-[42vh] w-[10vw]",
-  },
-
-  bloom: {
-    position: "left-[60%] bottom-[-20%]",
-    size: "h-[34vw] w-[34vw]",
-  },
-};
-
 export const atmosphere = {
   glow: {
     violet:
@@ -131,4 +47,31 @@ export const atmosphericText = {
 
     drop-shadow-[0_0_30px_rgba(255,255,255,0.03)]
   `,
+};
+
+export const atmosphereBackgrounds = {
+  base: "#050505",
+};
+
+export const atmosphereGrid = {
+  size: "120px 120px",
+
+  overlayBounds: "inset-[-120px]",
+
+  lineColor: "rgba(68,202,187,0.18)",
+
+  opacity: {
+    idle: 0.012,
+    active: 0.02,
+  },
+};
+
+export const atmosphereNoise = {
+  texture: "/textures/noise.webp",
+
+  opacity: "opacity-[0.018]",
+
+  size: "320px 320px",
+
+  zIndex: "z-[1]",
 };

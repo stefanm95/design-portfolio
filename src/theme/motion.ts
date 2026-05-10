@@ -62,3 +62,58 @@ export const motionScroll = {
     wheelMultiplier: 1,
   },
 };
+
+export const motionPresets = {
+  slowFloat: {
+    duration: 18,
+    repeat: Infinity,
+    ease: "easeInOut" as const,
+  },
+
+  glassFloat: {
+    duration: 20,
+    repeat: Infinity,
+    ease: "easeInOut" as const,
+  },
+
+  subtleShift: {
+    duration: 24,
+    repeat: Infinity,
+    ease: "easeInOut" as const,
+  },
+
+  bloomPulse: {
+    duration: 14,
+    repeat: Infinity,
+    ease: "easeInOut" as const,
+  },
+
+  gridDrift: {
+    duration: 40,
+    repeat: Infinity,
+    ease: "linear" as const,
+  },
+
+  fadeIn: {
+    duration: 1.4,
+    ease: [0.16, 1, 0.3, 1] as const,
+  },
+
+  reveal: {
+    duration: 1.6,
+    ease: [0.16, 1, 0.3, 1] as const,
+  },
+
+  atmosphere: {
+    slowFloat: {
+      duration: 18,
+      repeat: Infinity,
+      ease: "easeInOut" as const,
+    },
+  },
+  smoothScroll: {
+    duration: 1.6,
+    lerp: 0.08,
+    wheelMultiplier: 0.9,
+  },
+};

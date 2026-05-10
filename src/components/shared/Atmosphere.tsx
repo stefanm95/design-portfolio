@@ -1,20 +1,33 @@
+import {
+  atmosphericLayout,
+  backgrounds,
+  blur,
+  gradients,
+  opacity,
+  textures,
+} from "@/theme";
+
 export default function Atmosphere() {
   return (
     <>
       {/* BASE */}
-      <div className='fixed inset-0 bg-[#050505]' />
+      <div
+        className='fixed inset-0'
+        style={{
+          background: backgrounds.base,
+        }}
+      />
 
       {/* STONE FOUNDATION */}
       <div
-        className='
+        className={`
           pointer-events-none
           fixed inset-0
 
-          opacity-[0.025]
-        '
+          ${opacity.atmosphere.stone}
+        `}
         style={{
-          backgroundImage:
-            "url('/textures/stone/black-painted-wall-texture-background.webp')",
+          backgroundImage: `url('${textures.stone.blackWall}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -22,61 +35,48 @@ export default function Atmosphere() {
 
       {/* GLOBAL CYAN ATMOSPHERE */}
       <div
-        className='
+        className={`
           pointer-events-none
           fixed
 
-          left-[-12vw]
-          top-[-18vh]
-
-          h-[90vw]
-          w-[90vw]
+          ${atmosphericLayout.globalCyan.position}
+          ${atmosphericLayout.globalCyan.size}
 
           rounded-full
-          blur-[120px]
 
-          opacity-[0.45]
-        '
-        style={{
-          background:
-            "radial-gradient(circle, rgba(0,180,255,0.10) 0%, transparent 72%)",
-        }}
+          ${blur.cinematic}
+          ${opacity.atmosphere.cyanGlow}
+          ${gradients.atmospheric.cyan}
+        `}
       />
 
       {/* GOLD ATMOSPHERE */}
       <div
-        className='
+        className={`
           pointer-events-none
           fixed
 
-          bottom-[-30vh]
-          right-[-12vw]
-
-          h-[70vw]
-          w-[70vw]
+          ${atmosphericLayout.globalGold.position}
+          ${atmosphericLayout.globalGold.size}
 
           rounded-full
-          blur-[120px]
 
-          opacity-[0.28]
-        '
-        style={{
-          background:
-            "radial-gradient(circle, rgba(212,175,122,0.08) 0%, transparent 72%)",
-        }}
+          ${blur.cinematic}
+          ${opacity.atmosphere.goldGlow}
+          ${gradients.atmospheric.gold}
+        `}
       />
 
       {/* GLASS REFRACTION TEXTURE */}
       <div
-        className='
+        className={`
           pointer-events-none
           fixed inset-0
 
-          opacity-[0.035]
-        '
+          ${opacity.atmosphere.glass}
+        `}
         style={{
-          backgroundImage:
-            "url('/textures/glass/zhiqiang-wang-tMgP-wH4ux0-unsplash.webp')",
+          backgroundImage: `url('${textures.glass.secondary}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -84,21 +84,18 @@ export default function Atmosphere() {
 
       {/* RIGHT SIDE REFRACTION VOLUME */}
       <div
-        className='
+        className={`
           pointer-events-none
           fixed
 
           inset-y-0
           right-0
 
-          w-[34vw]
-
-          opacity-[0.025]
-          
-        '
+          ${atmosphericLayout.sideRefraction.width}
+          ${opacity.atmosphere.sideRefraction}
+        `}
         style={{
-          backgroundImage:
-            "url('/textures/glass/fabio-troyli-stzrfbcWPP8-unsplash.webp')",
+          backgroundImage: `url('${textures.glass.primary}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -108,23 +105,22 @@ export default function Atmosphere() {
       <div
         className='pointer-events-none fixed inset-0'
         style={{
-          background:
-            "radial-gradient(circle at center, transparent 28%, rgba(0,0,0,0.68) 100%)",
+          background: gradients.lighting.vignette,
         }}
       />
 
       {/* TOP CINEMATIC FADE */}
       <div
-        className='
+        className={`
           pointer-events-none
           fixed
           inset-x-0
           top-0
-          h-[28vh]
-        '
+
+          ${atmosphericLayout.topFade.height}
+        `}
         style={{
-          background:
-            "linear-gradient(to bottom, rgba(0,0,0,0.72), transparent)",
+          background: gradients.overlays.topFade,
         }}
       />
     </>
