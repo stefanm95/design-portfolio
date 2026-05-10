@@ -1,4 +1,4 @@
-import { overlaysGradients } from "@/theme";
+import { activeTheme } from "@/theme";
 
 type Props = {
   image: string;
@@ -17,6 +17,8 @@ export default function ArchitecturalMobileCard({
   isRight,
   onClick,
 }: Props) {
+  const overlaysGradients = activeTheme.gradients.overlays;
+
   return (
     <button
       onClick={onClick}

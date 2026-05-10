@@ -45,7 +45,9 @@ export default function ArchitecturalMobile({ project }: ProjectBlockProps) {
             >
               Cinematic pacing preserved across every screen.
             </Heading>
-            <Text className={` max-w-[32ch] leading-[1.9] ${ui.text.narrative} `}>
+            <Text
+              className={` max-w-[32ch] leading-[1.9] ${ui.text.narrative} `}
+            >
               Responsive layouts maintain atmosphere, hierarchy, and interaction
               quality while adapting seamlessly to smaller devices.
             </Text>

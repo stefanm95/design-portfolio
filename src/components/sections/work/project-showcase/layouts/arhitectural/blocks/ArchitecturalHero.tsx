@@ -1,10 +1,13 @@
 import FadeIn from "@/components/motion/FadeIn";
-import { overlaysGradients, ui } from "@/theme";
+
+import { activeTheme, ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 
 export default function ArchitecturalHero({ project }: ProjectBlockProps) {
   const hero = project.media.hero?.[0];
+
+  const effects = activeTheme.effects;
 
   if (!hero) return null;
 
@@ -21,11 +24,13 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
             group
             relative
             overflow-hidden
-      
+
             border
             ${ui.borders.faint}
 
             bg-transparent
+
+            ${effects.shadows.cinematic}
           `}
         >
           {/* IMAGE */}
@@ -43,7 +48,7 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
                 scale-[1.01]
 
                 transition-transform
-                duration-1600
+                duration-[1800ms]
                 ease-out
 
                 group-hover:scale-[0.99]
@@ -51,61 +56,62 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
             />
           </div>
 
-          {/* DARK ATMOSPHERE */}
-          <div className='absolute inset-0 bg-black/36' />
+          {/* BASE ATMOSPHERE */}
+          <div
+            className='absolute inset-0'
+            style={{
+              background: effects.overlays.base,
+            }}
+          />
 
-          {/* DEPTH */}
+          {/* CINEMATIC DEPTH */}
+          <div
+            className='absolute inset-0'
+            style={{
+              background: effects.overlays.cinematic,
+            }}
+          />
+
+          {/* FILMIC VIGNETTE */}
+          <div
+            className='absolute inset-0'
+            style={{
+              background: effects.overlays.vignette,
+            }}
+          />
+
+          {/* ATMOSPHERIC BACK FILL */}
           <div
             className={`
               absolute
               inset-0
 
-              ${overlaysGradients.cinematic}
+              ${effects.atmosphericFill.scale}
+              ${effects.atmosphericFill.blur}
+              ${effects.atmosphericFill.opacity}
             `}
-          />
-
-          {/* FILMIC VIGNETTE */}
-          <div
-            className='
-              absolute
-              inset-0
-
-              bg-[radial-gradient(circle_at_center,transparent_45%,rgba(0,0,0,0.22))]
-            '
-          />
-
-          {/* LIGHT REFLECTION */}
-          <div
-            className='
-              absolute
-              inset-0
-
-              opacity-20
-              mix-blend-screen
-            '
-            style={{
-              background:
-                "linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.06) 50%, transparent 80%)",
-            }}
-          />
-
-          {/* BACK ATMOSPHERIC FILL */}
-          <div
-            className='
-              absolute
-              inset-0
-                    
-              scale-110
-              blur-sm
-              opacity-20
-            '
             style={{
               backgroundImage: `url(${hero})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           />
-          {/* PURPLE BLOOM */}
+
+          {/* LIGHT REFLECTION */}
+          <div
+            className={`
+              absolute
+              inset-0
+
+              ${effects.reflections.opacity}
+              ${effects.reflections.blend}
+            `}
+            style={{
+              background: effects.reflections.hero,
+            }}
+          />
+
+          {/* ACCENT BLOOM */}
           <div
             className='
               absolute
@@ -113,11 +119,10 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
               bottom-0
 
               h-[40%]
-
-              bg-linear-to-t
-              from-[#8b5cf6]/5
-              to-transparent
             '
+            style={{
+              background: effects.blooms.projectHero,
+            }}
           />
 
           {/* LIVE INDICATOR */}
@@ -140,7 +145,7 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
           >
             <span className='relative flex h-2 w-2'>
               <span
-                className='
+                className={`
                   absolute
                   inline-flex
                   h-full
@@ -148,20 +153,20 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
                   animate-ping
                   rounded-full
 
-                  bg-emerald-400/70
-                '
+                  ${effects.indicators.livePing}
+                `}
               />
 
               <span
-                className='
+                className={`
                   relative
                   inline-flex
                   h-2
                   w-2
                   rounded-full
 
-                  bg-emerald-300
-                '
+                  ${effects.indicators.liveDot}
+                `}
               />
             </span>
 

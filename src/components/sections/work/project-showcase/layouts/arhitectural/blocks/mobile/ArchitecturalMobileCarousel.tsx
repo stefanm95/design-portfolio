@@ -1,11 +1,13 @@
 import FadeIn from "@/components/motion/FadeIn";
 import { rgba } from "@/theme";
 import ArchitecturalMobileCard from "./ArchitecturalMobileCard";
+
 type Props = {
   images: string[];
   active: number;
   setActive: React.Dispatch<React.SetStateAction<number>>;
 };
+
 export default function ArchitecturalMobileCarousel({
   images,
   active,

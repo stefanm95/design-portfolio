@@ -1,8 +1,10 @@
 import FadeIn from "@/components/motion/FadeIn";
-import { overlaysGradients } from "@/theme";
+import { activeTheme } from "@/theme";
 
 type Props = { images: string[] };
 export default function ArchitecturalMobileStack({ images }: Props) {
+  const overlaysGradients = activeTheme.gradients.overlays;
+
   return (
     <div className=' relative flex flex-col gap-5 sm:gap-6 '>
       {/* MAIN VISUAL */}

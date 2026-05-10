@@ -1,4 +1,4 @@
-import { rgba, ui } from "@/theme";
+import { activeTheme, ui } from "@/theme";
 
 type Props = {
   image: string;
@@ -12,6 +12,14 @@ export default function ProjectCinematicFrame({
   alt = "",
   minHeight = "min-h-[420px] xl:min-h-[560px]",
 }: Props) {
+  const overlays = activeTheme.effects.overlays;
+
+  const reflections = activeTheme.effects.reflections;
+
+  const atmosphericFill = activeTheme.effects.atmosphericFill;
+
+  const shadows = activeTheme.effects.shadows;
+
   return (
     <div
       className={`
@@ -22,22 +30,21 @@ export default function ProjectCinematicFrame({
         border
         ${ui.borders.hairline}
 
-        bg-black/20
+        ${shadows.cinematic}
 
         ${minHeight}
       `}
     >
       {/* ATMOSPHERIC BACKGROUND */}
       <div
-        className='
+        className={`
           absolute
           inset-0
 
-          scale-110
-
-          blur-sm
-          opacity-30
-        '
+          ${atmosphericFill.scale}
+          ${atmosphericFill.blur}
+          ${atmosphericFill.opacity}
+        `}
         style={{
           backgroundImage: `url(${image})`,
           backgroundSize: "cover",
@@ -47,16 +54,13 @@ export default function ProjectCinematicFrame({
 
       {/* MAIN IMAGE */}
       <div
-        className='
+        className={`
           absolute
           inset-0
 
-          transition-transform
-          duration-[2200ms]
-          ease-[cubic-bezier(0.22,1,0.36,1)]
-
-          group-hover:scale-[0.995]
-        '
+          ${activeTheme.showcase.image.transition}
+          ${activeTheme.showcase.image.hoverScale}
+        `}
         style={{
           backgroundImage: `url(${image})`,
           backgroundSize: "contain",
@@ -66,31 +70,41 @@ export default function ProjectCinematicFrame({
         aria-label={alt}
       />
 
-      {/* ATMOSPHERIC OVERLAY */}
+      {/* BASE ATMOSPHERE */}
       <div
-        className='
-          absolute
-          inset-0
+        className='absolute inset-0'
+        style={{
+          background: overlays.base,
+        }}
+      />
 
-          bg-linear-to-t
-          from-black/50
-          via-black/10
-          to-black/20
-        '
+      {/* CINEMATIC DEPTH */}
+      <div
+        className='absolute inset-0'
+        style={{
+          background: overlays.cinematic,
+        }}
+      />
+
+      {/* FILMIC VIGNETTE */}
+      <div
+        className='absolute inset-0'
+        style={{
+          background: overlays.vignette,
+        }}
       />
 
       {/* LIGHT PASS */}
       <div
-        className='
+        className={`
           absolute
           inset-0
 
-          opacity-20
-          mix-blend-screen
-        '
+          ${reflections.opacity}
+          ${reflections.blend}
+        `}
         style={{
-          background:
-            `linear-gradient(115deg, transparent 20%, ${rgba.whiteReflection} 50%, transparent 80%)`,
+          background: reflections.hero,
         }}
       />
     </div>

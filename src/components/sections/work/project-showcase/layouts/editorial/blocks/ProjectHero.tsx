@@ -1,10 +1,15 @@
 import FadeIn from "@/components/motion/FadeIn";
-import { rgba, ui } from "@/theme";
+
+import { activeTheme, ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 
 export default function ProjectHero({ project }: ProjectBlockProps) {
   const hero = project.media.hero?.[0];
+
+  const effects = activeTheme.effects;
+
+  if (!hero) return null;
 
   return (
     <FadeIn>
@@ -26,6 +31,8 @@ export default function ProjectHero({ project }: ProjectBlockProps) {
             ${ui.borders.subtle}
 
             bg-black/20
+
+            ${effects.shadows.cinematic}
           `}
         >
           {/* IMAGE */}
@@ -35,9 +42,9 @@ export default function ProjectHero({ project }: ProjectBlockProps) {
               inset-0
 
               scale-[1.02]
-      
+
               transition-transform
-              duration-2200
+              duration-[2200ms]
               ease-out
 
               group-hover:scale-[0.99]
@@ -50,28 +57,40 @@ export default function ProjectHero({ project }: ProjectBlockProps) {
             }}
           />
 
-          {/* OVERLAY */}
+          {/* BASE ATMOSPHERE */}
           <div
-            className='
+            className='absolute inset-0'
+            style={{
+              background: effects.overlays.base,
+            }}
+          />
+
+          {/* CINEMATIC DEPTH */}
+          <div
+            className='absolute inset-0'
+            style={{
+              background: effects.overlays.cinematic,
+            }}
+          />
+
+          {/* FILMIC VIGNETTE */}
+          <div
+            className='absolute inset-0'
+            style={{
+              background: effects.overlays.vignette,
+            }}
+          />
+
+          {/* ATMOSPHERIC BACK FILL */}
+          <div
+            className={`
               absolute
               inset-0
 
-              bg-linear-to-t
-              from-black/80
-              via-black/10
-              to-black/10
-            '
-          />
-          {/* BACK ATMOSPHERIC FILL */}
-          <div
-            className='
-    absolute
-    inset-0
-
-    scale-110
-    blur-sm
-    opacity-20
-  '
+              ${effects.atmosphericFill.scale}
+              ${effects.atmosphericFill.blur}
+              ${effects.atmosphericFill.opacity}
+            `}
             style={{
               backgroundImage: `url(${hero})`,
               backgroundSize: "cover",
@@ -79,22 +98,21 @@ export default function ProjectHero({ project }: ProjectBlockProps) {
             }}
           />
 
-          {/* REFLECTION */}
+          {/* LIGHT REFLECTION */}
           <div
-            className='
+            className={`
               absolute
               inset-0
 
-              opacity-30
-              mix-blend-screen
-            '
+              ${effects.reflections.opacity}
+              ${effects.reflections.blend}
+            `}
             style={{
-              background:
-                `linear-gradient(120deg, transparent 20%, ${rgba.whiteReflection} 50%, transparent 80%)`,
+              background: effects.reflections.hero,
             }}
           />
 
-          {/* PURPLE BLOOM */}
+          {/* ACCENT BLOOM */}
           <div
             className='
               absolute
@@ -102,36 +120,70 @@ export default function ProjectHero({ project }: ProjectBlockProps) {
               bottom-0
 
               h-[40%]
-
-              bg-linear-to-t
-              from-[#8b5cf6]/5
-              to-transparent
             '
+            style={{
+              background: effects.blooms.projectHero,
+            }}
           />
+
+          {/* LIVE INDICATOR */}
+          <div
+            className={`
+              absolute
+              bottom-8
+              right-8
+
+              flex
+              items-center
+              gap-3
+
+              text-[10px]
+              uppercase
+              tracking-[0.28em]
+
+              ${ui.text.paragraph}
+            `}
+          >
+            <span className='relative flex h-2 w-2'>
+              <span
+                className={`
+                  absolute
+                  inline-flex
+                  h-full
+                  w-full
+                  animate-ping
+                  rounded-full
+
+                  ${effects.indicators.livePing}
+                `}
+              />
+
+              <span
+                className={`
+                  relative
+                  inline-flex
+                  h-2
+                  w-2
+                  rounded-full
+
+                  ${effects.indicators.liveDot}
+                `}
+              />
+            </span>
+
+            <span
+              className={`
+                transition-colors
+                duration-500
+
+                ${ui.text.hoverInteractive}
+              `}
+            >
+              Live Experience
+            </span>
+          </div>
         </div>
       </a>
-      {/* LIVE INDICATOR */}
-      <div
-        className={`
-    absolute
-    bottom-8
-    right-8
-
-    flex
-    items-center
-    gap-3
-
-    text-[10px]
-    uppercase
-    tracking-[0.28em]
-
-    ${ui.text.paragraph}
-  `}
-      >
-        <div className='h-2 w-2 rounded-full bg-emerald-400' />
-
-        <span>Live Experience</span>
-      </div>
     </FadeIn>
   );
 }

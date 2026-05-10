@@ -1,11 +1,11 @@
-import { darkCyanColors } from "./colors";
+import { monochromeColors } from "./colors";
 
-export const darkCyanGradients = {
+export const monochromeGradients = {
   atmosphere: {
     primaryBloom: `
       radial-gradient(
         circle,
-        ${darkCyanColors.atmosphere.primary} 0%,
+        ${monochromeColors.atmosphere.primary} 0%,
         transparent 72%
       )
     `,
@@ -13,7 +13,7 @@ export const darkCyanGradients = {
     secondaryBloom: `
       radial-gradient(
         circle,
-        ${darkCyanColors.atmosphere.secondary} 0%,
+        ${monochromeColors.atmosphere.secondary} 0%,
         transparent 72%
       )
     `,
@@ -38,12 +38,12 @@ export const darkCyanGradients = {
     primary: `
       linear-gradient(
         to right,
-        ${darkCyanColors.grid.primary} 1px,
+        ${monochromeColors.grid.primary} 1px,
         transparent 1px
       ),
       linear-gradient(
         to bottom,
-        ${darkCyanColors.grid.primary} 1px,
+        ${monochromeColors.grid.primary} 1px,
         transparent 1px
       )
     `,
@@ -51,12 +51,12 @@ export const darkCyanGradients = {
     subtle: `
       linear-gradient(
         to right,
-        ${darkCyanColors.grid.subtle} 1px,
+        ${monochromeColors.grid.subtle} 1px,
         transparent 1px
       ),
       linear-gradient(
         to bottom,
-        ${darkCyanColors.grid.subtle} 1px,
+        ${monochromeColors.grid.subtle} 1px,
         transparent 1px
       )
     `,
@@ -65,23 +65,23 @@ export const darkCyanGradients = {
   display: {
     primary: `
       bg-linear-to-br
-      from-[#f3f6f8]
-      via-[#adc0cf]
-      to-[#f0d1a0]
+      from-[#ffffff]
+      via-[#d6d6d6]
+      to-[#8f8f8f]
     `,
 
     secondary: `
       bg-linear-to-br
-      from-[#dce8f2]
-      via-[#9fb8c8]
-      to-[#f1cb93]
+      from-[#f5f5f5]
+      via-[#cfcfcf]
+      to-[#7a7a7a]
     `,
 
     tertiary: `
       bg-linear-to-br
-      from-[#eef2f5]
-      via-[#a8bac7]
-      to-[#e8c48c]
+      from-[#e8e8e8]
+      via-[#b8b8b8]
+      to-[#666666]
     `,
   },
 };

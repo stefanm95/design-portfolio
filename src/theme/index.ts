@@ -1,10 +1,6 @@
 export * from "./core/colors";
 
-export * from "./core/gradients/atmosphereGradients";
-export * from "./core/gradients/gridGradients";
 export * from "./core/gradients/dividersGradients";
-export * from "./core/gradients/overlaysGradients";
-export * from "./core/gradients/displayGradients";
 export * from "./core/motion";
 export * from "./core/opacity";
 export * from "./core/textures";
