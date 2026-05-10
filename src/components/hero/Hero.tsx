@@ -70,9 +70,9 @@ export default function Hero() {
 
           {/* DESCRIPTION BLOCK */}
           <FadeIn delay={0.35}>
-            <div className='mt-24 flex max-w-190 gap-10'>
+            <div className='mt-16 md:mt-20 lg:mt-24 flex flex-col md:flex-row max-w-190 md:gap-6 lg:gap-10'>
               {/* EDITORIAL MARKER */}
-              <div className='relative pt-4'>
+              <div className='relative pt-4 hidden md:block'>
                 <div className='h-px w-20 bg-white/12' />
 
                 <div
@@ -98,7 +98,8 @@ export default function Hero() {
                     max-w-145
 
                     text-[15px]
-                    md:text-[17px]
+                    md:text-[16px]
+                    lg:text-[17px]
 
                     leading-[1.9]
                     tracking-[0.01em]
@@ -115,7 +116,9 @@ export default function Hero() {
                   className='
                     flex flex-wrap
                     items-center
-                    gap-5
+                    gap-3
+                    md:gap-4
+                    lg:gap-5
 
                     text-[11px]
                     uppercase

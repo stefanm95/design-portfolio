@@ -92,10 +92,12 @@ export default function Experience() {
         <div
           className='
             grid
-            items-center
-            gap-24
-
+            grid-cols-1
             lg:grid-cols-[minmax(0,1.15fr)_520px]
+            items-center
+            gap-16
+            md:gap-20
+            lg:gap-24
           '
         >
           {/* LEFT SIDE */}

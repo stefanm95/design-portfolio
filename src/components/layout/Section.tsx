@@ -18,7 +18,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={cn("relative py-24 md:py-32 xl:py-40", className)}
+      className={cn("relative py-16 md:py-24 lg:py-32 xl:py-40", className)}
     >
       <Container className={containerClassName}>{children}</Container>
     </section>

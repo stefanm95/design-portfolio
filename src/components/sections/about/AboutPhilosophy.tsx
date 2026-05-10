@@ -5,25 +5,27 @@ import Text from "@/components/typography/Text";
 
 export default function AboutPhilosophy() {
   return (
-    <div className='grid grid-cols-12 gap-y-14 xl:gap-x-16'>
+    <div className='grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-y-14 lg:gap-x-16'>
       {/* LEFT */}
-      <div className='col-span-12 xl:col-span-5'>
+      <div className='col-span-1 md:col-span-12 lg:col-span-5'>
         <FadeIn>
-          <Heading as='h3' className='max-w-[12ch]'>
+          <Heading as='h3' className='max-w-[12ch] text-2xl md:text-3xl lg:text-4xl'>
             Building immersive digital systems through atmosphere and rhythm.
           </Heading>
         </FadeIn>
       </div>
 
       {/* RIGHT */}
-      <div className='col-span-12 xl:col-span-7'>
+      <div className='col-span-1 md:col-span-12 lg:col-span-7'>
         <FadeIn delay={0.12}>
-          <div className='space-y-8'>
+          <div className='space-y-6 md:space-y-8'>
             <Text
               className='
                 max-w-[42ch]
 
-                text-[16px]
+                text-sm
+                md:text-base
+                lg:text-[16px]
                 leading-[2]
 
                 text-white/46
@@ -36,7 +38,9 @@ export default function AboutPhilosophy() {
 
             <Text
               className='
-                max-w-[42ch]
+                max-wsm
+                md:text-base
+                lg:text--[42ch]
 
                 text-[16px]
                 leading-[2]

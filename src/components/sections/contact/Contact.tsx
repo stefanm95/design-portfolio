@@ -69,10 +69,14 @@ export default function Contact() {
           flex
           flex-col
 
-          gap-28
+          gap-16
+          md:gap-20
+          lg:gap-28
 
-          py-28
-          md:py-36
+          py-20
+          md:py-24
+          lg:py-28
+          xl:py-36
         '
       >
         {/* HERO */}
@@ -82,10 +86,13 @@ export default function Contact() {
         <div
           className='
             grid
-            grid-cols-12
+            grid-cols-1
+            lg:grid-cols-12
 
-            gap-y-16
-            xl:gap-x-20
+            gap-y-10
+            md:gap-y-12
+            lg:gap-y-0
+            lg:gap-x-20
           '
         >
           {/* LEFT */}
@@ -94,11 +101,14 @@ export default function Contact() {
     relative
 
     hidden
-    xl:flex
+    lg:flex
 
-    col-span-4
+    col-span-1
+    lg:col-span-4
 
-    min-h-[620px]
+    min-h-[480px]
+    md:min-h-[560px]
+    lg:min-h-[620px]
 
     overflow-hidden
   '
@@ -216,9 +226,9 @@ export default function Contact() {
           </div>
 
           {/* RIGHT */}
-          <div className='col-span-12 xl:col-span-8 space-y-20'>
+          <div className='col-span-1 lg:col-span-8 space-y-12 md:space-y-16 lg:space-y-20'>
             <ContactLinks />
-            <div className='px-8 xl:px-0'>
+            <div className='px-0 lg:px-0'>
               <ContactAvailability />
             </div>
           </div>

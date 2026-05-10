@@ -6,7 +6,7 @@ import ProjectShowcase from "./project-showcase/ProjectShowcase";
 
 export default function SelectedWork() {
   return (
-    <Section className='relative overflow-hidden py-40 xl:py-56'>
+    <Section className='relative overflow-hidden py-32 md:py-40 lg:py-48 xl:py-56'>
       {/* ATMOSPHERIC PURPLE BLOOM */}
       <div
         className='
@@ -30,7 +30,7 @@ export default function SelectedWork() {
       />
 
       {/* CONTENT */}
-      <div className='relative z-10 space-y-56'>
+      <div className='relative z-10 space-y-32 md:space-y-40 lg:space-y-48 xl:space-y-56'>
         {projects.map((project, index) => (
           <ProjectShowcase key={project.id} index={index} project={project} />
         ))}

@@ -9,7 +9,7 @@ import LeftSideVisual from "./LeftSideVisual";
 
 export default function Philosophy() {
   return (
-    <Section className='relative py-40 xl:py-56'>
+    <Section className='relative py-32 md:py-40 lg:py-48 xl:py-56'>
       <LeftSideVisual />
       {/* Atmospheric Divider */}
       <div
@@ -34,10 +34,16 @@ export default function Philosophy() {
           absolute
 
           left-[10%]
+          md:left-[5%]
+          lg:left-[10%]
           top-[10%]
 
-          h-[420px]
-          w-[420px]
+          h-[300px]
+          md:h-[350px]
+          lg:h-[420px]
+          w-[300px]
+          md:w-[350px]
+          lg:w-[420px]
 
           rounded-full
           blur-3xl
@@ -55,14 +61,18 @@ export default function Philosophy() {
           relative z-10
 
           grid
-          grid-cols-12
-          gap-y-24
+          grid-cols-1
+          md:grid-cols-1
+          lg:grid-cols-12
+          gap-y-16
+          md:gap-y-20
+          lg:gap-y-24
         '
       >
         {/* LEFT */}
-        <div className='col-span-12 xl:col-span-6'>
+        <div className='col-span-1 md:col-span-1 lg:col-span-6'>
           <FadeIn>
-            <div className='space-y-10'>
+            <div className='space-y-8 md:space-y-10'>
               <Label>Philosophy</Label>
 
               <Heading
@@ -70,14 +80,13 @@ export default function Philosophy() {
                 className='
                   max-w-[10ch]
 
-                  text-5xl
+                  text-4xl
+                  md:text-5xl
+                  lg:text-[5.5rem]
                   leading-[0.95]
                   tracking-[-0.06em]
 
                   text-white/96
-
-                  md:text-7xl
-                  xl:text-[5.5rem]
                 '
               >
                 Designing interfaces that feel spatial, tactile, and emotionally
@@ -88,12 +97,14 @@ export default function Philosophy() {
         </div>
 
         {/* RIGHT */}
-        <div className='col-span-12 xl:col-span-5 xl:col-start-8'>
+        <div className='col-span-1 md:col-span-1 lg:col-span-5 lg:col-start-8'>
           <FadeIn delay={0.15}>
-            <div className='space-y-12'>
+            <div className='space-y-8 md:space-y-10 lg:space-y-12'>
               <Text
                 className='
-                  text-[17px]
+                  text-base
+                  md:text-lg
+                  lg:text-[17px]
                   leading-[2]
 
                   text-white/46
@@ -107,7 +118,9 @@ export default function Philosophy() {
 
               <Text
                 className='
-                  text-[15px]
+                  text-sm
+                  md:text-base
+                  lg:text-[15px]
                   leading-[1.9]
 
                   text-white/34
@@ -121,14 +134,17 @@ export default function Philosophy() {
               {/* Metadata */}
               <div
                 className='
-                  flex flex-wrap
-                  gap-x-10
+                  flex flex-col
+                  md:flex-wrap
+                  gap-x-8
+                  lg:gap-x-10
                   gap-y-5
 
                   border-t
                   border-white/6
 
-                  pt-10
+                  pt-8
+                  md:pt-10
                 '
               >
                 <div className='space-y-2'>

@@ -6,11 +6,14 @@ export default function ContactFooter() {
       className='
         relative
         overflow-hidden
-px-8
+        px-6
+        md:px-8
         border-t
         border-white/[0.05]
 
-        py-14
+        py-10
+        md:py-12
+        lg:py-14
       '
     >
       {/* ATMOSPHERIC GRADIENT */}
@@ -52,11 +55,13 @@ px-8
 
             flex
             flex-col
-            gap-14
+            gap-10
+            md:gap-12
+            lg:gap-14
 
-            xl:flex-row
-            xl:items-end
-            xl:justify-between
+            lg:flex-row
+            lg:items-end
+            lg:justify-between
           '
         >
           {/* LEFT */}
@@ -75,14 +80,13 @@ px-8
 
             <div
               className='
-                max-w-[14ch]
-
-                text-4xl
+                max-w3xl
+                sm:text-4xl
+                md:text-5xl
+                lg:text-6xl
                 leading-[0.95]
 
-                text-white/84
-
-                md:text-6xl
+                text-white/8484
               '
             >
               Let’s build something memorable.

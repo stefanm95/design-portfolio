@@ -7,7 +7,9 @@ export default function AboutPrinciples() {
         relative
         overflow-hidden
 
-        py-32
+        py-24
+        md:py-28
+        lg:py-32
         xl:py-40
       '
     >
@@ -26,11 +28,17 @@ export default function AboutPrinciples() {
         className='
           absolute
 
-          left-[-80%]
+          left-[-140%]
+          md:left-[-95%]
+          xl:left-[-80%]
+
           top-1/2
 
           h-[140%]
-          w-[250%]
+          w-[280%]
+
+          md:w-[240%]
+          xl:w-[250%]
 
           -translate-y-1/2
 
@@ -51,7 +59,8 @@ export default function AboutPrinciples() {
             object-contain
             object-center
 
-            scale-80
+            scale-[0.82]
+            md:scale-[0.78]
           '
         />
 
@@ -73,28 +82,34 @@ export default function AboutPrinciples() {
             top-0
 
             h-full
-            w-[1px]
+            w-px
 
             bg-white/10
           '
         />
       </div>
 
-      {/* ATMOSPHERIC CYAN */}
+      {/* CYAN ATMOSPHERE */}
       <div
         className='
           absolute
 
-          left-[22%]
+          left-[10%]
+          md:left-[16%]
+          xl:left-[22%]
+
           top-[48%]
 
-          h-[22rem]
-          w-[22rem]
+          h-[18rem]
+          w-[18rem]
+
+          md:h-[22rem]
+          md:w-[22rem]
 
           -translate-y-1/2
 
           rounded-full
-          blur-sm
+          blur-3xl
 
           opacity-[0.08]
         '
@@ -111,18 +126,20 @@ export default function AboutPrinciples() {
           z-10
 
           grid
-          grid-cols-12
+          grid-cols-1
 
-          items-center
           gap-y-20
+
+          lg:grid-cols-12
+          lg:items-center
         '
       >
-        {/* LEFT EMPTY SPACE */}
-        <div className='hidden xl:block xl:col-span-5' />
+        {/* LEFT SPACER */}
+        <div className='hidden lg:block lg:col-span-5' />
 
         {/* RIGHT CONTENT */}
-        <div className='col-span-12 xl:col-span-6 xl:col-start-7'>
-          <div className='space-y-14'>
+        <div className='col-span-1 lg:col-span-6 lg:col-start-7'>
+          <div className='space-y-12 md:space-y-14'>
             <FadeIn>
               <div
                 className='
@@ -142,12 +159,14 @@ export default function AboutPrinciples() {
                 className='
                   max-w-[12ch]
 
-                  text-4xl
+                  text-3xl
+                  sm:text-4xl
+                  md:text-5xl
+                  lg:text-6xl
+
                   leading-[0.95]
 
                   text-white/92
-
-                  md:text-6xl
                 '
               >
                 Calm systems with cinematic intent.
@@ -159,7 +178,7 @@ export default function AboutPrinciples() {
                 className='
                   max-w-[34ch]
 
-                  text-base
+                  text-[15px]
                   leading-[1.9]
 
                   text-white/42
@@ -178,10 +197,13 @@ export default function AboutPrinciples() {
                   flex
                   flex-wrap
 
-                  gap-x-8
-                  gap-y-5
+                  gap-x-6
+                  gap-y-4
 
                   pt-6
+
+                  md:gap-x-8
+                  md:gap-y-5
                 '
               >
                 {[

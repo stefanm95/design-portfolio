@@ -9,7 +9,9 @@ export default function ContactHero() {
         relative
         overflow-hidden
 
-        py-40
+        py-28
+        md:py-32
+        lg:py-40
         xl:py-56
       '
     >
@@ -34,10 +36,16 @@ export default function ContactHero() {
           absolute
 
           left-[-10%]
+          md:left-[-8%]
+          lg:left-[-10%]
           top-[20%]
 
-          h-[34rem]
-          w-[34rem]
+          h-[28rem]
+          md:h-[30rem]
+          lg:h-[34rem]
+          w-[28rem]
+          md:w-[30rem]
+          lg:w-[34rem]
 
           rounded-full
           blur-3xl
@@ -102,13 +110,14 @@ export default function ContactHero() {
                 className='
                   max-w-[11ch]
 
-                  text-5xl
+                  text-4xl
+                  sm:text-5xl
+                  md:text-6xl
+                  lg:text-7xl
+                  xl:text-[6.5rem]
                   leading-[0.92]
 
                   text-white/92
-
-                  md:text-7xl
-                  xl:text-[6.5rem]
                 '
               >
                 Designed with atmosphere and intent.
@@ -119,7 +128,7 @@ export default function ContactHero() {
               <p
                 className='
                   max-w-[34ch]
-
+                  md:text-sm
                   text-base
                   leading-[1.9]
 
@@ -143,6 +152,8 @@ export default function ContactHero() {
 
                 border-t
                 border-white/[0.08]
+
+                md:border-white/[0.08]
 
                 pt-8
               '
