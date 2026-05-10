@@ -1,10 +1,8 @@
 import { motion } from "framer-motion";
 
-import { activeTheme } from "@/theme";
+import { grid } from "@/theme";
 
 export default function GridOverlay() {
-  const grid = activeTheme.grid;
-
   return (
     <div className='pointer-events-none fixed inset-0 overflow-hidden'>
       <motion.div
