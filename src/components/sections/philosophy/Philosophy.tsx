@@ -9,7 +9,7 @@ import LeftSideVisual from "./LeftSideVisual";
 
 export default function Philosophy() {
   return (
-    <Section className='relative py-32 md:py-40 lg:py-48 xl:py-56'>
+    <Section className='relative md:py-40 lg:py-48 xl:py-56'>
       <LeftSideVisual />
       {/* Atmospheric Divider */}
       <div

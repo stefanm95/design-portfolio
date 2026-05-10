@@ -28,7 +28,7 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
           '
         >
           {/* IMAGE */}
-          <div className='relative h-[80vh] w-full'>
+          <div className='relative aspect-[16/9] w-full'>
             <img
               src={hero}
               alt={project.title}

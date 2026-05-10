@@ -50,7 +50,7 @@ export default function Contact() {
           -translate-x-1/2
 
           rounded-full
-          blur-3xl
+          blur-sm
 
           opacity-[0.08]
         '

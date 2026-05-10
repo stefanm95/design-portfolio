@@ -6,7 +6,7 @@ import ProjectShowcase from "./project-showcase/ProjectShowcase";
 
 export default function SelectedWork() {
   return (
-    <Section className='relative overflow-hidden py-32 md:py-40 lg:py-48 xl:py-56'>
+    <Section className='relative overflow-hidden md:py-40 lg:py-48 xl:py-56'>
       {/* ATMOSPHERIC PURPLE BLOOM */}
       <div
         className='

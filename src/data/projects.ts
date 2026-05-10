@@ -78,7 +78,7 @@ export const projects: Project[] = [
 
     layout: "architectural",
 
-    stack: ["React", "TypeScript", "Framer Motion", "Tailwind", "Swiper"],
+    stack: ["React", "TypeScript", "Framer Motion", "Tailwind"],
 
     liveUrl:
       "https://conceptarhitectural-git-main-stefanm95s-projects.vercel.app/",

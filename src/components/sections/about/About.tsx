@@ -7,7 +7,7 @@ import AboutStack from "./AboutStack";
 
 export default function About() {
   return (
-    <Section className='relative overflow-hidden py-32 md:py-40 lg:py-48 xl:py-56'>
+    <Section className='relative overflow-hidden md:py-40 lg:py-48 xl:py-56'>
       {/* ATMOSPHERIC BLOOM */}
       <div
         className='
