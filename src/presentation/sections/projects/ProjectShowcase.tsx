@@ -1,6 +1,6 @@
-import ArchitecturalProjectShowcase from "@/presentation/presets/cinematic/projects/ArchitecturalProjectShowcase";
+import ArchitecturalProjectShowcase from "@/presentation/modes/cinematic/projects/ArchitecturalProjectShowcase";
 import type { ProjectShowcaseProps } from "../shared/types";
-import EditorialProjectShowcase from "@/presentation/presets/editorial/projects/EditorialProjectShowcase";
+import EditorialProjectShowcase from "@/presentation/modes/editorial/projects/EditorialProjectShowcase";
 
 export default function ProjectShowcase(props: ProjectShowcaseProps) {
   const { project } = props;
