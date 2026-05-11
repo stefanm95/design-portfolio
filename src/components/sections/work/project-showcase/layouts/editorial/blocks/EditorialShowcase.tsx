@@ -9,7 +9,7 @@ import type { ProjectBlockProps } from "../../../shared/types";
 import ProjectSectionLabel from "../../../shared/ProjectSectionLabel";
 import ProjectCinematicFrame from "../../../shared/ProjectCinematicFrame";
 
-export default function ProjectEditorial({ project }: ProjectBlockProps) {
+export default function EditorialShowcase({ project }: ProjectBlockProps) {
   const editorial = project.media.editorial?.[0];
 
   if (!editorial) return null;

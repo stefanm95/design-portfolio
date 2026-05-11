@@ -2,10 +2,10 @@ import FadeIn from "@/components/motion/FadeIn";
 
 import type { ProjectShowcaseProps } from "../../shared/types";
 
-import ProjectAtmosphere from "./blocks/ProjectAtmosphere";
-import ProjectEditorial from "./blocks/ProjectEditorial";
-import ProjectHero from "./blocks/ProjectHero";
-import ProjectUIDetail from "./blocks/ProjectUIDetail";
+import ProjectAtmosphere from "./blocks/EditorialAtmosphere";
+import ProjectEditorial from "./blocks/EditorialShowcase";
+import ProjectHero from "./blocks/EditorialHero";
+import ProjectUIDetail from "./blocks/EditorialUIDetail";
 
 import ProjectDivider from "../../shared/ProjectDivider";
 import ProjectMeta from "../../shared/ProjectMeta";

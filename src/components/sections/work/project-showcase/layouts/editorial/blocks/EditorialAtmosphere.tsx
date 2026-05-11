@@ -9,7 +9,7 @@ import type { ProjectBlockProps } from "../../../shared/types";
 
 import ProjectCinematicFrame from "../../../shared/ProjectCinematicFrame";
 
-export default function ProjectAtmosphere({ project }: ProjectBlockProps) {
+export default function EditorialAtmosphere({ project }: ProjectBlockProps) {
   const image = project.media.atmosphere?.[0];
 
   if (!image) return null;

@@ -9,7 +9,7 @@ import type { ProjectBlockProps } from "../../../shared/types";
 
 import ProjectCinematicFrame from "../../../shared/ProjectCinematicFrame";
 
-export default function ProjectUIDetail({ project }: ProjectBlockProps) {
+export default function EditorialUIDetail({ project }: ProjectBlockProps) {
   const image = project.media.ui?.[0];
 
   if (!image) return null;

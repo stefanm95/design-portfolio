@@ -3,7 +3,9 @@ import FadeIn from "@/components/motion/FadeIn";
 import { activeTheme, ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
+
 import ProjectCinematicFrame from "../../../shared/ProjectCinematicFrame";
+import ProjectLiveIndicator from "../../../shared/ProjectLiveIndicator";
 
 export default function ArchitecturalHero({ project }: ProjectBlockProps) {
   const hero = project.media.hero?.[0];
@@ -26,6 +28,10 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
             alt={project.title}
             imageFit='contain'
             minHeight='min-h-[320px] md:min-h-[520px]'
+            variant='restrained'
+            bloom={true}
+            reflection={false}
+            atmosphericFill={false}
             className={`
               bg-transparent
               border
@@ -46,65 +52,11 @@ export default function ArchitecturalHero({ project }: ProjectBlockProps) {
             '
             style={{
               background: effects.blooms.projectHero,
+              opacity: 0.4,
             }}
           />
 
-          {/* LIVE INDICATOR */}
-          <div
-            className={`
-              absolute
-              bottom-8
-              right-8
-
-              flex
-              items-center
-              gap-3
-
-              text-[10px]
-              uppercase
-              tracking-[0.28em]
-
-              ${ui.text.paragraph}
-            `}
-          >
-            <span className='relative flex h-2 w-2'>
-              <span
-                className={`
-                  absolute
-                  inline-flex
-                  h-full
-                  w-full
-                  animate-ping
-                  rounded-full
-
-                  ${effects.indicators.livePing}
-                `}
-              />
-
-              <span
-                className={`
-                  relative
-                  inline-flex
-                  h-2
-                  w-2
-                  rounded-full
-
-                  ${effects.indicators.liveDot}
-                `}
-              />
-            </span>
-
-            <span
-              className={`
-                transition-colors
-                duration-500
-
-                ${ui.text.hoverInteractive}
-              `}
-            >
-              Live Experience
-            </span>
-          </div>
+          <ProjectLiveIndicator />
         </div>
       </a>
     </FadeIn>
