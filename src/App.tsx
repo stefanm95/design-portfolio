@@ -8,12 +8,13 @@ import SelectedWork from "./components/sections/work/SelectedWork";
 import Experience from "@/components/sections/experience/Experience";
 import About from "./components/sections/about/About";
 import Contact from "./components/sections/contact/Contact";
+import ThemeSwitcher from "./components/shared/ThemeSwitcher";
 
 export default function App() {
   return (
     <>
       <SmoothScroll />
-
+      <ThemeSwitcher />
       <Atmosphere />
       <NoiseOverlay />
       <GridOverlay />

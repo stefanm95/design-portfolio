@@ -1,6 +1,6 @@
 import FadeIn from "@/components/motion/FadeIn";
 
-import { activeTheme } from "@/theme";
+import { useTheme } from "@/theme";
 
 const links = [
   {
@@ -26,7 +26,9 @@ const links = [
 ];
 
 export default function ContactLinks() {
-  const contact = activeTheme.contactLinks;
+  const { theme } = useTheme();
+
+  const contact = theme.contactLinks;
 
   return (
     <div

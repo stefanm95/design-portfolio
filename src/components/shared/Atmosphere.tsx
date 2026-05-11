@@ -1,7 +1,8 @@
-import { activeTheme } from "@/theme";
+import { useTheme } from "@/theme";
 
 export default function Atmosphere() {
-  const atmosphere = activeTheme.atmosphere;
+  const { theme } = useTheme();
+  const atmosphere = theme.atmosphere;
 
   return (
     <>

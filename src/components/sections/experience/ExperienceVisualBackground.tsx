@@ -1,7 +1,8 @@
-import { activeTheme } from "@/theme";
+import { useTheme } from "@/theme";
 
 export default function ExperienceVisualBackground() {
-  const scene = activeTheme.scenes.experience;
+  const { theme } = useTheme();
+  const scene = theme.scenes.experience;
 
   return (
     <div

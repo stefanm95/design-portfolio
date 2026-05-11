@@ -1,4 +1,4 @@
-import { activeTheme } from "@/theme";
+import { useTheme } from "@/theme";
 
 type Props = {
   id: string;
@@ -13,7 +13,8 @@ export default function ExperiencePanel({
   description,
   className,
 }: Props) {
-  const panel = activeTheme.experiencePanel;
+  const { theme } = useTheme();
+  const panel = theme.experiencePanel;
 
   return (
     <div

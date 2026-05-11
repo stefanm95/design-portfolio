@@ -1,7 +1,8 @@
-import { activeTheme, ui } from "@/theme";
+import { useTheme, ui } from "@/theme";
 
 export default function ProjectLiveIndicator() {
-  const effects = activeTheme.effects;
+  const { theme } = useTheme();
+  const effects = theme.effects;
 
   return (
     <div

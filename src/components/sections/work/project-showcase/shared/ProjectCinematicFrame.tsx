@@ -1,4 +1,4 @@
-import { activeTheme, ui } from "@/theme";
+import { useTheme, ui } from "@/theme";
 
 type Props = {
   image: string;
@@ -51,7 +51,8 @@ export default function ProjectCinematicFrame({
 
   atmosphericFill = true,
 }: Props) {
-  const effects = activeTheme.effects;
+  const { theme } = useTheme();
+  const effects = theme.effects;
 
   const immersive = variant === "immersive";
 
@@ -95,8 +96,8 @@ export default function ProjectCinematicFrame({
           absolute
           inset-0
 
-          ${activeTheme.showcase.image.transition}
-          ${activeTheme.showcase.image.hoverScale}
+          ${theme.showcase.image.transition}
+          ${theme.showcase.image.hoverScale}
 
           ${imageClassName}
         `}

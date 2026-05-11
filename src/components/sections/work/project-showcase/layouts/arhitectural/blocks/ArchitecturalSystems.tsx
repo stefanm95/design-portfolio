@@ -4,17 +4,18 @@ import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
 
-import { activeTheme, ui } from "@/theme";
+import { useTheme, ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 import ProjectCinematicFrame from "../../../shared/ProjectCinematicFrame";
 
 export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
   const system = project.media.systems?.[0];
+  const { theme } = useTheme();
 
   if (!system) return null;
 
-  const showcase = activeTheme.showcase;
+  const showcase = theme.showcase;
 
   return (
     <section

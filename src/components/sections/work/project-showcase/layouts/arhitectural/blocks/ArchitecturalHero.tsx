@@ -1,6 +1,6 @@
 import FadeIn from "@/components/motion/FadeIn";
 
-import { activeTheme, ui } from "@/theme";
+import { useTheme, ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 
@@ -8,9 +8,10 @@ import ProjectCinematicFrame from "../../../shared/ProjectCinematicFrame";
 import ProjectLiveIndicator from "../../../shared/ProjectLiveIndicator";
 
 export default function ArchitecturalHero({ project }: ProjectBlockProps) {
+  const { theme } = useTheme();
   const hero = project.media.hero?.[0];
 
-  const effects = activeTheme.effects;
+  const effects = theme.effects;
 
   if (!hero) return null;
 

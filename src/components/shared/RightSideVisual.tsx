@@ -1,13 +1,14 @@
 import { useMousePosition } from "@/hooks/useMousePosition";
 
-import { activeTheme, dividersGradients } from "@/theme";
+import { useTheme, dividersGradients } from "@/theme";
 
 import { motion } from "framer-motion";
 
 export default function RightSideVisual() {
+  const { theme } = useTheme();
   const mouse = useMousePosition();
 
-  const visuals = activeTheme.visuals.rightSide;
+  const visuals = theme.visuals.rightSide;
 
   return (
     <div className='absolute inset-0 overflow-hidden pointer-events-none'>

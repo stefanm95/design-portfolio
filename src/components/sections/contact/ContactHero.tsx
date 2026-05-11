@@ -3,10 +3,12 @@ import FadeIn from "@/components/motion/FadeIn";
 import Display from "@/components/typography/Display";
 import Heading from "@/components/typography/Heading";
 
-import { activeTheme, ui } from "@/theme";
+import { useTheme, ui } from "@/theme";
 
 export default function ContactHero() {
-  const scene = activeTheme.scenes.contact;
+  const { theme } = useTheme();
+
+  const scene = theme.scenes.contact;
 
   return (
     <section

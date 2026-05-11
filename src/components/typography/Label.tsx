@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 import type { ElementType, ReactNode } from "react";
 
-import { activeTheme } from "@/theme";
+import { useTheme } from "@/theme";
 
 type Props = {
   as?: ElementType;
@@ -15,7 +15,9 @@ export default function Label({
   children,
   className,
 }: Props) {
-  const labelTypography = activeTheme.typography.label;
+  const { theme } = useTheme();
+  const labelTypography = theme.typography.label;
+
   return (
     <Component
       className={cn(

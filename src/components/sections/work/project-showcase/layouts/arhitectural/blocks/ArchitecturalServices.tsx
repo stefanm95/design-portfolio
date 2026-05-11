@@ -4,15 +4,15 @@ import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
 
-import { activeTheme, ui } from "@/theme";
+import { useTheme, ui } from "@/theme";
 
 import type { ProjectBlockProps } from "../../../shared/types";
 import ProjectCinematicFrame from "../../../shared/ProjectCinematicFrame";
 
 export default function ArchitecturalServices({ project }: ProjectBlockProps) {
   const services = project.media.services ?? [];
-
-  const showcase = activeTheme.showcase;
+  const { theme } = useTheme();
+  const showcase = theme.showcase;
 
   return (
     <section className='space-y-20'>

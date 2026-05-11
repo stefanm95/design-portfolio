@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 import type { ElementType, ReactNode } from "react";
 
-import { activeTheme } from "@/theme";
+import { useTheme } from "@/theme";
 
 type Variant = "primary" | "secondary" | "tertiary";
 
@@ -19,7 +19,9 @@ export default function Display({
   variant = "primary",
   className,
 }: Props) {
-  const cinematicDisplay = activeTheme.typography.display;
+  const { theme } = useTheme();
+  const cinematicDisplay = theme.typography.display;
+
   return (
     <Component
       className={cn(

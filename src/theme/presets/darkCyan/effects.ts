@@ -44,7 +44,7 @@ export const darkCyanEffects = {
   },
 
   blooms: {
-    priamry: `
+    primary: `
       linear-gradient(
         to top,
         rgba(139,92,246,0.05),
