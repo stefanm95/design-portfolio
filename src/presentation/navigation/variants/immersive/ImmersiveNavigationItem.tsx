@@ -79,7 +79,7 @@ export default function ImmersiveNavigationItem({
           animate={{
             opacity: isActive ? 1 : 0.14,
 
-            letterSpacing: isActive ? "0.22em" : "0.34em",
+            letterSpacing: isActive ? "0.22em" : "0.26em",
 
             y: isActive ? -1 : 0,
           }}
