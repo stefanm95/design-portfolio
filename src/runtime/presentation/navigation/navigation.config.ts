@@ -1,7 +1,7 @@
 export const navigationConfig = {
-  intersectionThreshold: 0.35,
+  sectionThreshold: 0.18,
 
-  scrollDuration: 1.6,
+  scrollDuration: 2.8,
 
-  navigationOffset: 120,
+  scrollOffset: -80,
 };

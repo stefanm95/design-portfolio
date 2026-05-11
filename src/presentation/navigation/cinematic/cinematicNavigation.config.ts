@@ -9,11 +9,6 @@ export const cinematicNavigationItems = [
   },
 
   {
-    id: "about",
-    label: "About",
-  },
-
-  {
     id: "projects",
     label: "Selected Work",
   },
@@ -21,6 +16,11 @@ export const cinematicNavigationItems = [
   {
     id: "experience",
     label: "Experience",
+  },
+
+  {
+    id: "about",
+    label: "About",
   },
 
   {

@@ -6,7 +6,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { NavigationContext } from "./NavigationContext";
 
-import { navigationSections } from "./navigation.config";
+import { navigationConfig } from "./navigation.config";
 
 type Props = {
   children: React.ReactNode;
@@ -19,77 +19,113 @@ export default function NavigationProvider({ children }: Props) {
 
   const [scrollProgress, setScrollProgress] = useState(0);
 
+  /*
+   |--------------------------------------------------------------------------
+   | LENIS
+   |--------------------------------------------------------------------------
+   */
+
   useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.08,
+      lerp: 0.065,
 
       smoothWheel: true,
 
-      wheelMultiplier: 1,
+      wheelMultiplier: 0.8,
+
+      touchMultiplier: 1.2,
     });
 
     lenisRef.current = lenis;
 
+    let frameId: number;
+
     function raf(time: number) {
       lenis.raf(time);
 
-      requestAnimationFrame(raf);
+      frameId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    frameId = requestAnimationFrame(raf);
 
     lenis.on("scroll", ({ progress }) => {
       setScrollProgress(progress);
     });
 
     return () => {
+      cancelAnimationFrame(frameId);
+
       lenis.destroy();
     };
   }, []);
 
+  /*
+   |--------------------------------------------------------------------------
+   | ACTIVE SECTION DETECTION
+   |--------------------------------------------------------------------------
+   */
+
   useEffect(() => {
+    const sections = Array.from(document.querySelectorAll("section[id]"));
+
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries.find((entry) => entry.isIntersecting);
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
-        if (visible?.target.id) {
-          setActiveSection(visible.target.id);
+        if (visibleSections[0]) {
+          setActiveSection(visibleSections[0].target.id);
         }
       },
 
       {
-        threshold: 0.35,
+        threshold: navigationConfig.sectionThreshold,
       },
     );
 
-    navigationSections.forEach((section) => {
-      const element = document.getElementById(section.id);
-
-      if (element) {
-        observer.observe(element);
-      }
+    sections.forEach((section) => {
+      observer.observe(section);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const scrollToSection = useCallback((id: string) => {
-    const target = document.getElementById(id);
+  /*
+   |--------------------------------------------------------------------------
+   | SCROLL TO SECTION
+   |--------------------------------------------------------------------------
+   */
 
-    if (!target || !lenisRef.current) return;
+  const scrollToSection = useCallback(
+    (id: string) => {
+      const target = document.getElementById(id);
 
-    lenisRef.current.scrollTo(target, {
-      duration: 1.6,
-    });
-  }, []);
+      if (!target || !lenisRef.current) {
+        return;
+      }
+
+      lenisRef.current.scrollTo(target, {
+        duration: navigationConfig.scrollDuration,
+
+        offset: navigationConfig.scrollOffset,
+
+        lerp: 0.08,
+      });
+    },
+
+    [],
+  );
+
+  /*
+   |--------------------------------------------------------------------------
+   | CONTEXT
+   |--------------------------------------------------------------------------
+   */
 
   const value = useMemo(
     () => ({
-      sections: navigationSections,
-
       activeSection,
-
-      setActiveSection,
 
       scrollProgress,
 

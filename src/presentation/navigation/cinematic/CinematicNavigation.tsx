@@ -2,12 +2,16 @@
 
 import { useNavigation } from "@/runtime/navigation";
 
+import { useNavigationSections } from "@/runtime/navigation";
+
 import CinematicNavigationItem from "./CinematicNavigationItem";
 
 import CinematicNavigationProgress from "./CinematicNavigationProgress";
 
 export default function CinematicNavigation() {
-  const { sections, activeSection, scrollToSection } = useNavigation();
+  const { activeSection, scrollToSection } = useNavigation();
+
+  const sections = useNavigationSections();
 
   return (
     <div
