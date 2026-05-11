@@ -6,7 +6,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { NavigationContext } from "./NavigationContext";
 
-import { navigationConfig } from "./navigation.config";
+import { navigationConfig, navigationSections } from "./navigation.config";
 
 type Props = {
   children: React.ReactNode;
@@ -66,29 +66,52 @@ export default function NavigationProvider({ children }: Props) {
    */
 
   useEffect(() => {
-    const sections = Array.from(document.querySelectorAll("section[id]"));
+    function updateActiveSection() {
+      const viewportCenter = window.innerHeight * 0.42;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      const sections = navigationSections
+        .map((section) => {
+          const element = document.getElementById(section.id);
 
-        if (visibleSections[0]) {
-          setActiveSection(visibleSections[0].target.id);
-        }
-      },
+          if (!element) {
+            return null;
+          }
 
-      {
-        threshold: navigationConfig.sectionThreshold,
-      },
-    );
+          const rect = element.getBoundingClientRect();
 
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
+          const distance = Math.abs(rect.top - viewportCenter);
 
-    return () => observer.disconnect();
+          return {
+            id: section.id,
+
+            distance,
+
+            rect,
+          };
+        })
+        .filter(
+          (
+            section,
+          ): section is {
+            id: string;
+            distance: number;
+            rect: DOMRect;
+          } => section !== null,
+        )
+        .sort((a, b) => a.distance - b.distance);
+
+      if (sections[0]) {
+        setActiveSection(sections[0].id);
+      }
+    }
+
+    updateActiveSection();
+
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+    };
   }, []);
 
   /*

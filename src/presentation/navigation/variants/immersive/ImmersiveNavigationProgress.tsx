@@ -14,7 +14,7 @@ export default function ImmersiveNavigationProgress() {
         inset-0
 
         overflow-hidden
-
+        pointer-events-none
         rounded-full
       '
     >
@@ -31,7 +31,7 @@ export default function ImmersiveNavigationProgress() {
           absolute
           inset-y-0
           left-0
-
+          pointer-events-none
           w-full
 
           rounded-full

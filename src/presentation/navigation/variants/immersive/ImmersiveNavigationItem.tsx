@@ -49,9 +49,7 @@ export default function ImmersiveNavigationItem({
 
           rounded-full
 
-          bg-white/[0.08]
-
-          blur-xl
+          blur-sm
         '
       />
 

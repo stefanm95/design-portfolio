@@ -40,7 +40,7 @@ export default function ImmersiveNavigation() {
           px-5
           py-4
 
-          backdrop-blur-2xl
+          backdrop-blur-sm
         '
       >
         <ImmersiveNavigationProgress />
