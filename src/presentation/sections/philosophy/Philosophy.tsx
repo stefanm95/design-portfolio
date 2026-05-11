@@ -1,12 +1,11 @@
-import Section from "@/components/layout/Section";
-
 import FadeIn from "@/presentation/animation/FadeIn";
 
 import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
 import { dividersGradients, ui } from "@/theme";
-import LeftSideVisual from "@/components/shared/LeftSideVisual";
+import LeftSideVisual from "@/presentation/visuals/LeftSideVisual";
+import Section from "@/presentation/layout/Section";
 export default function Philosophy() {
   return (
     <Section id='philosophy' className='relative md:py-40 lg:py-48 xl:py-56'>

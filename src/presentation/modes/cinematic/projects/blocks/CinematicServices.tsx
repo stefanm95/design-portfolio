@@ -6,7 +6,7 @@ import Text from "@/components/typography/Text";
 
 import { useTheme, ui } from "@/theme";
 
-import type { ProjectBlockProps } from "@/presentation/shared/types";
+import type { ProjectBlockProps } from "@/presentation/types/projects";
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
 export default function CinematicServices({ project }: ProjectBlockProps) {

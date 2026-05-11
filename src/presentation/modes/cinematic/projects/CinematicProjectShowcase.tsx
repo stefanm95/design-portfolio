@@ -1,6 +1,6 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import type { ProjectShowcaseProps } from "@/presentation/shared/types";
+import type { ProjectShowcaseProps } from "@/presentation/types/projects";
 
 import ArchitecturalHero from "./blocks/CinematicHero";
 import ArchitecturalMobile from "./blocks/mobile/CinematicMobile";

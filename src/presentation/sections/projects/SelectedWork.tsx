@@ -1,8 +1,7 @@
-import Section from "@/components/layout/Section";
-
 import { projects } from "@/data/projects";
 
 import ProjectShowcase from "./ProjectShowcase";
+import Section from "@/presentation/layout/Section";
 
 export default function SelectedWork() {
   return (

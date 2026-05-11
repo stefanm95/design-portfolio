@@ -59,3 +59,12 @@ export type Project = {
 
   featured?: boolean;
 };
+
+export type ProjectBlockProps = {
+  project: Project;
+};
+
+export type ProjectShowcaseProps = {
+  project: Project;
+  index: number;
+};

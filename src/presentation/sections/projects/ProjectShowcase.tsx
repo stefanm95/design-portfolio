@@ -1,5 +1,5 @@
 import ArchitecturalProjectShowcase from "@/presentation/modes/cinematic/projects/CinematicProjectShowcase";
-import type { ProjectShowcaseProps } from "@/presentation/shared/types";
+import type { ProjectShowcaseProps } from "@/presentation/types/projects";
 import EditorialProjectShowcase from "@/presentation/modes/editorial/projects/EditorialProjectShowcase";
 
 export default function ProjectShowcase(props: ProjectShowcaseProps) {

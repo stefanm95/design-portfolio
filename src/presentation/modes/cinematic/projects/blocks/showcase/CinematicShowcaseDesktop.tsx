@@ -6,7 +6,7 @@ import Text from "@/components/typography/Text";
 
 import { ui } from "@/theme";
 
-import type { Project } from "@/types/projects";
+import type { Project } from "@/presentation/types/projects";
 
 import ArchitecturalShowcaseSwitcher from "./CinematicShowcaseSwitcher";
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";

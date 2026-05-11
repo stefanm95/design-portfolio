@@ -1,6 +1,3 @@
-import Container from "@/components/layout/Container";
-import Section from "@/components/layout/Section";
-
 import FadeIn from "@/presentation/animation/FadeIn";
 
 import Label from "@/components/typography/Label";
@@ -9,6 +6,8 @@ import Text from "@/components/typography/Text";
 import ExperienceVisual from "./ExperienceVisual";
 import Heading from "@/components/typography/Heading";
 import { dividersGradients, ui } from "@/theme";
+import Section from "@/presentation/layout/Section";
+import Container from "@/presentation/layout/Container";
 
 export default function Experience() {
   return (

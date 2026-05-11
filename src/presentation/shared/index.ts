@@ -7,5 +7,3 @@ export { default as ProjectLiveIndicator } from "./ProjectLiveIndicator";
 export { default as ProjectMeta } from "./ProjectMeta";
 
 export { default as ProjectSectionLabel } from "./ProjectSectionLabel";
-
-export * from "./types";

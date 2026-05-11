@@ -1,5 +1,3 @@
-import Section from "@/components/layout/Section";
-
 import FadeIn from "@/presentation/animation/FadeIn";
 import Reveal from "@/presentation/animation/Reveal";
 
@@ -8,7 +6,8 @@ import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
 import { dividersGradients, opacityClass, ui } from "@/theme";
 
-import RightSideVisual from "@/components/shared/RightSideVisual";
+import RightSideVisual from "@/presentation/visuals/RightSideVisual";
+import Section from "@/presentation/layout/Section";
 
 export default function Hero() {
   return (

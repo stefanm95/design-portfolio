@@ -1,10 +1,10 @@
-import Section from "@/components/layout/Section";
 import { opacityClass } from "@/theme";
 
 import AboutHero from "./AboutHero";
 import AboutPhilosophy from "./AboutPhilosophy";
 import AboutPrinciples from "./AboutPrinciples";
 import AboutStack from "./AboutStack";
+import Section from "@/presentation/layout/Section";
 
 export default function About() {
   return (

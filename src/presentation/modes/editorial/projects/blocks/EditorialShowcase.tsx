@@ -4,7 +4,7 @@ import Heading from "@/components/typography/Heading";
 import Text from "@/components/typography/Text";
 import { ui } from "@/theme";
 
-import type { ProjectBlockProps } from "@/presentation/shared/types";
+import type { ProjectBlockProps } from "@/presentation/types/projects";
 
 import ProjectSectionLabel from "@/presentation/shared/ProjectSectionLabel";
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";

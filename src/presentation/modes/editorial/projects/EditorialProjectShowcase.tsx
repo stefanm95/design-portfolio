@@ -1,6 +1,6 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import type { ProjectShowcaseProps } from "@/presentation/shared/types";
+import type { ProjectShowcaseProps } from "@/presentation/types/projects";
 
 import EditorialAtmosphere from "./blocks/EditorialAtmosphere";
 import EditorialShowcase from "./blocks/EditorialShowcase";

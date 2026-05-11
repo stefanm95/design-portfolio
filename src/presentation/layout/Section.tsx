@@ -1,6 +1,6 @@
-import Container from "@/components/layout/Container";
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
+import Container from "./Container";
 
 type Props = {
   id?: string;
