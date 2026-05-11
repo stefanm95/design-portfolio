@@ -75,6 +75,7 @@ export default function CinematicNavigationItem({
           uppercase
           tracking-[0.28em]
           whitespace-nowrap
+          cursor-pointer
         '
       >
         {label}

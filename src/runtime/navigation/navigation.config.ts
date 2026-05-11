@@ -8,16 +8,17 @@ export const navigationSections = [
     label: "Philosophy",
   },
   {
-    id: "about",
-    label: "About",
-  },
-  {
     id: "projects",
     label: "Selected Work",
   },
+
   {
     id: "experience",
     label: "Experience",
+  },
+  {
+    id: "about",
+    label: "About",
   },
   {
     id: "contact",

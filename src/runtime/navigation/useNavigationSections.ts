@@ -1,18 +1,16 @@
 import { useMemo } from "react";
 
-import { cinematicNavigationItems } from "@/presentation/navigation/cinematic/cinematicNavigation.config";
+import { navigationSections } from "./navigation.config";
 
 export function useNavigationSections() {
   return useMemo(
     () =>
-      cinematicNavigationItems.map((item) => ({
-        id: item.id,
-
-        label: item.label,
+      navigationSections.map((section) => ({
+        ...section,
 
         element:
           typeof window !== "undefined"
-            ? document.getElementById(item.id)
+            ? document.getElementById(section.id)
             : null,
       })),
 
