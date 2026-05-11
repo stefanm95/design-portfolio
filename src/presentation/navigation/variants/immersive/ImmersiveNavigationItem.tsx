@@ -19,6 +19,7 @@ export default function ImmersiveNavigationItem({
 }: Props) {
   return (
     <motion.button
+      layout
       onClick={onClick}
       aria-label={label}
       whileHover={{

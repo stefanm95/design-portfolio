@@ -5,6 +5,11 @@
 @import "./styles/animations.css";
 @import "./styles//typography.css";
 
+/* CHROME / SAFARI / EDGE */
+::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
   --background: #111111;
   --surface: #1a1a1a;
@@ -32,6 +37,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
 body {
@@ -40,6 +46,8 @@ body {
 
   background: var(--background);
   color: var(--text-primary);
+
+  -ms-overflow-style: none;
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
