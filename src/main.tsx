@@ -2,15 +2,15 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 import { ThemeProvider } from "./theme/index.ts";
-import ExperienceProvider from "./runtime/experience/ExperienceProvider.tsx";
 import NavigationProvider from "./runtime/navigation/NavigationProvider.tsx";
+import PresentationProvider from "./runtime/presentation/PresentationProvider.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <ThemeProvider>
-    <ExperienceProvider>
-      <NavigationProvider>
+    <NavigationProvider>
+      <PresentationProvider>
         <App />
-      </NavigationProvider>
-    </ExperienceProvider>
+      </PresentationProvider>
+    </NavigationProvider>
   </ThemeProvider>,
 );
