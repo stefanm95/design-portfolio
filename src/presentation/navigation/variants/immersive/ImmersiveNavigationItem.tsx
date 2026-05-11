@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 type Props = {
   label: string;
 
+  index: number;
+
   isActive: boolean;
 
   onClick: () => void;
@@ -16,112 +18,87 @@ export default function ImmersiveNavigationItem({
   onClick,
 }: Props) {
   return (
-    <button
+    <motion.button
       onClick={onClick}
       aria-label={label}
+      whileHover={{
+        y: -2,
+      }}
+      transition={{
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       className='
         group
         relative
 
         flex
         items-center
-        justify-center
 
         cursor-pointer
       '
     >
-      {/* GLOW */}
+      {/* AMBIENT GLOW */}
       <motion.div
-        animate={{
-          scale: isActive ? 1 : 0.7,
-
-          opacity: isActive ? 1 : 0,
-        }}
-        transition={{
-          duration: 1,
-          ease: "easeOut",
-        }}
-        className='
-          absolute
-
-          h-10
-          w-10
-
-          rounded-full
-
-          blur-sm
-        '
-      />
-
-      {/* ORB */}
-      <motion.div
-        animate={{
-          scale: isActive ? 1.1 : 0.82,
-
-          opacity: isActive ? 1 : 0.34,
-        }}
-        transition={{
-          duration: 0.8,
-          ease: "easeOut",
-        }}
-        className={`
-          relative
-
-          h-2.5
-          w-2.5
-
-          rounded-full
-
-          transition-all
-          duration-700
-
-          ${
-            isActive
-              ? `
-                bg-white
-              `
-              : `
-                bg-white/30
-                group-hover:bg-white/60
-              `
-          }
-        `}
-      />
-
-      {/* LABEL */}
-      <motion.div
-        initial={false}
         animate={{
           opacity: isActive ? 1 : 0,
 
-          y: isActive ? -28 : -18,
-
-          scale: isActive ? 1 : 0.96,
+          scaleX: isActive ? 1 : 0.6,
         }}
         transition={{
-          duration: 0.7,
-          ease: "easeOut",
+          duration: 1.2,
+          ease: [0.22, 1, 0.36, 1],
         }}
         className='
-          pointer-events-none
-
           absolute
-          left-1/2
-          top-0
+          inset-x-0
+          bottom-[-10px]
 
-          -translate-x-1/2
+          h-px
 
-          whitespace-nowrap
-
-          text-[10px]
-          uppercase
-          tracking-[0.24em]
-
-          text-white/72
+          bg-white/40
         '
+      />
+
+      {/* TYPOGRAPHIC BODY */}
+
+      <motion.div
+        animate={{
+          width: isActive ? "auto" : "42px",
+        }}
+        transition={{
+          duration: 0.9,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className='
+    overflow-hidden
+    whitespace-nowrap
+  '
       >
-        {label}
+        <motion.span
+          animate={{
+            opacity: isActive ? 1 : 0.14,
+
+            letterSpacing: isActive ? "0.22em" : "0.34em",
+
+            y: isActive ? -1 : 0,
+          }}
+          transition={{
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className='
+      block
+
+      text-[10px]
+      uppercase
+
+      text-white
+    '
+        >
+          {label}
+        </motion.span>
       </motion.div>
-    </button>
+    </motion.button>
   );
 }

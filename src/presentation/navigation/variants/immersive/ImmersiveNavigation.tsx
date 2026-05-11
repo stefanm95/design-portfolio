@@ -4,8 +4,6 @@ import { useNavigation, useNavigationSections } from "@/runtime/navigation";
 
 import ImmersiveNavigationItem from "./ImmersiveNavigationItem";
 
-import ImmersiveNavigationProgress from "./ImmersiveNavigationProgress";
-
 export default function ImmersiveNavigation() {
   const { activeSection, scrollToSection } = useNavigation();
 
@@ -22,38 +20,39 @@ export default function ImmersiveNavigation() {
         -translate-x-1/2
       '
     >
-      <div
+      <nav
         className='
           relative
 
           flex
           items-center
-          gap-5
-
-          rounded-full
-
-          border
-          border-white/[0.06]
-
-          bg-white/[0.03]
-
-          px-5
-          py-4
-
-          backdrop-blur-sm
+          gap-6
         '
       >
-        <ImmersiveNavigationProgress />
+        {/* AMBIENT BASELINE */}
+        <div
+          className='
+            absolute
+            bottom-[-10px]
+            left-0
 
-        {sections.map((item) => (
+            h-px
+            w-full
+
+            bg-white/[0.06]
+          '
+        />
+
+        {sections.map((item, index) => (
           <ImmersiveNavigationItem
             key={item.id}
             label={item.label}
+            index={index}
             isActive={activeSection === item.id}
             onClick={() => scrollToSection(item.id)}
           />
         ))}
-      </div>
+      </nav>
     </div>
   );
 }
