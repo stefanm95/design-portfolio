@@ -6,8 +6,8 @@ import Text from "@/components/typography/Text";
 
 import { useTheme, ui } from "@/theme";
 
-import type { ProjectBlockProps } from "../../../../sections/shared/types";
-import ProjectCinematicFrame from "../../../../sections/shared/ProjectCinematicFrame";
+import type { ProjectBlockProps } from "@/presentation/shared/types";
+import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
 export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
   const system = project.media.systems?.[0];

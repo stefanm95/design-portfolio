@@ -1,14 +1,14 @@
 import FadeIn from "@/components/motion/FadeIn";
 
-import type { ProjectShowcaseProps } from "../../../sections/shared/types";
+import type { ProjectShowcaseProps } from "@/presentation/shared/types";
 
 import ArchitecturalHero from "./blocks/ArchitecturalHero";
 import ArchitecturalMobile from "./blocks/mobile/ArchitecturalMobile";
 import ArchitecturalShowcase from "./blocks/showcase/ArchitecturalShowcase";
 import ArchitecturalSystems from "./blocks/ArchitecturalSystems";
 
-import ProjectDivider from "../../../sections/shared/ProjectDivider";
-import ProjectMeta from "../../../sections/shared/ProjectMeta";
+import ProjectDivider from "@/presentation/shared/ProjectDivider";
+import ProjectMeta from "@/presentation/shared/ProjectMeta";
 
 export default function ArchitecturalProjectShowcase({
   project,

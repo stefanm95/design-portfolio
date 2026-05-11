@@ -2,10 +2,10 @@ import FadeIn from "@/components/motion/FadeIn";
 
 import { ui } from "@/theme";
 
-import type { ProjectBlockProps } from "@/presentation/sections/shared/types";
+import type { ProjectBlockProps } from "@/presentation/shared/types";
 
-import ProjectCinematicFrame from "@/presentation/sections/shared/ProjectCinematicFrame";
-import ProjectLiveIndicator from "@/presentation/sections/shared/ProjectLiveIndicator";
+import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
+import ProjectLiveIndicator from "@/presentation/shared/ProjectLiveIndicator";
 
 export default function EditorialtHero({ project }: ProjectBlockProps) {
   const hero = project.media.hero?.[0];

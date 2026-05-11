@@ -5,9 +5,9 @@ import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
 import { ui } from "@/theme";
 
-import type { ProjectBlockProps } from "@/presentation/sections/shared/types";
+import type { ProjectBlockProps } from "@/presentation/shared/types";
 
-import ProjectCinematicFrame from "@/presentation/sections/shared/ProjectCinematicFrame";
+import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
 export default function EditorialAtmosphere({ project }: ProjectBlockProps) {
   const image = project.media.atmosphere?.[0];

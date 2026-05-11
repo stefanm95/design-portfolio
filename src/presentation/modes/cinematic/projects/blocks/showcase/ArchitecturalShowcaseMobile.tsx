@@ -8,7 +8,7 @@ import { ui } from "@/theme";
 import type { Project } from "@/types/projects";
 
 import ArchitecturalShowcaseSwitcher from "./ArchitecturalShowcaseSwitcher";
-import ProjectCinematicFrame from "../../../../../sections/shared/ProjectCinematicFrame";
+import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
 type Props = {
   project: Project;

@@ -4,10 +4,10 @@ import Heading from "@/components/typography/Heading";
 import Text from "@/components/typography/Text";
 import { ui } from "@/theme";
 
-import type { ProjectBlockProps } from "@/presentation/sections/shared/types";
+import type { ProjectBlockProps } from "@/presentation/shared/types";
 
-import ProjectSectionLabel from "@/presentation/sections/shared/ProjectSectionLabel";
-import ProjectCinematicFrame from "@/presentation/sections/shared/ProjectCinematicFrame";
+import ProjectSectionLabel from "@/presentation/shared/ProjectSectionLabel";
+import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
 export default function EditorialShowcase({ project }: ProjectBlockProps) {
   const editorial = project.media.editorial?.[0];
