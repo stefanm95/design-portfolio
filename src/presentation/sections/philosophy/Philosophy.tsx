@@ -9,7 +9,7 @@ import { dividersGradients, ui } from "@/theme";
 import LeftSideVisual from "@/components/shared/LeftSideVisual";
 export default function Philosophy() {
   return (
-    <Section className='relative md:py-40 lg:py-48 xl:py-56'>
+    <Section id='philosophy' className='relative md:py-40 lg:py-48 xl:py-56'>
       <LeftSideVisual />
       {/* Atmospheric Divider */}
       <div

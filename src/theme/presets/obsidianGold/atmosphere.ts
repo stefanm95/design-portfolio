@@ -11,7 +11,7 @@ export const obsidianGoldAtmosphere = {
 
   stoneLayer: {
     image: textures.obsidianGold.obsidianStone,
-    opacity: opacity.ambient,
+    opacity: opacity.texture,
   },
 
   primaryBloom: {

@@ -9,15 +9,17 @@ import Experience from "@/presentation/sections/experience/Experience";
 import About from "@/presentation/sections/about/About";
 import Contact from "@/presentation/sections/contact/Contact";
 import ThemeSwitcher from "@/components/shared/ThemeSwitcher";
+import { CinematicNavigation } from "./presentation/navigation/variants";
 
 export default function App() {
   return (
     <>
-      <SmoothScroll />
-      <ThemeSwitcher />
       <Atmosphere />
       <NoiseOverlay />
       <GridOverlay />
+      <CinematicNavigation />
+      <SmoothScroll />
+      <ThemeSwitcher />
 
       <main className='relative z-10'>
         <Hero />

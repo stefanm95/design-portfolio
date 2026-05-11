@@ -12,7 +12,10 @@ import RightSideVisual from "@/components/shared/RightSideVisual";
 
 export default function Hero() {
   return (
-    <Section className='relative flex min-h-screen items-center overflow-hidden'>
+    <Section
+      id='hero'
+      className='relative flex min-h-screen items-center overflow-hidden'
+    >
       {/* ENVIRONMENT */}
       <RightSideVisual />
 

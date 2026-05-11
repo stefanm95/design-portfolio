@@ -80,8 +80,8 @@ export const motionPresets = {
   },
 
   smoothScroll: {
-    duration: 1.6,
     lerp: 0.08,
     wheelMultiplier: 0.9,
+    touchMultiplier: 1.1,
   },
 };

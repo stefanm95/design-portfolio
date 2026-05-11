@@ -7,6 +7,7 @@ import { opacityClass, rgba, ui } from "@/theme";
 export default function Contact() {
   return (
     <section
+      id='contact'
       className='
         relative
         overflow-hidden
@@ -161,8 +162,7 @@ export default function Contact() {
       opacity-[0.12]
     '
               style={{
-                background:
-                  `radial-gradient(circle, ${rgba.cyanBloomStrong}, transparent 70%)`,
+                background: `radial-gradient(circle, ${rgba.cyanBloomStrong}, transparent 70%)`,
               }}
             />
 
@@ -183,7 +183,7 @@ export default function Contact() {
               {/* TOP */}
               <div className='space-y-6'>
                 <div
-                className={`
+                  className={`
           text-[11px]
           uppercase
           tracking-[0.34em]
@@ -195,7 +195,7 @@ export default function Contact() {
                 </div>
 
                 <div
-                className={`
+                  className={`
           max-w-[14ch]
 
           text-3xl

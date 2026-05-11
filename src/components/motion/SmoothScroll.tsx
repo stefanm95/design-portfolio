@@ -8,10 +8,10 @@ export default function SmoothScroll() {
     const smooth = motionPresets.smoothScroll;
 
     const lenis = new Lenis({
-      duration: smooth.duration,
       lerp: smooth.lerp,
       smoothWheel: true,
       wheelMultiplier: smooth.wheelMultiplier,
+      touchMultiplier: smooth.touchMultiplier,
     });
 
     let frameId: number;
