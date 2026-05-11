@@ -1,7 +1,7 @@
 import Section from "@/components/layout/Section";
 
-import FadeIn from "@/components/motion/FadeIn";
-import Reveal from "@/components/motion/Reveal";
+import FadeIn from "@/presentation/animation/FadeIn";
+import Reveal from "@/presentation/animation/Reveal";
 
 import Display from "@/components/typography/Display";
 import Label from "@/components/typography/Label";

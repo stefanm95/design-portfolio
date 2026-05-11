@@ -1,4 +1,4 @@
-import FadeIn from "@/components/motion/FadeIn";
+import FadeIn from "@/presentation/animation/FadeIn";
 import { useTheme } from "@/theme";
 
 type Props = { images: string[] };

@@ -1,4 +1,4 @@
-import FadeIn from "@/components/motion/FadeIn";
+import FadeIn from "@/presentation/animation/FadeIn";
 
 import Text from "@/components/typography/Text";
 import { ui } from "@/theme";

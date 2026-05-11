@@ -1,6 +1,6 @@
 import Section from "@/components/layout/Section";
 
-import FadeIn from "@/components/motion/FadeIn";
+import FadeIn from "@/presentation/animation/FadeIn";
 
 import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";

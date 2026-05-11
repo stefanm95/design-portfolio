@@ -1,4 +1,4 @@
-import FadeIn from "@/components/motion/FadeIn";
+import FadeIn from "@/presentation/animation/FadeIn";
 import { opacityClass, ui } from "@/theme";
 
 export default function AboutPrinciples() {

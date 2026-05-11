@@ -1,7 +1,7 @@
 import Container from "@/components/layout/Container";
 import Section from "@/components/layout/Section";
 
-import FadeIn from "@/components/motion/FadeIn";
+import FadeIn from "@/presentation/animation/FadeIn";
 
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";

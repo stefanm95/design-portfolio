@@ -1,4 +1,4 @@
-import FadeIn from "@/components/motion/FadeIn";
+import FadeIn from "@/presentation/animation/FadeIn";
 
 import Display from "@/components/typography/Display";
 import Label from "@/components/typography/Label";

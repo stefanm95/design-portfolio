@@ -1,6 +1,5 @@
 import Hero from "@/presentation/sections/hero/Hero";
 import Philosophy from "@/presentation/sections/philosophy/Philosophy";
-import SmoothScroll from "@/components/motion/SmoothScroll";
 import Atmosphere from "@/components/shared/Atmosphere";
 import GridOverlay from "@/components/shared/GridOverlay";
 import NoiseOverlay from "@/components/shared/NoiseOverlay";
@@ -18,7 +17,6 @@ export default function App() {
       <NoiseOverlay />
       <GridOverlay />
       <CinematicNavigation />
-      <SmoothScroll />
       <ThemeSwitcher />
 
       <main className='relative z-10'>

@@ -1,4 +1,4 @@
-import FadeIn from "@/components/motion/FadeIn";
+import FadeIn from "@/presentation/animation/FadeIn";
 import { rgba } from "@/theme";
 import ArchitecturalMobileCard from "./CinematicMobileCard";
 

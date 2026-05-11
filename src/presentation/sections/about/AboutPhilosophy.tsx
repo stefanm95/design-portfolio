@@ -1,4 +1,4 @@
-import FadeIn from "@/components/motion/FadeIn";
+import FadeIn from "@/presentation/animation/FadeIn";
 
 import Heading from "@/components/typography/Heading";
 import Text from "@/components/typography/Text";
@@ -10,7 +10,10 @@ export default function AboutPhilosophy() {
       {/* LEFT */}
       <div className='col-span-1 md:col-span-12 lg:col-span-5'>
         <FadeIn>
-          <Heading as='h3' className='max-w-[12ch] text-2xl md:text-3xl lg:text-4xl'>
+          <Heading
+            as='h3'
+            className='max-w-[12ch] text-2xl md:text-3xl lg:text-4xl'
+          >
             Building immersive digital systems through atmosphere and rhythm.
           </Heading>
         </FadeIn>

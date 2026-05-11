@@ -1,4 +1,4 @@
-import FadeIn from "@/components/motion/FadeIn";
+import FadeIn from "@/presentation/animation/FadeIn";
 
 import type { ProjectShowcaseProps } from "@/presentation/shared/types";
 

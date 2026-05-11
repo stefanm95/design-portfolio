@@ -1,4 +1,4 @@
-import FadeIn from "@/components/motion/FadeIn";
+import FadeIn from "@/presentation/animation/FadeIn";
 import { ui } from "@/theme";
 
 export default function ContactAvailability() {
