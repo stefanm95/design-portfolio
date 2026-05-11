@@ -10,7 +10,7 @@ type Props = {
   onClick: () => void;
 };
 
-export default function ArchitecturalMobileCard({
+export default function CinematicMobileCard({
   image,
   isActive,
   isLeft,

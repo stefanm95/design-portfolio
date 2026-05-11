@@ -4,11 +4,11 @@ import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
 import type { ProjectBlockProps } from "@/presentation/shared/types";
 import RightSideVisual from "@/components/shared/RightSideVisual";
-import ArchitecturalMobileCarousel from "./ArchitecturalMobileCarousel";
-import ArchitecturalMobileStack from "./ArchitecturalMobileStack";
+import ArchitecturalMobileCarousel from "./CinematicMobileCarousel";
+import ArchitecturalMobileStack from "./CinematicMobileStack";
 import { ui } from "@/theme";
 
-export default function ArchitecturalMobile({ project }: ProjectBlockProps) {
+export default function CinematicMobile({ project }: ProjectBlockProps) {
   const mobile = project.media.mobile ?? [];
   const [active, setActive] = useState(1);
 

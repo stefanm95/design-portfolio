@@ -3,11 +3,12 @@ import FadeIn from "@/components/motion/FadeIn";
 import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
+
 import { ui } from "@/theme";
 
 import type { Project } from "@/types/projects";
 
-import ArchitecturalShowcaseSwitcher from "./ArchitecturalShowcaseSwitcher";
+import ArchitecturalShowcaseSwitcher from "./CinematicShowcaseSwitcher";
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
 type Props = {
@@ -16,7 +17,7 @@ type Props = {
   setActive: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export default function ArchitecturalShowcaseMobile({
+export default function CinematicShowcaseDesktop({
   project,
   active,
   setActive,
@@ -26,51 +27,44 @@ export default function ArchitecturalShowcaseMobile({
   const primary = showcase[active];
 
   return (
-    <section className='relative block md:hidden'>
+    <section className='relative hidden md:block'>
       {/* INTRO */}
-      <div className='mb-16 space-y-7'>
+      <div className='mb-20 max-w-[760px] space-y-8 md:mb-24'>
         <Label>CURATED SHOWCASE</Label>
 
-        <Heading as='h3' className='max-w-[12ch]'>
+        <Heading as='h3' className='max-w-[24ch]'>
           Cinematic project exploration systems.
         </Heading>
 
         <Text
           className={`
-            max-w-[30ch]
-            leading-[1.85]
+            max-w-[38ch]
+            leading-[1.9]
+
             ${ui.text.narrative}
           `}
         >
-          Fullscreen project presentation designed with layered hierarchy and
-          immersive visual pacing.
+          Fullscreen project presentation designed with layered hierarchy,
+          atmospheric transitions, and immersive visual pacing.
         </Text>
       </div>
 
       {/* MAIN VISUAL */}
       <FadeIn key={primary}>
-        <a
-          href={project.liveUrl}
-          target='_blank'
-          rel='noreferrer'
-          className='block'
-        >
-          <ProjectCinematicFrame
-            image={primary}
-            imageFit='cover'
-            minHeight='min-h-[320px]'
-            className='bg-black/20'
-          />
-        </a>
+        <ProjectCinematicFrame
+          image={primary}
+          imageFit='cover'
+          minHeight='min-h-[620px]'
+          className='bg-black/20'
+        />
       </FadeIn>
 
       {/* SWITCHER */}
-      <div className='mt-6'>
+      <div className='mt-8 lg:mt-10'>
         <ArchitecturalShowcaseSwitcher
           showcase={showcase}
           active={active}
           setActive={setActive}
-          mobile
         />
       </div>
     </section>

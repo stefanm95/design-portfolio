@@ -7,7 +7,7 @@ import type { ProjectBlockProps } from "@/presentation/shared/types";
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 import ProjectLiveIndicator from "@/presentation/shared/ProjectLiveIndicator";
 
-export default function ArchitecturalHero({ project }: ProjectBlockProps) {
+export default function CinematicHero({ project }: ProjectBlockProps) {
   const { theme } = useTheme();
   const hero = project.media.hero?.[0];
 

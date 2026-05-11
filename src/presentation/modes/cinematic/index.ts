@@ -1,1 +1,1 @@
-export { default as ArchitecturalProjectShowcase } from "./projects/ArchitecturalProjectShowcase";
+export { default as CinematicProjectShowcase } from "./projects/CinematicProjectShowcase";

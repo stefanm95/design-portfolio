@@ -9,7 +9,7 @@ import { useTheme, ui } from "@/theme";
 import type { ProjectBlockProps } from "@/presentation/shared/types";
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
-export default function ArchitecturalSystems({ project }: ProjectBlockProps) {
+export default function CinematicSystems({ project }: ProjectBlockProps) {
   const system = project.media.systems?.[0];
   const { theme } = useTheme();
 

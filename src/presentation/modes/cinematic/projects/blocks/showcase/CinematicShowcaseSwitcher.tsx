@@ -7,7 +7,7 @@ type Props = {
   mobile?: boolean;
 };
 
-export default function ArchitecturalShowcaseSwitcher({
+export default function CinematicShowcaseSwitcher({
   showcase,
   active,
   setActive,

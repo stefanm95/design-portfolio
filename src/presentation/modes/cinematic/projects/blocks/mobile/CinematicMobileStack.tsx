@@ -2,7 +2,7 @@ import FadeIn from "@/components/motion/FadeIn";
 import { useTheme } from "@/theme";
 
 type Props = { images: string[] };
-export default function ArchitecturalMobileStack({ images }: Props) {
+export default function CinematicMobileStack({ images }: Props) {
   const { theme } = useTheme();
   const overlaysGradients = theme.gradients.overlays;
 

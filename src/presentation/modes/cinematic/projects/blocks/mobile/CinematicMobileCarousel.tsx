@@ -1,6 +1,6 @@
 import FadeIn from "@/components/motion/FadeIn";
 import { rgba } from "@/theme";
-import ArchitecturalMobileCard from "./ArchitecturalMobileCard";
+import ArchitecturalMobileCard from "./CinematicMobileCard";
 
 type Props = {
   images: string[];
@@ -8,7 +8,7 @@ type Props = {
   setActive: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export default function ArchitecturalMobileCarousel({
+export default function CinematicMobileCarousel({
   images,
   active,
   setActive,

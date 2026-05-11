@@ -1,4 +1,4 @@
-import ArchitecturalProjectShowcase from "@/presentation/modes/cinematic/projects/ArchitecturalProjectShowcase";
+import ArchitecturalProjectShowcase from "@/presentation/modes/cinematic/projects/CinematicProjectShowcase";
 import type { ProjectShowcaseProps } from "@/presentation/shared/types";
 import EditorialProjectShowcase from "@/presentation/modes/editorial/projects/EditorialProjectShowcase";
 
