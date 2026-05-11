@@ -1,14 +1,14 @@
 import Hero from "@/presentation/sections/hero/Hero";
 import Philosophy from "@/presentation/sections/philosophy/Philosophy";
-import Atmosphere from "@/components/shared/Atmosphere";
-import GridOverlay from "@/components/shared/GridOverlay";
-import NoiseOverlay from "@/components/shared/NoiseOverlay";
+import Atmosphere from "@/presentation/ui/atmosphere/Atmosphere";
+import GridOverlay from "@/presentation/ui/atmosphere/GridOverlay";
+import NoiseOverlay from "@/presentation/ui/atmosphere/NoiseOverlay";
 import SelectedWork from "@/presentation/sections/projects/SelectedWork";
 import Experience from "@/presentation/sections/experience/Experience";
 import About from "@/presentation/sections/about/About";
 import Contact from "@/presentation/sections/contact/Contact";
-import ThemeSwitcher from "@/components/shared/ThemeSwitcher";
-import { CinematicNavigation } from "./presentation/navigation/variants";
+import ThemeSwitcher from "@/presentation/ui/controls/ThemeSwitcher";
+import { Navigation } from "./presentation";
 
 export default function App() {
   return (
@@ -16,7 +16,7 @@ export default function App() {
       <Atmosphere />
       <NoiseOverlay />
       <GridOverlay />
-      <CinematicNavigation />
+      <Navigation />
       <ThemeSwitcher />
 
       <main className='relative z-10'>

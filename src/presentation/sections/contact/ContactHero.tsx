@@ -1,7 +1,7 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import Display from "@/components/typography/Display";
-import Heading from "@/components/typography/Heading";
+import Display from "@/presentation/ui/typography/Display";
+import Heading from "@/presentation/ui/typography/Heading";
 
 import { useTheme, ui } from "@/theme";
 

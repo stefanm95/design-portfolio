@@ -1,10 +1,10 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import Label from "@/components/typography/Label";
-import Text from "@/components/typography/Text";
+import Label from "@/presentation/ui/typography/Label";
+import Text from "@/presentation/ui/typography/Text";
 
 import ExperienceVisual from "./ExperienceVisual";
-import Heading from "@/components/typography/Heading";
+import Heading from "@/presentation/ui/typography/Heading";
 import { dividersGradients, ui } from "@/theme";
 import Section from "@/presentation/layout/Section";
 import Container from "@/presentation/layout/Container";

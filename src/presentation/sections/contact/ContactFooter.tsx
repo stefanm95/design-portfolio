@@ -1,5 +1,5 @@
 import FadeIn from "@/presentation/animation/FadeIn";
-import Text from "@/components/typography/Text";
+import Text from "@/presentation/ui/typography/Text";
 import { opacityClass, ui } from "@/theme";
 
 export default function ContactFooter() {

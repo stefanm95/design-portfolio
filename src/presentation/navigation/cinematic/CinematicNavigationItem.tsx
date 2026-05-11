@@ -19,6 +19,7 @@ export default function CinematicNavigationItem({
   return (
     <button
       onClick={onClick}
+      aria-label={label}
       className='group relative flex items-center gap-5 text-left'
     >
       {/* INDEX */}

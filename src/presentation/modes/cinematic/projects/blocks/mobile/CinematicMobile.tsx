@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Heading from "@/components/typography/Heading";
-import Label from "@/components/typography/Label";
-import Text from "@/components/typography/Text";
+import Heading from "@/presentation/ui/typography/Heading";
+import Label from "@/presentation/ui/typography/Label";
+import Text from "@/presentation/ui/typography/Text";
 import type { ProjectBlockProps } from "@/presentation/types/projects";
 import RightSideVisual from "@/presentation/visuals/RightSideVisual";
 import ArchitecturalMobileCarousel from "./CinematicMobileCarousel";
