@@ -5,6 +5,9 @@ export const textures = {
   monochrome: {
     monochromeWall: "/textures/stone/linus-belanger-monochrome-background.jpg",
   },
+  obsidianGold: {
+    obsidianStone: "/textures/obsidianGold/obsidian/pexels-blibbs86.jpg",
+  },
 
   glass: {
     refraction: "/textures/glass/zhiqiang-wang-tMgP-wH4ux0-unsplash.webp",

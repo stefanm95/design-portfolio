@@ -15,7 +15,7 @@ export * from "./variants/stone";
 export * from "./variants/noise";
 
 export * from "./presets/darkCyan";
-export * from "./presets/obsdidianGold";
+export * from "./presets/obsidianGold";
 export * from "./presets/monochrome";
 
 export * from "./config/activeTheme";
