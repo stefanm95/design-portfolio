@@ -6,7 +6,7 @@ import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
 import { dividersGradients, ui } from "@/theme";
-import LeftSideVisual from "./LeftSideVisual";
+import LeftSideVisual from "../../shared/LeftSideVisual";
 
 export default function Philosophy() {
   return (

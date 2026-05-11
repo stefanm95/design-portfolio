@@ -8,6 +8,7 @@ import { darkCyanExperienceScene } from "./experienceScene";
 import { darkCyanContactScene } from "./contactScene";
 import { darkCyanExperiencePanel } from "./experiencePanel";
 import { darkCyanContactLinks } from "./contactLinks";
+import { darkCyanVisuals } from "./visuals";
 
 export const darkCyan = {
   colors: darkCyanColors,
@@ -25,6 +26,8 @@ export const darkCyan = {
   experiencePanel: darkCyanExperiencePanel,
 
   contactLinks: darkCyanContactLinks,
+
+  visuals: darkCyanVisuals,
 
   scenes: {
     experience: darkCyanExperienceScene,

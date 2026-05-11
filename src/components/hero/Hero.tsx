@@ -8,7 +8,7 @@ import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
 import { dividersGradients, opacityClass, ui } from "@/theme";
 
-import RightSideVisual from "./RightSideVisual";
+import RightSideVisual from "../shared/RightSideVisual";
 
 export default function Hero() {
   return (

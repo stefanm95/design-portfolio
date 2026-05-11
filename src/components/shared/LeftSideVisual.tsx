@@ -1,9 +1,13 @@
 import { useMousePosition } from "@/hooks/useMousePosition";
-import { dividersGradients } from "@/theme";
+
+import { activeTheme, dividersGradients } from "@/theme";
+
 import { motion } from "framer-motion";
 
 export default function LeftSideVisual() {
   const mouse = useMousePosition();
+
+  const visuals = activeTheme.visuals.leftSide;
 
   return (
     <div className='absolute inset-0 overflow-hidden pointer-events-none'>
@@ -21,7 +25,7 @@ export default function LeftSideVisual() {
         `}
       />
 
-      {/* Main Purple Atmospheric Volume */}
+      {/* Main Atmospheric Volume */}
       <motion.div
         animate={{
           opacity: [0.08, 0.16, 0.08],
@@ -44,8 +48,7 @@ export default function LeftSideVisual() {
           blur-sm
         '
         style={{
-          background:
-            "linear-gradient(to bottom, rgba(96,72,255,0.14), rgba(180,70,255,0.10), transparent)",
+          background: visuals.atmosphericVolume.background,
 
           transform: `translate3d(${mouse.x * -20}px, ${mouse.y * -20}px, 0)`,
         }}
@@ -74,9 +77,7 @@ export default function LeftSideVisual() {
           blur-[2px]
         '
         style={{
-          backgroundImage:
-            "url('/textures/glass/ambitious-studio-rick-barrett-jNOUEeCVKe4-unsplash.jpg')",
-
+          backgroundImage: `url(${visuals.glassRefraction.image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
 
@@ -84,7 +85,7 @@ export default function LeftSideVisual() {
         }}
       />
 
-      {/* Secondary Magenta Refraction */}
+      {/* Secondary Refraction */}
       <motion.div
         animate={{
           opacity: [0.03, 0.08, 0.03],
@@ -107,8 +108,7 @@ export default function LeftSideVisual() {
           blur-2xl
         '
         style={{
-          background:
-            "linear-gradient(to bottom, rgba(220,120,255,0.10), transparent)",
+          background: visuals.secondaryRefraction.background,
         }}
       />
 
@@ -128,9 +128,7 @@ export default function LeftSideVisual() {
           blur-[1px]
         '
         style={{
-          backgroundImage:
-            "url('/textures/stone/bekky-bekks-79k1zS6SnzY-unsplash.jpg')",
-
+          backgroundImage: `url(${visuals.textureLayer.image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
 
@@ -162,8 +160,7 @@ export default function LeftSideVisual() {
           blur-sm
         '
         style={{
-          background:
-            "radial-gradient(circle, rgba(130,90,255,0.12), transparent 72%)",
+          background: visuals.bottomBloom.background,
 
           transform: `translate3d(${mouse.x * -16}px, ${mouse.y * -16}px, 0)`,
         }}

@@ -8,6 +8,7 @@ import { obsidianGoldExperienceScene } from "./experienceScene";
 import { obsidianGoldGradients } from "./gradients";
 import { obsidianGoldShowcase } from "./showcase";
 import { obsidianGoldTypography } from "./typography";
+import { obsidianGoldVisuals } from "./visuals";
 
 export const obsidianGold = {
   colors: obsidianGoldColors,
@@ -25,6 +26,7 @@ export const obsidianGold = {
   experiencePanel: obsidianGoldExperiencePanel,
 
   contactLinks: obsidianGoldContactLinks,
+  visuals: obsidianGoldVisuals,
 
   scenes: {
     experience: obsidianGoldExperienceScene,

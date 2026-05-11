@@ -3,7 +3,7 @@ import Heading from "@/components/typography/Heading";
 import Label from "@/components/typography/Label";
 import Text from "@/components/typography/Text";
 import type { ProjectBlockProps } from "../../../../shared/types";
-import RightSideVisual from "@/components/hero/RightSideVisual";
+import RightSideVisual from "@/components/shared/RightSideVisual";
 import ArchitecturalMobileCarousel from "./ArchitecturalMobileCarousel";
 import ArchitecturalMobileStack from "./ArchitecturalMobileStack";
 import { ui } from "@/theme";

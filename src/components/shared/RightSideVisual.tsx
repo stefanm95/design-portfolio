@@ -1,9 +1,14 @@
 import { useMousePosition } from "@/hooks/useMousePosition";
-import { dividersGradients } from "@/theme";
+
+import { activeTheme, dividersGradients } from "@/theme";
+
 import { motion } from "framer-motion";
 
 export default function RightSideVisual() {
   const mouse = useMousePosition();
+
+  const visuals = activeTheme.visuals.rightSide;
+
   return (
     <div className='absolute inset-0 overflow-hidden pointer-events-none'>
       {/* Main Vertical Spine */}
@@ -43,6 +48,8 @@ export default function RightSideVisual() {
           blur-sm
         '
         style={{
+          background: visuals.atmosphericVolume.background,
+
           transform: `translate3d(${mouse.x * 24}px, ${mouse.y * 24}px, 0)`,
         }}
       />
@@ -70,8 +77,7 @@ export default function RightSideVisual() {
           blur-[2px]
         '
         style={{
-          backgroundImage:
-            "url('/textures/glass/fabio-troyli-stzrfbcWPP8-unsplash.webp')",
+          backgroundImage: `url(${visuals.glassRefraction.image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           mixBlendMode: "screen",
@@ -101,8 +107,7 @@ export default function RightSideVisual() {
           blur-2xl
         '
         style={{
-          background:
-            "linear-gradient(to bottom, rgba(255,255,255,0.10), transparent)",
+          background: visuals.secondaryRefraction.background,
         }}
       />
 
@@ -122,8 +127,7 @@ export default function RightSideVisual() {
           blur-[1px]
         '
         style={{
-          backgroundImage:
-            "url('/textures/glass/zhiqiang-wang-tMgP-wH4ux0-unsplash.webp')",
+          backgroundImage: `url(${visuals.textureLayer.image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           mixBlendMode: "screen",
@@ -154,8 +158,8 @@ export default function RightSideVisual() {
           blur-sm
         '
         style={{
-          background:
-            "radial-gradient(circle, rgba(0,180,255,0.08), transparent 72%)",
+          background: visuals.bottomBloom.background,
+
           transform: `translate3d(${mouse.x * 24}px, ${mouse.y * 24}px, 0)`,
         }}
       />
