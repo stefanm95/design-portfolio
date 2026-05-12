@@ -3,6 +3,7 @@ import FadeIn from "@/presentation/animation/FadeIn";
 import Label from "@/design/typography/Label";
 import Text from "@/design/typography/Text";
 
+import { experienceContent } from "@/content/experience";
 import Container from "@/design/layout/Container";
 import Section from "@/design/layout/Section";
 import Heading from "@/design/typography/Heading";
@@ -101,7 +102,9 @@ export default function Experience() {
           <FadeIn>
             <div className="relative max-w-[760px]">
               {/* LABEL */}
-              <Label className={ui.text.context}>Experience Systems</Label>
+              <Label className={ui.text.context}>
+                {experienceContent.hero.label}
+              </Label>
 
               {/* TITLE */}
               <div className="relative mt-8">
@@ -143,69 +146,74 @@ export default function Experience() {
                   drop-shadow-[0_0_30px_rgba(255,255,255,0.03)]
                 "
                 >
-                  <span className="block">Designed</span>
+                  <span className="block">
+                    {experienceContent.hero.title.line1}
+                  </span>
 
-                  <span className="block ml-[0.04em]">beyond</span>
+                  <span className="block ml-[0.04em]">
+                    {experienceContent.hero.title.line2}
+                  </span>
 
-                  <span className="block">interfaces.</span>
+                  <span className="block">
+                    {experienceContent.hero.title.line3}.
+                  </span>
                 </Heading>
               </div>
 
               {/* DIVIDER */}
               <div
                 className={`
-        mt-10
-        h-px
-        w-24
+                mt-10
+                h-px
+                w-24
 
-        ${dividersGradients.leadIn}
-      `}
+                ${dividersGradients.leadIn}
+              `}
               />
 
               {/* DESCRIPTION */}
               <Text
                 className={`
-        mt-8
-        max-w-[420px]
+                mt-8
+                max-w-[420px]
 
-        text-sm
-        leading-[1.9]
-        ${ui.text.link}
-      `}
+                text-sm
+                leading-[1.9]
+                ${ui.text.link}
+              `}
               >
-                Cinematic digital systems shaped through motion, atmosphere and
-                spatial composition.
+                {experienceContent.hero.description}
               </Text>
 
               {/* MINI TAGS */}
               <div
                 className="
-        mt-12
+                 mt-12
 
-        flex
-        flex-wrap
-        gap-3
-      "
+                 flex
+                 flex-wrap
+                 gap-3
+               "
               >
-                {["Motion", "Editorial", "Spatial"].map((item) => (
+                {experienceContent.hero.tags.map((item) => (
                   <div
                     key={item}
                     className={`
-            border
-            ${ui.borders.quiet}
-
-            ${ui.surfaces.tag}
-
-            px-4
-            py-2
-
-            text-[10px]
-            uppercase
-            tracking-[0.22em]
-            ${ui.text.tertiary}
-
-            backdrop-blur-sm
-          `}
+                    border
+                    ${ui.borders.quiet}
+                            
+                    ${ui.surfaces.tag}
+                            
+                    px-4
+                    py-2
+                            
+                    text-[10px]
+                    uppercase
+                    tracking-[0.22em]
+                    ${ui.text.tertiary}
+                            
+                    backdrop-blur-sm
+                  `}
                   >
                     {item}
                   </div>

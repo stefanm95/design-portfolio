@@ -3,13 +3,13 @@ import FadeIn from "@/presentation/animation/FadeIn";
 import ExperiencePanel from "./ExperiencePanel";
 import ExperienceVisualBackground from "./ExperienceVisualBackground";
 
-import { experiencePanels } from "./experiencePanels";
+import { experienceContent } from "@/content/experience";
 
 export default function ExperienceVisual() {
   return (
     <FadeIn delay={0.2}>
       <div
-        className='
+        className="
           relative
 
           flex
@@ -19,11 +19,11 @@ export default function ExperienceVisual() {
           min-h-[560px]
 
           lg:min-h-[760px]
-        '
+        "
       >
         {/* EXTENDED ATMOSPHERIC BACKGROUND */}
         <div
-          className='
+          className="
             absolute
             inset-y-0
 
@@ -32,26 +32,26 @@ export default function ExperienceVisual() {
 
             hidden
             lg:block
-          '
+          "
         >
           <ExperienceVisualBackground />
         </div>
 
         {/* MOBILE BACKGROUND */}
         <div
-          className='
+          className="
             absolute
             inset-0
 
             lg:hidden
-          '
+          "
         >
           <ExperienceVisualBackground />
         </div>
 
         {/* CONTENT AREA */}
         <div
-          className='
+          className="
             relative
             z-10
 
@@ -62,11 +62,11 @@ export default function ExperienceVisual() {
 
             lg:min-h-[780px]
             lg:max-w-[860px]
-          '
+          "
         >
           {/* STACK */}
           <div
-            className='
+            className="
               group/stack
               relative
 
@@ -83,9 +83,9 @@ export default function ExperienceVisual() {
               lg:gap-0
               lg:px-0
               lg:py-0
-            '
+            "
           >
-            {experiencePanels.map((panel) => (
+            {experienceContent.panels.map((panel) => (
               <ExperiencePanel
                 key={panel.id}
                 id={panel.id}
