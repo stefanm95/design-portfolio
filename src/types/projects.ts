@@ -104,6 +104,8 @@ export type EditorialContent = {
 export type Project = {
   id: string;
 
+  presentation: ProjectPresentation;
+
   title: string;
 
   subtitle: string;
@@ -152,4 +154,29 @@ export type ProjectShowcaseItem = {
   description?: string;
 
   alt?: string;
+};
+
+//
+// PRESENTATION TYPES
+//
+
+export type PresentationMode = "cinematic" | "editorial";
+
+export type PresentationBlockType =
+  | "hero"
+  | "showcase"
+  | "systems"
+  | "services"
+  | "mobile"
+  | "atmosphere"
+  | "ui";
+
+export type PresentationBlock = {
+  type: PresentationBlockType;
+};
+
+export type ProjectPresentation = {
+  mode: PresentationMode;
+
+  blocks: PresentationBlock[];
 };

@@ -40,11 +40,21 @@ export const projects: Project[] = [
       },
     ],
 
+    presentation: {
+      mode: "editorial",
+
+      blocks: [
+        { type: "hero" },
+        { type: "showcase" },
+        { type: "atmosphere" },
+        { type: "ui" },
+      ],
+    },
+
     editorial: {
       hero: {
         liveIndicator: true,
       },
-
       showcase: {
         label: "Editorial Narrative",
 
@@ -144,6 +154,16 @@ export const projects: Project[] = [
       },
     ],
 
+    presentation: {
+      mode: "cinematic",
+
+      blocks: [
+        { type: "hero" },
+        { type: "showcase" },
+        { type: "systems" },
+        { type: "mobile" },
+      ],
+    },
     cinematic: {
       hero: {
         liveIndicator: true,
@@ -164,7 +184,6 @@ export const projects: Project[] = [
         mobileDescription:
           "Fullscreen project presentation designed with layered hierarchy and immersive visual pacing.",
       },
-
       systems: {
         label: "PROCESS & SYSTEMS",
 
