@@ -1,6 +1,6 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import Text from "@/design/ui/typography/Text";
+import Text from "@/design/typography/Text";
 import { ui } from "@/theme";
 
 export default function AboutStack() {

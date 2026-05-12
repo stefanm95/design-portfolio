@@ -1,7 +1,7 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import Heading from "@/design/ui/typography/Heading";
-import Text from "@/design/ui/typography/Text";
+import Heading from "@/design/typography/Heading";
+import Text from "@/design/typography/Text";
 import { ui } from "@/theme";
 
 import type { ProjectBlockProps } from "@/types/projects";

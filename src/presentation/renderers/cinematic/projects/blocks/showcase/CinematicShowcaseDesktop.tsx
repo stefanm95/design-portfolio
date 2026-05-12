@@ -1,8 +1,8 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import Heading from "@/design/ui/typography/Heading";
-import Label from "@/design/ui/typography/Label";
-import Text from "@/design/ui/typography/Text";
+import Heading from "@/design/typography/Heading";
+import Label from "@/design/typography/Label";
+import Text from "@/design/typography/Text";
 
 import { ui } from "@/theme";
 

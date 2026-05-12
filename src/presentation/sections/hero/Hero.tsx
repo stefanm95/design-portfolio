@@ -1,9 +1,9 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 import Reveal from "@/presentation/animation/Reveal";
 
-import Display from "@/design/ui/typography/Display";
-import Label from "@/design/ui/typography/Label";
-import Text from "@/design/ui/typography/Text";
+import Display from "@/design/typography/Display";
+import Label from "@/design/typography/Label";
+import Text from "@/design/typography/Text";
 import { dividersGradients, opacityClass, ui } from "@/theme";
 
 import Section from "@/design/layout/Section";

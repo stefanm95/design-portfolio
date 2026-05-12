@@ -1,9 +1,9 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
 import Section from "@/design/layout/Section";
-import Heading from "@/design/ui/typography/Heading";
-import Label from "@/design/ui/typography/Label";
-import Text from "@/design/ui/typography/Text";
+import Heading from "@/design/typography/Heading";
+import Label from "@/design/typography/Label";
+import Text from "@/design/typography/Text";
 import LeftSideVisual from "@/design/visuals/LeftSideVisual";
 import { dividersGradients, ui } from "@/theme";
 export default function Philosophy() {

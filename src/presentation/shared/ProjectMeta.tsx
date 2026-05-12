@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 
-import Display from "@/design/ui/typography/Display";
-import Text from "@/design/ui/typography/Text";
+import Display from "@/design/typography/Display";
+import Text from "@/design/typography/Text";
 import { ui } from "@/theme";
 import type { ProjectBlockProps } from "../../types/projects";
 

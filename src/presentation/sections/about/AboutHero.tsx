@@ -1,7 +1,7 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import Display from "@/design/ui/typography/Display";
-import Label from "@/design/ui/typography/Label";
+import Display from "@/design/typography/Display";
+import Label from "@/design/typography/Label";
 
 export default function AboutHero() {
   return (

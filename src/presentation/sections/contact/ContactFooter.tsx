@@ -1,4 +1,4 @@
-import Text from "@/design/ui/typography/Text";
+import Text from "@/design/typography/Text";
 import FadeIn from "@/presentation/animation/FadeIn";
 import { opacityClass, ui } from "@/theme";
 
