@@ -6,6 +6,8 @@ import Text from "@/design/typography/Text";
 import { ui } from "@/theme";
 
 export default function AboutPhilosophy() {
+  const { philosophy } = aboutContent;
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-y-14 lg:gap-x-16">
       {/* LEFT */}
@@ -15,7 +17,7 @@ export default function AboutPhilosophy() {
             as="h3"
             className="max-w-[12ch] text-2xl md:text-3xl lg:text-4xl"
           >
-            {aboutContent.philosophy.title}
+            {philosophy.title}
           </Heading>
         </FadeIn>
       </div>
@@ -36,7 +38,7 @@ export default function AboutPhilosophy() {
                 ${ui.text.reading}
               `}
             >
-              {aboutContent.philosophy.paragraphs[0]}
+              {philosophy.paragraphs[0]}
             </Text>
 
             <Text
@@ -51,7 +53,7 @@ export default function AboutPhilosophy() {
                 ${ui.text.muted}
               `}
             >
-              {aboutContent.philosophy.paragraphs[1]}
+              {philosophy.paragraphs[1]}
             </Text>
           </div>
         </FadeIn>

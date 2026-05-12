@@ -5,7 +5,7 @@ import { useTheme } from "@/theme";
 
 export default function ContactLinks() {
   const { theme } = useTheme();
-
+  const { links } = contactContent;
   const contact = theme.contactLinks;
 
   return (
@@ -124,7 +124,7 @@ export default function ContactLinks() {
         </div>
 
         <div className="space-y-8">
-          {contactContent.links.items.map((link, index) => (
+          {links.items.map((link, index) => (
             <FadeIn key={link.label} delay={0.08 * index}>
               <a
                 href={link.href}

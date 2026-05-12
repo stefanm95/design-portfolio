@@ -11,6 +11,7 @@ import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
 export default function EditorialAtmosphere({ project }: ProjectBlockProps) {
   const image = project.media.atmosphere?.[0];
+  const content = project.editorial?.atmosphere;
 
   if (!image) return null;
 
@@ -18,8 +19,7 @@ export default function EditorialAtmosphere({ project }: ProjectBlockProps) {
     <FadeIn>
       <section
         className="
-          grid
-          
+          grid   
           gap-y-10
           lg:items-start
           lg:gap-14
@@ -31,7 +31,6 @@ export default function EditorialAtmosphere({ project }: ProjectBlockProps) {
           className="
             relative
             order-1
-
             lg:col-span-5
             lg:mt-6
           "
@@ -54,7 +53,7 @@ export default function EditorialAtmosphere({ project }: ProjectBlockProps) {
         >
           <div className="max-w-lg space-y-8">
             <div className="space-y-4">
-              <Label>Atmosphere & Materiality</Label>
+              <Label>{content?.label}</Label>
 
               <Heading
                 as="h3"
@@ -62,30 +61,24 @@ export default function EditorialAtmosphere({ project }: ProjectBlockProps) {
                   text-3xl
                   sm:text-4xl
                   md:text-5xl
-
                   leading-[0.94]
                   tracking-[-0.05em]
-
                   ${ui.text.primary}
                 `}
               >
-                Building tactile digital environments through texture, glow,
-                depth, and cinematic layering.
+                {content?.heading}
               </Heading>
             </div>
 
             <Text
               className={`
                 max-w-[34ch]
-
                 text-[15px]
                 leading-[1.9]
-
                 ${ui.text.tertiary}
               `}
             >
-              Every surface, shadow, and light interaction is carefully composed
-              to enhance depth, emotion, and the sense of place.
+              {content?.description}
             </Text>
           </div>
         </div>

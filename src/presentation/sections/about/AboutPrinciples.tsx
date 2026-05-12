@@ -3,6 +3,7 @@ import FadeIn from "@/presentation/animation/FadeIn";
 import { opacityClass, ui } from "@/theme";
 
 export default function AboutPrinciples() {
+  const { stack } = aboutContent;
   return (
     <section
       className="
@@ -124,23 +125,19 @@ export default function AboutPrinciples() {
       {/* CONTENT */}
       <div
         className="
-    relative
-    z-10
-
-    grid
-    grid-cols-1
-
-    px-6
-    sm:px-8
-    md:px-14
-    lg:px-16
-    xl:px-0
-
-    gap-y-20
-
-    xl:grid-cols-12
-    xl:items-center
-  "
+          relative
+          z-10
+          grid
+          grid-cols-1
+          px-6
+          sm:px-8
+          md:px-14
+          lg:px-16
+          xl:px-0
+          gap-y-20
+          xl:grid-cols-12
+          xl:items-center
+        "
       >
         {/* LEFT SPACER */}
         <div className="hidden xl:block xl:col-span-5" />
@@ -148,11 +145,10 @@ export default function AboutPrinciples() {
         {/* RIGHT CONTENT */}
         <div
           className="
-      max-w-[720px]
-
-      xl:col-span-6
-      xl:col-start-7
-    "
+          max-w-[720px]
+          xl:col-span-6
+          xl:col-start-7
+        "
         >
           <div className="space-y-12 md:space-y-14">
             <FadeIn>
@@ -165,7 +161,7 @@ export default function AboutPrinciples() {
             ${ui.text.label}
           `}
               >
-                {aboutContent.stack.label}
+                {stack.label}
               </div>
             </FadeIn>
 
@@ -185,7 +181,7 @@ export default function AboutPrinciples() {
             ${ui.text.primary}
           `}
               >
-                {aboutContent.stack.title}
+                {stack.title}
               </h2>
             </FadeIn>
 
@@ -193,18 +189,18 @@ export default function AboutPrinciples() {
               <p
                 className={`
                 max-w-[26ch]
-    sm:max-w-[30ch]
-    md:max-w-[34ch]
+                sm:max-w-[30ch]
+                md:max-w-[34ch]
 
-    text-[14px]
-    md:text-[15px]
+                text-[14px]
+                md:text-[15px]
 
-    leading-[1.85]
+                leading-[1.85]
 
-    ${ui.text.narrative}
-  `}
+                ${ui.text.narrative}
+              `}
               >
-                {aboutContent.stack.paragraph}
+                {stack.paragraph}
               </p>
             </FadeIn>
 
@@ -212,50 +208,50 @@ export default function AboutPrinciples() {
             <FadeIn delay={0.18}>
               <div
                 className="
-      grid
-      grid-cols-1
-      sm:grid-cols-2
+                  grid
+                  grid-cols-1
+                  sm:grid-cols-2
 
-      gap-x-10
-      gap-y-4
+                  gap-x-10
+                  gap-y-4
 
-      pt-6
-      md:pt-8
+                  pt-6
+                  md:pt-8
 
-      max-w-[28rem]
-    "
+                  max-w-[28rem]
+                "
               >
-                {aboutContent.stack.list.map((item) => (
+                {stack.list.map((item) => (
                   <div
                     key={item}
                     className={`
-          relative
+                    relative
 
-          pl-4
+                    pl-4
 
-          text-[11px]
-          sm:text-[12px]
+                    text-[11px]
+                    sm:text-[12px]
 
-          uppercase
-          tracking-[0.22em]
+                    uppercase
+                    tracking-[0.22em]
 
-          ${ui.text.supporting}
-        `}
+                    ${ui.text.supporting}
+                  `}
                   >
                     {/* subtle marker */}
                     <div
                       className={`
-            absolute
-            left-0
-            top-1/2
-
-            h-px
-            w-2
-
-            -translate-y-1/2
-
-            ${ui.dividers.marker}
-          `}
+                        absolute
+                        left-0
+                        top-1/2
+                                  
+                        h-px
+                        w-2
+                                  
+                        -translate-y-1/2
+                                  
+                        ${ui.dividers.marker}
+                      `}
                     />
 
                     {item}

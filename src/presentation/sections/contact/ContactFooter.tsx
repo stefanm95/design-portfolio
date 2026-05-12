@@ -4,6 +4,7 @@ import FadeIn from "@/presentation/animation/FadeIn";
 import { opacityClass, ui } from "@/theme";
 
 export default function ContactFooter() {
+  const { footer } = contactContent;
   return (
     <footer
       className={`
@@ -77,7 +78,7 @@ export default function ContactFooter() {
                 ${ui.text.annotation}
               `}
             >
-              {contactContent.footer.label}
+              {footer.label}
             </div>
 
             <div
@@ -91,7 +92,7 @@ export default function ContactFooter() {
                 ${ui.text.accent}
               `}
             >
-              {contactContent.footer.title}
+              {footer.title}
             </div>
 
             <p
@@ -104,7 +105,7 @@ export default function ContactFooter() {
                 ${ui.text.muted}
               `}
             >
-              {contactContent.footer.description}
+              {footer.description}
             </p>
           </div>
 
@@ -148,7 +149,7 @@ export default function ContactFooter() {
                 hover:text-white
               `}
             >
-              {contactContent.footer.cta.label}
+              {footer.cta.label}
               <span
                 className="
                   transition-transform
@@ -179,11 +180,9 @@ export default function ContactFooter() {
                 md:gap-8
               `}
             >
-              <Text> {contactContent.footer.meta.author}</Text>
+              <Text> {footer.meta.author}</Text>
 
-              <Text className="text-lg">
-                {contactContent.footer.meta.copyright}
-              </Text>
+              <Text className="text-lg">{footer.meta.copyright}</Text>
             </div>
           </div>
         </div>

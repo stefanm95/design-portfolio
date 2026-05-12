@@ -7,21 +7,28 @@ import Text from "@/design/typography/Text";
 import { ui, useTheme } from "@/theme";
 
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
+
 import type { ProjectBlockProps } from "@/types/projects";
 
 export default function CinematicServices({ project }: ProjectBlockProps) {
   const services = project.media.services ?? [];
+
+  const content = project.cinematic?.services;
+
   const { theme } = useTheme();
+
   const showcase = theme.showcase;
+
+  if (!services.length || !content) return null;
 
   return (
     <section className="space-y-20">
       {/* INTRO */}
       <div className="max-w-[760px] space-y-8">
-        <Label>SERVICE ARCHITECTURE</Label>
+        <Label>{content.label}</Label>
 
         <Heading as="h3" className="max-w-[12ch]">
-          Spatial service presentation with editorial pacing.
+          {content.heading}
         </Heading>
 
         <Text
@@ -32,9 +39,7 @@ export default function CinematicServices({ project }: ProjectBlockProps) {
             ${ui.text.narrative}
           `}
         >
-          Structured navigation systems, cinematic service galleries, and
-          layered visual hierarchy designed to create clarity while preserving
-          immersive atmosphere.
+          {content.description}
         </Text>
       </div>
 
@@ -58,7 +63,7 @@ export default function CinematicServices({ project }: ProjectBlockProps) {
               >
                 <ProjectCinematicFrame
                   image={image}
-                  alt={`Service showcase ${index + 1}`}
+                  alt={`${content.heading} ${index + 1}`}
                   imageFit="cover"
                   minHeight={
                     isPrimary
@@ -67,12 +72,14 @@ export default function CinematicServices({ project }: ProjectBlockProps) {
                   }
                   className={`
                     ${showcase.surfaces.base}
+
                     border
+
                     ${showcase.surfaces.border}
                   `}
                 />
 
-                {/* OPTIONAL ATMOSPHERIC BLOOM */}
+                {/* ATMOSPHERIC BLOOM */}
                 <div
                   className="
                     pointer-events-none

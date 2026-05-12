@@ -1,6 +1,9 @@
 import type { Project } from "../types/projects";
 
 export const projects: Project[] = [
+  //
+  // EDITORIAL PROJECT
+  //
   {
     id: "wedding-experience",
 
@@ -22,6 +25,7 @@ export const projects: Project[] = [
     accent: "amber",
 
     featured: true,
+
     status: "live",
 
     metrics: [
@@ -29,11 +33,47 @@ export const projects: Project[] = [
         label: "Focus",
         value: "Editorial Motion",
       },
+
       {
         label: "Experience",
         value: "Immersive Invitation",
       },
     ],
+
+    editorial: {
+      hero: {
+        liveIndicator: true,
+      },
+
+      showcase: {
+        label: "Editorial Narrative",
+
+        heading: "Emotional storytelling through digital composition.",
+
+        description:
+          "The experience was designed with editorial pacing, cinematic transitions, layered typography systems, and tactile atmospheric surfaces.",
+      },
+
+      atmosphere: {
+        label: "Atmosphere & Materiality",
+
+        heading:
+          "Building tactile digital environments through texture, glow, depth, and cinematic layering.",
+
+        description:
+          "Every surface, shadow, and light interaction is carefully composed to enhance depth, emotion, and the sense of place.",
+      },
+
+      ui: {
+        label: "Interaction & Experience",
+
+        heading:
+          "Thoughtful interaction designed for clarity and emotional ease.",
+
+        description:
+          "Flows are intuitive, minimal, and intentional. Each interaction guides the user naturally through the experience.",
+      },
+    },
 
     media: {
       hero: [
@@ -63,9 +103,12 @@ export const projects: Project[] = [
       ui: ["/images/project1/ui/form-step.png"],
     },
   },
-  // Arhitectural Concept
+
+  //
+  // CINEMATIC PROJECT
+  //
   {
-    id: "architectural-concept",
+    id: "cinematic-concept",
 
     title: "Architectural Construction Platform",
 
@@ -86,6 +129,7 @@ export const projects: Project[] = [
     accent: "cyan",
 
     featured: true,
+
     status: "live",
 
     metrics: [
@@ -99,6 +143,51 @@ export const projects: Project[] = [
         value: "Premium Construction Platform",
       },
     ],
+
+    cinematic: {
+      hero: {
+        liveIndicator: true,
+      },
+
+      showcase: {
+        label: "PROJECT SHOWCASE",
+
+        heading:
+          "Immersive architectural storytelling through curated spatial presentation.",
+
+        description:
+          "Large-scale project galleries, layered compositions, and cinematic transitions designed to elevate premium construction presentation into an atmospheric digital experience.",
+      },
+
+      systems: {
+        label: "PROCESS & SYSTEMS",
+
+        heading: "Structured interaction translated into cinematic rhythm.",
+
+        description:
+          "Clear service flows, process hierarchy, and restrained motion systems designed to support immersive navigation without overwhelming the experience.",
+
+        floatingLabel: "Interaction Systems",
+      },
+
+      services: {
+        label: "SERVICE ARCHITECTURE",
+
+        heading: "Spatial service presentation with editorial pacing.",
+
+        description:
+          "Structured navigation systems, cinematic service galleries, and layered visual hierarchy designed to create clarity while preserving immersive atmosphere.",
+      },
+
+      mobile: {
+        label: "RESPONSIVE EXPERIENCE",
+
+        heading: "Cinematic pacing preserved across every screen.",
+
+        description:
+          "Responsive layouts maintain atmosphere, hierarchy, and interaction quality while adapting seamlessly to smaller devices.",
+      },
+    },
 
     media: {
       hero: [
@@ -117,6 +206,7 @@ export const projects: Project[] = [
 
       showcaseMobile: [
         "/images/project2/showcase/modal-project-detail.png",
+
         "/images/project2/showcase/mobile-project-shwocase.png",
       ],
 

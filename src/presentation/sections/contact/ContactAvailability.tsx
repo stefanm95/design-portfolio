@@ -3,6 +3,8 @@ import FadeIn from "@/presentation/animation/FadeIn";
 import { ui } from "@/theme";
 
 export default function ContactAvailability() {
+  const { availability } = contactContent;
+
   return (
     <FadeIn delay={0.12}>
       <div
@@ -39,7 +41,7 @@ export default function ContactAvailability() {
               ${ui.text.metadata}
             `}
           >
-            {contactContent.availability.label}
+            {availability.label}
           </div>
 
           <p
@@ -51,7 +53,7 @@ export default function ContactAvailability() {
               ${ui.text.available}
             `}
           >
-            {contactContent.availability.description}
+            {availability.description}
           </p>
         </div>
       </div>

@@ -11,20 +11,19 @@ import type { ProjectBlockProps } from "@/types/projects";
 
 export default function CinematicSystems({ project }: ProjectBlockProps) {
   const system = project.media.systems?.[0];
+  const content = project.cinematic?.systems;
   const { theme } = useTheme();
 
-  if (!system) return null;
-
   const showcase = theme.showcase;
+
+  if (!system || !content) return null;
 
   return (
     <section
       className="
         relative
-
         grid
         grid-cols-12
-
         gap-y-20
         xl:gap-x-20
       "
@@ -34,17 +33,15 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
         <div
           className="
             space-y-8
-
             xl:sticky
             xl:top-24
-
             2xl:top-32
           "
         >
-          <Label>PROCESS & SYSTEMS</Label>
+          <Label>{content.label}</Label>
 
           <Heading as="h3" className="max-w-[11ch]">
-            Structured interaction translated into cinematic rhythm.
+            {content.heading}
           </Heading>
 
           <Text
@@ -55,9 +52,7 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
               ${ui.text.narrative}
             `}
           >
-            Clear service flows, process hierarchy, and restrained motion
-            systems designed to support immersive navigation without
-            overwhelming the experience.
+            {content.description}
           </Text>
         </div>
       </div>
@@ -75,7 +70,7 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
             {/* MAIN VISUAL */}
             <ProjectCinematicFrame
               image={system}
-              alt="Interaction systems showcase"
+              alt={content.heading}
               imageFit="contain"
               minHeight="min-h-[420px] xl:min-h-[760px]"
               className={`
@@ -136,7 +131,7 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
                   `}
                 />
 
-                <span>Interaction Systems</span>
+                <span>{content.floatingLabel}</span>
               </div>
             </div>
           </div>

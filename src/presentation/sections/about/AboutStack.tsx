@@ -5,6 +5,7 @@ import Text from "@/design/typography/Text";
 import { ui } from "@/theme";
 
 export default function AboutStack() {
+  const { description } = aboutContent.stack;
   return (
     <FadeIn>
       <div
@@ -25,7 +26,7 @@ export default function AboutStack() {
             ${ui.text.muted}
           `}
         >
-          {aboutContent.stack.description}
+          {description}
         </Text>
       </div>
     </FadeIn>

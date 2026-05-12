@@ -11,6 +11,7 @@ import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
 export default function EditorialUIDetail({ project }: ProjectBlockProps) {
   const image = project.media.ui?.[0];
+  const content = project.editorial?.ui;
 
   if (!image) return null;
 
@@ -41,7 +42,7 @@ export default function EditorialUIDetail({ project }: ProjectBlockProps) {
         >
           <div className="max-w-lg space-y-7">
             <div className="space-y-4">
-              <Label>Interaction & Experience</Label>
+              <Label>{content?.label}</Label>
 
               <Heading
                 as="h3"
@@ -56,7 +57,7 @@ export default function EditorialUIDetail({ project }: ProjectBlockProps) {
                   ${ui.text.primary}
                 `}
               >
-                Thoughtful interaction designed for clarity and emotional ease.
+                {content?.heading}
               </Heading>
             </div>
 
@@ -70,8 +71,7 @@ export default function EditorialUIDetail({ project }: ProjectBlockProps) {
                 ${ui.text.descriptive}
               `}
             >
-              Flows are intuitive, minimal, and intentional. Each interaction
-              guides the user naturally through the experience.
+              {content?.description}
             </Text>
           </div>
         </div>

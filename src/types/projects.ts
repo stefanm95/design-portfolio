@@ -10,6 +10,7 @@ export type ProjectMedia = {
   ui?: string[];
 
   showcase?: string[];
+
   showcaseMobile?: string[];
 
   systems?: string[];
@@ -29,6 +30,68 @@ export type ProjectStatus = "live" | "private" | "concept";
 export type ProjectAccent = "cyan" | "gold" | "violet" | "amber";
 
 export type ProjectLayout = "editorial" | "architectural";
+
+//
+// CINEMATIC CONTENT TYPES
+//
+
+export type CinematicTextBlock = {
+  label: string;
+
+  heading: string;
+
+  description: string;
+};
+
+export type CinematicHeroContent = {
+  liveIndicator?: boolean;
+};
+
+export type CinematicSystemsContent = CinematicTextBlock & {
+  floatingLabel?: string;
+};
+
+export type CinematicContent = {
+  hero?: CinematicHeroContent;
+
+  showcase?: CinematicTextBlock;
+
+  systems?: CinematicSystemsContent;
+
+  services?: CinematicTextBlock;
+
+  mobile?: CinematicTextBlock;
+};
+
+//
+// EDITORIAL CONTENT TYPES
+//
+
+export type EditorialTextBlock = {
+  label: string;
+
+  heading: string;
+
+  description: string;
+};
+
+export type EditorialHeroContent = {
+  liveIndicator?: boolean;
+};
+
+export type EditorialContent = {
+  hero?: EditorialHeroContent;
+
+  showcase?: EditorialTextBlock;
+
+  atmosphere?: EditorialTextBlock;
+
+  ui?: EditorialTextBlock;
+};
+
+//
+// PROJECT
+//
 
 export type Project = {
   id: string;
@@ -58,6 +121,10 @@ export type Project = {
   metrics?: ProjectMetric[];
 
   featured?: boolean;
+
+  cinematic?: CinematicContent;
+
+  editorial?: EditorialContent;
 };
 
 export type ProjectBlockProps = {

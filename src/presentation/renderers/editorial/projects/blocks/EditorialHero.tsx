@@ -15,6 +15,7 @@ export default function EditorialtHero({ project }: ProjectBlockProps) {
   return (
     <FadeIn>
       <a
+        title={project.title}
         href={project.liveUrl}
         target="_blank"
         rel="noreferrer"

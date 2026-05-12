@@ -11,6 +11,8 @@ import { dividersGradients, ui } from "@/theme";
 import ExperienceVisual from "./ExperienceVisual";
 
 export default function Experience() {
+  const { hero } = experienceContent;
+
   return (
     <Section
       id="experience"
@@ -102,9 +104,7 @@ export default function Experience() {
           <FadeIn>
             <div className="relative max-w-[760px]">
               {/* LABEL */}
-              <Label className={ui.text.context}>
-                {experienceContent.hero.label}
-              </Label>
+              <Label className={ui.text.context}>{hero.label}</Label>
 
               {/* TITLE */}
               <div className="relative mt-8">
@@ -146,17 +146,11 @@ export default function Experience() {
                   drop-shadow-[0_0_30px_rgba(255,255,255,0.03)]
                 "
                 >
-                  <span className="block">
-                    {experienceContent.hero.title.line1}
-                  </span>
+                  <span className="block">{hero.title.line1}</span>
 
-                  <span className="block ml-[0.04em]">
-                    {experienceContent.hero.title.line2}
-                  </span>
+                  <span className="block ml-[0.04em]">{hero.title.line2}</span>
 
-                  <span className="block">
-                    {experienceContent.hero.title.line3}.
-                  </span>
+                  <span className="block">{hero.title.line3}.</span>
                 </Heading>
               </div>
 
@@ -182,7 +176,7 @@ export default function Experience() {
                 ${ui.text.link}
               `}
               >
-                {experienceContent.hero.description}
+                {hero.description}
               </Text>
 
               {/* MINI TAGS */}
@@ -195,7 +189,7 @@ export default function Experience() {
                  gap-3
                "
               >
-                {experienceContent.hero.tags.map((item) => (
+                {hero.tags.map((item) => (
                   <div
                     key={item}
                     className={`

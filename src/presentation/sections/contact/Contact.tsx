@@ -6,6 +6,7 @@ import ContactHero from "./ContactHero";
 import ContactLinks from "./ContactLinks";
 
 export default function Contact() {
+  const { panel } = contactContent;
   return (
     <section
       id="contact"
@@ -137,31 +138,31 @@ export default function Contact() {
             {/* DARK GRADIENT */}
             <div
               className="
-      absolute
-      inset-0
+               absolute
+               inset-0
 
-      bg-gradient-to-br
-      from-black/10
-      via-black/45
-      to-black/80
-    "
+               bg-gradient-to-br
+               from-black/10
+               via-black/45
+               to-black/80
+             "
             />
 
             {/* ATMOSPHERIC LIGHT */}
             <div
               className="
-      absolute
-      left-[-10%]
-      top-[20%]
+               absolute
+               left-[-10%]
+               top-[20%]
 
-      h-[18rem]
-      w-[18rem]
+               h-[18rem]
+               w-[18rem]
 
-      rounded-full
-      blur-sm
+               rounded-full
+               blur-sm
 
-      opacity-[0.12]
-    "
+               opacity-[0.12]
+             "
               style={{
                 background: `radial-gradient(circle, ${rgba.cyanBloomStrong}, transparent 70%)`,
               }}
@@ -170,59 +171,57 @@ export default function Contact() {
             {/* CONTENT */}
             <div
               className="
-      relative
-      z-10
+                relative
+                z-10
 
-      flex
-      h-full
-      flex-col
-      justify-between
+                flex
+                h-full
+                flex-col
+                justify-between
 
-      p-10
-    "
+                p-10
+              "
             >
               {/* TOP */}
               <div className="space-y-6">
                 <div
                   className={`
-          text-[11px]
-          uppercase
-          tracking-[0.34em]
+                  text-[11px]
+                  uppercase
+                  tracking-[0.34em]
 
-          ${ui.text.context}
-        `}
+                  ${ui.text.context}
+                `}
                 >
-                  {contactContent.hero.label}
+                  {panel.label}
                 </div>
 
                 <div
                   className={`
-          max-w-[14ch]
+                   max-w-[14ch]
 
-          text-3xl
-          leading-[1.1]
+                   text-3xl
+                   leading-[1.1]
 
-          ${ui.text.interactive}
-        `}
+                   ${ui.text.interactive}
+                 `}
                 >
-                  Building immersive digital experiences with cinematic
-                  precision.
+                  {panel.title}
                 </div>
               </div>
 
               {/* BOTTOM */}
               <div
                 className={`
-        max-w-[26ch]
-
-        text-sm
-        leading-[1.9]
-
-        ${ui.text.tertiary}
-      `}
+                max-w-[26ch]
+                        
+                text-sm
+                leading-[1.9]
+                        
+                ${ui.text.tertiary}
+              `}
               >
-                Focused on interaction atmosphere, visual pacing, editorial
-                structure, and presentation-driven interfaces.
+                {panel.description}
               </div>
             </div>
           </div>

@@ -11,6 +11,7 @@ import ProjectSectionLabel from "@/presentation/shared/ProjectSectionLabel";
 
 export default function EditorialShowcase({ project }: ProjectBlockProps) {
   const editorial = project.media.editorial?.[0];
+  const content = project.editorial?.showcase;
 
   if (!editorial) return null;
 
@@ -21,43 +22,34 @@ export default function EditorialShowcase({ project }: ProjectBlockProps) {
         <div className="xl:col-span-4">
           <div
             className=" space-y-8
-
                xl:sticky
                xl:top-24
-
                2xl:top-32"
           >
-            <ProjectSectionLabel>Editorial Narrative</ProjectSectionLabel>
+            <ProjectSectionLabel>{content?.label}</ProjectSectionLabel>
 
             <Heading
               as="h3"
               className={`
                 max-w-lg
-
                 text-5xl
                 leading-[0.95]
-
                 ${ui.text.primary}
-
                 md:text-6xl
               `}
             >
-              Emotional storytelling through digital composition.
+              {content?.heading}
             </Heading>
 
             <Text
               className={`
                 max-w-lg
-
                 text-[15px]
                 leading-[1.9]
-
                 ${ui.text.link}
               `}
             >
-              The experience was designed with editorial pacing, cinematic
-              transitions, layered typography systems, and tactile atmospheric
-              surfaces.
+              {content?.description}
             </Text>
           </div>
         </div>

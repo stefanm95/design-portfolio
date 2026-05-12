@@ -8,6 +8,7 @@ import { ui, useTheme } from "@/theme";
 
 export default function ContactHero() {
   const { theme } = useTheme();
+  const { hero } = contactContent;
 
   const scene = theme.scenes.contact;
 
@@ -94,7 +95,7 @@ export default function ContactHero() {
                   ${ui.text.metadata}
                 `}
               >
-                {contactContent.hero.label}
+                {hero.label}
               </Heading>
             </FadeIn>
 
@@ -114,7 +115,7 @@ export default function ContactHero() {
                   ${ui.text.primary}
                 `}
               >
-                {contactContent.hero.title}
+                {hero.title}
               </Display>
             </FadeIn>
 
@@ -131,7 +132,7 @@ export default function ContactHero() {
                   ${ui.text.tertiary}
                 `}
               >
-                {contactContent.hero.description}
+                {hero.description}
               </p>
             </FadeIn>
           </div>
@@ -161,7 +162,7 @@ export default function ContactHero() {
                     ${ui.text.annotation}
                   `}
                 >
-                  {contactContent.hero.email.label}
+                  {hero.email.label}
                 </div>
 
                 <a
@@ -177,7 +178,7 @@ export default function ContactHero() {
                     ${ui.text.interactive}
                   `}
                 >
-                  {contactContent.hero.email.value}
+                  {hero.email.value}
                 </a>
               </div>
 
@@ -191,12 +192,10 @@ export default function ContactHero() {
                     ${ui.text.annotation}
                   `}
                 >
-                  {contactContent.hero.availability.label}
+                  {hero.availability.label}
                 </div>
 
-                <p className={ui.text.supporting}>
-                  {contactContent.hero.availability.value}
-                </p>
+                <p className={ui.text.supporting}>{hero.availability.value}</p>
               </div>
             </div>
           </FadeIn>
