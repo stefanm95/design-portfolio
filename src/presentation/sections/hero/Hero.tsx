@@ -6,34 +6,34 @@ import Label from "@/presentation/ui/typography/Label";
 import Text from "@/presentation/ui/typography/Text";
 import { dividersGradients, opacityClass, ui } from "@/theme";
 
-import RightSideVisual from "@/presentation/visuals/RightSideVisual";
 import Section from "@/presentation/layout/Section";
+import RightSideVisual from "@/presentation/visuals/RightSideVisual";
 
 export default function Hero() {
   return (
     <Section
-      id='hero'
-      className='relative flex min-h-screen items-center overflow-hidden'
+      id="hero"
+      className="relative flex min-h-screen items-start overflow-hidden"
     >
       {/* ENVIRONMENT */}
       <RightSideVisual />
 
       {/* HERO GRID */}
       <div
-        className='
+        className="
           hero-grid
           relative z-10
 
           grid w-full
           grid-cols-12
           items-center
-        '
+        "
       >
         {/* CONTENT */}
-        <div className='col-span-12 xl:col-span-9'>
+        <div className="col-span-12 xl:col-span-9">
           {/* TOP META */}
           <FadeIn>
-            <div className='flex items-center gap-6'>
+            <div className="flex items-center gap-6">
               <div className={`h-px w-16 ${ui.dividers.subtle}`} />
 
               <Label>Frontend Developer / Creative Engineer</Label>
@@ -42,13 +42,13 @@ export default function Hero() {
 
           {/* DISPLAY TYPOGRAPHY */}
           <Reveal>
-            <div className='mt-16'>
-              <div className='space-y-1 md:-space-y-2'>
+            <div className="mt-10">
+              <div className="space-y-0 md:-space-y-6 xl:-space-y-10">
                 <Display>Cinematic</Display>
 
                 <Display
-                  variant='secondary'
-                  className='
+                  variant="secondary"
+                  className="
                     ml-[8vw]
 
                     text-[4.8rem]
@@ -59,12 +59,12 @@ export default function Hero() {
                     font-normal
 
                     opacity-95
-                  '
+                  "
                 >
                   Frontend
                 </Display>
 
-                <Display variant='tertiary' className={opacityClass.dominant}>
+                <Display variant="tertiary" className={opacityClass.dominant}>
                   Experiences
                 </Display>
               </div>
@@ -73,9 +73,9 @@ export default function Hero() {
 
           {/* DESCRIPTION BLOCK */}
           <FadeIn delay={0.35}>
-            <div className='mt-16 md:mt-20 lg:mt-24 flex flex-col md:flex-row max-w-190 md:gap-6 lg:gap-10'>
+            <div className="mt-16 md:mt-18 lg:mt-20 flex flex-col md:flex-row max-w-190 md:gap-6 lg:gap-10">
               {/* EDITORIAL MARKER */}
-              <div className='relative pt-4 hidden md:block'>
+              <div className="relative pt-4 hidden md:block">
                 <div className={`h-px w-20 ${ui.dividers.subtle}`} />
 
                 <div
@@ -93,7 +93,7 @@ export default function Hero() {
               </div>
 
               {/* COPY */}
-              <div className='space-y-7'>
+              <div className="space-y-7">
                 <Text
                   className={`
                     max-w-145
