@@ -150,13 +150,19 @@ export const projects: Project[] = [
       },
 
       showcase: {
-        label: "PROJECT SHOWCASE",
+        label: "CURATED SHOWCASE",
 
-        heading:
-          "Immersive architectural storytelling through curated spatial presentation.",
+        heading: "Cinematic project exploration systems.",
 
         description:
-          "Large-scale project galleries, layered compositions, and cinematic transitions designed to elevate premium construction presentation into an atmospheric digital experience.",
+          "Fullscreen project presentation designed with layered hierarchy, atmospheric transitions, and immersive visual pacing.",
+
+        mobileLabel: "CURATED SHOWCASE",
+
+        mobileHeading: "Cinematic project exploration systems.",
+
+        mobileDescription:
+          "Fullscreen project presentation designed with layered hierarchy and immersive visual pacing.",
       },
 
       systems: {

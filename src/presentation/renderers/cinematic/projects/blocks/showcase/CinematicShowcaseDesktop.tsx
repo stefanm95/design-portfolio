@@ -23,6 +23,7 @@ export default function CinematicShowcaseDesktop({
   setActive,
 }: Props) {
   const showcase = project.media.showcase ?? [];
+  const content = project.cinematic?.showcase;
 
   const primary = showcase[active];
 
@@ -30,10 +31,10 @@ export default function CinematicShowcaseDesktop({
     <section className="relative hidden md:block">
       {/* INTRO */}
       <div className="mb-20 max-w-[760px] space-y-8 md:mb-24">
-        <Label>CURATED SHOWCASE</Label>
+        <Label>{content?.label}</Label>
 
         <Heading as="h3" className="max-w-[24ch]">
-          Cinematic project exploration systems.
+          {content?.heading}
         </Heading>
 
         <Text
@@ -44,8 +45,7 @@ export default function CinematicShowcaseDesktop({
             ${ui.text.narrative}
           `}
         >
-          Fullscreen project presentation designed with layered hierarchy,
-          atmospheric transitions, and immersive visual pacing.
+          {content?.description}
         </Text>
       </div>
 

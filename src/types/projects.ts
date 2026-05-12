@@ -47,6 +47,14 @@ export type CinematicHeroContent = {
   liveIndicator?: boolean;
 };
 
+export type CinematicShowcaseContent = CinematicTextBlock & {
+  mobileLabel?: string;
+
+  mobileHeading?: string;
+
+  mobileDescription?: string;
+};
+
 export type CinematicSystemsContent = CinematicTextBlock & {
   floatingLabel?: string;
 };
@@ -54,7 +62,7 @@ export type CinematicSystemsContent = CinematicTextBlock & {
 export type CinematicContent = {
   hero?: CinematicHeroContent;
 
-  showcase?: CinematicTextBlock;
+  showcase?: CinematicShowcaseContent;
 
   systems?: CinematicSystemsContent;
 
@@ -134,4 +142,14 @@ export type ProjectBlockProps = {
 export type ProjectShowcaseProps = {
   project: Project;
   index: number;
+};
+
+export type ProjectShowcaseItem = {
+  image: string;
+
+  title?: string;
+
+  description?: string;
+
+  alt?: string;
 };

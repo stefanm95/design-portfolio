@@ -23,16 +23,18 @@ export default function CinematicShowcaseMobile({
 }: Props) {
   const showcase = project.media.showcase ?? [];
 
+  const content = project.cinematic?.showcase;
+
   const primary = showcase[active];
 
   return (
     <section className="relative block md:hidden">
       {/* INTRO */}
       <div className="mb-16 space-y-7">
-        <Label>CURATED SHOWCASE</Label>
+        <Label>{content?.mobileLabel}</Label>
 
         <Heading as="h3" className="max-w-[12ch]">
-          Cinematic project exploration systems.
+          {content?.mobileHeading}
         </Heading>
 
         <Text
@@ -42,14 +44,14 @@ export default function CinematicShowcaseMobile({
             ${ui.text.narrative}
           `}
         >
-          Fullscreen project presentation designed with layered hierarchy and
-          immersive visual pacing.
+          {content?.mobileDescription}
         </Text>
       </div>
 
       {/* MAIN VISUAL */}
       <FadeIn key={primary}>
         <a
+          title={project.title}
           href={project.liveUrl}
           target="_blank"
           rel="noreferrer"
