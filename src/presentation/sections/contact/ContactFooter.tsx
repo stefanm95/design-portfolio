@@ -1,5 +1,5 @@
+import Text from "@/design/ui/typography/Text";
 import FadeIn from "@/presentation/animation/FadeIn";
-import Text from "@/presentation/ui/typography/Text";
 import { opacityClass, ui } from "@/theme";
 
 export default function ContactFooter() {
@@ -20,12 +20,12 @@ export default function ContactFooter() {
     >
       {/* ATMOSPHERIC GRADIENT */}
       <div
-        className='
+        className="
           absolute
           inset-0
 
           opacity-[0.06]
-        '
+        "
         style={{
           background:
             "linear-gradient(90deg, rgba(90,180,255,0.12) 0%, transparent 38%, rgba(255,120,80,0.08) 100%)",
@@ -50,7 +50,7 @@ export default function ContactFooter() {
 
       <FadeIn>
         <div
-          className='
+          className="
             relative
             z-10
 
@@ -63,10 +63,10 @@ export default function ContactFooter() {
             lg:flex-row
             lg:items-end
             lg:justify-between
-          '
+          "
         >
           {/* LEFT */}
-          <div className='space-y-8'>
+          <div className="space-y-8">
             <div
               className={`
                 text-[11px]
@@ -110,17 +110,17 @@ export default function ContactFooter() {
 
           {/* RIGHT */}
           <div
-            className='
+            className="
               flex
               flex-col
               gap-8
               items-end
               xl:items-end
-            '
+            "
           >
             {/* CTA */}
             <a
-              href='mailto:hello@yourstudio.dev'
+              href="mailto:hello@yourstudio.dev"
               className={`
                 group
                 inline-flex
@@ -150,12 +150,12 @@ export default function ContactFooter() {
             >
               Start a conversation
               <span
-                className='
+                className="
                   transition-transform
                   duration-500
 
                   group-hover:translate-x-1
-                '
+                "
               >
                 →
               </span>
@@ -181,7 +181,7 @@ export default function ContactFooter() {
             >
               <Text>Designed & developed by Stefan Moise</Text>
 
-              <Text className='text-lg'>© 2026</Text>
+              <Text className="text-lg">© 2026</Text>
             </div>
           </div>
         </div>

@@ -1,9 +1,9 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import Display from "@/presentation/ui/typography/Display";
-import Heading from "@/presentation/ui/typography/Heading";
+import Display from "@/design/ui/typography/Display";
+import Heading from "@/design/ui/typography/Heading";
 
-import { useTheme, ui } from "@/theme";
+import { ui, useTheme } from "@/theme";
 
 export default function ContactHero() {
   const { theme } = useTheme();
@@ -69,7 +69,7 @@ export default function ContactHero() {
 
       {/* CONTENT */}
       <div
-        className='
+        className="
           relative
           z-10
 
@@ -77,11 +77,11 @@ export default function ContactHero() {
           grid-cols-12
 
           gap-y-20
-        '
+        "
       >
         {/* LEFT */}
-        <div className='col-span-12 xl:col-span-7'>
-          <div className='space-y-10 px-8'>
+        <div className="col-span-12 xl:col-span-7">
+          <div className="space-y-10 px-8">
             <FadeIn>
               <Heading
                 className={`
@@ -139,7 +139,7 @@ export default function ContactHero() {
         </div>
 
         {/* RIGHT */}
-        <div className='col-span-12 px-8 xl:col-span-4 xl:col-start-9'>
+        <div className="col-span-12 px-8 xl:col-span-4 xl:col-start-9">
           <FadeIn delay={0.18}>
             <div
               className={`
@@ -152,7 +152,7 @@ export default function ContactHero() {
                 ${ui.borders.focusMd}
               `}
             >
-              <div className='space-y-2'>
+              <div className="space-y-2">
                 <div
                   className={`
                     text-[11px]
@@ -166,7 +166,7 @@ export default function ContactHero() {
                 </div>
 
                 <a
-                  href='mailto:your@email.com'
+                  href="mailto:your@email.com"
                   className={`
                     text-lg
 
@@ -182,7 +182,7 @@ export default function ContactHero() {
                 </a>
               </div>
 
-              <div className='space-y-2'>
+              <div className="space-y-2">
                 <div
                   className={`
                     text-[11px]

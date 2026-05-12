@@ -1,11 +1,11 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import Heading from "@/presentation/ui/typography/Heading";
-import Label from "@/presentation/ui/typography/Label";
-import Text from "@/presentation/ui/typography/Text";
+import Heading from "@/design/ui/typography/Heading";
+import Label from "@/design/ui/typography/Label";
+import Text from "@/design/ui/typography/Text";
 import { ui } from "@/theme";
 
-import type { ProjectBlockProps } from "@/presentation/types/projects";
+import type { ProjectBlockProps } from "@/types/projects";
 
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
@@ -17,47 +17,47 @@ export default function EditorialAtmosphere({ project }: ProjectBlockProps) {
   return (
     <FadeIn>
       <section
-        className='
+        className="
           grid
           
           gap-y-10
           lg:items-start
           lg:gap-14
           lg:grid-cols-12
-        '
+        "
       >
         {/* VISUAL */}
         <div
-          className='
+          className="
             relative
             order-1
 
             lg:col-span-5
             lg:mt-6
-          '
+          "
         >
           <ProjectCinematicFrame
             image={image}
-            alt='Project atmosphere'
-            minHeight='min-h-[240px] sm:min-h-[320px] md:min-h-[420px]'
+            alt="Project atmosphere"
+            minHeight="min-h-[240px] sm:min-h-[320px] md:min-h-[420px]"
           />
         </div>
 
         {/* CONTENT */}
         <div
-          className='
+          className="
           order-2
           lg:col-span-5
           lg:col-start-8
           lg:mt-20
-          '
+          "
         >
-          <div className='max-w-lg space-y-8'>
-            <div className='space-y-4'>
+          <div className="max-w-lg space-y-8">
+            <div className="space-y-4">
               <Label>Atmosphere & Materiality</Label>
 
               <Heading
-                as='h3'
+                as="h3"
                 className={`
                   text-3xl
                   sm:text-4xl

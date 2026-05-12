@@ -1,14 +1,14 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import Heading from "@/presentation/ui/typography/Heading";
-import Label from "@/presentation/ui/typography/Label";
-import Text from "@/presentation/ui/typography/Text";
+import Section from "@/design/layout/Section";
+import Heading from "@/design/ui/typography/Heading";
+import Label from "@/design/ui/typography/Label";
+import Text from "@/design/ui/typography/Text";
+import LeftSideVisual from "@/design/visuals/LeftSideVisual";
 import { dividersGradients, ui } from "@/theme";
-import LeftSideVisual from "@/presentation/visuals/LeftSideVisual";
-import Section from "@/presentation/layout/Section";
 export default function Philosophy() {
   return (
-    <Section id='philosophy' className='relative md:py-40 lg:py-48 xl:py-56'>
+    <Section id="philosophy" className="relative md:py-40 lg:py-48 xl:py-56">
       <LeftSideVisual />
       {/* Atmospheric Divider */}
       <div
@@ -25,7 +25,7 @@ export default function Philosophy() {
 
       {/* Ambient Bloom */}
       <div
-        className='
+        className="
           pointer-events-none
           absolute
 
@@ -45,7 +45,7 @@ export default function Philosophy() {
           blur-sm
 
           opacity-6
-        '
+        "
         style={{
           background:
             "radial-gradient(circle, rgba(0,180,255,0.18), transparent 72%)",
@@ -53,7 +53,7 @@ export default function Philosophy() {
       />
 
       <div
-        className='
+        className="
           relative z-10
 
           grid
@@ -63,16 +63,16 @@ export default function Philosophy() {
           gap-y-16
           md:gap-y-20
           lg:gap-y-24
-        '
+        "
       >
         {/* LEFT */}
-        <div className='col-span-1 md:col-span-1 lg:col-span-6'>
+        <div className="col-span-1 md:col-span-1 lg:col-span-6">
           <FadeIn>
-            <div className='space-y-8 md:space-y-10'>
+            <div className="space-y-8 md:space-y-10">
               <Label>Philosophy</Label>
 
               <Heading
-                as='h2'
+                as="h2"
                 className={`
                   max-w-[10ch]
 
@@ -93,9 +93,9 @@ export default function Philosophy() {
         </div>
 
         {/* RIGHT */}
-        <div className='col-span-1 md:col-span-1 lg:col-span-5 lg:col-start-8'>
+        <div className="col-span-1 md:col-span-1 lg:col-span-5 lg:col-start-8">
           <FadeIn delay={0.15}>
-            <div className='space-y-8 md:space-y-10 lg:space-y-12'>
+            <div className="space-y-8 md:space-y-10 lg:space-y-12">
               <Text
                 className={`
                   text-base
@@ -143,13 +143,13 @@ export default function Philosophy() {
                   md:pt-10
                 `}
               >
-                <div className='space-y-2'>
+                <div className="space-y-2">
                   <Label className={ui.text.annotation}>Focus</Label>
 
                   <Text className={ui.text.paragraph}>Frontend Systems</Text>
                 </div>
 
-                <div className='space-y-2'>
+                <div className="space-y-2">
                   <Label className={ui.text.annotation}>Specialties</Label>
 
                   <Text className={ui.text.paragraph}>

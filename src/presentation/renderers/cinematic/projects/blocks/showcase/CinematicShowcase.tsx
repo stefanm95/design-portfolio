@@ -1,8 +1,8 @@
 import { useState } from "react";
 
+import type { ProjectBlockProps } from "@/types/projects";
 import ArchitecturalShowcaseDesktop from "./CinematicShowcaseDesktop";
 import ArchitecturalShowcaseMobile from "./CinematicShowcaseMobile";
-import type { ProjectBlockProps } from "@/presentation/types/projects";
 
 export default function CinematicShowcase({ project }: ProjectBlockProps) {
   const showcase = project.media.showcase ?? [];

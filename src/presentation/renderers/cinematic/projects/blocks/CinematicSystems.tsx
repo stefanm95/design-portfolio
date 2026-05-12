@@ -1,13 +1,13 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import Heading from "@/presentation/ui/typography/Heading";
-import Label from "@/presentation/ui/typography/Label";
-import Text from "@/presentation/ui/typography/Text";
+import Heading from "@/design/ui/typography/Heading";
+import Label from "@/design/ui/typography/Label";
+import Text from "@/design/ui/typography/Text";
 
-import { useTheme, ui } from "@/theme";
+import { ui, useTheme } from "@/theme";
 
-import type { ProjectBlockProps } from "@/presentation/types/projects";
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
+import type { ProjectBlockProps } from "@/types/projects";
 
 export default function CinematicSystems({ project }: ProjectBlockProps) {
   const system = project.media.systems?.[0];
@@ -19,7 +19,7 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
 
   return (
     <section
-      className='
+      className="
         relative
 
         grid
@@ -27,23 +27,23 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
 
         gap-y-20
         xl:gap-x-20
-      '
+      "
     >
       {/* LEFT */}
-      <div className='col-span-12 xl:col-span-4'>
+      <div className="col-span-12 xl:col-span-4">
         <div
-          className='
+          className="
             space-y-8
 
             xl:sticky
             xl:top-24
 
             2xl:top-32
-          '
+          "
         >
           <Label>PROCESS & SYSTEMS</Label>
 
-          <Heading as='h3' className='max-w-[11ch]'>
+          <Heading as="h3" className="max-w-[11ch]">
             Structured interaction translated into cinematic rhythm.
           </Heading>
 
@@ -63,21 +63,21 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
       </div>
 
       {/* RIGHT */}
-      <div className='col-span-12 xl:col-span-8'>
+      <div className="col-span-12 xl:col-span-8">
         <FadeIn>
           <div
-            className='
+            className="
               relative
 
               xl:translate-y-12
-            '
+            "
           >
             {/* MAIN VISUAL */}
             <ProjectCinematicFrame
               image={system}
-              alt='Interaction systems showcase'
-              imageFit='contain'
-              minHeight='min-h-[420px] xl:min-h-[760px]'
+              alt="Interaction systems showcase"
+              imageFit="contain"
+              minHeight="min-h-[420px] xl:min-h-[760px]"
               className={`
                 ${showcase.surfaces.base}
                 border
@@ -87,7 +87,7 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
 
             {/* ATMOSPHERIC BLOOM */}
             <div
-              className='
+              className="
                 pointer-events-none
 
                 absolute
@@ -95,7 +95,7 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
 
                 opacity-60
                 blur-md
-              '
+              "
               style={{
                 background: showcase.blooms.secondary,
               }}
@@ -103,7 +103,7 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
 
             {/* FLOATING DETAIL */}
             <div
-              className='
+              className="
                 pointer-events-none
 
                 absolute
@@ -112,7 +112,7 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
 
                 hidden
                 xl:block
-              '
+              "
             >
               <div
                 className={`

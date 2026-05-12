@@ -1,14 +1,14 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import Heading from "@/presentation/ui/typography/Heading";
-import Label from "@/presentation/ui/typography/Label";
-import Text from "@/presentation/ui/typography/Text";
+import Heading from "@/design/ui/typography/Heading";
+import Label from "@/design/ui/typography/Label";
+import Text from "@/design/ui/typography/Text";
 import { ui } from "@/theme";
 
-import type { Project } from "@/presentation/types/projects";
+import type { Project } from "@/types/projects";
 
-import ArchitecturalShowcaseSwitcher from "./CinematicShowcaseSwitcher";
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
+import ArchitecturalShowcaseSwitcher from "./CinematicShowcaseSwitcher";
 
 type Props = {
   project: Project;
@@ -26,12 +26,12 @@ export default function CinematicShowcaseMobile({
   const primary = showcase[active];
 
   return (
-    <section className='relative block md:hidden'>
+    <section className="relative block md:hidden">
       {/* INTRO */}
-      <div className='mb-16 space-y-7'>
+      <div className="mb-16 space-y-7">
         <Label>CURATED SHOWCASE</Label>
 
-        <Heading as='h3' className='max-w-[12ch]'>
+        <Heading as="h3" className="max-w-[12ch]">
           Cinematic project exploration systems.
         </Heading>
 
@@ -51,21 +51,21 @@ export default function CinematicShowcaseMobile({
       <FadeIn key={primary}>
         <a
           href={project.liveUrl}
-          target='_blank'
-          rel='noreferrer'
-          className='block'
+          target="_blank"
+          rel="noreferrer"
+          className="block"
         >
           <ProjectCinematicFrame
             image={primary}
-            imageFit='cover'
-            minHeight='min-h-[320px]'
-            className='bg-black/20'
+            imageFit="cover"
+            minHeight="min-h-[320px]"
+            className="bg-black/20"
           />
         </a>
       </FadeIn>
 
       {/* SWITCHER */}
-      <div className='mt-6'>
+      <div className="mt-6">
         <ArchitecturalShowcaseSwitcher
           showcase={showcase}
           active={active}

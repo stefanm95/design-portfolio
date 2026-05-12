@@ -1,15 +1,15 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import Heading from "@/presentation/ui/typography/Heading";
-import Label from "@/presentation/ui/typography/Label";
-import Text from "@/presentation/ui/typography/Text";
+import Heading from "@/design/ui/typography/Heading";
+import Label from "@/design/ui/typography/Label";
+import Text from "@/design/ui/typography/Text";
 
 import { ui } from "@/theme";
 
-import type { Project } from "@/presentation/types/projects";
+import type { Project } from "@/types/projects";
 
-import ArchitecturalShowcaseSwitcher from "./CinematicShowcaseSwitcher";
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
+import ArchitecturalShowcaseSwitcher from "./CinematicShowcaseSwitcher";
 
 type Props = {
   project: Project;
@@ -27,12 +27,12 @@ export default function CinematicShowcaseDesktop({
   const primary = showcase[active];
 
   return (
-    <section className='relative hidden md:block'>
+    <section className="relative hidden md:block">
       {/* INTRO */}
-      <div className='mb-20 max-w-[760px] space-y-8 md:mb-24'>
+      <div className="mb-20 max-w-[760px] space-y-8 md:mb-24">
         <Label>CURATED SHOWCASE</Label>
 
-        <Heading as='h3' className='max-w-[24ch]'>
+        <Heading as="h3" className="max-w-[24ch]">
           Cinematic project exploration systems.
         </Heading>
 
@@ -53,14 +53,14 @@ export default function CinematicShowcaseDesktop({
       <FadeIn key={primary}>
         <ProjectCinematicFrame
           image={primary}
-          imageFit='cover'
-          minHeight='min-h-[620px]'
-          className='bg-black/20'
+          imageFit="cover"
+          minHeight="min-h-[620px]"
+          className="bg-black/20"
         />
       </FadeIn>
 
       {/* SWITCHER */}
-      <div className='mt-8 lg:mt-10'>
+      <div className="mt-8 lg:mt-10">
         <ArchitecturalShowcaseSwitcher
           showcase={showcase}
           active={active}

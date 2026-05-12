@@ -1,9 +1,9 @@
 import { ArrowUpRight } from "lucide-react";
 
-import Display from "@/presentation/ui/typography/Display";
-import Text from "@/presentation/ui/typography/Text";
+import Display from "@/design/ui/typography/Display";
+import Text from "@/design/ui/typography/Text";
 import { ui } from "@/theme";
-import type { ProjectBlockProps } from "../types/projects";
+import type { ProjectBlockProps } from "../../types/projects";
 
 type Props = ProjectBlockProps & {
   index: number;
@@ -11,7 +11,7 @@ type Props = ProjectBlockProps & {
 
 export default function ProjectMeta({ project, index }: Props) {
   return (
-    <div className='relative'>
+    <div className="relative">
       {/* MOBILE INDEX */}
       <div
         className={`
@@ -31,7 +31,7 @@ export default function ProjectMeta({ project, index }: Props) {
       </div>
 
       <div
-        className='
+        className="
           grid
           grid-cols-1
           md:grid-cols-12
@@ -39,10 +39,10 @@ export default function ProjectMeta({ project, index }: Props) {
           gap-y-8
           md:gap-y-14
           lg:gap-x-10
-        '
+        "
       >
         {/* DESKTOP INDEX */}
-        <div className='hidden lg:block lg:col-span-2'>
+        <div className="hidden lg:block lg:col-span-2">
           <div
             className={`
               text-[11px]
@@ -56,12 +56,12 @@ export default function ProjectMeta({ project, index }: Props) {
         </div>
 
         {/* TITLE */}
-        <div className='col-span-1 md:col-span-12 lg:col-span-6'>
-          <div className='space-y-6 pl-10 lg:pl-0'>
+        <div className="col-span-1 md:col-span-12 lg:col-span-6">
+          <div className="space-y-6 pl-10 lg:pl-0">
             <Display
-              as='h2'
-              variant='secondary'
-              className='
+              as="h2"
+              variant="secondary"
+              className="
                 max-w-[32ch]
 
                 text-3xl
@@ -72,7 +72,7 @@ export default function ProjectMeta({ project, index }: Props) {
 
                 leading-[0.98]
                 md:leading-[0.9]
-              '
+              "
             >
               {project.title}
             </Display>
@@ -92,8 +92,8 @@ export default function ProjectMeta({ project, index }: Props) {
         </div>
 
         {/* DESCRIPTION */}
-        <div className='col-span-12 md:col-span-12 lg:col-span-4'>
-          <div className='space-y-10'>
+        <div className="col-span-12 md:col-span-12 lg:col-span-4">
+          <div className="space-y-10">
             <Text
               className={`
                 max-w-[34ch]
@@ -111,15 +111,15 @@ export default function ProjectMeta({ project, index }: Props) {
             </Text>
 
             <div
-              className='
+              className="
                 flex
                 flex-wrap
 
                 gap-x-10
                 gap-y-6
-              '
+              "
             >
-              <div className='space-y-2'>
+              <div className="space-y-2">
                 <div
                   className={`
                     text-[10px]
@@ -136,7 +136,7 @@ export default function ProjectMeta({ project, index }: Props) {
                 </Text>
               </div>
 
-              <div className='space-y-2'>
+              <div className="space-y-2">
                 <div
                   className={`
                     text-[10px]
@@ -155,8 +155,8 @@ export default function ProjectMeta({ project, index }: Props) {
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
-                target='_blank'
-                rel='noreferrer'
+                target="_blank"
+                rel="noreferrer"
                 className={`
                   group/link
 
@@ -181,7 +181,7 @@ export default function ProjectMeta({ project, index }: Props) {
                 <span>Launch Experience</span>
 
                 <ArrowUpRight
-                  className='
+                  className="
                     h-3.5
                     w-3.5
 
@@ -190,7 +190,7 @@ export default function ProjectMeta({ project, index }: Props) {
 
                     group-hover/link:translate-x-1
                     group-hover/link:-translate-y-1
-                  '
+                  "
                   strokeWidth={1.5}
                 />
               </a>

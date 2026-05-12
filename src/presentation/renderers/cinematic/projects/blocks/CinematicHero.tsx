@@ -4,7 +4,7 @@ import FadeIn from "@/presentation/animation/FadeIn";
 
 import { ui, useTheme } from "@/theme";
 
-import type { ProjectBlockProps } from "@/presentation/types/projects";
+import type { ProjectBlockProps } from "@/types/projects";
 
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 import ProjectLiveIndicator from "@/presentation/shared/ProjectLiveIndicator";

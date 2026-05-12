@@ -1,13 +1,13 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import Heading from "@/presentation/ui/typography/Heading";
-import Label from "@/presentation/ui/typography/Label";
-import Text from "@/presentation/ui/typography/Text";
+import Heading from "@/design/ui/typography/Heading";
+import Label from "@/design/ui/typography/Label";
+import Text from "@/design/ui/typography/Text";
 
-import { useTheme, ui } from "@/theme";
+import { ui, useTheme } from "@/theme";
 
-import type { ProjectBlockProps } from "@/presentation/types/projects";
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
+import type { ProjectBlockProps } from "@/types/projects";
 
 export default function CinematicServices({ project }: ProjectBlockProps) {
   const services = project.media.services ?? [];
@@ -15,12 +15,12 @@ export default function CinematicServices({ project }: ProjectBlockProps) {
   const showcase = theme.showcase;
 
   return (
-    <section className='space-y-20'>
+    <section className="space-y-20">
       {/* INTRO */}
-      <div className='max-w-[760px] space-y-8'>
+      <div className="max-w-[760px] space-y-8">
         <Label>SERVICE ARCHITECTURE</Label>
 
-        <Heading as='h3' className='max-w-[12ch]'>
+        <Heading as="h3" className="max-w-[12ch]">
           Spatial service presentation with editorial pacing.
         </Heading>
 
@@ -39,7 +39,7 @@ export default function CinematicServices({ project }: ProjectBlockProps) {
       </div>
 
       {/* SERVICES GRID */}
-      <div className='grid grid-cols-12 gap-10'>
+      <div className="grid grid-cols-12 gap-10">
         {services.map((image, index) => {
           const isPrimary = index === 0;
 
@@ -59,7 +59,7 @@ export default function CinematicServices({ project }: ProjectBlockProps) {
                 <ProjectCinematicFrame
                   image={image}
                   alt={`Service showcase ${index + 1}`}
-                  imageFit='cover'
+                  imageFit="cover"
                   minHeight={
                     isPrimary
                       ? "min-h-[420px] xl:min-h-[720px]"
@@ -74,7 +74,7 @@ export default function CinematicServices({ project }: ProjectBlockProps) {
 
                 {/* OPTIONAL ATMOSPHERIC BLOOM */}
                 <div
-                  className='
+                  className="
                     pointer-events-none
 
                     absolute
@@ -82,7 +82,7 @@ export default function CinematicServices({ project }: ProjectBlockProps) {
 
                     opacity-50
                     blur-md
-                  '
+                  "
                   style={{
                     background: showcase.blooms.secondary,
                   }}

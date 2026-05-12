@@ -1,32 +1,32 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import Label from "@/presentation/ui/typography/Label";
-import Text from "@/presentation/ui/typography/Text";
+import Label from "@/design/ui/typography/Label";
+import Text from "@/design/ui/typography/Text";
 
-import ExperienceVisual from "./ExperienceVisual";
-import Heading from "@/presentation/ui/typography/Heading";
+import Container from "@/design/layout/Container";
+import Section from "@/design/layout/Section";
+import Heading from "@/design/ui/typography/Heading";
 import { dividersGradients, ui } from "@/theme";
-import Section from "@/presentation/layout/Section";
-import Container from "@/presentation/layout/Container";
+import ExperienceVisual from "./ExperienceVisual";
 
 export default function Experience() {
   return (
     <Section
-      id='experience'
-      className='relative overflow-hidden md:py-40 xl:py-48'
+      id="experience"
+      className="relative overflow-hidden md:py-40 xl:py-48"
     >
       {/* BACKGROUND ATMOSPHERE */}
       <div
-        className='
+        className="
           pointer-events-none
           absolute
           inset-0
           overflow-hidden
-        '
+        "
       >
         {/* BLUE LIGHT */}
         <div
-          className='
+          className="
             absolute
             left-[8%]
             top-[10%]
@@ -38,12 +38,12 @@ export default function Experience() {
             blur-sm
 
             bg-blue-500/10
-          '
+          "
         />
 
         {/* WARM LIGHT */}
         <div
-          className='
+          className="
             absolute
             bottom-[0%]
             right-[0%]
@@ -55,7 +55,7 @@ export default function Experience() {
             blur-sm
 
             bg-orange-400/10
-          '
+          "
         />
 
         {/* CENTRAL VERTICAL LIGHT */}
@@ -76,18 +76,18 @@ export default function Experience() {
 
         {/* VIGNETTE */}
         <div
-          className='
+          className="
             absolute
             inset-0
 
             bg-[radial-gradient(circle_at_center,transparent_35%,rgba(0,0,0,0.55)_100%)]
-          '
+          "
         />
       </div>
 
-      <Container className='relative z-10'>
+      <Container className="relative z-10">
         <div
-          className='
+          className="
             grid
             grid-cols-1
             lg:grid-cols-[minmax(0,1.15fr)_520px]
@@ -95,16 +95,16 @@ export default function Experience() {
             gap-16
             md:gap-20
             lg:gap-24
-          '
+          "
         >
           {/* LEFT SIDE */}
           <FadeIn>
-            <div className='relative max-w-[760px]'>
+            <div className="relative max-w-[760px]">
               {/* LABEL */}
               <Label className={ui.text.context}>Experience Systems</Label>
 
               {/* TITLE */}
-              <div className='relative mt-8'>
+              <div className="relative mt-8">
                 {/* SUBTLE GLOW */}
                 <div
                   className={`
@@ -123,7 +123,7 @@ export default function Experience() {
                 />
 
                 <Heading
-                  className='
+                  className="
                   relative
                   z-10
                                 
@@ -141,13 +141,13 @@ export default function Experience() {
                   bg-[linear-gradient(180deg,rgba(240,244,248,0.98)_0%,rgba(210,220,228,0.92)_50%,rgba(214,195,161,0.88)_100%)]
                                 
                   drop-shadow-[0_0_30px_rgba(255,255,255,0.03)]
-                '
+                "
                 >
-                  <span className='block'>Designed</span>
+                  <span className="block">Designed</span>
 
-                  <span className='block ml-[0.04em]'>beyond</span>
+                  <span className="block ml-[0.04em]">beyond</span>
 
-                  <span className='block'>interfaces.</span>
+                  <span className="block">interfaces.</span>
                 </Heading>
               </div>
 
@@ -179,13 +179,13 @@ export default function Experience() {
 
               {/* MINI TAGS */}
               <div
-                className='
+                className="
         mt-12
 
         flex
         flex-wrap
         gap-3
-      '
+      "
               >
                 {["Motion", "Editorial", "Spatial"].map((item) => (
                   <div

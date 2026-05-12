@@ -1,18 +1,18 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import Heading from "@/presentation/ui/typography/Heading";
-import Text from "@/presentation/ui/typography/Text";
+import Heading from "@/design/ui/typography/Heading";
+import Text from "@/design/ui/typography/Text";
 import { ui } from "@/theme";
 
 export default function AboutPhilosophy() {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-y-14 lg:gap-x-16'>
+    <div className="grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-y-14 lg:gap-x-16">
       {/* LEFT */}
-      <div className='col-span-1 md:col-span-12 lg:col-span-5'>
+      <div className="col-span-1 md:col-span-12 lg:col-span-5">
         <FadeIn>
           <Heading
-            as='h3'
-            className='max-w-[12ch] text-2xl md:text-3xl lg:text-4xl'
+            as="h3"
+            className="max-w-[12ch] text-2xl md:text-3xl lg:text-4xl"
           >
             Building immersive digital systems through atmosphere and rhythm.
           </Heading>
@@ -20,9 +20,9 @@ export default function AboutPhilosophy() {
       </div>
 
       {/* RIGHT */}
-      <div className='col-span-1 md:col-span-12 lg:col-span-7'>
+      <div className="col-span-1 md:col-span-12 lg:col-span-7">
         <FadeIn delay={0.12}>
-          <div className='space-y-6 md:space-y-8'>
+          <div className="space-y-6 md:space-y-8">
             <Text
               className={`
                 max-w-[42ch]

@@ -1,17 +1,17 @@
 import { projects } from "@/data/projects";
 
+import Section from "@/design/layout/Section";
 import ProjectShowcase from "./ProjectShowcase";
-import Section from "@/presentation/layout/Section";
 
 export default function SelectedWork() {
   return (
     <Section
-      id='projects'
-      className='relative overflow-hidden md:py-40 lg:py-48 xl:py-56'
+      id="projects"
+      className="relative overflow-hidden md:py-40 lg:py-48 xl:py-56"
     >
       {/* ATMOSPHERIC PURPLE BLOOM */}
       <div
-        className='
+        className="
           pointer-events-none
           absolute
           left-[-10%]
@@ -24,7 +24,7 @@ export default function SelectedWork() {
           blur-sm
 
           opacity-10
-        '
+        "
         style={{
           background:
             "radial-gradient(circle, rgba(126,87,255,0.16), transparent 72%)",
@@ -32,7 +32,7 @@ export default function SelectedWork() {
       />
 
       {/* CONTENT */}
-      <div className='relative z-10 space-y-32 md:space-y-40 lg:space-y-48 xl:space-y-56'>
+      <div className="relative z-10 space-y-32 md:space-y-40 lg:space-y-48 xl:space-y-56">
         {projects.map((project, index) => (
           <ProjectShowcase key={project.id} index={index} project={project} />
         ))}

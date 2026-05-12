@@ -1,13 +1,13 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 import Reveal from "@/presentation/animation/Reveal";
 
-import Display from "@/presentation/ui/typography/Display";
-import Label from "@/presentation/ui/typography/Label";
-import Text from "@/presentation/ui/typography/Text";
+import Display from "@/design/ui/typography/Display";
+import Label from "@/design/ui/typography/Label";
+import Text from "@/design/ui/typography/Text";
 import { dividersGradients, opacityClass, ui } from "@/theme";
 
-import Section from "@/presentation/layout/Section";
-import RightSideVisual from "@/presentation/visuals/RightSideVisual";
+import Section from "@/design/layout/Section";
+import RightSideVisual from "@/design/visuals/RightSideVisual";
 
 export default function Hero() {
   return (

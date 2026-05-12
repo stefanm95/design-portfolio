@@ -4,7 +4,7 @@ import Hero from "@/presentation/sections/hero/Hero";
 import Philosophy from "@/presentation/sections/philosophy/Philosophy";
 import SelectedWork from "@/presentation/sections/projects/SelectedWork";
 
-export default function ImmersiveExperience() {
+export default function CinematicExperience() {
   return (
     <main>
       <Hero />
