@@ -6,10 +6,13 @@ import Label from "@/design/typography/Label";
 import Text from "@/design/typography/Text";
 import { dividersGradients, opacityClass, ui } from "@/theme";
 
+import { heroContent } from "@/content/hero";
 import Section from "@/design/layout/Section";
 import RightSideVisual from "@/design/visuals/RightSideVisual";
 
 export default function Hero() {
+  const { meta, display, description, availability } = heroContent;
+
   return (
     <Section
       id="hero"
@@ -36,7 +39,7 @@ export default function Hero() {
             <div className="flex items-center gap-6">
               <div className={`h-px w-16 ${ui.dividers.subtle}`} />
 
-              <Label>Frontend Developer / Creative Engineer</Label>
+              <Label>{meta.role}</Label>
             </div>
           </FadeIn>
 
@@ -44,7 +47,7 @@ export default function Hero() {
           <Reveal>
             <div className="mt-10">
               <div className="space-y-0 md:-space-y-6 xl:-space-y-10">
-                <Display>Cinematic</Display>
+                <Display>{display.primary}</Display>
 
                 <Display
                   variant="secondary"
@@ -61,11 +64,11 @@ export default function Hero() {
                     opacity-95
                   "
                 >
-                  Frontend
+                  {display.secondary}
                 </Display>
 
                 <Display variant="tertiary" className={opacityClass.dominant}>
-                  Experiences
+                  {display.tertiary}
                 </Display>
               </div>
             </div>
@@ -108,8 +111,7 @@ export default function Hero() {
                     ${ui.text.narrative}
                   `}
                 >
-                  Crafting immersive frontend experiences through cinematic
-                  motion, refined typography, and architectural digital systems.
+                  {description}
                 </Text>
 
                 {/* BOTTOM META */}
@@ -128,11 +130,11 @@ export default function Hero() {
                     ${ui.text.metadata}
                   `}
                 >
-                  <span>Based in Europe</span>
+                  <span>{availability.location}</span>
 
                   <div className={`h-px w-8 ${ui.dividers.subtle}`} />
 
-                  <span>Available for selected projects</span>
+                  <span>{availability.status}</span>
                 </div>
               </div>
             </div>

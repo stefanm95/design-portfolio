@@ -1,15 +1,22 @@
 export const heroContent = {
-  eyebrow: "Frontend Developer",
+  meta: {
+    role: "Frontend Developer / Creative Engineer",
+  },
 
-  title: "Designing cinematic digital experiences.",
+  display: {
+    primary: "Cinematic",
+
+    secondary: "Frontend",
+
+    tertiary: "Experiences",
+  },
 
   description:
-    "Focused on immersive interfaces, atmospheric systems, editorial composition, and emotionally intentional interaction.",
+    "Crafting immersive frontend experiences through cinematic motion, refined typography, and architectural digital systems.",
 
-  availability: "Available for selected freelance projects",
+  availability: {
+    location: "Based in Europe",
 
-  cta: {
-    label: "View Selected Work",
-    href: "#projects",
+    status: "Available for selected projects",
   },
 };

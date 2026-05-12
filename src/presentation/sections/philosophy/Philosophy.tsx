@@ -1,12 +1,16 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
+import { philosophyContent } from "@/content/philosophy";
 import Section from "@/design/layout/Section";
 import Heading from "@/design/typography/Heading";
 import Label from "@/design/typography/Label";
 import Text from "@/design/typography/Text";
 import LeftSideVisual from "@/design/visuals/LeftSideVisual";
 import { dividersGradients, ui } from "@/theme";
+
 export default function Philosophy() {
+  const { hero, body, metadata } = philosophyContent;
+
   return (
     <Section id="philosophy" className="relative md:py-40 lg:py-48 xl:py-56">
       <LeftSideVisual />
@@ -85,8 +89,7 @@ export default function Philosophy() {
                   ${ui.text.strong}
                 `}
               >
-                Designing interfaces that feel spatial, tactile, and emotionally
-                intentional.
+                {hero.title}
               </Heading>
             </div>
           </FadeIn>
@@ -106,10 +109,7 @@ export default function Philosophy() {
                   ${ui.text.reading}
                 `}
               >
-                I approach frontend development as a form of architectural
-                composition — balancing rhythm, typography, motion, and
-                atmosphere to create experiences that feel immersive without
-                overwhelming the user.
+                {body.primary}
               </Text>
 
               <Text
@@ -122,9 +122,7 @@ export default function Philosophy() {
                   ${ui.text.muted}
                 `}
               >
-                My focus is NOT ONLY on building functional interfaces, but on
-                crafting visual systems with depth, clarity, and cinematic
-                presence.
+                {body.secondary}
               </Text>
 
               {/* Metadata */}
@@ -144,17 +142,19 @@ export default function Philosophy() {
                 `}
               >
                 <div className="space-y-2">
-                  <Label className={ui.text.annotation}>Focus</Label>
+                  <Label className={ui.text.annotation}>
+                    {metadata[0].label}
+                  </Label>
 
-                  <Text className={ui.text.paragraph}>Frontend Systems</Text>
+                  <Text className={ui.text.paragraph}>{metadata[0].value}</Text>
                 </div>
 
                 <div className="space-y-2">
-                  <Label className={ui.text.annotation}>Specialties</Label>
+                  <Label className={ui.text.annotation}>
+                    {metadata[1].label}
+                  </Label>
 
-                  <Text className={ui.text.paragraph}>
-                    Motion / UI Architecture
-                  </Text>
+                  <Text className={ui.text.paragraph}>{metadata[1].value}</Text>
                 </div>
               </div>
             </div>
