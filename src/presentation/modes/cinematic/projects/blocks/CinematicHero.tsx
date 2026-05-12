@@ -1,6 +1,8 @@
+"use client";
+
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import { useTheme, ui } from "@/theme";
+import { ui, useTheme } from "@/theme";
 
 import type { ProjectBlockProps } from "@/presentation/types/projects";
 
@@ -9,6 +11,7 @@ import ProjectLiveIndicator from "@/presentation/shared/ProjectLiveIndicator";
 
 export default function CinematicHero({ project }: ProjectBlockProps) {
   const { theme } = useTheme();
+
   const hero = project.media.hero?.[0];
 
   const effects = theme.effects;
@@ -19,45 +22,70 @@ export default function CinematicHero({ project }: ProjectBlockProps) {
     <FadeIn>
       <a
         href={project.liveUrl}
-        target='_blank'
-        rel='noreferrer'
-        className='block'
+        target="_blank"
+        rel="noreferrer"
+        className="block"
       >
-        <div className='relative'>
+        <div
+          className="
+            relative
+
+            -translate-y-[4vh]
+
+            xl:px-6
+          "
+        >
           <ProjectCinematicFrame
             image={hero}
             alt={project.title}
-            imageFit='contain'
-            minHeight='min-h-[320px] md:min-h-[520px]'
-            variant='restrained'
+            imageFit="cover"
+            variant="restrained"
             bloom={true}
             reflection={false}
             atmosphericFill={false}
+            minHeight="min-h-[320px] md:min-h-[420px] lg:min-h-[520px]"
             className={`
-              bg-transparent
+              aspect-[2.15/1]
+
+              overflow-hidden
+
               border
               ${ui.borders.faint}
+
+              bg-black/20
             `}
           />
 
-          {/* PROJECT HERO BLOOM */}
+          {/* ATMOSPHERIC BLOOM */}
           <div
-            className='
+            className="
               pointer-events-none
 
               absolute
               inset-x-0
               bottom-0
 
-              h-[40%]
-            '
+              h-[38%]
+            "
             style={{
               background: effects.blooms.projectHero,
-              opacity: 0.4,
+              opacity: 0.34,
             }}
           />
 
-          <ProjectLiveIndicator />
+          {/* SIDE META */}
+          <div
+            className="
+              absolute
+              bottom-6
+              right-6
+
+              hidden
+              lg:flex
+            "
+          >
+            <ProjectLiveIndicator />
+          </div>
         </div>
       </a>
     </FadeIn>
