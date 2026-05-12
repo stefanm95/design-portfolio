@@ -1,10 +1,11 @@
+import { aboutContent } from "@/content/about";
 import FadeIn from "@/presentation/animation/FadeIn";
 import { opacityClass, ui } from "@/theme";
 
 export default function AboutPrinciples() {
   return (
     <section
-      className='
+      className="
         relative
         overflow-hidden
 
@@ -12,21 +13,21 @@ export default function AboutPrinciples() {
         md:py-28
         lg:py-32
         xl:py-40
-      '
+      "
     >
       {/* ATMOSPHERIC BASE */}
       <div
-        className='
+        className="
           absolute
           inset-0
 
           bg-transparent
-        '
+        "
       />
 
       {/* STONE SLAB */}
       <div
-        className='
+        className="
           absolute
 
           left-[-140%]
@@ -48,12 +49,12 @@ export default function AboutPrinciples() {
           rounded-r-[2rem]
 
           opacity-[0.22]
-        '
+        "
       >
         <img
-          src='/textures/stone/bekky-bekks-79k1zS6SnzY-unsplash.jpg'
-          alt=''
-          className='
+          src="/textures/stone/bekky-bekks-79k1zS6SnzY-unsplash.jpg"
+          alt=""
+          className="
             h-full
             w-full
 
@@ -62,17 +63,17 @@ export default function AboutPrinciples() {
 
             scale-[0.82]
             md:scale-[0.78]
-          '
+          "
         />
 
         {/* DARKEN */}
         <div
-          className='
+          className="
             absolute
             inset-0
 
             bg-black/45
-          '
+          "
         />
 
         {/* LIGHT EDGE */}
@@ -122,7 +123,7 @@ export default function AboutPrinciples() {
 
       {/* CONTENT */}
       <div
-        className='
+        className="
     relative
     z-10
 
@@ -139,21 +140,21 @@ export default function AboutPrinciples() {
 
     xl:grid-cols-12
     xl:items-center
-  '
+  "
       >
         {/* LEFT SPACER */}
-        <div className='hidden xl:block xl:col-span-5' />
+        <div className="hidden xl:block xl:col-span-5" />
 
         {/* RIGHT CONTENT */}
         <div
-          className='
+          className="
       max-w-[720px]
 
       xl:col-span-6
       xl:col-start-7
-    '
+    "
         >
-          <div className='space-y-12 md:space-y-14'>
+          <div className="space-y-12 md:space-y-14">
             <FadeIn>
               <div
                 className={`
@@ -164,7 +165,7 @@ export default function AboutPrinciples() {
             ${ui.text.label}
           `}
               >
-                EXPERIENCE PRINCIPLES
+                {aboutContent.stack.label}
               </div>
             </FadeIn>
 
@@ -184,7 +185,7 @@ export default function AboutPrinciples() {
             ${ui.text.primary}
           `}
               >
-                Calm systems with cinematic intent.
+                {aboutContent.stack.title}
               </h2>
             </FadeIn>
 
@@ -203,16 +204,14 @@ export default function AboutPrinciples() {
     ${ui.text.narrative}
   `}
               >
-                Every interface is designed around pacing, atmosphere,
-                hierarchy, and emotional clarity — creating experiences that
-                feel composed rather than assembled.
+                {aboutContent.stack.paragraph}
               </p>
             </FadeIn>
 
             {/* PRINCIPLES */}
             <FadeIn delay={0.18}>
               <div
-                className='
+                className="
       grid
       grid-cols-1
       sm:grid-cols-2
@@ -224,14 +223,9 @@ export default function AboutPrinciples() {
       md:pt-8
 
       max-w-[28rem]
-    '
+    "
               >
-                {[
-                  "Atmosphere",
-                  "Editorial Rhythm",
-                  "Spatial Composition",
-                  "Motion Clarity",
-                ].map((item) => (
+                {aboutContent.stack.list.map((item) => (
                   <div
                     key={item}
                     className={`

@@ -1,29 +1,7 @@
+import { contactContent } from "@/content/contact";
 import FadeIn from "@/presentation/animation/FadeIn";
 
 import { useTheme } from "@/theme";
-
-const links = [
-  {
-    label: "Email",
-    value: "hello@yourstudio.dev",
-    href: "mailto:hello@yourstudio.dev",
-    status: "Primary channel",
-  },
-
-  {
-    label: "GitHub",
-    value: "github.com/yourprofile",
-    href: "https://github.com/yourprofile",
-    status: "Open source",
-  },
-
-  {
-    label: "LinkedIn",
-    value: "linkedin.com/in/yourprofile",
-    href: "https://linkedin.com",
-    status: "Professional network",
-  },
-];
 
 export default function ContactLinks() {
   const { theme } = useTheme();
@@ -45,7 +23,7 @@ export default function ContactLinks() {
     >
       {/* TEXTURE PANEL */}
       <div
-        className='
+        className="
           absolute
           inset-y-0
           right-0
@@ -56,7 +34,7 @@ export default function ContactLinks() {
           w-[42%]
 
           opacity-[0.14]
-        '
+        "
         style={{
           backgroundImage: `url(${contact.textures.panel})`,
           backgroundSize: "cover",
@@ -66,7 +44,7 @@ export default function ContactLinks() {
 
       {/* TEXTURE FADE */}
       <div
-        className='
+        className="
           absolute
           inset-y-0
           right-0
@@ -75,7 +53,7 @@ export default function ContactLinks() {
           lg:block
 
           w-[42%]
-        '
+        "
         style={{
           background: contact.overlays.textureFade,
         }}
@@ -83,7 +61,7 @@ export default function ContactLinks() {
 
       {/* ATMOSPHERIC GLOW */}
       <div
-        className='
+        className="
           absolute
           right-[10%]
           top-1/2
@@ -97,7 +75,7 @@ export default function ContactLinks() {
           blur-sm
 
           opacity-40
-        '
+        "
         style={{
           background: contact.atmosphere.glow,
         }}
@@ -105,13 +83,13 @@ export default function ContactLinks() {
 
       {/* REFLECTION */}
       <div
-        className='
+        className="
           absolute
           inset-0
 
           opacity-20
           mix-blend-screen
-        '
+        "
         style={{
           background: contact.overlays.reflection,
         }}
@@ -119,7 +97,7 @@ export default function ContactLinks() {
 
       {/* CONTENT */}
       <div
-        className='
+        className="
           relative
           z-10
 
@@ -128,7 +106,7 @@ export default function ContactLinks() {
 
           md:px-10
           md:py-10
-        '
+        "
       >
         {/* SECTION LABEL */}
         <div
@@ -145,13 +123,13 @@ export default function ContactLinks() {
           Communication Channels
         </div>
 
-        <div className='space-y-8'>
-          {links.map((link, index) => (
+        <div className="space-y-8">
+          {contactContent.links.items.map((link, index) => (
             <FadeIn key={link.label} delay={0.08 * index}>
               <a
                 href={link.href}
-                target='_blank'
-                rel='noreferrer'
+                target="_blank"
+                rel="noreferrer"
                 className={`
                   group
                   block
@@ -165,7 +143,7 @@ export default function ContactLinks() {
                 `}
               >
                 {/* TOP ROW */}
-                <div className='mb-4 flex items-center justify-between'>
+                <div className="mb-4 flex items-center justify-between">
                   <div
                     className={`
                       text-[10px]
@@ -178,7 +156,7 @@ export default function ContactLinks() {
                     {link.label}
                   </div>
 
-                  <div className='flex items-center gap-2'>
+                  <div className="flex items-center gap-2">
                     <div
                       className={`
                         h-1.5
@@ -202,7 +180,7 @@ export default function ContactLinks() {
                 </div>
 
                 {/* VALUE */}
-                <div className='flex items-end justify-between gap-6'>
+                <div className="flex items-end justify-between gap-6">
                   <span
                     className={`
                       text-lg

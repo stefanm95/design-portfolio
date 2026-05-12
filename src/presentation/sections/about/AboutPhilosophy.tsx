@@ -1,5 +1,6 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
+import { aboutContent } from "@/content/about";
 import Heading from "@/design/typography/Heading";
 import Text from "@/design/typography/Text";
 import { ui } from "@/theme";
@@ -14,7 +15,7 @@ export default function AboutPhilosophy() {
             as="h3"
             className="max-w-[12ch] text-2xl md:text-3xl lg:text-4xl"
           >
-            Building immersive digital systems through atmosphere and rhythm.
+            {aboutContent.philosophy.title}
           </Heading>
         </FadeIn>
       </div>
@@ -35,9 +36,7 @@ export default function AboutPhilosophy() {
                 ${ui.text.reading}
               `}
             >
-              My work focuses on cinematic interaction systems, editorial
-              composition, motion hierarchy, and immersive frontend
-              presentation.
+              {aboutContent.philosophy.paragraphs[0]}
             </Text>
 
             <Text
@@ -52,9 +51,7 @@ export default function AboutPhilosophy() {
                 ${ui.text.muted}
               `}
             >
-              I’m especially interested in how pacing, spacing, typography, and
-              restrained motion can transform interfaces from functional layouts
-              into emotionally memorable experiences.
+              {aboutContent.philosophy.paragraphs[1]}
             </Text>
           </div>
         </FadeIn>

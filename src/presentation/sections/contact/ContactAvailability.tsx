@@ -1,3 +1,4 @@
+import { contactContent } from "@/content/contact";
 import FadeIn from "@/presentation/animation/FadeIn";
 import { ui } from "@/theme";
 
@@ -16,7 +17,7 @@ export default function ContactAvailability() {
       >
         {/* SOFT GLOW */}
         <div
-          className='
+          className="
             absolute
             left-0
             top-0
@@ -25,10 +26,10 @@ export default function ContactAvailability() {
             w-24
 
             bg-cyan-300/30
-          '
+          "
         />
 
-        <div className='space-y-4'>
+        <div className="space-y-4">
           <div
             className={`
               text-[11px]
@@ -38,7 +39,7 @@ export default function ContactAvailability() {
               ${ui.text.metadata}
             `}
           >
-            Availability
+            {contactContent.availability.label}
           </div>
 
           <p
@@ -50,8 +51,7 @@ export default function ContactAvailability() {
               ${ui.text.available}
             `}
           >
-            Currently focused on selected cinematic, editorial, and
-            presentation-oriented digital experiences.
+            {contactContent.availability.description}
           </p>
         </div>
       </div>

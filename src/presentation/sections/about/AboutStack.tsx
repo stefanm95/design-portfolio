@@ -1,5 +1,6 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
+import { aboutContent } from "@/content/about";
 import Text from "@/design/typography/Text";
 import { ui } from "@/theme";
 
@@ -24,9 +25,7 @@ export default function AboutStack() {
             ${ui.text.muted}
           `}
         >
-          Built with React, TypeScript, Framer Motion, Tailwind, and custom
-          interaction systems focused on immersive presentation, editorial
-          pacing, and cinematic frontend architecture.
+          {aboutContent.stack.description}
         </Text>
       </div>
     </FadeIn>

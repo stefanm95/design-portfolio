@@ -3,6 +3,7 @@ import FadeIn from "@/presentation/animation/FadeIn";
 import Display from "@/design/typography/Display";
 import Heading from "@/design/typography/Heading";
 
+import { contactContent } from "@/content/contact";
 import { ui, useTheme } from "@/theme";
 
 export default function ContactHero() {
@@ -93,7 +94,7 @@ export default function ContactHero() {
                   ${ui.text.metadata}
                 `}
               >
-                CONTACT
+                {contactContent.hero.label}
               </Heading>
             </FadeIn>
 
@@ -113,7 +114,7 @@ export default function ContactHero() {
                   ${ui.text.primary}
                 `}
               >
-                Designed with atmosphere and intent.
+                {contactContent.hero.title}
               </Display>
             </FadeIn>
 
@@ -130,9 +131,7 @@ export default function ContactHero() {
                   ${ui.text.tertiary}
                 `}
               >
-                I build cinematic digital experiences focused on pacing,
-                interaction clarity, editorial composition, and immersive
-                storytelling.
+                {contactContent.hero.description}
               </p>
             </FadeIn>
           </div>
@@ -162,7 +161,7 @@ export default function ContactHero() {
                     ${ui.text.annotation}
                   `}
                 >
-                  Email
+                  {contactContent.hero.email.label}
                 </div>
 
                 <a
@@ -178,7 +177,7 @@ export default function ContactHero() {
                     ${ui.text.interactive}
                   `}
                 >
-                  your@email.com
+                  {contactContent.hero.email.value}
                 </a>
               </div>
 
@@ -192,11 +191,11 @@ export default function ContactHero() {
                     ${ui.text.annotation}
                   `}
                 >
-                  Availability
+                  {contactContent.hero.availability.label}
                 </div>
 
                 <p className={ui.text.supporting}>
-                  Available for selected freelance projects.
+                  {contactContent.hero.availability.value}
                 </p>
               </div>
             </div>

@@ -3,13 +3,15 @@ import FadeIn from "@/presentation/animation/FadeIn";
 import Display from "@/design/typography/Display";
 import Label from "@/design/typography/Label";
 
+import { aboutContent } from "@/content/about";
+
 export default function AboutHero() {
   return (
     <div className="grid relative left-[45%] xl:left-0 lg:left-0 grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-y-16 lg:gap-x-12">
       {/* LABEL */}
       <div className="col-span-1 md:col-span-12 lg:col-span-2">
         <FadeIn>
-          <Label>DESIGN PHILOSOPHY</Label>
+          <Label>{aboutContent.hero.label}</Label>
         </FadeIn>
       </div>
 
@@ -31,7 +33,7 @@ export default function AboutHero() {
               leading-[0.92]
             "
           >
-            Interfaces should feel directed, not assembled.
+            {aboutContent.hero.statement}
           </Display>
         </FadeIn>
       </div>

@@ -1,4 +1,4 @@
-import { projects } from "@/data/projects";
+import { projects } from "@/content/projects";
 
 import Section from "@/design/layout/Section";
 import ProjectShowcase from "./ProjectShowcase";

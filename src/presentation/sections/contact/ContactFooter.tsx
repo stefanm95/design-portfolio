@@ -1,3 +1,4 @@
+import { contactContent } from "@/content/contact";
 import Text from "@/design/typography/Text";
 import FadeIn from "@/presentation/animation/FadeIn";
 import { opacityClass, ui } from "@/theme";
@@ -76,7 +77,7 @@ export default function ContactFooter() {
                 ${ui.text.annotation}
               `}
             >
-              FINAL FRAME
+              {contactContent.footer.label}
             </div>
 
             <div
@@ -90,7 +91,7 @@ export default function ContactFooter() {
                 ${ui.text.accent}
               `}
             >
-              Let’s build something memorable.
+              {contactContent.footer.title}
             </div>
 
             <p
@@ -103,8 +104,7 @@ export default function ContactFooter() {
                 ${ui.text.muted}
               `}
             >
-              Focused on cinematic digital experiences, immersive presentation
-              systems, and interaction-driven interfaces crafted with precision.
+              {contactContent.footer.description}
             </p>
           </div>
 
@@ -148,7 +148,7 @@ export default function ContactFooter() {
                 hover:text-white
               `}
             >
-              Start a conversation
+              {contactContent.footer.cta.label}
               <span
                 className="
                   transition-transform
@@ -179,9 +179,11 @@ export default function ContactFooter() {
                 md:gap-8
               `}
             >
-              <Text>Designed & developed by Stefan Moise</Text>
+              <Text> {contactContent.footer.meta.author}</Text>
 
-              <Text className="text-lg">© 2026</Text>
+              <Text className="text-lg">
+                {contactContent.footer.meta.copyright}
+              </Text>
             </div>
           </div>
         </div>
