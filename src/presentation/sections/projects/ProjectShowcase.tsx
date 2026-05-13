@@ -1,4 +1,4 @@
-import PresentationRuntime from "@/runtime/presentation/PresentationRuntime";
+import PresentationRuntime from "@/runtime/presentation/orchestration/PresentationRuntime";
 
 import type { ProjectShowcaseProps } from "@/types/projects";
 

@@ -6,15 +6,17 @@ import { presentationBlockRegistry } from "@/presentation";
 
 import type { Project } from "@/types/projects";
 
-import { cinematicSpacing, editorialSpacing } from "./spacing";
-
-import { compositionDensity } from "./composition";
+import {
+  cinematicSpacing,
+  compositionDensity,
+  editorialSpacing,
+} from "@/runtime/presentation";
 
 import type {
   CinematicPresentationBlock,
   EditorialPresentationBlock,
   ProjectPresentation,
-} from "./types";
+} from "../types";
 
 type Props = {
   project: Project;

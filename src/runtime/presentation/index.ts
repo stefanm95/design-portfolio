@@ -9,6 +9,8 @@ export * from "./scroll/useScrollProgress";
 export * from "./scene/sceneRegistry";
 export * from "./scene/useScene";
 
-export * from "./spacing";
+export * from "./composition";
 
 export { default as PresentationProvider } from "./PresentationProvider";
+
+export { default as PresentationRuntime } from "./orchestration/PresentationRuntime";

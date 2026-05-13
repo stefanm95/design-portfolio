@@ -1,4 +1,4 @@
-import type { CinematicBlockType, EditorialBlockType } from "./types";
+import type { CinematicBlockType, EditorialBlockType } from "../types";
 
 export const cinematicSpacing: Record<CinematicBlockType, string> = {
   hero: "mt-10 sm:mt-14 md:mt-20 lg:mt-24 xl:mt-32",
