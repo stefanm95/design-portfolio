@@ -8,9 +8,14 @@ import { ui, useTheme } from "@/theme";
 
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
-import type { ProjectBlockProps } from "@/types/projects";
+import type {
+  CinematicPresentationBlock,
+  PresentationBlockRendererProps,
+} from "@/runtime/presentation/types";
 
-export default function CinematicServices({ project }: ProjectBlockProps) {
+type Props = PresentationBlockRendererProps<CinematicPresentationBlock>;
+
+export default function CinematicServices({ project, block, index }: Props) {
   const services = project.media.services ?? [];
 
   const content = project.cinematic?.services;
@@ -19,7 +24,9 @@ export default function CinematicServices({ project }: ProjectBlockProps) {
 
   const showcase = theme.showcase;
 
-  if (!services.length || !content) return null;
+  if (!services.length || !content) {
+    return null;
+  }
 
   return (
     <section className="space-y-20">
@@ -35,7 +42,6 @@ export default function CinematicServices({ project }: ProjectBlockProps) {
           className={`
             max-w-[40ch]
             leading-[1.9]
-
             ${ui.text.narrative}
           `}
         >
@@ -45,15 +51,14 @@ export default function CinematicServices({ project }: ProjectBlockProps) {
 
       {/* SERVICES GRID */}
       <div className="grid grid-cols-12 gap-10">
-        {services.map((image, index) => {
-          const isPrimary = index === 0;
+        {services.map((image, imageIndex) => {
+          const isPrimary = imageIndex === 0;
 
           return (
-            <FadeIn key={image} delay={index * 0.1}>
+            <FadeIn key={image} delay={imageIndex * 0.1}>
               <div
                 className={`
                   relative
-
                   ${
                     isPrimary
                       ? "col-span-12 xl:col-span-8"
@@ -63,7 +68,7 @@ export default function CinematicServices({ project }: ProjectBlockProps) {
               >
                 <ProjectCinematicFrame
                   image={image}
-                  alt={`${content.heading} ${index + 1}`}
+                  alt={`${content.heading} ${imageIndex + 1}`}
                   imageFit="cover"
                   minHeight={
                     isPrimary
@@ -72,9 +77,7 @@ export default function CinematicServices({ project }: ProjectBlockProps) {
                   }
                   className={`
                     ${showcase.surfaces.base}
-
                     border
-
                     ${showcase.surfaces.border}
                   `}
                 />
@@ -83,10 +86,8 @@ export default function CinematicServices({ project }: ProjectBlockProps) {
                 <div
                   className="
                     pointer-events-none
-
                     absolute
                     inset-0
-
                     opacity-50
                     blur-md
                   "

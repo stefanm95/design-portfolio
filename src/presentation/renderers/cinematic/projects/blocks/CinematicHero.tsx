@@ -4,19 +4,26 @@ import FadeIn from "@/presentation/animation/FadeIn";
 
 import { ui, useTheme } from "@/theme";
 
-import type { ProjectBlockProps } from "@/types/projects";
-
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 import ProjectLiveIndicator from "@/presentation/shared/ProjectLiveIndicator";
 
-export default function CinematicHero({ project }: ProjectBlockProps) {
+import type {
+  CinematicPresentationBlock,
+  PresentationBlockRendererProps,
+} from "@/runtime/presentation/types";
+
+type Props = PresentationBlockRendererProps<CinematicPresentationBlock>;
+
+export default function CinematicHero({ project, block, index }: Props) {
   const { theme } = useTheme();
 
   const hero = project.media.hero?.[0];
 
   const effects = theme.effects;
 
-  if (!hero) return null;
+  if (!hero) {
+    return null;
+  }
 
   return (
     <FadeIn>
@@ -29,9 +36,7 @@ export default function CinematicHero({ project }: ProjectBlockProps) {
         <div
           className="
             relative
-
             -translate-y-[4vh]
-
             xl:px-6
           "
         >
@@ -46,12 +51,9 @@ export default function CinematicHero({ project }: ProjectBlockProps) {
             minHeight="min-h-[320px] md:min-h-[420px] lg:min-h-[520px]"
             className={`
               aspect-[2.15/1]
-
               overflow-hidden
-
               border
               ${ui.borders.faint}
-
               bg-black/20
             `}
           />
@@ -60,11 +62,9 @@ export default function CinematicHero({ project }: ProjectBlockProps) {
           <div
             className="
               pointer-events-none
-
               absolute
               inset-x-0
               bottom-0
-
               h-[38%]
             "
             style={{
@@ -79,7 +79,6 @@ export default function CinematicHero({ project }: ProjectBlockProps) {
               absolute
               bottom-6
               right-6
-
               hidden
               lg:flex
             "

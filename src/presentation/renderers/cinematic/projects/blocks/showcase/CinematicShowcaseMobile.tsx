@@ -3,16 +3,26 @@ import FadeIn from "@/presentation/animation/FadeIn";
 import Heading from "@/design/typography/Heading";
 import Label from "@/design/typography/Label";
 import Text from "@/design/typography/Text";
+
 import { ui } from "@/theme";
+
+import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
+
+import CinematicShowcaseSwitcher from "./CinematicShowcaseSwitcher";
 
 import type { Project } from "@/types/projects";
 
-import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
-import ArchitecturalShowcaseSwitcher from "./CinematicShowcaseSwitcher";
+import type { CinematicPresentationBlock } from "@/runtime/presentation/types";
 
 type Props = {
   project: Project;
+
+  block: CinematicPresentationBlock;
+
+  index: number;
+
   active: number;
+
   setActive: React.Dispatch<React.SetStateAction<number>>;
 };
 
@@ -29,7 +39,6 @@ export default function CinematicShowcaseMobile({
 
   return (
     <section className="relative block md:hidden">
-      {/* INTRO */}
       <div className="mb-16 space-y-7">
         <Label>{content?.mobileLabel}</Label>
 
@@ -41,6 +50,7 @@ export default function CinematicShowcaseMobile({
           className={`
             max-w-[30ch]
             leading-[1.85]
+
             ${ui.text.narrative}
           `}
         >
@@ -48,7 +58,6 @@ export default function CinematicShowcaseMobile({
         </Text>
       </div>
 
-      {/* MAIN VISUAL */}
       <FadeIn key={primary}>
         <a
           title={project.title}
@@ -66,9 +75,8 @@ export default function CinematicShowcaseMobile({
         </a>
       </FadeIn>
 
-      {/* SWITCHER */}
       <div className="mt-6">
-        <ArchitecturalShowcaseSwitcher
+        <CinematicShowcaseSwitcher
           showcase={showcase}
           active={active}
           setActive={setActive}

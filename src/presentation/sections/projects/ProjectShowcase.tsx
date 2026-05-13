@@ -1,16 +1,16 @@
-import ArchitecturalProjectShowcase from "@/presentation/renderers/cinematic/projects/CinematicProjectShowcase";
-import EditorialProjectShowcase from "@/presentation/renderers/editorial/projects/EditorialProjectShowcase";
+import PresentationRuntime from "@/runtime/presentation/PresentationRuntime";
+
 import type { ProjectShowcaseProps } from "@/types/projects";
 
-export default function ProjectShowcase(props: ProjectShowcaseProps) {
-  const { project } = props;
-
-  switch (project.layout) {
-    case "architectural":
-      return <ArchitecturalProjectShowcase {...props} />;
-
-    case "editorial":
-    default:
-      return <EditorialProjectShowcase {...props} />;
-  }
+export default function ProjectShowcase({
+  project,
+  index,
+}: ProjectShowcaseProps) {
+  return (
+    <PresentationRuntime
+      project={project}
+      presentation={project.presentation}
+      index={index}
+    />
+  );
 }

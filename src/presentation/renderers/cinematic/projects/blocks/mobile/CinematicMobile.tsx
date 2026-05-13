@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Heading from "@/design/typography/Heading";
 import Label from "@/design/typography/Label";
 import Text from "@/design/typography/Text";
@@ -6,21 +8,26 @@ import RightSideVisual from "@/design/visuals/RightSideVisual";
 
 import { ui } from "@/theme";
 
-import type { ProjectBlockProps } from "@/types/projects";
+import type {
+  CinematicPresentationBlock,
+  PresentationBlockRendererProps,
+} from "@/runtime/presentation/types";
 
-import { useState } from "react";
+import CinematicMobileCarousel from "./CinematicMobileCarousel";
+import CinematicMobileStack from "./CinematicMobileStack";
 
-import ArchitecturalMobileCarousel from "./CinematicMobileCarousel";
-import ArchitecturalMobileStack from "./CinematicMobileStack";
+type Props = PresentationBlockRendererProps<CinematicPresentationBlock>;
 
-export default function CinematicMobile({ project }: ProjectBlockProps) {
+export default function CinematicMobile({ project, block, index }: Props) {
   const mobile = project.media.mobile ?? [];
 
   const content = project.cinematic?.mobile;
 
   const [active, setActive] = useState(1);
 
-  if (mobile.length < 3 || !content) return null;
+  if (mobile.length < 3 || !content) {
+    return null;
+  }
 
   return (
     <section
@@ -62,14 +69,14 @@ export default function CinematicMobile({ project }: ProjectBlockProps) {
             xl:col-span-7
           "
         >
-          {/* TABLET + SMALL LAPTOP */}
+          {/* TABLET */}
           <div className="hidden sm:block md:hidden">
-            <ArchitecturalMobileStack images={mobile} />
+            <CinematicMobileStack images={mobile} />
           </div>
 
           {/* DESKTOP */}
           <div className="hidden md:block">
-            <ArchitecturalMobileCarousel
+            <CinematicMobileCarousel
               images={mobile}
               active={active}
               setActive={setActive}

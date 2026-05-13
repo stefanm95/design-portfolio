@@ -1,3 +1,8 @@
-export * from "./editorial";
+import { cinematicBlockRegistry } from "./cinematic";
+import { editorialBlockRegistry } from "./editorial";
 
-export * from "./cinematic";
+export const presentationBlockRegistry = {
+  cinematic: cinematicBlockRegistry,
+
+  editorial: editorialBlockRegistry,
+};

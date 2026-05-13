@@ -6,14 +6,22 @@ import Text from "@/design/typography/Text";
 
 import { ui } from "@/theme";
 
-import type { Project } from "@/types/projects";
-
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
-import ArchitecturalShowcaseSwitcher from "./CinematicShowcaseSwitcher";
+
+import CinematicShowcaseSwitcher from "./CinematicShowcaseSwitcher";
+
+import type { CinematicPresentationBlock } from "@/runtime/presentation/types";
+import type { Project } from "@/types/projects";
 
 type Props = {
   project: Project;
+
+  block: CinematicPresentationBlock;
+
+  index: number;
+
   active: number;
+
   setActive: React.Dispatch<React.SetStateAction<number>>;
 };
 
@@ -23,13 +31,13 @@ export default function CinematicShowcaseDesktop({
   setActive,
 }: Props) {
   const showcase = project.media.showcase ?? [];
+
   const content = project.cinematic?.showcase;
 
   const primary = showcase[active];
 
   return (
     <section className="relative hidden md:block">
-      {/* INTRO */}
       <div className="mb-20 max-w-[760px] space-y-8 md:mb-24">
         <Label>{content?.label}</Label>
 
@@ -49,7 +57,6 @@ export default function CinematicShowcaseDesktop({
         </Text>
       </div>
 
-      {/* MAIN VISUAL */}
       <FadeIn key={primary}>
         <ProjectCinematicFrame
           image={primary}
@@ -59,9 +66,8 @@ export default function CinematicShowcaseDesktop({
         />
       </FadeIn>
 
-      {/* SWITCHER */}
       <div className="mt-8 lg:mt-10">
-        <ArchitecturalShowcaseSwitcher
+        <CinematicShowcaseSwitcher
           showcase={showcase}
           active={active}
           setActive={setActive}

@@ -1,26 +1,39 @@
+"use client";
+
 import { useState } from "react";
 
-import type { ProjectBlockProps } from "@/types/projects";
-import ArchitecturalShowcaseDesktop from "./CinematicShowcaseDesktop";
-import ArchitecturalShowcaseMobile from "./CinematicShowcaseMobile";
+import type { CinematicPresentationBlock } from "@/runtime/presentation/types";
 
-export default function CinematicShowcase({ project }: ProjectBlockProps) {
+import type { PresentationBlockRendererProps } from "@/runtime/presentation/types";
+
+import CinematicShowcaseDesktop from "./CinematicShowcaseDesktop";
+import CinematicShowcaseMobile from "./CinematicShowcaseMobile";
+
+type Props = PresentationBlockRendererProps<CinematicPresentationBlock>;
+
+export default function CinematicShowcase({ project, block, index }: Props) {
   const showcase = project.media.showcase ?? [];
 
   const [active, setActive] = useState(0);
 
-  if (showcase.length < 2) return null;
+  if (showcase.length < 2) {
+    return null;
+  }
 
   return (
     <>
-      <ArchitecturalShowcaseDesktop
+      <CinematicShowcaseDesktop
         project={project}
+        block={block}
+        index={index}
         active={active}
         setActive={setActive}
       />
 
-      <ArchitecturalShowcaseMobile
+      <CinematicShowcaseMobile
         project={project}
+        block={block}
+        index={index}
         active={active}
         setActive={setActive}
       />

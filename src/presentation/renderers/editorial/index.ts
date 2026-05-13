@@ -1,1 +1,1 @@
-export { default as EditorialProjectShowcase } from "./projects/EditorialProjectShowcase";
+export { editorialBlockRegistry } from "./projects/registry";

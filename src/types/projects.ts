@@ -22,6 +22,7 @@ export type ProjectMedia = {
 
 export type ProjectMetric = {
   label: string;
+
   value: string;
 };
 
@@ -30,6 +31,55 @@ export type ProjectStatus = "live" | "private" | "concept";
 export type ProjectAccent = "cyan" | "gold" | "violet" | "amber";
 
 export type ProjectLayout = "editorial" | "architectural";
+
+//
+// PRESENTATION TYPES
+//
+
+export type PresentationMode = "cinematic" | "editorial";
+
+//
+// CINEMATIC PRESENTATION
+//
+
+export type CinematicBlockType =
+  | "hero"
+  | "showcase"
+  | "systems"
+  | "services"
+  | "mobile";
+
+export type CinematicPresentationBlock = {
+  type: CinematicBlockType;
+};
+
+export type CinematicPresentation = {
+  mode: "cinematic";
+
+  blocks: CinematicPresentationBlock[];
+};
+
+//
+// EDITORIAL PRESENTATION
+//
+
+export type EditorialBlockType = "hero" | "showcase" | "atmosphere" | "ui";
+
+export type EditorialPresentationBlock = {
+  type: EditorialBlockType;
+};
+
+export type EditorialPresentation = {
+  mode: "editorial";
+
+  blocks: EditorialPresentationBlock[];
+};
+
+//
+// PROJECT PRESENTATION
+//
+
+export type ProjectPresentation = CinematicPresentation | EditorialPresentation;
 
 //
 // CINEMATIC CONTENT TYPES
@@ -143,6 +193,7 @@ export type ProjectBlockProps = {
 
 export type ProjectShowcaseProps = {
   project: Project;
+
   index: number;
 };
 
@@ -154,29 +205,4 @@ export type ProjectShowcaseItem = {
   description?: string;
 
   alt?: string;
-};
-
-//
-// PRESENTATION TYPES
-//
-
-export type PresentationMode = "cinematic" | "editorial";
-
-export type PresentationBlockType =
-  | "hero"
-  | "showcase"
-  | "systems"
-  | "services"
-  | "mobile"
-  | "atmosphere"
-  | "ui";
-
-export type PresentationBlock = {
-  type: PresentationBlockType;
-};
-
-export type ProjectPresentation = {
-  mode: PresentationMode;
-
-  blocks: PresentationBlock[];
 };

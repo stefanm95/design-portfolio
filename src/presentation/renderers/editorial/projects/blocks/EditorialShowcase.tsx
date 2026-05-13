@@ -2,18 +2,27 @@ import FadeIn from "@/presentation/animation/FadeIn";
 
 import Heading from "@/design/typography/Heading";
 import Text from "@/design/typography/Text";
-import { ui } from "@/theme";
 
-import type { ProjectBlockProps } from "@/types/projects";
+import { ui } from "@/theme";
 
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 import ProjectSectionLabel from "@/presentation/shared/ProjectSectionLabel";
 
-export default function EditorialShowcase({ project }: ProjectBlockProps) {
+import type {
+  EditorialPresentationBlock,
+  PresentationBlockRendererProps,
+} from "@/runtime/presentation/types";
+
+type Props = PresentationBlockRendererProps<EditorialPresentationBlock>;
+
+export default function EditorialShowcase({ project, block, index }: Props) {
   const editorial = project.media.editorial?.[0];
+
   const content = project.editorial?.showcase;
 
-  if (!editorial) return null;
+  if (!editorial || !content) {
+    return null;
+  }
 
   return (
     <FadeIn>
@@ -21,12 +30,14 @@ export default function EditorialShowcase({ project }: ProjectBlockProps) {
         {/* LEFT */}
         <div className="xl:col-span-4">
           <div
-            className=" space-y-8
-               xl:sticky
-               xl:top-24
-               2xl:top-32"
+            className="
+              space-y-8
+              xl:sticky
+              xl:top-24
+              2xl:top-32
+            "
           >
-            <ProjectSectionLabel>{content?.label}</ProjectSectionLabel>
+            <ProjectSectionLabel>{content.label}</ProjectSectionLabel>
 
             <Heading
               as="h3"
@@ -38,7 +49,7 @@ export default function EditorialShowcase({ project }: ProjectBlockProps) {
                 md:text-6xl
               `}
             >
-              {content?.heading}
+              {content.heading}
             </Heading>
 
             <Text
@@ -49,7 +60,7 @@ export default function EditorialShowcase({ project }: ProjectBlockProps) {
                 ${ui.text.link}
               `}
             >
-              {content?.description}
+              {content.description}
             </Text>
           </div>
         </div>

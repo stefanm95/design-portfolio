@@ -3,17 +3,26 @@ import FadeIn from "@/presentation/animation/FadeIn";
 import Heading from "@/design/typography/Heading";
 import Label from "@/design/typography/Label";
 import Text from "@/design/typography/Text";
-import { ui } from "@/theme";
 
-import type { ProjectBlockProps } from "@/types/projects";
+import { ui } from "@/theme";
 
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
-export default function EditorialUIDetail({ project }: ProjectBlockProps) {
+import type {
+  EditorialPresentationBlock,
+  PresentationBlockRendererProps,
+} from "@/runtime/presentation/types";
+
+type Props = PresentationBlockRendererProps<EditorialPresentationBlock>;
+
+export default function EditorialUIDetail({ project, block, index }: Props) {
   const image = project.media.ui?.[0];
+
   const content = project.editorial?.ui;
 
-  if (!image) return null;
+  if (!image || !content) {
+    return null;
+  }
 
   return (
     <FadeIn>
@@ -29,20 +38,20 @@ export default function EditorialUIDetail({ project }: ProjectBlockProps) {
         {/* CONTENT */}
         <div
           className="
-          order-2
-          lg:order-1
+            order-2
+            lg:order-1
 
-          relative
-          z-10
+            relative
+            z-10
 
-          lg:col-span-5
-          lg:col-start-2
-          lg:mt-24
-        "
+            lg:col-span-5
+            lg:col-start-2
+            lg:mt-24
+          "
         >
           <div className="max-w-lg space-y-7">
             <div className="space-y-4">
-              <Label>{content?.label}</Label>
+              <Label>{content.label}</Label>
 
               <Heading
                 as="h3"
@@ -50,14 +59,14 @@ export default function EditorialUIDetail({ project }: ProjectBlockProps) {
                   text-3xl
                   sm:text-4xl
                   md:text-5xl
-                  
+
                   leading-[0.92]
                   tracking-[-0.05em]
-                  
+
                   ${ui.text.primary}
                 `}
               >
-                {content?.heading}
+                {content.heading}
               </Heading>
             </div>
 
@@ -71,7 +80,7 @@ export default function EditorialUIDetail({ project }: ProjectBlockProps) {
                 ${ui.text.descriptive}
               `}
             >
-              {content?.description}
+              {content.description}
             </Text>
           </div>
         </div>
@@ -79,11 +88,13 @@ export default function EditorialUIDetail({ project }: ProjectBlockProps) {
         {/* VISUAL */}
         <div
           className="
-          order-1
-          lg:order-2
-          relative
-          lg:col-span-5
-          lg:col-start-7
+            order-1
+            lg:order-2
+
+            relative
+
+            lg:col-span-5
+            lg:col-start-7
           "
         >
           <ProjectCinematicFrame

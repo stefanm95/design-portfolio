@@ -7,16 +7,26 @@ import Text from "@/design/typography/Text";
 import { ui, useTheme } from "@/theme";
 
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
-import type { ProjectBlockProps } from "@/types/projects";
 
-export default function CinematicSystems({ project }: ProjectBlockProps) {
+import type {
+  CinematicPresentationBlock,
+  PresentationBlockRendererProps,
+} from "@/runtime/presentation/types";
+
+type Props = PresentationBlockRendererProps<CinematicPresentationBlock>;
+
+export default function CinematicSystems({ project, block, index }: Props) {
   const system = project.media.systems?.[0];
+
   const content = project.cinematic?.systems;
+
   const { theme } = useTheme();
 
   const showcase = theme.showcase;
 
-  if (!system || !content) return null;
+  if (!system || !content) {
+    return null;
+  }
 
   return (
     <section
@@ -48,7 +58,6 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
             className={`
               max-w-[32ch]
               leading-[1.9]
-
               ${ui.text.narrative}
             `}
           >
@@ -63,7 +72,6 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
           <div
             className="
               relative
-
               xl:translate-y-12
             "
           >
@@ -84,10 +92,8 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
             <div
               className="
                 pointer-events-none
-
                 absolute
                 inset-0
-
                 opacity-60
                 blur-md
               "
@@ -100,11 +106,9 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
             <div
               className="
                 pointer-events-none
-
                 absolute
                 -bottom-10
                 left-10
-
                 hidden
                 xl:block
               "
@@ -114,11 +118,9 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
                   flex
                   items-center
                   gap-3
-
                   text-[10px]
                   uppercase
                   tracking-[0.24em]
-
                   ${ui.text.muted}
                 `}
               >
@@ -126,7 +128,6 @@ export default function CinematicSystems({ project }: ProjectBlockProps) {
                   className={`
                     h-px
                     w-16
-
                     ${ui.surfaces.chip}
                   `}
                 />

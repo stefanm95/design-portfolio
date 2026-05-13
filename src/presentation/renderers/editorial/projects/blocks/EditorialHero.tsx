@@ -1,16 +1,25 @@
+"use client";
+
 import FadeIn from "@/presentation/animation/FadeIn";
 
 import { ui } from "@/theme";
 
-import type { ProjectBlockProps } from "@/types/projects";
-
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 import ProjectLiveIndicator from "@/presentation/shared/ProjectLiveIndicator";
 
-export default function EditorialtHero({ project }: ProjectBlockProps) {
+import type {
+  EditorialPresentationBlock,
+  PresentationBlockRendererProps,
+} from "@/runtime/presentation/types";
+
+type Props = PresentationBlockRendererProps<EditorialPresentationBlock>;
+
+export default function EditorialHero({ project, block, index }: Props) {
   const hero = project.media.hero?.[0];
 
-  if (!hero) return null;
+  if (!hero) {
+    return null;
+  }
 
   return (
     <FadeIn>

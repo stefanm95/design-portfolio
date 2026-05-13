@@ -3,23 +3,32 @@ import FadeIn from "@/presentation/animation/FadeIn";
 import Heading from "@/design/typography/Heading";
 import Label from "@/design/typography/Label";
 import Text from "@/design/typography/Text";
-import { ui } from "@/theme";
 
-import type { ProjectBlockProps } from "@/types/projects";
+import { ui } from "@/theme";
 
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
-export default function EditorialAtmosphere({ project }: ProjectBlockProps) {
+import type {
+  EditorialPresentationBlock,
+  PresentationBlockRendererProps,
+} from "@/runtime/presentation/types";
+
+type Props = PresentationBlockRendererProps<EditorialPresentationBlock>;
+
+export default function EditorialAtmosphere({ project, block, index }: Props) {
   const image = project.media.atmosphere?.[0];
+
   const content = project.editorial?.atmosphere;
 
-  if (!image) return null;
+  if (!image || !content) {
+    return null;
+  }
 
   return (
     <FadeIn>
       <section
         className="
-          grid   
+          grid
           gap-y-10
           lg:items-start
           lg:gap-14
@@ -45,15 +54,15 @@ export default function EditorialAtmosphere({ project }: ProjectBlockProps) {
         {/* CONTENT */}
         <div
           className="
-          order-2
-          lg:col-span-5
-          lg:col-start-8
-          lg:mt-20
+            order-2
+            lg:col-span-5
+            lg:col-start-8
+            lg:mt-20
           "
         >
           <div className="max-w-lg space-y-8">
             <div className="space-y-4">
-              <Label>{content?.label}</Label>
+              <Label>{content.label}</Label>
 
               <Heading
                 as="h3"
@@ -66,7 +75,7 @@ export default function EditorialAtmosphere({ project }: ProjectBlockProps) {
                   ${ui.text.primary}
                 `}
               >
-                {content?.heading}
+                {content.heading}
               </Heading>
             </div>
 
@@ -78,7 +87,7 @@ export default function EditorialAtmosphere({ project }: ProjectBlockProps) {
                 ${ui.text.tertiary}
               `}
             >
-              {content?.description}
+              {content.description}
             </Text>
           </div>
         </div>

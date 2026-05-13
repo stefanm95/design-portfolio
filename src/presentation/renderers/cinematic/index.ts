@@ -1,1 +1,1 @@
-export { default as CinematicProjectShowcase } from "./projects/CinematicProjectShowcase";
+export { cinematicBlockRegistry } from "./projects/registry";

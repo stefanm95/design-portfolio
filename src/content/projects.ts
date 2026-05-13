@@ -133,8 +133,7 @@ export const projects: Project[] = [
 
     stack: ["React", "TypeScript", "Framer Motion", "Tailwind"],
 
-    liveUrl:
-      "https://conceptarhitectural-git-main-stefanm95s-projects.vercel.app/",
+    liveUrl: "https://conceptarhitectural.vercel.app",
 
     accent: "cyan",
 
