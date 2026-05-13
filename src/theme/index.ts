@@ -4,4 +4,4 @@ export * from "./core";
 
 export * from "./presets";
 
-export * from "./variants";
+export * from "./effects";
