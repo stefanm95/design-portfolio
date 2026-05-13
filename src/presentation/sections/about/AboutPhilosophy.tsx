@@ -1,15 +1,21 @@
+// AboutPhilosophy.tsx
+
 import FadeIn from "@/presentation/animation/FadeIn";
 
 import { aboutContent } from "@/content/about";
+
 import Heading from "@/design/typography/Heading";
 import Text from "@/design/typography/Text";
+
+import { compositionStack } from "@/runtime/presentation/composition";
+
 import { ui } from "@/theme";
 
 export default function AboutPhilosophy() {
   const { philosophy } = aboutContent;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-y-14 lg:gap-x-16">
+    <div className={compositionStack.about.philosophy.root}>
       {/* LEFT */}
       <div className="col-span-1 md:col-span-12 lg:col-span-5">
         <FadeIn>
@@ -25,7 +31,7 @@ export default function AboutPhilosophy() {
       {/* RIGHT */}
       <div className="col-span-1 md:col-span-12 lg:col-span-7">
         <FadeIn delay={0.12}>
-          <div className="space-y-6 md:space-y-8">
+          <div className={compositionStack.about.philosophy.content}>
             <Text
               className={`
                 max-w-[42ch]
@@ -33,6 +39,7 @@ export default function AboutPhilosophy() {
                 text-sm
                 md:text-base
                 lg:text-[16px]
+
                 leading-[2]
 
                 ${ui.text.reading}

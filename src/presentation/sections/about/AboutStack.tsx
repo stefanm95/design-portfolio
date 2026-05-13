@@ -1,19 +1,26 @@
+// AboutStack.tsx
+
 import FadeIn from "@/presentation/animation/FadeIn";
 
 import { aboutContent } from "@/content/about";
+
 import Text from "@/design/typography/Text";
+
+import { sectionSpacing } from "@/runtime/presentation/composition";
+
 import { ui } from "@/theme";
 
 export default function AboutStack() {
   const { description } = aboutContent.stack;
+
   return (
     <FadeIn>
       <div
         className={`
           border-t
-          ${ui.borders.hairline}
 
-          pt-12
+          ${ui.borders.hairline}
+          ${sectionSpacing.about.stackFooter}
         `}
       >
         <Text

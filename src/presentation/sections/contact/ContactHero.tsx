@@ -3,7 +3,13 @@ import FadeIn from "@/presentation/animation/FadeIn";
 import Display from "@/design/typography/Display";
 import Heading from "@/design/typography/Heading";
 
+import {
+  compositionStack,
+  sectionSpacing,
+} from "@/runtime/presentation/composition";
+
 import { contactContent } from "@/content/contact";
+
 import { ui, useTheme } from "@/theme";
 
 export default function ContactHero() {
@@ -11,6 +17,9 @@ export default function ContactHero() {
   const { hero } = contactContent;
 
   const scene = theme.scenes.contact;
+
+  const spacing = sectionSpacing.contact;
+  const stack = compositionStack.contact;
 
   return (
     <section
@@ -71,19 +80,24 @@ export default function ContactHero() {
 
       {/* CONTENT */}
       <div
-        className="
+        className={`
           relative
           z-10
 
           grid
           grid-cols-12
 
-          gap-y-20
-        "
+          ${spacing.heroContent}
+        `}
       >
         {/* LEFT */}
         <div className="col-span-12 xl:col-span-7">
-          <div className="space-y-10 px-8">
+          <div
+            className={`
+              ${stack.hero.left}
+              ${spacing.heroLeft}
+            `}
+          >
             <FadeIn>
               <Heading
                 className={`
@@ -139,20 +153,29 @@ export default function ContactHero() {
         </div>
 
         {/* RIGHT */}
-        <div className="col-span-12 px-8 xl:col-span-4 xl:col-start-9">
+        <div
+          className={`
+            col-span-12
+            xl:col-span-4
+            xl:col-start-9
+
+            ${spacing.heroRight}
+          `}
+        >
           <FadeIn delay={0.18}>
             <div
               className={`
-                space-y-8
+                ${stack.hero.right}
 
                 border-t
-                pt-8
+
+                ${spacing.heroCard}
 
                 ${ui.borders.focus}
                 ${ui.borders.focusMd}
               `}
             >
-              <div className="space-y-2">
+              <div className={stack.hero.infoGroup}>
                 <div
                   className={`
                     text-[11px]
@@ -182,7 +205,7 @@ export default function ContactHero() {
                 </a>
               </div>
 
-              <div className="space-y-2">
+              <div className={stack.hero.infoGroup}>
                 <div
                   className={`
                     text-[11px]

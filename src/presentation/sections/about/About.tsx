@@ -1,6 +1,9 @@
 import { opacityClass } from "@/theme";
 
 import Section from "@/design/layout/Section";
+
+import { sectionSpacing } from "@/runtime/presentation/composition";
+
 import AboutHero from "./AboutHero";
 import AboutPhilosophy from "./AboutPhilosophy";
 import AboutPrinciples from "./AboutPrinciples";
@@ -10,7 +13,12 @@ export default function About() {
   return (
     <Section
       id="about"
-      className="relative overflow-hidden md:py-40 lg:py-48 xl:py-56"
+      className={`
+        relative
+        overflow-hidden
+
+        ${sectionSpacing.about.root}
+      `}
     >
       {/* ATMOSPHERIC BLOOM */}
       <div
@@ -34,7 +42,14 @@ export default function About() {
         }}
       />
 
-      <div className="relative z-10 space-y-28 md:space-y-32 lg:space-y-40 xl:space-y-56">
+      <div
+        className={`
+          relative
+          z-10
+
+          ${sectionSpacing.about.stack}
+        `}
+      >
         <AboutHero />
 
         <AboutPhilosophy />

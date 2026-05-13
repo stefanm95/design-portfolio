@@ -1,9 +1,15 @@
 import { contactContent } from "@/content/contact";
+
 import FadeIn from "@/presentation/animation/FadeIn";
+
+import { compositionStack } from "@/runtime/presentation/composition";
+
 import { ui } from "@/theme";
 
 export default function ContactAvailability() {
   const { availability } = contactContent;
+
+  const stack = compositionStack.contact;
 
   return (
     <FadeIn delay={0.12}>
@@ -13,6 +19,7 @@ export default function ContactAvailability() {
 
           border-t
           ${ui.borders.hairline}
+
           px-8
           pt-8
         `}
@@ -31,7 +38,7 @@ export default function ContactAvailability() {
           "
         />
 
-        <div className="space-y-4">
+        <div className={stack.availability.content}>
           <div
             className={`
               text-[11px]

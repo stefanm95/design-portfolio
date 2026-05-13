@@ -1,5 +1,12 @@
 import { contactContent } from "@/content/contact";
+
+import {
+  compositionStack,
+  sectionSpacing,
+} from "@/runtime/presentation/composition";
+
 import { opacityClass, rgba, ui } from "@/theme";
+
 import ContactAvailability from "./ContactAvailability";
 import ContactFooter from "./ContactFooter";
 import ContactHero from "./ContactHero";
@@ -7,6 +14,10 @@ import ContactLinks from "./ContactLinks";
 
 export default function Contact() {
   const { panel } = contactContent;
+
+  const spacing = sectionSpacing.contact;
+  const stack = compositionStack.contact;
+
   return (
     <section
       id="contact"
@@ -66,67 +77,57 @@ export default function Contact() {
 
       {/* CONTENT */}
       <div
-        className="
+        className={`
           relative
           z-10
 
           flex
           flex-col
 
-          gap-16
-          md:gap-20
-          lg:gap-28
-
-          py-20
-          md:py-24
-          lg:py-28
-          xl:py-36
-        "
+          ${spacing.root}
+          ${spacing.padding}
+        `}
       >
-        {/* HERO */}
         <ContactHero />
 
         {/* CONTACT GRID */}
         <div
-          className="
+          className={`
             grid
             grid-cols-1
             lg:grid-cols-12
 
-            gap-y-10
-            md:gap-y-12
-            lg:gap-y-0
-            lg:gap-x-20
-          "
+            ${spacing.grid}
+          `}
         >
           {/* LEFT */}
           <div
             className="
-    relative
+              relative
 
-    hidden
-    lg:flex
+              hidden
+              lg:flex
 
-    col-span-1
-    lg:col-span-4
+              col-span-1
+              lg:col-span-4
 
-    min-h-[480px]
-    md:min-h-[560px]
-    lg:min-h-[620px]
+              min-h-[480px]
+              md:min-h-[560px]
+              lg:min-h-[620px]
 
-    overflow-hidden
-  "
+              overflow-hidden
+            "
           >
             {/* IMAGE */}
             <div
               className="
-      absolute
-      inset-0
+                absolute
+                inset-0
 
-      scale-[1.04]
+                scale-[1.04]
 
-      opacity-[0.22]
-    "
+                opacity-[0.22]
+              "
               style={{
                 backgroundImage:
                   "url('/textures/glass/nik-shuliahin-xE3S9mjUjqA-unsplash.jpg')",
@@ -138,31 +139,31 @@ export default function Contact() {
             {/* DARK GRADIENT */}
             <div
               className="
-               absolute
-               inset-0
+                absolute
+                inset-0
 
-               bg-gradient-to-br
-               from-black/10
-               via-black/45
-               to-black/80
-             "
+                bg-gradient-to-br
+                from-black/10
+                via-black/45
+                to-black/80
+              "
             />
 
             {/* ATMOSPHERIC LIGHT */}
             <div
               className="
-               absolute
-               left-[-10%]
-               top-[20%]
+                absolute
+                left-[-10%]
+                top-[20%]
 
-               h-[18rem]
-               w-[18rem]
+                h-[18rem]
+                w-[18rem]
 
-               rounded-full
-               blur-sm
+                rounded-full
+                blur-sm
 
-               opacity-[0.12]
-             "
+                opacity-[0.12]
+              "
               style={{
                 background: `radial-gradient(circle, ${rgba.cyanBloomStrong}, transparent 70%)`,
               }}
@@ -183,28 +184,28 @@ export default function Contact() {
               "
             >
               {/* TOP */}
-              <div className="space-y-6">
+              <div className={stack.panel.content}>
                 <div
                   className={`
-                  text-[11px]
-                  uppercase
-                  tracking-[0.34em]
+                    text-[11px]
+                    uppercase
+                    tracking-[0.34em]
 
-                  ${ui.text.context}
-                `}
+                    ${ui.text.context}
+                  `}
                 >
                   {panel.label}
                 </div>
 
                 <div
                   className={`
-                   max-w-[14ch]
+                    max-w-[14ch]
 
-                   text-3xl
-                   leading-[1.1]
+                    text-3xl
+                    leading-[1.1]
 
-                   ${ui.text.interactive}
-                 `}
+                    ${ui.text.interactive}
+                  `}
                 >
                   {panel.title}
                 </div>
@@ -213,13 +214,13 @@ export default function Contact() {
               {/* BOTTOM */}
               <div
                 className={`
-                max-w-[26ch]
-                        
-                text-sm
-                leading-[1.9]
-                        
-                ${ui.text.tertiary}
-              `}
+                  max-w-[26ch]
+
+                  text-sm
+                  leading-[1.9]
+
+                  ${ui.text.tertiary}
+                `}
               >
                 {panel.description}
               </div>
@@ -227,15 +228,22 @@ export default function Contact() {
           </div>
 
           {/* RIGHT */}
-          <div className="col-span-1 lg:col-span-8 space-y-12 md:space-y-16 lg:space-y-20">
+          <div
+            className={`
+              col-span-1
+              lg:col-span-8
+
+              ${spacing.content}
+            `}
+          >
             <ContactLinks />
-            <div className="px-0 lg:px-0">
+
+            <div>
               <ContactAvailability />
             </div>
           </div>
         </div>
 
-        {/* FOOTER */}
         <ContactFooter />
       </div>
     </section>

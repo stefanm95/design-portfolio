@@ -1,12 +1,23 @@
 import { contactContent } from "@/content/contact";
+
 import FadeIn from "@/presentation/animation/FadeIn";
+
+import {
+  compositionStack,
+  sectionSpacing,
+} from "@/runtime/presentation/composition";
 
 import { useTheme } from "@/theme";
 
 export default function ContactLinks() {
   const { theme } = useTheme();
+
   const { links } = contactContent;
+
   const contact = theme.contactLinks;
+
+  const spacing = sectionSpacing.contact;
+  const stack = compositionStack.contact;
 
   return (
     <div
@@ -97,16 +108,12 @@ export default function ContactLinks() {
 
       {/* CONTENT */}
       <div
-        className="
+        className={`
           relative
           z-10
 
-          px-6
-          py-8
-
-          md:px-10
-          md:py-10
-        "
+          ${spacing.linksPanel}
+        `}
       >
         {/* SECTION LABEL */}
         <div
@@ -123,7 +130,7 @@ export default function ContactLinks() {
           Communication Channels
         </div>
 
-        <div className="space-y-8">
+        <div className={stack.links.list}>
           {links.items.map((link, index) => (
             <FadeIn key={link.label} delay={0.08 * index}>
               <a
@@ -143,7 +150,7 @@ export default function ContactLinks() {
                 `}
               >
                 {/* TOP ROW */}
-                <div className="mb-4 flex items-center justify-between">
+                <div className={stack.links.top}>
                   <div
                     className={`
                       text-[10px]
@@ -156,7 +163,7 @@ export default function ContactLinks() {
                     {link.label}
                   </div>
 
-                  <div className="flex items-center gap-2">
+                  <div className={stack.links.status}>
                     <div
                       className={`
                         h-1.5
@@ -180,7 +187,7 @@ export default function ContactLinks() {
                 </div>
 
                 {/* VALUE */}
-                <div className="flex items-end justify-between gap-6">
+                <div className={stack.links.row}>
                   <span
                     className={`
                       text-lg

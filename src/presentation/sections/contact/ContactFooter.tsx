@@ -1,23 +1,35 @@
 import { contactContent } from "@/content/contact";
+
 import Text from "@/design/typography/Text";
+
 import FadeIn from "@/presentation/animation/FadeIn";
+
+import {
+  compositionStack,
+  sectionSpacing,
+} from "@/runtime/presentation/composition";
+
 import { opacityClass, ui } from "@/theme";
 
 export default function ContactFooter() {
   const { footer } = contactContent;
+
+  const spacing = sectionSpacing.contact;
+  const stack = compositionStack.contact;
+
   return (
     <footer
       className={`
         relative
         overflow-hidden
+
         px-6
         md:px-8
+
         border-t
         ${ui.borders.faint}
 
-        py-10
-        md:py-12
-        lg:py-14
+        ${spacing.footer}
       `}
     >
       {/* ATMOSPHERIC GRADIENT */}
@@ -41,7 +53,6 @@ export default function ContactFooter() {
           inset-0
 
           ${opacityClass.faint}
-          
         `}
         style={{
           backgroundImage: "url('/textures/noise.webp')",
@@ -58,6 +69,7 @@ export default function ContactFooter() {
 
             flex
             flex-col
+
             gap-10
             md:gap-12
             lg:gap-14
@@ -68,7 +80,7 @@ export default function ContactFooter() {
           "
         >
           {/* LEFT */}
-          <div className="space-y-8">
+          <div className={stack.footer.left}>
             <div
               className={`
                 text-[11px]
@@ -87,6 +99,7 @@ export default function ContactFooter() {
                 sm:text-4xl
                 md:text-5xl
                 lg:text-6xl
+
                 leading-[0.95]
 
                 ${ui.text.accent}
@@ -110,16 +123,7 @@ export default function ContactFooter() {
           </div>
 
           {/* RIGHT */}
-          <div
-            className="
-              flex
-              flex-col
-              gap-8
-              items-end
-              xl:items-end
-            "
-          >
-            {/* CTA */}
+          <div className={stack.footer.right}>
             <a
               href="mailto:hello@yourstudio.dev"
               className={`
@@ -139,17 +143,18 @@ export default function ContactFooter() {
                 tracking-[0.28em]
 
                 ${ui.text.secondary}
-                
 
                 transition-all
                 duration-500
 
                 ${ui.borders.hover}
                 ${ui.surfaces.hover}
+
                 hover:text-white
               `}
             >
               {footer.cta.label}
+
               <span
                 className="
                   transition-transform
@@ -162,25 +167,18 @@ export default function ContactFooter() {
               </span>
             </a>
 
-            {/* META */}
             <div
               className={`
-                flex
-                flex-col
-                gap-3
+                ${stack.footer.meta}
 
                 text-[11px]
                 uppercase
                 tracking-[0.24em]
 
                 ${ui.text.quiet}
-
-                md:flex-row
-                md:items-center
-                md:gap-8
               `}
             >
-              <Text> {footer.meta.author}</Text>
+              <Text>{footer.meta.author}</Text>
 
               <Text className="text-lg">{footer.meta.copyright}</Text>
             </div>

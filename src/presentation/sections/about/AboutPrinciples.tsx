@@ -1,20 +1,27 @@
+// AboutPrinciples.tsx
+
 import { aboutContent } from "@/content/about";
+
 import FadeIn from "@/presentation/animation/FadeIn";
+
+import {
+  compositionStack,
+  sectionSpacing,
+} from "@/runtime/presentation/composition";
+
 import { opacityClass, ui } from "@/theme";
 
 export default function AboutPrinciples() {
   const { stack } = aboutContent;
+
   return (
     <section
-      className="
+      className={`
         relative
         overflow-hidden
 
-        py-24
-        md:py-28
-        lg:py-32
-        xl:py-40
-      "
+        ${sectionSpacing.about.principles}
+      `}
     >
       {/* ATMOSPHERIC BASE */}
       <div
@@ -124,20 +131,18 @@ export default function AboutPrinciples() {
 
       {/* CONTENT */}
       <div
-        className="
+        className={`
           relative
           z-10
+
           grid
           grid-cols-1
-          px-6
-          sm:px-8
-          md:px-14
-          lg:px-16
-          xl:px-0
-          gap-y-20
+
           xl:grid-cols-12
           xl:items-center
-        "
+
+          ${sectionSpacing.about.principlesContent}
+        `}
       >
         {/* LEFT SPACER */}
         <div className="hidden xl:block xl:col-span-5" />
@@ -145,21 +150,22 @@ export default function AboutPrinciples() {
         {/* RIGHT CONTENT */}
         <div
           className="
-          max-w-[720px]
-          xl:col-span-6
-          xl:col-start-7
-        "
+            max-w-[720px]
+
+            xl:col-span-6
+            xl:col-start-7
+          "
         >
-          <div className="space-y-12 md:space-y-14">
+          <div className={compositionStack.about.principles.content}>
             <FadeIn>
               <div
                 className={`
-            text-[11px]
-            uppercase
-            tracking-[0.34em]
+                  text-[11px]
+                  uppercase
+                  tracking-[0.34em]
 
-            ${ui.text.label}
-          `}
+                  ${ui.text.label}
+                `}
               >
                 {stack.label}
               </div>
@@ -168,18 +174,18 @@ export default function AboutPrinciples() {
             <FadeIn delay={0.06}>
               <h2
                 className={`
-            max-w-[12ch]
+                  max-w-[12ch]
 
-            text-[2rem]
-            sm:text-[2.4rem]
-            md:text-5xl
-            lg:text-6xl
+                  text-[2rem]
+                  sm:text-[2.4rem]
+                  md:text-5xl
+                  lg:text-6xl
 
-            leading-[0.92]
-            tracking-[-0.05em]
+                  leading-[0.92]
+                  tracking-[-0.05em]
 
-            ${ui.text.primary}
-          `}
+                  ${ui.text.primary}
+                `}
               >
                 {stack.title}
               </h2>
@@ -188,17 +194,17 @@ export default function AboutPrinciples() {
             <FadeIn delay={0.12}>
               <p
                 className={`
-                max-w-[26ch]
-                sm:max-w-[30ch]
-                md:max-w-[34ch]
+                  max-w-[26ch]
+                  sm:max-w-[30ch]
+                  md:max-w-[34ch]
 
-                text-[14px]
-                md:text-[15px]
+                  text-[14px]
+                  md:text-[15px]
 
-                leading-[1.85]
+                  leading-[1.85]
 
-                ${ui.text.narrative}
-              `}
+                  ${ui.text.narrative}
+                `}
               >
                 {stack.paragraph}
               </p>
@@ -206,37 +212,23 @@ export default function AboutPrinciples() {
 
             {/* PRINCIPLES */}
             <FadeIn delay={0.18}>
-              <div
-                className="
-                  grid
-                  grid-cols-1
-                  sm:grid-cols-2
-
-                  gap-x-10
-                  gap-y-4
-
-                  pt-6
-                  md:pt-8
-
-                  max-w-[28rem]
-                "
-              >
+              <div className={compositionStack.about.principles.list}>
                 {stack.list.map((item) => (
                   <div
                     key={item}
                     className={`
-                    relative
+                      relative
 
-                    pl-4
+                      pl-4
 
-                    text-[11px]
-                    sm:text-[12px]
+                      text-[11px]
+                      sm:text-[12px]
 
-                    uppercase
-                    tracking-[0.22em]
+                      uppercase
+                      tracking-[0.22em]
 
-                    ${ui.text.supporting}
-                  `}
+                      ${ui.text.supporting}
+                    `}
                   >
                     {/* subtle marker */}
                     <div
@@ -244,12 +236,12 @@ export default function AboutPrinciples() {
                         absolute
                         left-0
                         top-1/2
-                                  
+
                         h-px
                         w-2
-                                  
+
                         -translate-y-1/2
-                                  
+
                         ${ui.dividers.marker}
                       `}
                     />
