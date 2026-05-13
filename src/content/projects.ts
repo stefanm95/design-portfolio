@@ -16,8 +16,6 @@ export const projects: Project[] = [
 
     year: "2026",
 
-    layout: "editorial",
-
     stack: ["React", "TypeScript", "Framer Motion", "Tailwind"],
 
     liveUrl: "https://wedding-deni-iuli.vercel.app/",
@@ -128,8 +126,6 @@ export const projects: Project[] = [
       "A cinematic presentation platform designed for premium construction and architectural businesses, focused on immersive project storytelling, layered atmosphere, interactive showcases, and conversion-oriented user flows.",
 
     year: "2026",
-
-    layout: "architectural",
 
     stack: ["React", "TypeScript", "Framer Motion", "Tailwind"],
 
