@@ -1,3 +1,9 @@
+import type { ComponentType } from "react";
+
+//
+// MEDIA
+//
+
 export type ProjectMedia = {
   hero?: string[];
 
@@ -20,6 +26,10 @@ export type ProjectMedia = {
   mobile?: string[];
 };
 
+//
+// META
+//
+
 export type ProjectMetric = {
   label: string;
 
@@ -30,10 +40,8 @@ export type ProjectStatus = "live" | "private" | "concept";
 
 export type ProjectAccent = "cyan" | "gold" | "violet" | "amber";
 
-export type ProjectLayout = "editorial" | "architectural";
-
 //
-// PRESENTATION TYPES
+// PRESENTATION
 //
 
 export type PresentationMode = "cinematic" | "editorial";
@@ -51,10 +59,18 @@ export type CinematicBlockType =
 
 export type CinematicPresentationBlock = {
   type: CinematicBlockType;
+
+  id?: string;
+
+  spacing?: string;
+
+  variant?: string;
 };
 
 export type CinematicPresentation = {
   mode: "cinematic";
+
+  composition?: PresentationComposition;
 
   blocks: CinematicPresentationBlock[];
 };
@@ -67,12 +83,42 @@ export type EditorialBlockType = "hero" | "showcase" | "atmosphere" | "ui";
 
 export type EditorialPresentationBlock = {
   type: EditorialBlockType;
+
+  id?: string;
+
+  spacing?: string;
+
+  variant?: string;
 };
 
 export type EditorialPresentation = {
   mode: "editorial";
 
+  composition?: PresentationComposition;
+
   blocks: EditorialPresentationBlock[];
+};
+
+//
+// SHARED PRESENTATION
+//
+
+export type PresentationBlockType = CinematicBlockType | EditorialBlockType;
+
+export type PresentationBlock =
+  | CinematicPresentationBlock
+  | EditorialPresentationBlock;
+
+export type CompositionDensity = "tight" | "balanced" | "spacious";
+
+export type CompositionRhythm = "editorial" | "cinematic" | "immersive";
+
+export type PresentationComposition = {
+  density?: CompositionDensity;
+
+  rhythm?: CompositionRhythm;
+
+  transitions?: "soft" | "cinematic";
 };
 
 //
@@ -82,7 +128,7 @@ export type EditorialPresentation = {
 export type ProjectPresentation = CinematicPresentation | EditorialPresentation;
 
 //
-// CINEMATIC CONTENT TYPES
+// CINEMATIC CONTENT
 //
 
 export type CinematicTextBlock = {
@@ -122,7 +168,7 @@ export type CinematicContent = {
 };
 
 //
-// EDITORIAL CONTENT TYPES
+// EDITORIAL CONTENT
 //
 
 export type EditorialTextBlock = {
@@ -154,8 +200,6 @@ export type EditorialContent = {
 export type Project = {
   id: string;
 
-  presentation: ProjectPresentation;
-
   title: string;
 
   subtitle: string;
@@ -164,9 +208,9 @@ export type Project = {
 
   year: string;
 
-  status?: ProjectStatus;
+  presentation: ProjectPresentation;
 
-  layout: ProjectLayout;
+  status?: ProjectStatus;
 
   stack: string[];
 
@@ -187,6 +231,10 @@ export type Project = {
   editorial?: EditorialContent;
 };
 
+//
+// RENDERER TYPES
+//
+
 export type ProjectBlockProps = {
   project: Project;
 };
@@ -206,3 +254,9 @@ export type ProjectShowcaseItem = {
 
   alt?: string;
 };
+
+//
+// RUNTIME RENDERERS
+//
+
+export type PresentationRenderer = ComponentType<ProjectShowcaseProps>;
