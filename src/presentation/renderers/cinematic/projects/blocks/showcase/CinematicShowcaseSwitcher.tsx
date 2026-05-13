@@ -1,9 +1,14 @@
+import { projectComposition } from "@/runtime/presentation/composition";
+
 import { dividersGradients } from "@/theme";
 
 type Props = {
   showcase: string[];
+
   active: number;
+
   setActive: React.Dispatch<React.SetStateAction<number>>;
+
   mobile?: boolean;
 };
 
@@ -13,17 +18,13 @@ export default function CinematicShowcaseSwitcher({
   setActive,
   mobile = false,
 }: Props) {
+  const composition = projectComposition.cinematic.showcase.switcher;
+
   return (
     <div
       className={`
-        flex
-        items-center
-        gap-3
-        overflow-x-auto
-
-        pb-2
-
-        ${mobile ? "snap-x snap-mandatory" : "justify-start lg:gap-4"}
+        ${composition.root}
+        ${mobile ? composition.mobile : composition.desktop}
       `}
     >
       {showcase.map((image, index) => (
@@ -31,32 +32,19 @@ export default function CinematicShowcaseSwitcher({
           key={image}
           onClick={() => setActive(index)}
           className={`
-            group
-            relative
-            shrink-0
-            cursor-pointer
-            overflow-hidden
-
-            transition-all
-            duration-500
-
-            ${mobile ? "w-[92px] snap-start" : "w-[140px] lg:w-[160px]"}
+            ${composition.button}
+            ${mobile ? composition.buttonMobile : composition.buttonDesktop}
           `}
         >
           <img
             src={image}
-            alt=''
+            alt=""
             className={`
-              w-full
-              object-cover
-
-              transition-all
-              duration-700
-
+              ${composition.image}
               ${
                 active === index
-                  ? "opacity-100 scale-100"
-                  : "opacity-35 scale-[0.985] group-hover:opacity-60"
+                  ? composition.activeImage
+                  : composition.inactiveImage
               }
             `}
           />
@@ -64,24 +52,11 @@ export default function CinematicShowcaseSwitcher({
           {/* ACTIVE OVERLAY */}
           <div
             className={`
-              absolute
-              inset-0
-
-              transition-opacity
-              duration-500
-
+              ${composition.activeOverlay}
               ${active === index ? "opacity-100" : "opacity-0"}
             `}
           >
-            <div
-              className='
-                absolute
-                inset-0
-
-                ring-1
-                ring-white/14
-              '
-            />
+            <div className={composition.activeRing} />
 
             <div
               className={`

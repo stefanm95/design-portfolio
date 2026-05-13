@@ -4,9 +4,11 @@ import Heading from "@/design/typography/Heading";
 import Label from "@/design/typography/Label";
 import Text from "@/design/typography/Text";
 
-import { ui, useTheme } from "@/theme";
-
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
+
+import { projectComposition } from "@/runtime/presentation/composition";
+
+import { ui, useTheme } from "@/theme";
 
 import type {
   CinematicPresentationBlock,
@@ -24,30 +26,17 @@ export default function CinematicSystems({ project, block, index }: Props) {
 
   const showcase = theme.showcase;
 
+  const composition = projectComposition.cinematic.systems;
+
   if (!system || !content) {
     return null;
   }
 
   return (
-    <section
-      className="
-        relative
-        grid
-        grid-cols-12
-        gap-y-20
-        xl:gap-x-20
-      "
-    >
+    <section className={composition.section}>
       {/* LEFT */}
-      <div className="col-span-12 xl:col-span-4">
-        <div
-          className="
-            space-y-8
-            xl:sticky
-            xl:top-24
-            2xl:top-32
-          "
-        >
+      <div className={composition.left}>
+        <div className={composition.leftInner}>
           <Label>{content.label}</Label>
 
           <Heading as="h3" className="max-w-[11ch]">
@@ -58,6 +47,7 @@ export default function CinematicSystems({ project, block, index }: Props) {
             className={`
               max-w-[32ch]
               leading-[1.9]
+
               ${ui.text.narrative}
             `}
           >
@@ -67,14 +57,9 @@ export default function CinematicSystems({ project, block, index }: Props) {
       </div>
 
       {/* RIGHT */}
-      <div className="col-span-12 xl:col-span-8">
+      <div className={composition.right}>
         <FadeIn>
-          <div
-            className="
-              relative
-              xl:translate-y-12
-            "
-          >
+          <div className={composition.visual}>
             {/* MAIN VISUAL */}
             <ProjectCinematicFrame
               image={system}
@@ -82,8 +67,9 @@ export default function CinematicSystems({ project, block, index }: Props) {
               imageFit="contain"
               minHeight="min-h-[420px] xl:min-h-[760px]"
               className={`
-                ${showcase.surfaces.base}
                 border
+
+                ${showcase.surfaces.base}
                 ${showcase.surfaces.border}
               `}
             />
@@ -94,6 +80,7 @@ export default function CinematicSystems({ project, block, index }: Props) {
                 pointer-events-none
                 absolute
                 inset-0
+
                 opacity-60
                 blur-md
               "
@@ -109,6 +96,7 @@ export default function CinematicSystems({ project, block, index }: Props) {
                 absolute
                 -bottom-10
                 left-10
+
                 hidden
                 xl:block
               "
@@ -118,9 +106,11 @@ export default function CinematicSystems({ project, block, index }: Props) {
                   flex
                   items-center
                   gap-3
+
                   text-[10px]
                   uppercase
                   tracking-[0.24em]
+
                   ${ui.text.muted}
                 `}
               >
@@ -128,6 +118,7 @@ export default function CinematicSystems({ project, block, index }: Props) {
                   className={`
                     h-px
                     w-16
+
                     ${ui.surfaces.chip}
                   `}
                 />

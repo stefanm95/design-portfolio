@@ -4,9 +4,11 @@ import Heading from "@/design/typography/Heading";
 import Label from "@/design/typography/Label";
 import Text from "@/design/typography/Text";
 
-import { ui } from "@/theme";
-
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
+
+import { projectComposition } from "@/runtime/presentation/composition";
+
+import { ui } from "@/theme";
 
 import CinematicShowcaseSwitcher from "./CinematicShowcaseSwitcher";
 
@@ -36,9 +38,11 @@ export default function CinematicShowcaseDesktop({
 
   const primary = showcase[active];
 
+  const composition = projectComposition.cinematic.showcase.desktop;
+
   return (
-    <section className="relative hidden md:block">
-      <div className="mb-20 max-w-[760px] space-y-8 md:mb-24">
+    <section className={composition.section}>
+      <div className={composition.intro}>
         <Label>{content?.label}</Label>
 
         <Heading as="h3" className="max-w-[24ch]">
@@ -66,7 +70,7 @@ export default function CinematicShowcaseDesktop({
         />
       </FadeIn>
 
-      <div className="mt-8 lg:mt-10">
+      <div className={composition.switcherWrap}>
         <CinematicShowcaseSwitcher
           showcase={showcase}
           active={active}

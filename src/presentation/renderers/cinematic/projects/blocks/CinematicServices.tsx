@@ -4,9 +4,11 @@ import Heading from "@/design/typography/Heading";
 import Label from "@/design/typography/Label";
 import Text from "@/design/typography/Text";
 
-import { ui, useTheme } from "@/theme";
-
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
+
+import { projectComposition } from "@/runtime/presentation/composition";
+
+import { ui, useTheme } from "@/theme";
 
 import type {
   CinematicPresentationBlock,
@@ -15,90 +17,117 @@ import type {
 
 type Props = PresentationBlockRendererProps<CinematicPresentationBlock>;
 
-export default function CinematicServices({ project, block, index }: Props) {
-  const services = project.media.services ?? [];
+export default function CinematicSystems({ project, block, index }: Props) {
+  const system = project.media.systems?.[0];
 
-  const content = project.cinematic?.services;
+  const content = project.cinematic?.systems;
 
   const { theme } = useTheme();
 
   const showcase = theme.showcase;
 
-  if (!services.length || !content) {
+  const composition = projectComposition.cinematic.systems;
+
+  if (!system || !content) {
     return null;
   }
 
   return (
-    <section className="space-y-20">
-      {/* INTRO */}
-      <div className="max-w-[760px] space-y-8">
-        <Label>{content.label}</Label>
+    <section className={composition.section}>
+      {/* LEFT */}
+      <div className={composition.left}>
+        <div className={composition.leftInner}>
+          <Label>{content.label}</Label>
 
-        <Heading as="h3" className="max-w-[12ch]">
-          {content.heading}
-        </Heading>
+          <Heading as="h3" className="max-w-[11ch]">
+            {content.heading}
+          </Heading>
 
-        <Text
-          className={`
-            max-w-[40ch]
-            leading-[1.9]
-            ${ui.text.narrative}
-          `}
-        >
-          {content.description}
-        </Text>
+          <Text
+            className={`
+              max-w-[32ch]
+              leading-[1.9]
+
+              ${ui.text.narrative}
+            `}
+          >
+            {content.description}
+          </Text>
+        </div>
       </div>
 
-      {/* SERVICES GRID */}
-      <div className="grid grid-cols-12 gap-10">
-        {services.map((image, imageIndex) => {
-          const isPrimary = imageIndex === 0;
+      {/* RIGHT */}
+      <div className={composition.right}>
+        <FadeIn>
+          <div className={composition.visual}>
+            {/* MAIN VISUAL */}
+            <ProjectCinematicFrame
+              image={system}
+              alt={content.heading}
+              imageFit="contain"
+              minHeight="min-h-[420px] xl:min-h-[760px]"
+              className={`
+                border
 
-          return (
-            <FadeIn key={image} delay={imageIndex * 0.1}>
+                ${showcase.surfaces.base}
+                ${showcase.surfaces.border}
+              `}
+            />
+
+            {/* ATMOSPHERIC BLOOM */}
+            <div
+              className="
+                pointer-events-none
+                absolute
+                inset-0
+
+                opacity-60
+                blur-md
+              "
+              style={{
+                background: showcase.blooms.secondary,
+              }}
+            />
+
+            {/* FLOATING DETAIL */}
+            <div
+              className="
+                pointer-events-none
+                absolute
+                -bottom-10
+                left-10
+
+                hidden
+                xl:block
+              "
+            >
               <div
                 className={`
-                  relative
-                  ${
-                    isPrimary
-                      ? "col-span-12 xl:col-span-8"
-                      : "col-span-12 xl:col-span-4"
-                  }
+                  flex
+                  items-center
+                  gap-3
+
+                  text-[10px]
+                  uppercase
+                  tracking-[0.24em]
+
+                  ${ui.text.muted}
                 `}
               >
-                <ProjectCinematicFrame
-                  image={image}
-                  alt={`${content.heading} ${imageIndex + 1}`}
-                  imageFit="cover"
-                  minHeight={
-                    isPrimary
-                      ? "min-h-[420px] xl:min-h-[720px]"
-                      : "min-h-[320px] xl:min-h-[720px]"
-                  }
+                <div
                   className={`
-                    ${showcase.surfaces.base}
-                    border
-                    ${showcase.surfaces.border}
+                    h-px
+                    w-16
+
+                    ${ui.surfaces.chip}
                   `}
                 />
 
-                {/* ATMOSPHERIC BLOOM */}
-                <div
-                  className="
-                    pointer-events-none
-                    absolute
-                    inset-0
-                    opacity-50
-                    blur-md
-                  "
-                  style={{
-                    background: showcase.blooms.secondary,
-                  }}
-                />
+                <span>{content.floatingLabel}</span>
               </div>
-            </FadeIn>
-          );
-        })}
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

@@ -4,15 +4,16 @@ import Heading from "@/design/typography/Heading";
 import Label from "@/design/typography/Label";
 import Text from "@/design/typography/Text";
 
-import { ui } from "@/theme";
-
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
+
+import { projectComposition } from "@/runtime/presentation/composition";
+
+import { ui } from "@/theme";
 
 import CinematicShowcaseSwitcher from "./CinematicShowcaseSwitcher";
 
-import type { Project } from "@/types/projects";
-
 import type { CinematicPresentationBlock } from "@/runtime/presentation/types";
+import type { Project } from "@/types/projects";
 
 type Props = {
   project: Project;
@@ -37,9 +38,11 @@ export default function CinematicShowcaseMobile({
 
   const primary = showcase[active];
 
+  const composition = projectComposition.cinematic.showcase.mobile;
+
   return (
-    <section className="relative block md:hidden">
-      <div className="mb-16 space-y-7">
+    <section className={composition.section}>
+      <div className={composition.intro}>
         <Label>{content?.mobileLabel}</Label>
 
         <Heading as="h3" className="max-w-[12ch]">
@@ -75,7 +78,7 @@ export default function CinematicShowcaseMobile({
         </a>
       </FadeIn>
 
-      <div className="mt-6">
+      <div className={composition.switcherWrap}>
         <CinematicShowcaseSwitcher
           showcase={showcase}
           active={active}

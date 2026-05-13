@@ -1,5 +1,7 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
+import { projectComposition } from "@/runtime/presentation/composition";
+
 import { rgba } from "@/theme";
 
 import CinematicMobileCard from "./CinematicMobileCard";
@@ -17,52 +19,20 @@ export default function CinematicMobileCarousel({
   active,
   setActive,
 }: Props) {
+  const composition = projectComposition.cinematic.mobile.carousel;
+
   return (
-    <div
-      className="
-        relative
-        flex
-        w-full
-        items-center
-        justify-center
-
-        md:bottom-40
-        md:left-20
-
-        xl:bottom-0
-
-        min-h-[560px]
-        lg:min-h-[620px]
-        xl:min-h-[720px]
-      "
-    >
+    <div className={composition.root}>
       {/* CENTER GLOW */}
       <div
-        className="
-          absolute
-          h-[420px]
-          w-[420px]
-          rounded-full
-          opacity-50
-          blur-sm
-        "
+        className={composition.glow}
         style={{
           background: `radial-gradient(circle, ${rgba.purpleShowcase}, transparent 72%)`,
         }}
       />
 
       {/* STAGE */}
-      <div
-        className="
-          relative
-          flex
-          h-[720px]
-          w-full
-          max-w-[920px]
-          items-center
-          justify-center
-        "
-      >
+      <div className={composition.stage}>
         {images.map((image, index) => {
           const isActive = index === active;
 

@@ -3,10 +3,12 @@ import FadeIn from "@/presentation/animation/FadeIn";
 import Heading from "@/design/typography/Heading";
 import Text from "@/design/typography/Text";
 
-import { ui } from "@/theme";
-
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 import ProjectSectionLabel from "@/presentation/shared/ProjectSectionLabel";
+
+import { projectComposition } from "@/runtime/presentation/composition";
+
+import { ui } from "@/theme";
 
 import type {
   EditorialPresentationBlock,
@@ -20,33 +22,31 @@ export default function EditorialShowcase({ project, block, index }: Props) {
 
   const content = project.editorial?.showcase;
 
+  const composition = projectComposition.editorial.showcase;
+
   if (!editorial || !content) {
     return null;
   }
 
   return (
     <FadeIn>
-      <section className="grid grid-cols-1 gap-y-10 md:gap-y-14 xl:grid-cols-12 xl:gap-x-32">
+      <section className={composition.section}>
         {/* LEFT */}
-        <div className="xl:col-span-4">
-          <div
-            className="
-              space-y-8
-              xl:sticky
-              xl:top-24
-              2xl:top-32
-            "
-          >
+        <div className={composition.left}>
+          <div className={composition.leftInner}>
             <ProjectSectionLabel>{content.label}</ProjectSectionLabel>
 
             <Heading
               as="h3"
               className={`
                 max-w-lg
+
                 text-5xl
-                leading-[0.95]
-                ${ui.text.primary}
                 md:text-6xl
+
+                leading-[0.95]
+
+                ${ui.text.primary}
               `}
             >
               {content.heading}
@@ -55,8 +55,10 @@ export default function EditorialShowcase({ project, block, index }: Props) {
             <Text
               className={`
                 max-w-lg
+
                 text-[15px]
                 leading-[1.9]
+
                 ${ui.text.link}
               `}
             >
@@ -66,7 +68,7 @@ export default function EditorialShowcase({ project, block, index }: Props) {
         </div>
 
         {/* RIGHT */}
-        <div className="xl:col-span-8">
+        <div className={composition.right}>
           <ProjectCinematicFrame
             image={editorial}
             alt={project.title}

@@ -6,6 +6,8 @@ import Text from "@/design/typography/Text";
 
 import RightSideVisual from "@/design/visuals/RightSideVisual";
 
+import { projectComposition } from "@/runtime/presentation/composition";
+
 import { ui } from "@/theme";
 
 import type {
@@ -25,57 +27,28 @@ export default function CinematicMobile({ project, block, index }: Props) {
 
   const [active, setActive] = useState(1);
 
+  const composition = projectComposition.cinematic.mobile;
+
   if (mobile.length < 3 || !content) {
     return null;
   }
 
   return (
-    <section
-      className="
-        relative
-        overflow-hidden
-
-        py-16
-        md:py-20
-        xl:py-28
-      "
-    >
-      <div className="hidden md:block">
+    <section className={composition.section}>
+      <div className={composition.environment}>
         <RightSideVisual />
       </div>
 
-      <div
-        className="
-          grid
-          grid-cols-1
-
-          gap-y-16
-          lg:gap-y-20
-
-          xl:grid-cols-12
-          xl:items-center
-          xl:gap-x-20
-        "
-      >
+      <div className={composition.grid}>
         {/* VISUALS */}
-        <div
-          className="
-            order-2
-            col-span-12
-
-            md:col-span-7
-
-            xl:order-1
-            xl:col-span-7
-          "
-        >
+        <div className={composition.visuals}>
           {/* TABLET */}
-          <div className="hidden sm:block md:hidden">
+          <div className={composition.tablet}>
             <CinematicMobileStack images={mobile} />
           </div>
 
           {/* DESKTOP */}
-          <div className="hidden md:block">
+          <div className={composition.desktop}>
             <CinematicMobileCarousel
               images={mobile}
               active={active}
@@ -85,28 +58,8 @@ export default function CinematicMobile({ project, block, index }: Props) {
         </div>
 
         {/* CONTENT */}
-        <div
-          className="
-            order-1
-            col-span-12
-
-            xl:order-2
-            xl:col-span-5
-          "
-        >
-          <div
-            className="
-              relative
-              max-w-[32rem]
-
-              space-y-6
-              sm:space-y-8
-              lg:space-y-10
-
-              xl:sticky
-              xl:top-32
-            "
-          >
+        <div className={composition.content}>
+          <div className={composition.contentInner}>
             <Label>{content.label}</Label>
 
             <Heading
