@@ -14,6 +14,7 @@ export const sectionSpacing = {
     lg:mt-20
   `,
   },
+
   contact: {
     root: `
       gap-16
@@ -77,6 +78,7 @@ export const sectionSpacing = {
       lg:py-14
     `,
   },
+
   about: {
     root: `
     md:py-40
@@ -152,6 +154,7 @@ export const sectionSpacing = {
       lg:min-h-[780px]
     `,
   },
+
   philosophy: {
     root: `
     md:py-40
@@ -195,6 +198,40 @@ export const sectionSpacing = {
     metadata: `
     pt-8
     md:pt-10
+  `,
+  },
+
+  projects: {
+    root: `
+    md:py-40
+    lg:py-48
+    xl:py-56
+  `,
+
+    bloom: `
+    pointer-events-none
+    absolute
+
+    left-[-10%]
+    top-[10%]
+
+    h-[40vw]
+    w-[40vw]
+
+    rounded-full
+    blur-sm
+
+    opacity-10
+  `,
+
+    content: `
+    relative
+    z-10
+
+    space-y-32
+    md:space-y-40
+    lg:space-y-48
+    xl:space-y-56
   `,
   },
 } as const;

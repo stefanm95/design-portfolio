@@ -1,12 +1,15 @@
-import Contact from "@/presentation/sections/contact/Contact";
-import Experience from "@/presentation/sections/experience/Experience";
-import Hero from "@/presentation/sections/hero/Hero";
-import Philosophy from "@/presentation/sections/philosophy/Philosophy";
-import SelectedWork from "@/presentation/sections/projects/SelectedWork";
+import {
+  About,
+  Contact,
+  Experience,
+  Hero,
+  Philosophy,
+  SelectedWork,
+} from "@/presentation/sections";
 
 export default function CinematicExperience() {
   return (
-    <main>
+    <main className="relative z-10">
       <Hero />
 
       <Philosophy />
@@ -14,6 +17,8 @@ export default function CinematicExperience() {
       <SelectedWork />
 
       <Experience />
+
+      <About />
 
       <Contact />
     </main>
