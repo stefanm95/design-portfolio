@@ -17,7 +17,7 @@ import type {
 
 type Props = PresentationBlockRendererProps<CinematicPresentationBlock>;
 
-export default function CinematicSystems({ project, block, index }: Props) {
+export default function CinematicSystems({ project }: Props) {
   const system = project.media.systems?.[0];
 
   const content = project.cinematic?.systems;

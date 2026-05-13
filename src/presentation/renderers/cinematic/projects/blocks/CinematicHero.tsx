@@ -14,7 +14,7 @@ import type {
 
 type Props = PresentationBlockRendererProps<CinematicPresentationBlock>;
 
-export default function CinematicHero({ project, block, index }: Props) {
+export default function CinematicHero({ project }: Props) {
   const { theme } = useTheme();
 
   const hero = project.media.hero?.[0];

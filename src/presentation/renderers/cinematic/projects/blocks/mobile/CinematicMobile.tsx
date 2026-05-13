@@ -20,7 +20,7 @@ import CinematicMobileStack from "./CinematicMobileStack";
 
 type Props = PresentationBlockRendererProps<CinematicPresentationBlock>;
 
-export default function CinematicMobile({ project, block, index }: Props) {
+export default function CinematicMobile({ project }: Props) {
   const mobile = project.media.mobile ?? [];
 
   const content = project.cinematic?.mobile;

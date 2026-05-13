@@ -15,7 +15,7 @@ import type {
 
 type Props = PresentationBlockRendererProps<EditorialPresentationBlock>;
 
-export default function EditorialAtmosphere({ project, block, index }: Props) {
+export default function EditorialAtmosphere({ project }: Props) {
   const image = project.media.atmosphere?.[0];
 
   const content = project.editorial?.atmosphere;

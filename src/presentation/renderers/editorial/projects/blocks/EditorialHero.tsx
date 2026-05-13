@@ -14,7 +14,7 @@ import type {
 
 type Props = PresentationBlockRendererProps<EditorialPresentationBlock>;
 
-export default function EditorialHero({ project, block, index }: Props) {
+export default function EditorialHero({ project }: Props) {
   const hero = project.media.hero?.[0];
 
   if (!hero) {

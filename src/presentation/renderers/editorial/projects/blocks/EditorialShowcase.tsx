@@ -17,7 +17,7 @@ import type {
 
 type Props = PresentationBlockRendererProps<EditorialPresentationBlock>;
 
-export default function EditorialShowcase({ project, block, index }: Props) {
+export default function EditorialShowcase({ project }: Props) {
   const editorial = project.media.editorial?.[0];
 
   const content = project.editorial?.showcase;

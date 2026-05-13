@@ -15,7 +15,7 @@ import type {
 
 type Props = PresentationBlockRendererProps<EditorialPresentationBlock>;
 
-export default function EditorialUIDetail({ project, block, index }: Props) {
+export default function EditorialUIDetail({ project }: Props) {
   const image = project.media.ui?.[0];
 
   const content = project.editorial?.ui;
