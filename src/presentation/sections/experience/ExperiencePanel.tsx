@@ -1,3 +1,5 @@
+import { compositionStack } from "@/runtime/presentation/composition";
+
 import { useTheme } from "@/theme";
 
 type Props = {
@@ -19,23 +21,7 @@ export default function ExperiencePanel({
   return (
     <div
       className={`
-        group
-        relative
-
-        min-h-[150px]
-        w-full
-
-        sm:w-[300px]
-
-        md:h-50
-        md:w-[320px]
-        md:left-60
-        lg:left-0
-
-        overflow-hidden
-        cursor-pointer
-
-        border
+        ${compositionStack.experience.panel.root}
 
         ${panel.surface.base}
         ${panel.surface.border}
@@ -46,14 +32,12 @@ export default function ExperiencePanel({
         ${panel.motion.stackFade}
         ${panel.motion.transition}
 
-        hover:z-20
-
         ${className}
       `}
     >
       {/* ATMOSPHERIC LIGHT */}
       <div
-        className='absolute inset-0 opacity-60'
+        className="absolute inset-0 opacity-60"
         style={{
           background: panel.overlays.atmosphere,
         }}
@@ -61,13 +45,13 @@ export default function ExperiencePanel({
 
       {/* GLASS REFLECTION */}
       <div
-        className='
+        className="
           absolute
           inset-0
 
           opacity-30
           mix-blend-screen
-        '
+        "
         style={{
           background: panel.overlays.reflection,
         }}
@@ -75,7 +59,7 @@ export default function ExperiencePanel({
 
       {/* INNER SHADE */}
       <div
-        className='absolute inset-0'
+        className="absolute inset-0"
         style={{
           background: panel.overlays.innerShade,
         }}
@@ -83,7 +67,7 @@ export default function ExperiencePanel({
 
       {/* HOVER BLOOM */}
       <div
-        className='
+        className="
           absolute
           inset-0
 
@@ -93,28 +77,14 @@ export default function ExperiencePanel({
           duration-700
 
           group-hover:opacity-100
-        '
+        "
         style={{
           background: panel.overlays.hoverBloom,
         }}
       />
 
       {/* CONTENT */}
-      <div
-        className='
-          relative
-          z-10
-
-          flex
-          h-full
-          flex-col
-          justify-between
-
-          p-5
-          md:p-7
-          lg:p-7
-        '
-      >
+      <div className={compositionStack.experience.panel.content}>
         {/* ID */}
         <span
           className={`
@@ -131,19 +101,7 @@ export default function ExperiencePanel({
           {/* TITLE */}
           <h3
             className={`
-              max-w-[190px]
-
-              text-[16px]
-              sm:text-[18px]
-              lg:text-[20px]
-
-              leading-[1]
-
-              font-light
-              tracking-[-0.04em]
-
-              transition-all
-              duration-700
+              ${compositionStack.experience.panel.title}
 
               ${panel.typography.title}
               ${panel.typography.titleHover}
@@ -155,24 +113,7 @@ export default function ExperiencePanel({
           {/* DESCRIPTION */}
           <p
             className={`
-              mt-4
-              max-w-[210px]
-
-              text-[12px]
-              leading-[1.8]
-
-              transition-all
-              duration-1000
-              ease-out
-
-              opacity-100
-              translate-y-0
-
-              lg:opacity-0
-              lg:translate-y-3
-
-              lg:group-hover:translate-y-0
-              lg:group-hover:opacity-100
+              ${compositionStack.experience.panel.description}
 
               ${panel.typography.description}
             `}
@@ -184,12 +125,12 @@ export default function ExperiencePanel({
 
       {/* EDGE LIGHT */}
       <div
-        className='
+        className="
           absolute
           inset-y-0
           left-0
           w-px
-        '
+        "
         style={{
           background: panel.dividers.edge,
         }}

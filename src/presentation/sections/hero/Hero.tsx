@@ -1,14 +1,22 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 import Reveal from "@/presentation/animation/Reveal";
 
+import Section from "@/design/layout/Section";
+
 import Display from "@/design/typography/Display";
 import Label from "@/design/typography/Label";
 import Text from "@/design/typography/Text";
-import { dividersGradients, opacityClass, ui } from "@/theme";
+
+import RightSideVisual from "@/design/visuals/RightSideVisual";
 
 import { heroContent } from "@/content/hero";
-import Section from "@/design/layout/Section";
-import RightSideVisual from "@/design/visuals/RightSideVisual";
+
+import {
+  compositionStack,
+  sectionSpacing,
+} from "@/runtime/presentation/composition";
+
+import { dividersGradients, opacityClass, ui } from "@/theme";
 
 export default function Hero() {
   const { meta, display, description, availability } = heroContent;
@@ -16,27 +24,21 @@ export default function Hero() {
   return (
     <Section
       id="hero"
-      className="relative flex min-h-screen items-start overflow-hidden"
+      className={`
+        ${compositionStack.hero.root}
+        ${sectionSpacing.hero.root}
+      `}
     >
       {/* ENVIRONMENT */}
       <RightSideVisual />
 
       {/* HERO GRID */}
-      <div
-        className="
-          hero-grid
-          relative z-10
-
-          grid w-full
-          grid-cols-12
-          items-center
-        "
-      >
+      <div className={compositionStack.hero.grid}>
         {/* CONTENT */}
-        <div className="col-span-12 xl:col-span-9">
+        <div className={compositionStack.hero.content}>
           {/* TOP META */}
           <FadeIn>
-            <div className="flex items-center gap-6">
+            <div className={compositionStack.hero.meta}>
               <div className={`h-px w-16 ${ui.dividers.subtle}`} />
 
               <Label>{meta.role}</Label>
@@ -45,8 +47,8 @@ export default function Hero() {
 
           {/* DISPLAY TYPOGRAPHY */}
           <Reveal>
-            <div className="mt-10">
-              <div className="space-y-0 md:-space-y-6 xl:-space-y-10">
+            <div className={sectionSpacing.hero.display}>
+              <div className={compositionStack.hero.display}>
                 <Display>{display.primary}</Display>
 
                 <Display
@@ -76,9 +78,14 @@ export default function Hero() {
 
           {/* DESCRIPTION BLOCK */}
           <FadeIn delay={0.35}>
-            <div className="mt-16 md:mt-18 lg:mt-20 flex flex-col md:flex-row max-w-190 md:gap-6 lg:gap-10">
+            <div
+              className={`
+                ${sectionSpacing.hero.description}
+                ${compositionStack.hero.description}
+              `}
+            >
               {/* EDITORIAL MARKER */}
-              <div className="relative pt-4 hidden md:block">
+              <div className={compositionStack.hero.marker}>
                 <div className={`h-px w-20 ${ui.dividers.subtle}`} />
 
                 <div
@@ -96,7 +103,7 @@ export default function Hero() {
               </div>
 
               {/* COPY */}
-              <div className="space-y-7">
+              <div className={compositionStack.hero.copy}>
                 <Text
                   className={`
                     max-w-145
@@ -117,11 +124,7 @@ export default function Hero() {
                 {/* BOTTOM META */}
                 <div
                   className={`
-                    flex flex-wrap
-                    items-center
-                    gap-3
-                    md:gap-4
-                    lg:gap-5
+                    ${compositionStack.hero.availability}
 
                     text-[11px]
                     uppercase

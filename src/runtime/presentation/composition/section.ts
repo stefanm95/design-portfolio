@@ -1,4 +1,19 @@
 export const sectionSpacing = {
+  hero: {
+    root: `
+    min-h-screen
+  `,
+
+    display: `
+    mt-10
+  `,
+
+    description: `
+    mt-16
+    md:mt-18
+    lg:mt-20
+  `,
+  },
   contact: {
     root: `
       gap-16
@@ -95,6 +110,91 @@ export const sectionSpacing = {
 
     stackFooter: `
     pt-12
+  `,
+  },
+
+  experience: {
+    root: `
+      md:py-40
+      xl:py-48
+    `,
+
+    heroGlow: `
+      -left-10
+      top-10
+
+      h-40
+      w-40
+    `,
+
+    divider: `
+      mt-10
+      h-px
+      w-24
+    `,
+
+    description: `
+      mt-8
+      max-w-[420px]
+    `,
+
+    tags: `
+      mt-12
+    `,
+
+    visualRoot: `
+      min-h-[560px]
+      lg:min-h-[760px]
+    `,
+
+    visualContent: `
+      min-h-[560px]
+      lg:min-h-[780px]
+    `,
+  },
+  philosophy: {
+    root: `
+    md:py-40
+    lg:py-48
+    xl:py-56
+  `,
+
+    divider: `
+    absolute
+    inset-x-0
+    top-0
+
+    h-px
+  `,
+
+    ambientBloom: `
+    pointer-events-none
+    absolute
+
+    left-[10%]
+    md:left-[5%]
+    lg:left-[10%]
+
+    top-[10%]
+
+    h-[300px]
+    w-[300px]
+
+    md:h-[350px]
+    md:w-[350px]
+
+    lg:h-[420px]
+    lg:w-[420px]
+
+    rounded-full
+    blur-sm
+
+    opacity-6
+  `,
+
+    metadata: `
+    pt-8
+    md:pt-10
   `,
   },
 } as const;

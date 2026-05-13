@@ -1,90 +1,43 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
+import { experienceContent } from "@/content/experience";
+
+import {
+  compositionStack,
+  sectionSpacing,
+} from "@/runtime/presentation/composition";
+
 import ExperiencePanel from "./ExperiencePanel";
 import ExperienceVisualBackground from "./ExperienceVisualBackground";
-
-import { experienceContent } from "@/content/experience";
 
 export default function ExperienceVisual() {
   return (
     <FadeIn delay={0.2}>
       <div
-        className="
-          relative
-
-          flex
-          items-center
-          justify-center
-
-          min-h-[560px]
-
-          lg:min-h-[760px]
-        "
+        className={`
+          ${compositionStack.experience.visual.root}
+          ${sectionSpacing.experience.visualRoot}
+        `}
       >
         {/* EXTENDED ATMOSPHERIC BACKGROUND */}
-        <div
-          className="
-            absolute
-            inset-y-0
-
-            left-[-5%]
-            right-[-28%]
-
-            hidden
-            lg:block
-          "
-        >
+        <div className={compositionStack.experience.visual.desktopBackground}>
           <ExperienceVisualBackground />
         </div>
 
         {/* MOBILE BACKGROUND */}
-        <div
-          className="
-            absolute
-            inset-0
-
-            lg:hidden
-          "
-        >
+        <div className={compositionStack.experience.visual.mobileBackground}>
           <ExperienceVisualBackground />
         </div>
 
         {/* CONTENT AREA */}
         <div
-          className="
-            relative
-            z-10
-
-            w-full
-            max-w-[720px]
-
-            min-h-[560px]
-
-            lg:min-h-[780px]
-            lg:max-w-[860px]
-          "
+          className={`
+            ${compositionStack.experience.visual.content}
+            ${sectionSpacing.experience.visualContent}
+          `}
         >
           {/* STACK */}
-          <div
-            className="
-              group/stack
-              relative
-
-              flex
-              flex-col
-
-              gap-5
-
-              px-6
-              py-10
-
-              sm:px-10
-
-              lg:gap-0
-              lg:px-0
-              lg:py-0
-            "
-          >
+          <div className={compositionStack.experience.visual.stack}>
             {experienceContent.panels.map((panel) => (
               <ExperiencePanel
                 key={panel.id}

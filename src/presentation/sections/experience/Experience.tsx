@@ -1,13 +1,21 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
+import Container from "@/design/layout/Container";
+import Section from "@/design/layout/Section";
+
+import Heading from "@/design/typography/Heading";
 import Label from "@/design/typography/Label";
 import Text from "@/design/typography/Text";
 
 import { experienceContent } from "@/content/experience";
-import Container from "@/design/layout/Container";
-import Section from "@/design/layout/Section";
-import Heading from "@/design/typography/Heading";
+
+import {
+  compositionStack,
+  sectionSpacing,
+} from "@/runtime/presentation/composition";
+
 import { dividersGradients, ui } from "@/theme";
+
 import ExperienceVisual from "./ExperienceVisual";
 
 export default function Experience() {
@@ -16,7 +24,12 @@ export default function Experience() {
   return (
     <Section
       id="experience"
-      className="relative overflow-hidden md:py-40 xl:py-48"
+      className={`
+        relative
+        overflow-hidden
+
+        ${sectionSpacing.experience.root}
+      `}
     >
       {/* BACKGROUND ATMOSPHERE */}
       <div
@@ -89,62 +102,48 @@ export default function Experience() {
       </div>
 
       <Container className="relative z-10">
-        <div
-          className="
-            grid
-            grid-cols-1
-            lg:grid-cols-[minmax(0,1.15fr)_520px]
-            items-center
-            gap-16
-            md:gap-20
-            lg:gap-24
-          "
-        >
+        <div className={compositionStack.experience.root}>
           {/* LEFT SIDE */}
           <FadeIn>
-            <div className="relative max-w-[760px]">
+            <div className={compositionStack.experience.hero.content}>
               {/* LABEL */}
               <Label className={ui.text.context}>{hero.label}</Label>
 
               {/* TITLE */}
-              <div className="relative mt-8">
+              <div className={compositionStack.experience.hero.titleWrap}>
                 {/* SUBTLE GLOW */}
                 <div
                   className={`
                     absolute
-                    -left-10
-                    top-10
-                    
-                    h-40
-                    w-40
-                    
+
                     rounded-full
                     blur-sm
-                    
+
+                    ${sectionSpacing.experience.heroGlow}
                     ${ui.surfaces.faint}
                   `}
                 />
 
                 <Heading
                   className="
-                  relative
-                  z-10
-                                
-                  text-[clamp(3rem,6vw,6.8rem)]
-                                
-                  md:text-[clamp(3.6rem,6vw,5.6rem)]
-                  xl:text-[clamp(4.8rem,7vw,6.8rem)]
-                                
-                  leading-[0.9]
-                  tracking-[-0.06em]
-                                
-                  text-transparent
-                  bg-clip-text
-                                
-                  bg-[linear-gradient(180deg,rgba(240,244,248,0.98)_0%,rgba(210,220,228,0.92)_50%,rgba(214,195,161,0.88)_100%)]
-                                
-                  drop-shadow-[0_0_30px_rgba(255,255,255,0.03)]
-                "
+                    relative
+                    z-10
+
+                    text-[clamp(3rem,6vw,6.8rem)]
+
+                    md:text-[clamp(3.6rem,6vw,5.6rem)]
+                    xl:text-[clamp(4.8rem,7vw,6.8rem)]
+
+                    leading-[0.9]
+                    tracking-[-0.06em]
+
+                    text-transparent
+                    bg-clip-text
+
+                    bg-[linear-gradient(180deg,rgba(240,244,248,0.98)_0%,rgba(210,220,228,0.92)_50%,rgba(214,195,161,0.88)_100%)]
+
+                    drop-shadow-[0_0_30px_rgba(255,255,255,0.03)]
+                  "
                 >
                   <span className="block">{hero.title.line1}</span>
 
@@ -157,57 +156,51 @@ export default function Experience() {
               {/* DIVIDER */}
               <div
                 className={`
-                mt-10
-                h-px
-                w-24
-
-                ${dividersGradients.leadIn}
-              `}
+                  ${sectionSpacing.experience.divider}
+                  ${dividersGradients.leadIn}
+                `}
               />
 
               {/* DESCRIPTION */}
               <Text
                 className={`
-                mt-8
-                max-w-[420px]
+                  ${sectionSpacing.experience.description}
 
-                text-sm
-                leading-[1.9]
-                ${ui.text.link}
-              `}
+                  text-sm
+                  leading-[1.9]
+
+                  ${ui.text.link}
+                `}
               >
                 {hero.description}
               </Text>
 
               {/* MINI TAGS */}
               <div
-                className="
-                 mt-12
-
-                 flex
-                 flex-wrap
-                 gap-3
-               "
+                className={`
+                  ${sectionSpacing.experience.tags}
+                  ${compositionStack.experience.hero.tags}
+                `}
               >
                 {hero.tags.map((item) => (
                   <div
                     key={item}
                     className={`
-                    border
-                    ${ui.borders.quiet}
-                            
-                    ${ui.surfaces.tag}
-                            
-                    px-4
-                    py-2
-                            
-                    text-[10px]
-                    uppercase
-                    tracking-[0.22em]
-                    ${ui.text.tertiary}
-                            
-                    backdrop-blur-sm
-                  `}
+                      border
+
+                      px-4
+                      py-2
+
+                      text-[10px]
+                      uppercase
+                      tracking-[0.22em]
+
+                      backdrop-blur-sm
+
+                      ${ui.borders.quiet}
+                      ${ui.surfaces.tag}
+                      ${ui.text.tertiary}
+                    `}
                   >
                     {item}
                   </div>

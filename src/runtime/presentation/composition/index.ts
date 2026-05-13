@@ -15,6 +15,8 @@ import { compositionStack } from "./stack";
 
 import { sectionLayouts } from "./layout";
 
+import { projectComposition } from "./projects";
+
 export {
   cinematicSpacing,
   compositionDensity,
@@ -22,6 +24,7 @@ export {
   compositionStack,
   editorialSpacing,
   gridSpacing,
+  projectComposition,
   sectionLayouts,
   sectionSpacing,
   stackSpacing,
