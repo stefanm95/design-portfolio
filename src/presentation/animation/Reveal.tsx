@@ -1,63 +1,22 @@
 import type { ReactNode } from "react";
 
 import { motion } from "framer-motion";
-
-type MotionRhythm = "editorial" | "cinematic" | "immersive";
-
-type MotionTransition = "soft" | "balanced" | "dramatic";
+import { useMotionCadence } from "@/runtime/presentation/motion";
 
 type RevealDirection = "up" | "down" | "left" | "right";
 
 type Props = {
   children: ReactNode;
 
-  rhythm?: MotionRhythm;
-
-  transition?: MotionTransition;
-
   direction?: RevealDirection;
 
   className?: string;
 };
 
-const rhythmReveal = {
-  editorial: {
-    duration: 0.8,
-
-    distance: 24,
-  },
-
-  cinematic: {
-    duration: 1.2,
-
-    distance: 48,
-  },
-
-  immersive: {
-    duration: 1.6,
-
-    distance: 72,
-  },
-} as const;
-
-const transitionReveal = {
-  soft: {
-    ease: [0.25, 1, 0.5, 1],
-
-    multiplier: 0.9,
-  },
-
-  balanced: {
-    ease: [0.22, 1, 0.36, 1],
-
-    multiplier: 1,
-  },
-
-  dramatic: {
-    ease: [0.16, 1, 0.3, 1],
-
-    multiplier: 1.2,
-  },
+const transitionEases = {
+  soft: [0.25, 1, 0.5, 1],
+  balanced: [0.22, 1, 0.36, 1],
+  dramatic: [0.16, 1, 0.3, 1],
 } as const;
 
 function resolveAxis(direction: RevealDirection, distance: number) {
@@ -82,19 +41,13 @@ function resolveAxis(direction: RevealDirection, distance: number) {
 export default function Reveal({
   children,
 
-  rhythm = "editorial",
-
-  transition = "balanced",
-
   direction = "up",
 
   className,
 }: Props) {
-  const rhythmPreset = rhythmReveal[rhythm];
+  const cadence = useMotionCadence();
 
-  const transitionPreset = transitionReveal[transition];
-
-  const axis = resolveAxis(direction, rhythmPreset.distance);
+  const axis = resolveAxis(direction, cadence.reveal.distance);
 
   return (
     <div className={`overflow-hidden ${className ?? ""}`}>
@@ -114,9 +67,9 @@ export default function Reveal({
           margin: "-10%",
         }}
         transition={{
-          duration: rhythmPreset.duration * transitionPreset.multiplier,
+          duration: cadence.reveal.duration,
 
-          ease: transitionPreset.ease,
+          ease: transitionEases.balanced,
         }}
       >
         {children}

@@ -11,6 +11,8 @@ export * from "./scene/useScene";
 
 export * from "./composition";
 
+export * from "./motion";
+
 export { default as PresentationProvider } from "./PresentationProvider";
 
 // export { default as PresentationRuntime } from "./orchestration/PresentationRuntime";

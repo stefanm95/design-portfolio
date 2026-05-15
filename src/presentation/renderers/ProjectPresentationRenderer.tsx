@@ -14,6 +14,7 @@ import {
   cinematicSpacing,
   editorialSpacing,
   resolveCompositionContract,
+  MotionCadenceProvider,
 } from "@/runtime/presentation";
 
 import {
@@ -141,15 +142,17 @@ export default function ProjectPresentationRenderer({
     >
       <ProjectDivider />
 
-      <div className={composition.densityClass}>
-        <FadeIn rhythm={composition.rhythm} transition={composition.transition}>
-          <ProjectMeta project={project} index={index} />
-        </FadeIn>
+      <MotionCadenceProvider contract={composition}>
+        <div className={composition.densityClass}>
+          <FadeIn>
+            <ProjectMeta project={project} index={index} />
+          </FadeIn>
 
-        {presentation.mode === "cinematic"
-          ? renderCinematicPresentation(project, presentation, runtime)
-          : renderEditorialPresentation(project, presentation, runtime)}
-      </div>
+          {presentation.mode === "cinematic"
+            ? renderCinematicPresentation(project, presentation, runtime)
+            : renderEditorialPresentation(project, presentation, runtime)}
+        </div>
+      </MotionCadenceProvider>
     </article>
   );
 }
