@@ -1,9 +1,9 @@
 import { presentationProfiles } from "./profiles";
 
-import type { PresentationProfileId } from "./types";
+import type { PresentationProfileVariant } from "./types";
 
 export function resolvePresentationProfile(
-  profile: PresentationProfileId = "immersive",
+  profile: PresentationProfileVariant = "immersive",
 ) {
   return presentationProfiles[profile];
 }

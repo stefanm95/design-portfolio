@@ -1,4 +1,4 @@
-export type PresentationProfileId = "immersive" | "editorial" | "minimal";
+export type PresentationProfileVariant = "immersive" | "editorial" | "minimal";
 
 export type PresentationProfile = {
   density: "tight" | "balanced" | "spacious";
@@ -10,6 +10,8 @@ export type PresentationProfile = {
   atmosphere: "cinematic" | "editorial" | "minimal";
 
   transitions: "soft" | "balanced" | "dramatic";
+
+  sceneIntensity?: "soft" | "balanced" | "dramatic";
 
   navigation: "immersive" | "minimal";
 };

@@ -1,7 +1,7 @@
-import type { PresentationProfile, PresentationProfileId } from "./types";
+import type { PresentationProfile, PresentationProfileVariant } from "./types";
 
 export const presentationProfiles: Record<
-  PresentationProfileId,
+  PresentationProfileVariant,
   PresentationProfile
 > = {
   immersive: {
