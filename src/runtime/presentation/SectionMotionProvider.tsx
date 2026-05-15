@@ -1,12 +1,7 @@
 import type { ReactNode } from "react";
 import { useMemo } from "react";
 import type { CompositionContract } from "./composition";
-import { MotionCadenceProvider } from "./motion/MotionCadenceContext";
-import { resolveCadence } from "./motion/cadence";
-import {
-  applySceneModulation,
-  resolveSceneModulation,
-} from "./motion/sceneModulation";
+import { MotionCadenceProvider } from "./motion/MotionCadenceProvider";
 import { useScene } from "./scene/useScene";
 
 /**
@@ -46,13 +41,6 @@ export function SectionMotionProvider({ children }: { children: ReactNode }) {
     }),
     [],
   );
-
-  // Apply scene modulation to create final cadence
-  const cadence = useMemo(() => {
-    const baseCadence = resolveCadence(defaultContract);
-    const modulation = resolveSceneModulation(scene.id);
-    return applySceneModulation(baseCadence, modulation);
-  }, [scene.id]);
 
   return (
     <MotionCadenceProvider contract={defaultContract} sceneId={scene.id}>

@@ -1,8 +1,9 @@
 export { resolveCadence, type MotionCadence } from "./cadence";
-export {
-  MotionCadenceProvider,
-  useMotionCadence,
-} from "./MotionCadenceContext";
+
+export { MotionCadenceProvider } from "./MotionCadenceProvider";
+
+export { useMotionCadence } from "./useMotionCadence";
+
 export {
   applySceneModulation,
   resolveSceneModulation,
