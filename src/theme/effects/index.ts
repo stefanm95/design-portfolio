@@ -1,12 +1,9 @@
-import { atmosphere } from "./atmosphere";
-
-import { grid } from "./grid";
+import { createGridEffect } from "./grid";
 import { noise } from "./noise";
 
-export { atmosphere, grid, noise };
+export { createGridEffect, noise };
 
-export const variants = {
-  atmosphere,
-  grid,
+export const effectPrimitives = {
+  createGridEffect,
   noise,
 };

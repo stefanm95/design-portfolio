@@ -1,14 +1,9 @@
 import { presentationBlockRegistry } from "./index";
 
-import type {
-  CinematicPresentation,
-  EditorialPresentation,
-} from "@/types/presentation";
-
-export function resolveCinematicRegistry(_presentation: CinematicPresentation) {
+export function resolveCinematicRegistry() {
   return presentationBlockRegistry.cinematic;
 }
 
-export function resolveEditorialRegistry(_presentation: EditorialPresentation) {
+export function resolveEditorialRegistry() {
   return presentationBlockRegistry.editorial;
 }

@@ -4,24 +4,22 @@ import { ProjectDivider, ProjectMeta } from "@/presentation/shared";
 
 import type {
   CinematicPresentation,
-  CompositionDensity,
-  CompositionRhythm,
   EditorialPresentation,
-  PresentationTransition,
   ProjectPresentation,
 } from "@/types/presentation";
 
 import type { Project } from "@/types/projects";
 
-import { cinematicSpacing, editorialSpacing } from "@/runtime/presentation";
+import {
+  cinematicSpacing,
+  editorialSpacing,
+  resolveCompositionContract,
+} from "@/runtime/presentation";
 
 import {
   resolveAtmosphere,
-  resolveDensity,
   resolveProfile,
-  resolveRhythm,
   resolveScene,
-  resolveTransition,
 } from "@/runtime/presentation/resolvers";
 
 import {
@@ -29,6 +27,7 @@ import {
   resolveEditorialRegistry,
 } from "@/presentation/renderers/registryResolver";
 import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
+import type { CompositionContract } from "@/runtime/presentation/composition";
 
 type Props = {
   project: Project;
@@ -37,11 +36,7 @@ type Props = {
 };
 
 type RuntimePresentationAttributes = {
-  density: CompositionDensity;
-
-  rhythm: CompositionRhythm;
-
-  transition: PresentationTransition;
+  composition: CompositionContract;
 
   profileVariant: PresentationProfileVariant;
 };
@@ -51,7 +46,7 @@ function renderCinematicPresentation(
   presentation: CinematicPresentation,
   runtime: RuntimePresentationAttributes,
 ) {
-  const registry = resolveCinematicRegistry(presentation);
+  const registry = resolveCinematicRegistry();
 
   return presentation.blocks.map((block, blockIndex) => {
     const Component = registry[block.type];
@@ -71,9 +66,10 @@ function renderCinematicPresentation(
         data-scene={scene}
         data-atmosphere={atmosphere}
         data-profile={runtime.profileVariant}
-        data-density={runtime.density}
-        data-rhythm={runtime.rhythm}
-        data-transition={runtime.transition}
+        data-density={runtime.composition.density}
+        data-rhythm={runtime.composition.rhythm}
+        data-transition={runtime.composition.transition}
+        data-scene-intensity={runtime.composition.sceneIntensity}
       >
         <Component project={project} block={block} index={blockIndex} />
       </div>
@@ -86,7 +82,7 @@ function renderEditorialPresentation(
   presentation: EditorialPresentation,
   runtime: RuntimePresentationAttributes,
 ) {
-  const registry = resolveEditorialRegistry(presentation);
+  const registry = resolveEditorialRegistry();
 
   return presentation.blocks.map((block, blockIndex) => {
     const Component = registry[block.type];
@@ -106,9 +102,10 @@ function renderEditorialPresentation(
         data-scene={scene}
         data-atmosphere={atmosphere}
         data-profile={runtime.profileVariant}
-        data-density={runtime.density}
-        data-rhythm={runtime.rhythm}
-        data-transition={runtime.transition}
+        data-density={runtime.composition.density}
+        data-rhythm={runtime.composition.rhythm}
+        data-transition={runtime.composition.transition}
+        data-scene-intensity={runtime.composition.sceneIntensity}
       >
         <Component project={project} block={block} index={blockIndex} />
       </div>
@@ -125,26 +122,10 @@ export default function ProjectPresentationRenderer({
 
   const profile = resolveProfile(profileVariant);
 
-  const densityVariant = presentation.composition?.density ?? profile.density;
-
-  const densityClass = resolveDensity(presentation, profile);
-
-  const rhythm = resolveRhythm(presentation, profile);
-
-  const transition = resolveTransition(presentation, profile);
-
-  //
-  // TEMPORARY:
-  // currently tied to presentation mode
-  // later becomes true runtime profile state
-  //
+  const composition = resolveCompositionContract(presentation, profile);
 
   const runtime: RuntimePresentationAttributes = {
-    density: densityVariant,
-
-    rhythm,
-
-    transition,
+    composition,
 
     profileVariant,
   };
@@ -153,14 +134,15 @@ export default function ProjectPresentationRenderer({
     <article
       className="relative"
       data-profile={runtime.profileVariant}
-      data-density={runtime.density}
-      data-rhythm={runtime.rhythm}
-      data-transition={runtime.transition}
+      data-density={composition.density}
+      data-rhythm={composition.rhythm}
+      data-transition={composition.transition}
+      data-scene-intensity={composition.sceneIntensity}
     >
       <ProjectDivider />
 
-      <div className={densityClass}>
-        <FadeIn rhythm={rhythm} transition={transition}>
+      <div className={composition.densityClass}>
+        <FadeIn rhythm={composition.rhythm} transition={composition.transition}>
           <ProjectMeta project={project} index={index} />
         </FadeIn>
 

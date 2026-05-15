@@ -1,17 +1,35 @@
-import { darkCyanGradients } from "../presets/darkCyan/gradients";
+type GridEffectOptions = {
+  background: string;
 
-export const grid = {
-  background: darkCyanGradients.grid.primary,
+  size?: string;
 
-  size: "120px 120px",
+  opacity?: {
+    idle: number;
+    active: number;
+  };
 
-  opacity: {
+  motion?: {
+    duration: number;
+    ease: "linear";
+  };
+};
+
+export function createGridEffect({
+  background,
+  size = "120px 120px",
+  opacity = {
     idle: 0.012,
     active: 0.02,
   },
-
-  motion: {
+  motion = {
     duration: 40,
-    ease: "linear" as const,
+    ease: "linear",
   },
-};
+}: GridEffectOptions) {
+  return {
+    background,
+    size,
+    opacity,
+    motion,
+  };
+}

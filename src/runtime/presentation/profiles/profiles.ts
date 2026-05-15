@@ -15,6 +15,8 @@ export const presentationProfiles: Record<
 
     transitions: "dramatic",
 
+    sceneIntensity: "dramatic",
+
     navigation: "immersive",
   },
 
@@ -29,6 +31,8 @@ export const presentationProfiles: Record<
 
     transitions: "balanced",
 
+    sceneIntensity: "balanced",
+
     navigation: "minimal",
   },
 
@@ -42,6 +46,8 @@ export const presentationProfiles: Record<
     atmosphere: "minimal",
 
     transitions: "soft",
+
+    sceneIntensity: "soft",
 
     navigation: "minimal",
   },

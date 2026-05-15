@@ -7,6 +7,11 @@ import type {
   EditorialPresentationBlock,
 } from "@/types/presentation";
 
+export type {
+  CinematicPresentationBlock,
+  EditorialPresentationBlock,
+} from "@/types/presentation";
+
 export type PresentationBlockRendererProps<
   TBlock = CinematicPresentationBlock | EditorialPresentationBlock,
 > = {
