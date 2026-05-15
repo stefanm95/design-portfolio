@@ -37,7 +37,7 @@ export default function Hero() {
         {/* CONTENT */}
         <div className={compositionStack.hero.content}>
           {/* TOP META */}
-          <FadeIn>
+          <FadeIn rhythm="editorial" transition="soft">
             <div className={compositionStack.hero.meta}>
               <div className={`h-px w-16 ${ui.dividers.subtle}`} />
 
@@ -46,7 +46,7 @@ export default function Hero() {
           </FadeIn>
 
           {/* DISPLAY TYPOGRAPHY */}
-          <Reveal>
+          <Reveal rhythm="immersive" transition="dramatic">
             <div className={sectionSpacing.hero.display}>
               <div className={compositionStack.hero.display}>
                 <Display>{display.primary}</Display>
@@ -77,7 +77,7 @@ export default function Hero() {
           </Reveal>
 
           {/* DESCRIPTION BLOCK */}
-          <FadeIn delay={0.35}>
+          <FadeIn rhythm="editorial" transition="soft">
             <div
               className={`
                 ${sectionSpacing.hero.description}

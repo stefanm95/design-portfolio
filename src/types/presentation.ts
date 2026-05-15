@@ -1,3 +1,5 @@
+import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
+
 export type PresentationMode = "cinematic" | "editorial";
 
 //
@@ -54,6 +56,8 @@ export type CompositionRhythm = "editorial" | "cinematic" | "immersive";
 export type PresentationTransition = "soft" | "balanced" | "dramatic";
 
 export type PresentationComposition = {
+  profile?: PresentationProfileVariant;
+
   density?: CompositionDensity;
 
   rhythm?: CompositionRhythm;

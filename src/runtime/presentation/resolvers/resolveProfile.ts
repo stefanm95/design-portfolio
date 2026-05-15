@@ -1,14 +1,7 @@
-import { presentationProfiles } from "../profiles";
+import { resolvePresentationProfile } from "../profiles";
 
-import type { PresentationMode } from "@/types/presentation";
+import type { PresentationProfileVariant } from "../profiles/types";
 
-export function resolveProfile(mode: PresentationMode) {
-  switch (mode) {
-    case "cinematic":
-      return presentationProfiles.immersive;
-
-    case "editorial":
-    default:
-      return presentationProfiles.editorial;
-  }
+export function resolveProfile(profile: PresentationProfileVariant) {
+  return resolvePresentationProfile(profile);
 }

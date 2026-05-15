@@ -27,7 +27,7 @@ export const monochromeAtmosphere = {
       w-[72vw]
     `,
 
-    opacity: "0.82",
+    opacity: 0.82,
   },
 
   secondaryBloom: {
@@ -43,6 +43,6 @@ export const monochromeAtmosphere = {
       w-[60vw]
     `,
 
-    opacity: "0.82",
+    opacity: 0.82,
   },
 };

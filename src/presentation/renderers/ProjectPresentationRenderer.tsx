@@ -28,6 +28,7 @@ import {
   resolveCinematicRegistry,
   resolveEditorialRegistry,
 } from "@/presentation/renderers/registryResolver";
+import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
 
 type Props = {
   project: Project;
@@ -42,7 +43,7 @@ type RuntimePresentationAttributes = {
 
   transition: PresentationTransition;
 
-  profileVariant: string;
+  profileVariant: PresentationProfileVariant;
 };
 
 function renderCinematicPresentation(
@@ -120,7 +121,9 @@ export default function ProjectPresentationRenderer({
   presentation,
   index = 0,
 }: Props) {
-  const profile = resolveProfile(presentation.mode);
+  const profileVariant = presentation.composition?.profile ?? "immersive";
+
+  const profile = resolveProfile(profileVariant);
 
   const densityVariant = presentation.composition?.density ?? profile.density;
 
@@ -135,8 +138,6 @@ export default function ProjectPresentationRenderer({
   // currently tied to presentation mode
   // later becomes true runtime profile state
   //
-
-  const profileVariant = presentation.mode;
 
   const runtime: RuntimePresentationAttributes = {
     density: densityVariant,
@@ -159,7 +160,7 @@ export default function ProjectPresentationRenderer({
       <ProjectDivider />
 
       <div className={densityClass}>
-        <FadeIn>
+        <FadeIn rhythm={rhythm} transition={transition}>
           <ProjectMeta project={project} index={index} />
         </FadeIn>
 

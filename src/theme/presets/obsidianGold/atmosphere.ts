@@ -27,7 +27,7 @@ export const obsidianGoldAtmosphere = {
       w-[78vw]
     `,
 
-    opacity: "0.42",
+    opacity: 0.42,
   },
 
   secondaryBloom: {
@@ -43,7 +43,7 @@ export const obsidianGoldAtmosphere = {
       w-[64vw]
     `,
 
-    opacity: "0.34",
+    opacity: 0.34,
   },
 
   metallicVeil: {
@@ -53,6 +53,6 @@ export const obsidianGoldAtmosphere = {
       inset-0
     `,
 
-    opacity: "0.12",
+    opacity: 0.12,
   },
 };
