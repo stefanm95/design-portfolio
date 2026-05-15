@@ -13,7 +13,7 @@ import { ui } from "@/theme";
 import type {
   EditorialPresentationBlock,
   PresentationBlockRendererProps,
-} from "@/runtime/presentation/types";
+} from "@/presentation/renderers/types";
 
 type Props = PresentationBlockRendererProps<EditorialPresentationBlock>;
 

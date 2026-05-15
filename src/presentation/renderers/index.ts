@@ -6,3 +6,6 @@ export const presentationBlockRegistry = {
 
   editorial: editorialBlockRegistry,
 };
+export { default as ProjectPresentationRenderer } from "./ProjectPresentationRenderer";
+
+export * from "./types";

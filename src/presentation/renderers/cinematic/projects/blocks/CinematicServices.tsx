@@ -13,7 +13,7 @@ import { ui, useTheme } from "@/theme";
 import type {
   CinematicPresentationBlock,
   PresentationBlockRendererProps,
-} from "@/runtime/presentation/types";
+} from "@/presentation/renderers/types";
 
 type Props = PresentationBlockRendererProps<CinematicPresentationBlock>;
 

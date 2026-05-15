@@ -1,4 +1,4 @@
-import PresentationRuntime from "@/runtime/presentation/orchestration/PresentationRuntime";
+import { ProjectPresentationRenderer } from "@/presentation/renderers";
 
 import type { ProjectShowcaseProps } from "@/types/projects";
 
@@ -7,7 +7,7 @@ export default function ProjectShowcase({
   index,
 }: ProjectShowcaseProps) {
   return (
-    <PresentationRuntime
+    <ProjectPresentationRenderer
       project={project}
       presentation={project.presentation}
       index={index}

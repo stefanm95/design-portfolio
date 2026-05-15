@@ -1,6 +1,7 @@
-// import { CinematicNavigation } from "./variants/cinematic";
-import { ImmersiveNavigation } from "./variants/immersive";
+import { navigationRegistry } from "./registry";
 
 export function Navigation() {
-  return <ImmersiveNavigation />;
+  const NavigationComponent = navigationRegistry.immersive;
+
+  return <NavigationComponent />;
 }

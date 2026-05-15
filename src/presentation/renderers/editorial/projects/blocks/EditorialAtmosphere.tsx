@@ -11,7 +11,7 @@ import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 import type {
   EditorialPresentationBlock,
   PresentationBlockRendererProps,
-} from "@/runtime/presentation/types";
+} from "@/presentation/renderers/types";
 
 type Props = PresentationBlockRendererProps<EditorialPresentationBlock>;
 

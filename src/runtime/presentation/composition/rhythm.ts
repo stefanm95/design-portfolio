@@ -1,4 +1,4 @@
-import type { CompositionRhythm } from "../types";
+import type { CompositionRhythm } from "../../../presentation/renderers/types";
 
 export type RhythmProfile = {
   transitionDelay: number;

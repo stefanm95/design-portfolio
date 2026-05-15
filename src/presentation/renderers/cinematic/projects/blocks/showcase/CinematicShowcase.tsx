@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 
-import type { CinematicPresentationBlock } from "@/runtime/presentation/types";
+import type { CinematicPresentationBlock } from "@/presentation/renderers/types";
 
-import type { PresentationBlockRendererProps } from "@/runtime/presentation/types";
+import type { PresentationBlockRendererProps } from "@/presentation/renderers/types";
 
 import CinematicShowcaseDesktop from "./CinematicShowcaseDesktop";
 import CinematicShowcaseMobile from "./CinematicShowcaseMobile";

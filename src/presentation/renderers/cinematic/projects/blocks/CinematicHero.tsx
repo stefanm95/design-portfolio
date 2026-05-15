@@ -10,7 +10,7 @@ import ProjectLiveIndicator from "@/presentation/shared/ProjectLiveIndicator";
 import type {
   CinematicPresentationBlock,
   PresentationBlockRendererProps,
-} from "@/runtime/presentation/types";
+} from "@/presentation/renderers/types";
 
 type Props = PresentationBlockRendererProps<CinematicPresentationBlock>;
 

@@ -1,16 +1,4 @@
-import type { ComponentType } from "react";
-
-import type { Project, ProjectShowcaseProps } from "@/types/projects";
-
-//
-// MODES
-//
-
 export type PresentationMode = "cinematic" | "editorial";
-
-//
-// CINEMATIC
-//
 
 export type CinematicBlockType =
   | "hero"
@@ -18,6 +6,8 @@ export type CinematicBlockType =
   | "systems"
   | "services"
   | "mobile";
+
+export type EditorialBlockType = "hero" | "showcase" | "atmosphere" | "ui";
 
 export type CinematicPresentationBlock = {
   type: CinematicBlockType;
@@ -29,12 +19,6 @@ export type CinematicPresentationBlock = {
   variant?: string;
 };
 
-//
-// EDITORIAL
-//
-
-export type EditorialBlockType = "hero" | "showcase" | "atmosphere" | "ui";
-
 export type EditorialPresentationBlock = {
   type: EditorialBlockType;
 
@@ -45,9 +29,9 @@ export type EditorialPresentationBlock = {
   variant?: string;
 };
 
-//
-// SHARED COMPOSITION
-//
+export type PresentationBlock =
+  | CinematicPresentationBlock
+  | EditorialPresentationBlock;
 
 export type CompositionDensity = "tight" | "balanced" | "spacious";
 
@@ -60,10 +44,6 @@ export type PresentationComposition = {
 
   transitions?: "soft" | "cinematic";
 };
-
-//
-// PRESENTATIONS
-//
 
 export type CinematicPresentation = {
   mode: "cinematic";
@@ -82,27 +62,3 @@ export type EditorialPresentation = {
 };
 
 export type ProjectPresentation = CinematicPresentation | EditorialPresentation;
-
-//
-// RENDERERS
-//
-
-export type PresentationRenderer = ComponentType<ProjectShowcaseProps>;
-
-export type CinematicBlockRenderer = ComponentType<
-  PresentationBlockRendererProps<CinematicPresentationBlock>
->;
-
-export type EditorialBlockRenderer = ComponentType<
-  PresentationBlockRendererProps<EditorialPresentationBlock>
->;
-
-export type PresentationBlockRendererProps<
-  TBlock = CinematicPresentationBlock | EditorialPresentationBlock,
-> = {
-  project: Project;
-
-  block: TBlock;
-
-  index: number;
-};

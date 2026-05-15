@@ -13,7 +13,7 @@ import { ui } from "@/theme";
 import type {
   CinematicPresentationBlock,
   PresentationBlockRendererProps,
-} from "@/runtime/presentation/types";
+} from "@/presentation/renderers/types";
 
 import CinematicMobileCarousel from "./CinematicMobileCarousel";
 import CinematicMobileStack from "./CinematicMobileStack";

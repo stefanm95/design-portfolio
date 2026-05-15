@@ -12,7 +12,7 @@ import { ui } from "@/theme";
 
 import CinematicShowcaseSwitcher from "./CinematicShowcaseSwitcher";
 
-import type { CinematicPresentationBlock } from "@/runtime/presentation/types";
+import type { CinematicPresentationBlock } from "@/presentation/renderers/types";
 import type { Project } from "@/types/projects";
 
 type Props = {
