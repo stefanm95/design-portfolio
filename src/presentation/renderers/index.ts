@@ -9,3 +9,8 @@ export const presentationBlockRegistry = {
 export { default as ProjectPresentationRenderer } from "./ProjectPresentationRenderer";
 
 export * from "./types";
+
+export {
+  resolveCinematicRegistry,
+  resolveEditorialRegistry,
+} from "./registryResolver";

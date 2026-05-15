@@ -1,4 +1,5 @@
-import type { ProjectPresentation } from "@/types/projects";
+import type { ProjectPresentation } from "@/types/presentation";
+
 import type { PresentationProfile } from "../profiles/types";
 
 export function resolveRhythm(

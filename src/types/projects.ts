@@ -1,4 +1,4 @@
-import type { ComponentType } from "react";
+import type { ProjectPresentation } from "./presentation";
 
 //
 // MEDIA
@@ -39,93 +39,6 @@ export type ProjectMetric = {
 export type ProjectStatus = "live" | "private" | "concept";
 
 export type ProjectAccent = "cyan" | "gold" | "violet" | "amber";
-
-//
-// PRESENTATION
-//
-
-export type PresentationMode = "cinematic" | "editorial";
-
-//
-// CINEMATIC PRESENTATION
-//
-
-export type CinematicBlockType =
-  | "hero"
-  | "showcase"
-  | "systems"
-  | "services"
-  | "mobile";
-
-export type CinematicPresentationBlock = {
-  type: CinematicBlockType;
-
-  id?: string;
-
-  spacing?: string;
-
-  variant?: string;
-};
-
-export type CinematicPresentation = {
-  mode: "cinematic";
-
-  composition?: PresentationComposition;
-
-  blocks: CinematicPresentationBlock[];
-};
-
-//
-// EDITORIAL PRESENTATION
-//
-
-export type EditorialBlockType = "hero" | "showcase" | "atmosphere" | "ui";
-
-export type EditorialPresentationBlock = {
-  type: EditorialBlockType;
-
-  id?: string;
-
-  spacing?: string;
-
-  variant?: string;
-};
-
-export type EditorialPresentation = {
-  mode: "editorial";
-
-  composition?: PresentationComposition;
-
-  blocks: EditorialPresentationBlock[];
-};
-
-//
-// SHARED PRESENTATION
-//
-
-export type PresentationBlockType = CinematicBlockType | EditorialBlockType;
-
-export type PresentationBlock =
-  | CinematicPresentationBlock
-  | EditorialPresentationBlock;
-
-export type CompositionDensity = "tight" | "balanced" | "spacious";
-
-export type CompositionRhythm = "editorial" | "cinematic" | "immersive";
-
-export type PresentationComposition = {
-  density?: CompositionDensity;
-
-  rhythm?: CompositionRhythm;
-
-  transitions?: "soft" | "cinematic";
-};
-
-//
-// PROJECT PRESENTATION
-//
-
-export type ProjectPresentation = CinematicPresentation | EditorialPresentation;
 
 //
 // CINEMATIC CONTENT
@@ -232,7 +145,7 @@ export type Project = {
 };
 
 //
-// RENDERER TYPES
+// PROJECT RENDERER HELPERS
 //
 
 export type ProjectBlockProps = {
@@ -254,9 +167,3 @@ export type ProjectShowcaseItem = {
 
   alt?: string;
 };
-
-//
-// RUNTIME RENDERERS
-//
-
-export type PresentationRenderer = ComponentType<ProjectShowcaseProps>;

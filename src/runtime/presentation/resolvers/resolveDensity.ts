@@ -1,4 +1,5 @@
-import type { ProjectPresentation } from "@/types/projects";
+import type { ProjectPresentation } from "@/types/presentation";
+
 import { compositionDensity } from "../composition";
 import type { PresentationProfile } from "../profiles/types";
 

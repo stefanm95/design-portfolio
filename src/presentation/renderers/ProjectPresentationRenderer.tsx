@@ -22,7 +22,7 @@ import {
 import {
   resolveCinematicRegistry,
   resolveEditorialRegistry,
-} from "@/runtime/presentation/resolvers/resolveRegistry";
+} from "@/presentation/renderers/registryResolver";
 
 type Props = {
   project: Project;
@@ -45,11 +45,14 @@ function renderCinematicPresentation(
 
     const scene = resolveScene(block.type);
 
+    const atmosphere = resolveAtmosphere(presentation.mode, scene);
+
     return (
       <div
         key={`${block.type}-${blockIndex}`}
         className={cinematicSpacing[block.type]}
         data-scene={scene}
+        data-atmosphere={atmosphere}
       >
         <Component project={project} block={block} index={blockIndex} />
       </div>
