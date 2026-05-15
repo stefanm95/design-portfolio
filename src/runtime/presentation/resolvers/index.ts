@@ -4,3 +4,4 @@ export { resolveNavigation } from "./resolveNavigation";
 export { resolveProfile } from "./resolveProfile";
 export { resolveRhythm } from "./resolveRhythm";
 export { resolveScene } from "./resolveScene";
+export { resolveTransition } from "./resolveTransition";

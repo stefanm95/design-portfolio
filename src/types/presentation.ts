@@ -51,7 +51,7 @@ export type CompositionDensity = "tight" | "balanced" | "spacious";
 
 export type CompositionRhythm = "editorial" | "cinematic" | "immersive";
 
-export type PresentationTransition = "soft" | "cinematic";
+export type PresentationTransition = "soft" | "balanced" | "dramatic";
 
 export type PresentationComposition = {
   density?: CompositionDensity;

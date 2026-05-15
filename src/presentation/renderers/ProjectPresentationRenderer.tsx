@@ -4,7 +4,10 @@ import { ProjectDivider, ProjectMeta } from "@/presentation/shared";
 
 import type {
   CinematicPresentation,
+  CompositionDensity,
+  CompositionRhythm,
   EditorialPresentation,
+  PresentationTransition,
   ProjectPresentation,
 } from "@/types/presentation";
 
@@ -16,7 +19,9 @@ import {
   resolveAtmosphere,
   resolveDensity,
   resolveProfile,
+  resolveRhythm,
   resolveScene,
+  resolveTransition,
 } from "@/runtime/presentation/resolvers";
 
 import {
@@ -30,9 +35,20 @@ type Props = {
   index?: number;
 };
 
+type RuntimePresentationAttributes = {
+  density: CompositionDensity;
+
+  rhythm: CompositionRhythm;
+
+  transition: PresentationTransition;
+
+  profileVariant: string;
+};
+
 function renderCinematicPresentation(
   project: Project,
   presentation: CinematicPresentation,
+  runtime: RuntimePresentationAttributes,
 ) {
   const registry = resolveCinematicRegistry(presentation);
 
@@ -53,6 +69,10 @@ function renderCinematicPresentation(
         className={cinematicSpacing[block.type]}
         data-scene={scene}
         data-atmosphere={atmosphere}
+        data-profile={runtime.profileVariant}
+        data-density={runtime.density}
+        data-rhythm={runtime.rhythm}
+        data-transition={runtime.transition}
       >
         <Component project={project} block={block} index={blockIndex} />
       </div>
@@ -63,6 +83,7 @@ function renderCinematicPresentation(
 function renderEditorialPresentation(
   project: Project,
   presentation: EditorialPresentation,
+  runtime: RuntimePresentationAttributes,
 ) {
   const registry = resolveEditorialRegistry(presentation);
 
@@ -83,6 +104,10 @@ function renderEditorialPresentation(
         className={editorialSpacing[block.type]}
         data-scene={scene}
         data-atmosphere={atmosphere}
+        data-profile={runtime.profileVariant}
+        data-density={runtime.density}
+        data-rhythm={runtime.rhythm}
+        data-transition={runtime.transition}
       >
         <Component project={project} block={block} index={blockIndex} />
       </div>
@@ -97,20 +122,50 @@ export default function ProjectPresentationRenderer({
 }: Props) {
   const profile = resolveProfile(presentation.mode);
 
-  const density = resolveDensity(presentation, profile);
+  const densityVariant = presentation.composition?.density ?? profile.density;
+
+  const densityClass = resolveDensity(presentation, profile);
+
+  const rhythm = resolveRhythm(presentation, profile);
+
+  const transition = resolveTransition(presentation, profile);
+
+  //
+  // TEMPORARY:
+  // currently tied to presentation mode
+  // later becomes true runtime profile state
+  //
+
+  const profileVariant = presentation.mode;
+
+  const runtime: RuntimePresentationAttributes = {
+    density: densityVariant,
+
+    rhythm,
+
+    transition,
+
+    profileVariant,
+  };
 
   return (
-    <article className="relative">
+    <article
+      className="relative"
+      data-profile={runtime.profileVariant}
+      data-density={runtime.density}
+      data-rhythm={runtime.rhythm}
+      data-transition={runtime.transition}
+    >
       <ProjectDivider />
 
-      <div className={density}>
+      <div className={densityClass}>
         <FadeIn>
           <ProjectMeta project={project} index={index} />
         </FadeIn>
 
         {presentation.mode === "cinematic"
-          ? renderCinematicPresentation(project, presentation)
-          : renderEditorialPresentation(project, presentation)}
+          ? renderCinematicPresentation(project, presentation, runtime)
+          : renderEditorialPresentation(project, presentation, runtime)}
       </div>
     </article>
   );
