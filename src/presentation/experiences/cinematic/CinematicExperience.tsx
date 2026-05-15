@@ -6,21 +6,24 @@ import {
   Philosophy,
   SelectedWork,
 } from "@/presentation/sections";
+import { SectionMotionProvider } from "@/runtime/presentation";
 
 export default function CinematicExperience() {
   return (
     <main className="relative z-10">
-      <Hero />
+      <SectionMotionProvider>
+        <Hero />
 
-      <Philosophy />
+        <Philosophy />
 
-      <SelectedWork />
+        <SelectedWork />
 
-      <Experience />
+        <Experience />
 
-      <About />
+        <About />
 
-      <Contact />
+        <Contact />
+      </SectionMotionProvider>
     </main>
   );
 }

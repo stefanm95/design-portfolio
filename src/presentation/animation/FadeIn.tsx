@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
-import { motion } from "framer-motion";
 import { useMotionCadence } from "@/runtime/presentation/motion";
+import { motion } from "framer-motion";
 
 type Props = {
   children: ReactNode;

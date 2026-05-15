@@ -13,8 +13,8 @@ import type { Project } from "@/types/projects";
 import {
   cinematicSpacing,
   editorialSpacing,
-  resolveCompositionContract,
   MotionCadenceProvider,
+  resolveCompositionContract,
 } from "@/runtime/presentation";
 
 import {
@@ -27,8 +27,8 @@ import {
   resolveCinematicRegistry,
   resolveEditorialRegistry,
 } from "@/presentation/renderers/registryResolver";
-import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
 import type { CompositionContract } from "@/runtime/presentation/composition";
+import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
 
 type Props = {
   project: Project;

@@ -7,6 +7,8 @@ import type { CompositionContract } from "../composition";
  * into actionable motion behavior for components.
  *
  * This is the bridge between profile resolution and experiential consequences.
+ *
+ * Extended to include environmental modulation values from scenes.
  */
 
 export type MotionCadence = {
@@ -31,6 +33,11 @@ export type MotionCadence = {
 
   // Transition softness (ease multiplier)
   transitionSoftness: number;
+
+  // Environmental modulation values (added by scenes)
+  atmosphereIntensity?: number;
+  cinematicPressure?: number;
+  motionRestraint?: number;
 };
 
 /**

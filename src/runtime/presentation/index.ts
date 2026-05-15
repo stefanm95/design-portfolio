@@ -14,5 +14,6 @@ export * from "./composition";
 export * from "./motion";
 
 export { default as PresentationProvider } from "./PresentationProvider";
+export { SectionMotionProvider } from "./SectionMotionProvider";
 
 // export { default as PresentationRuntime } from "./orchestration/PresentationRuntime";
