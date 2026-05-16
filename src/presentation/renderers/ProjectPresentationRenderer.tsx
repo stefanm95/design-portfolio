@@ -47,13 +47,36 @@ export default function ProjectPresentationRenderer({
 
   const runtime: RuntimePresentationAttributes = {
     composition,
-
     profileVariant,
   };
 
-  const dialect = resolvePresentationDialect(presentation.mode);
-
   const scene = sceneDefinitions.projects;
+
+  let content: React.ReactNode;
+
+  if (presentation.mode === "cinematic") {
+    const dialect = resolvePresentationDialect("cinematic");
+
+    content = renderPresentationBlocks({
+      project,
+      presentation,
+      runtime,
+      registry: dialect.registry,
+      roleMap: dialect.roleMap,
+      scene,
+    });
+  } else {
+    const dialect = resolvePresentationDialect("editorial");
+
+    content = renderPresentationBlocks({
+      project,
+      presentation,
+      runtime,
+      registry: dialect.registry,
+      roleMap: dialect.roleMap,
+      scene,
+    });
+  }
 
   return (
     <article
@@ -72,14 +95,7 @@ export default function ProjectPresentationRenderer({
             <ProjectMeta project={project} index={index} />
           </FadeIn>
 
-          {renderPresentationBlocks({
-            project,
-            presentation,
-            runtime,
-            registry: dialect.registry,
-            roleMap: dialect.roleMap,
-            scene,
-          })}
+          {content}
         </div>
       </MotionCadenceProvider>
     </article>

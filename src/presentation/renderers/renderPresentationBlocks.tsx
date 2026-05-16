@@ -1,6 +1,6 @@
 import type { Project } from "@/types/projects";
 
-import type { ProjectPresentation } from "@/types/presentation";
+import type { PresentationBlock } from "@/types/presentation";
 
 import type { CompositionContract } from "@/runtime/presentation/composition";
 
@@ -11,6 +11,7 @@ import type { PresentationProfileVariant } from "@/runtime/presentation/profiles
 import type { CompositionSemanticMap } from "@/runtime/presentation/semantics";
 
 import { resolvePresentationRuntime } from "@/runtime/presentation/interpreter";
+import type { SceneDefinition } from "@/runtime/presentation/scene";
 
 export type RuntimePresentationAttributes = {
   composition: CompositionContract;
@@ -18,34 +19,41 @@ export type RuntimePresentationAttributes = {
   profileVariant: PresentationProfileVariant;
 };
 
-type RenderPresentationBlocksProps = {
+type RenderPresentationBlocksProps<TBlock extends PresentationBlock> = {
   project: Project;
 
-  presentation: ProjectPresentation;
+  presentation: {
+    blocks: TBlock[];
+  };
 
   runtime: RuntimePresentationAttributes;
 
-  registry: PresentationRegistry;
+  registry: PresentationRegistry<TBlock>;
 
   roleMap: CompositionSemanticMap;
+
+  scene: SceneDefinition;
 };
 
-export function renderPresentationBlocks({
+export function renderPresentationBlocks<TBlock extends PresentationBlock>({
   project,
   presentation,
   runtime,
   registry,
   roleMap,
-}: RenderPresentationBlocksProps) {
+  scene,
+}: RenderPresentationBlocksProps<TBlock>) {
   const resolvedBlocks = resolvePresentationRuntime({
     presentation,
     composition: runtime.composition,
     registry,
     roleMap,
+    scene,
   });
 
   return resolvedBlocks.map((resolvedBlock, index) => {
     const Component = resolvedBlock.component;
+    const block = resolvedBlock.block;
 
     return (
       <div
@@ -59,11 +67,7 @@ export function renderPresentationBlocks({
         data-transition={runtime.composition.transition}
         data-scene-intensity={runtime.composition.sceneIntensity}
       >
-        <Component
-          project={project}
-          block={resolvedBlock.block}
-          index={index}
-        />
+        <Component project={project} block={block} index={index} />
       </div>
     );
   });

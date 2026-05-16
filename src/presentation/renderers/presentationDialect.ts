@@ -6,23 +6,34 @@ import {
   type CompositionSemanticMap,
 } from "@/runtime/presentation";
 
-import type { ProjectPresentation } from "@/types/presentation";
+import type {
+  PresentationMode,
+  PresentationBlock,
+  CinematicPresentationBlock,
+  EditorialPresentationBlock,
+} from "@/types/presentation";
 
-export type PresentationDialect =
-  | {
-      registry: typeof presentationBlockRegistry.cinematic;
+import type { PresentationRegistry } from "./types";
 
-      roleMap: CompositionSemanticMap;
-    }
-  | {
-      registry: typeof presentationBlockRegistry.editorial;
+export type PresentationDialect<TBlock extends PresentationBlock> = {
+  registry: PresentationRegistry<TBlock>;
 
-      roleMap: CompositionSemanticMap;
-    };
+  roleMap: CompositionSemanticMap;
+};
 
 export function resolvePresentationDialect(
-  mode: ProjectPresentation["mode"],
-): PresentationDialect {
+  mode: "cinematic",
+): PresentationDialect<CinematicPresentationBlock>;
+
+export function resolvePresentationDialect(
+  mode: "editorial",
+): PresentationDialect<EditorialPresentationBlock>;
+
+export function resolvePresentationDialect(
+  mode: PresentationMode,
+):
+  | PresentationDialect<CinematicPresentationBlock>
+  | PresentationDialect<EditorialPresentationBlock> {
   switch (mode) {
     case "cinematic":
       return {
@@ -36,13 +47,6 @@ export function resolvePresentationDialect(
         registry: presentationBlockRegistry.editorial,
 
         roleMap: editorialBlockRoles,
-      };
-
-    default:
-      return {
-        registry: presentationBlockRegistry.cinematic,
-
-        roleMap: cinematicBlockRoles,
       };
   }
 }

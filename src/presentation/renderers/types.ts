@@ -22,26 +22,23 @@ export type PresentationBlockRendererProps<
   index: number;
 };
 
-export type PresentationBlockRenderer<
-  TBlock extends PresentationBlock = PresentationBlock,
-> = ComponentType<PresentationBlockRendererProps<TBlock>>;
-
+export type PresentationBlockRenderer<TBlock extends PresentationBlock> =
+  ComponentType<PresentationBlockRendererProps<TBlock>>;
 //
 // REGISTRIES
 //
 
-export type PresentationRegistry = Record<string, PresentationBlockRenderer>;
+export type PresentationRegistry<TBlock extends PresentationBlock> = {
+  [K in TBlock["type"]]: PresentationBlockRenderer<
+    Extract<TBlock, { type: K }>
+  >;
+};
 
-//
 // SPECIALIZED REGISTRIES
 //
 
-export type CinematicPresentationRegistry = Record<
-  string,
-  PresentationBlockRenderer<CinematicPresentationBlock>
->;
+export type CinematicPresentationRegistry =
+  PresentationRegistry<CinematicPresentationBlock>;
 
-export type EditorialPresentationRegistry = Record<
-  string,
-  PresentationBlockRenderer<EditorialPresentationBlock>
->;
+export type EditorialPresentationRegistry =
+  PresentationRegistry<EditorialPresentationBlock>;

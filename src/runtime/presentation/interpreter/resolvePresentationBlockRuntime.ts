@@ -7,43 +7,43 @@ import {
 
 import type { CompositionContract } from "@/runtime/presentation/composition";
 
-import type { PresentationRegistry } from "@/presentation/renderers/types";
+import type {
+  PresentationBlockRenderer,
+  PresentationRegistry,
+} from "@/presentation/renderers/types";
 
 import type { CompositionSemanticMap } from "@/runtime/presentation/semantics";
 
 import type { SceneDefinition } from "@/runtime/presentation/scene";
 
-import type {
-  ProjectPresentation,
-  PresentationBlock,
-} from "@/types/presentation";
+import type { PresentationBlock } from "@/types/presentation";
 
 import type { ResolvedPresentationBlockRuntime } from "./types";
 
-type Props = {
-  block: PresentationBlock;
-
-  presentation: ProjectPresentation;
+type Props<TBlock extends PresentationBlock> = {
+  block: TBlock;
 
   composition: CompositionContract;
 
-  registry: PresentationRegistry;
+  registry: PresentationRegistry<TBlock>;
 
   roleMap: CompositionSemanticMap;
 
   scene: SceneDefinition;
 };
 
-export function resolvePresentationBlockRuntime({
+export function resolvePresentationBlockRuntime<
+  TBlock extends PresentationBlock,
+>({
   block,
   composition,
   registry,
   roleMap,
   scene,
-}: Props): ResolvedPresentationBlockRuntime | null {
-  const blockType = block.type as keyof PresentationRegistry;
+}: Props<TBlock>): ResolvedPresentationBlockRuntime<TBlock> | null {
+  const blockType = block.type as TBlock["type"];
 
-  const component = registry[blockType];
+  const component = registry[blockType] as PresentationBlockRenderer<TBlock>;
 
   if (!component) {
     return null;
@@ -55,10 +55,6 @@ export function resolvePresentationBlockRuntime({
     return null;
   }
 
-  //
-  // SPATIAL ORCHESTRATION
-  //
-
   const spatialBehavior = resolveSpatialBehavior(role);
 
   const spacing = resolveBlockSpacing({
@@ -66,32 +62,18 @@ export function resolvePresentationBlockRuntime({
     composition,
   });
 
-  //
-  // ENVIRONMENTAL ATMOSPHERE
-  //
-
   const atmosphere = resolveAtmosphere({
     scene,
     composition,
   });
 
-  //
-  // RUNTIME CONTRACT
-  //
-
   return {
     block,
-
     component,
-
     role,
-
     spatialBehavior,
-
     scene,
-
     atmosphere,
-
     spacing,
   };
 }

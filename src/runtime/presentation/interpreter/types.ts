@@ -7,18 +7,19 @@ import type { CompositionSemantic } from "@/runtime/presentation/semantics";
 import type { SpatialBehavior } from "@/runtime/presentation/composition";
 import type { SceneAtmosphere, SceneDefinition } from "../scene";
 
-export type ResolvedPresentationBlockRuntime = {
-  block: PresentationBlock;
+export type ResolvedPresentationBlockRuntime<TBlock extends PresentationBlock> =
+  {
+    block: TBlock;
 
-  component: PresentationBlockRenderer;
+    component: PresentationBlockRenderer<TBlock>;
 
-  role: CompositionSemantic;
+    role: CompositionSemantic;
 
-  spatialBehavior: SpatialBehavior;
+    spatialBehavior: SpatialBehavior;
 
-  scene: SceneDefinition;
+    scene: SceneDefinition;
 
-  atmosphere: SceneAtmosphere;
+    atmosphere: SceneAtmosphere;
 
-  spacing: string;
-};
+    spacing: string;
+  };

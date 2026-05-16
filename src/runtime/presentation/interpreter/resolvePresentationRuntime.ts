@@ -1,4 +1,4 @@
-import type { ProjectPresentation } from "@/types/presentation";
+import type { PresentationBlock } from "@/types/presentation";
 
 import type { CompositionContract } from "@/runtime/presentation/composition";
 
@@ -12,30 +12,31 @@ import { resolvePresentationBlockRuntime } from "./resolvePresentationBlockRunti
 
 import type { ResolvedPresentationBlockRuntime } from "./types";
 
-type Props = {
-  presentation: ProjectPresentation;
+type Props<TBlock extends PresentationBlock> = {
+  presentation: {
+    blocks: TBlock[];
+  };
 
   composition: CompositionContract;
 
-  registry: PresentationRegistry;
+  registry: PresentationRegistry<TBlock>;
 
   roleMap: CompositionSemanticMap;
 
   scene: SceneDefinition;
 };
 
-export function resolvePresentationRuntime({
+export function resolvePresentationRuntime<TBlock extends PresentationBlock>({
   presentation,
   composition,
   registry,
   roleMap,
   scene,
-}: Props): ResolvedPresentationBlockRuntime[] {
+}: Props<TBlock>): ResolvedPresentationBlockRuntime<TBlock>[] {
   return presentation.blocks
     .map((block) =>
       resolvePresentationBlockRuntime({
         block,
-        presentation,
         composition,
         registry,
         roleMap,
@@ -43,7 +44,7 @@ export function resolvePresentationRuntime({
       }),
     )
     .filter(
-      (runtime): runtime is ResolvedPresentationBlockRuntime =>
+      (runtime): runtime is ResolvedPresentationBlockRuntime<TBlock> =>
         runtime !== null,
     );
 }
