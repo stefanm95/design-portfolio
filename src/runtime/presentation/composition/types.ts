@@ -24,7 +24,7 @@ export type AtmosphericDepth = "minimal" | "balanced" | "immersive";
 // MOTION
 //
 
-export type MotionRestraint = "restrained" | "balanced" | "expressive";
+export type MotionRestraint = "restrained" | "balanced" | "minimal" | "dynamic";
 
 //
 // SPATIAL
