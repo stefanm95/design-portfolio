@@ -5,6 +5,7 @@ import type { PresentationBlockRenderer } from "@/presentation/renderers/types";
 import type { CompositionSemantic } from "@/runtime/presentation/semantics";
 
 import type { SpatialBehavior } from "@/runtime/presentation/composition";
+import type { SceneAtmosphere, SceneDefinition } from "../scene";
 
 export type ResolvedPresentationBlockRuntime = {
   block: PresentationBlock;
@@ -15,9 +16,9 @@ export type ResolvedPresentationBlockRuntime = {
 
   spatialBehavior: SpatialBehavior;
 
-  scene: string;
+  scene: SceneDefinition;
 
-  atmosphere: string;
+  atmosphere: SceneAtmosphere;
 
   spacing: string;
 };

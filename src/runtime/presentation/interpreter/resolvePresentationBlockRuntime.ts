@@ -1,7 +1,4 @@
-import {
-  resolveAtmosphere,
-  resolveScene,
-} from "@/runtime/presentation/resolvers";
+import { resolveAtmosphere } from "@/runtime/presentation/resolvers";
 
 import {
   resolveBlockSpacing,
@@ -13,6 +10,8 @@ import type { CompositionContract } from "@/runtime/presentation/composition";
 import type { PresentationRegistry } from "@/presentation/renderers/types";
 
 import type { CompositionSemanticMap } from "@/runtime/presentation/semantics";
+
+import type { SceneDefinition } from "@/runtime/presentation/scene";
 
 import type {
   ProjectPresentation,
@@ -31,14 +30,16 @@ type Props = {
   registry: PresentationRegistry;
 
   roleMap: CompositionSemanticMap;
+
+  scene: SceneDefinition;
 };
 
 export function resolvePresentationBlockRuntime({
   block,
-  presentation,
   composition,
   registry,
   roleMap,
+  scene,
 }: Props): ResolvedPresentationBlockRuntime | null {
   const blockType = block.type as keyof PresentationRegistry;
 
@@ -54,6 +55,10 @@ export function resolvePresentationBlockRuntime({
     return null;
   }
 
+  //
+  // SPATIAL ORCHESTRATION
+  //
+
   const spatialBehavior = resolveSpatialBehavior(role);
 
   const spacing = resolveBlockSpacing({
@@ -61,17 +66,32 @@ export function resolvePresentationBlockRuntime({
     composition,
   });
 
-  const scene = resolveScene(block.type);
+  //
+  // ENVIRONMENTAL ATMOSPHERE
+  //
 
-  const atmosphere = resolveAtmosphere(presentation.mode, scene);
+  const atmosphere = resolveAtmosphere({
+    scene,
+    composition,
+  });
+
+  //
+  // RUNTIME CONTRACT
+  //
 
   return {
     block,
+
     component,
+
     role,
+
     spatialBehavior,
+
     scene,
+
     atmosphere,
+
     spacing,
   };
 }

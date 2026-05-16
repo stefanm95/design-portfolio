@@ -1,4 +1,4 @@
-import type { CompositionDensity } from "@/types/presentation";
+import type { CompositionDensity } from "./types";
 
 export const compositionDensity: Record<CompositionDensity, string> = {
   tight: "space-y-24 md:space-y-32",

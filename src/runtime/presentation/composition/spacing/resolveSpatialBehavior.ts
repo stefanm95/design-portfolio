@@ -1,9 +1,8 @@
+import type { CompositionSemantic } from "../../semantics";
 import type { SpatialBehavior } from "./types";
 
-import type { PresentationRole } from "@/presentation/renderers/types";
-
 export function resolveSpatialBehavior(
-  role: PresentationRole,
+  role: CompositionSemantic,
 ): SpatialBehavior {
   switch (role) {
     //

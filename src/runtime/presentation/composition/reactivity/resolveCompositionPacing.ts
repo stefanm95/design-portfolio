@@ -1,67 +1,100 @@
 import type { PresentationProfile } from "../../profiles";
+
 import type { CompositionPacing } from "./types";
 
 /**
- * Resolve composition pacing based on profile and rhythm
+ * Resolve composition pacing
  *
- * Orchestrates how reveals are grouped and distributed
- * through authored composition without restructuring layout
+ * Determines authored reveal grouping
+ * and stagger orchestration behavior.
  */
+
 export function resolveCompositionPacing(
   profile: PresentationProfile,
 ): CompositionPacing {
   const rhythm = profile.rhythm;
+
   const density = profile.density;
 
-  // Editorial + Tight: compressed, tight grouping
-  if (profile.atmosphere === "editorial" && density === "tight") {
+  //
+  // EDITORIAL + TIGHT
+  //
+
+  if (rhythm === "editorial" && density === "tight") {
     return {
       revealGrouping: "tight",
+
       spacingModifier: 0.9,
+
       staggerDistribution: "compressed",
     };
   }
 
-  // Editorial + Balanced: balanced grouping
-  if (profile.atmosphere === "editorial" && density === "balanced") {
+  //
+  // EDITORIAL + BALANCED
+  //
+
+  if (rhythm === "editorial" && density === "balanced") {
     return {
       revealGrouping: "balanced",
-      spacingModifier: 1.0,
+
+      spacingModifier: 1,
+
       staggerDistribution: "natural",
     };
   }
 
-  // Immersive + Spacious: relaxed, expanded grouping
-  if (profile.atmosphere === "cinematic" && density === "spacious") {
+  //
+  // IMMERSIVE + SPACIOUS
+  //
+
+  if (rhythm === "immersive" && density === "spacious") {
     return {
       revealGrouping: "relaxed",
+
       spacingModifier: 1.15,
+
       staggerDistribution: "expanded",
     };
   }
 
-  // Cinematic rhythm: natural pacing
+  //
+  // CINEMATIC RHYTHM
+  //
+
   if (rhythm === "cinematic") {
     return {
       revealGrouping: "balanced",
+
       spacingModifier: 1.05,
+
       staggerDistribution: "natural",
     };
   }
 
-  // Immersive rhythm: expanded pacing
+  //
+  // IMMERSIVE RHYTHM
+  //
+
   if (rhythm === "immersive") {
     return {
       revealGrouping: "relaxed",
+
       spacingModifier: 1.1,
+
       staggerDistribution: "expanded",
     };
   }
 
-  // Editorial rhythm: tight pacing
+  //
+  // DEFAULT EDITORIAL PACING
+  //
+
   return {
     revealGrouping: "tight",
+
     spacingModifier: 0.95,
+
     staggerDistribution: "compressed",
   };
 }

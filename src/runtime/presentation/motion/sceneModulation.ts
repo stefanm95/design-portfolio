@@ -1,127 +1,190 @@
-import type { SceneId } from "../scene/sceneRegistry";
-import { sceneRegistry } from "../scene/sceneRegistry";
+import type { CompositionContract } from "@/runtime/presentation/composition";
+
+import type { SceneDefinition } from "@/runtime/presentation/scene";
+
 import type { MotionCadence } from "./cadence";
+
 import { cinematicEasing, type CubicBezier } from "./resolveMotionEasing";
 
 /**
  * Scene Modulation Contract
  *
- * Transforms scene context into cadence multipliers.
- * Scenes don't replace profiles — they contextually influence them.
+ * Environmental orchestration layer.
  *
- * This is environmental orchestration, not profile orchestration.
+ * Scenes contextually influence cadence,
+ * spacing pressure,
+ * atmospheric depth,
+ * and motion restraint.
  */
 
 export type SceneModulation = {
-  // How much to soften motion (1 = neutral, 0.8 = softer, 1.2 = sharper)
   cadenceSoftness: number;
 
-  // How much to compress/expand spacing pressure
   spacingPressure: number;
 
-  // How aggressively to breathe between sections
   breathingIntensity: number;
 
-  // How to modulate atmospheric intensity
   atmosphereModulation: number;
 
-  // How much environmental depth to add
   cinematicDepth: number;
 
-  // How to restrain motion (1 = neutral, 0.7 = restrained, 1.3 = expressive)
   motionRestraint: number;
 };
 
-/**
- * Resolve scene modulation
- *
- * Takes scene semantics (atmosphere, tone) and produces modulation values
- * that contextually influence the baseline cadence.
- *
- * Examples:
- * - immersive scenes: soften motion, increase breathing, deepen atmosphere
- * - editorial scenes: tighten motion, restrain spacing, cleaner transitions
- * - technical scenes: restrain motion, reduce breathing, minimal depth
- */
-export function resolveSceneModulation(sceneId: SceneId): SceneModulation {
-  const scene = sceneRegistry[sceneId];
+type Props = {
+  scene: SceneDefinition;
 
-  // Base modulation (neutral)
+  composition: CompositionContract;
+};
+
+/**
+ * Resolve Scene Modulation
+ *
+ * Derives motion/environment modulation
+ * from resolved scene orchestration state.
+ */
+
+export function resolveSceneModulation({
+  scene,
+  composition,
+}: Props): SceneModulation {
+  //
+  // BASELINE
+  //
+
   let cadenceSoftness = 1;
+
   let spacingPressure = 1;
+
   let breathingIntensity = 1;
+
   let atmosphereModulation = 1;
+
   let cinematicDepth = 1;
+
   let motionRestraint = 1;
 
-  // Modulate based on atmosphere
-  switch (scene.atmosphere) {
-    case "introduction":
-      // Hero: dramatic, slower, deeper breathing
-      cadenceSoftness = 1.1;
-      breathingIntensity = 1.15;
-      cinematicDepth = 1.2;
-      spacingPressure = 1.05;
-      atmosphereModulation = 1.1;
-      break;
+  //
+  // ATMOSPHERE MODULATION
+  //
 
+  switch (scene.atmosphere) {
     case "immersive":
-      // Projects: very slow, deep spacing, strong atmosphere
-      cadenceSoftness = 1.2;
-      spacingPressure = 1.25;
-      breathingIntensity = 1.25;
-      cinematicDepth = 1.3;
-      atmosphereModulation = 1.25;
-      motionRestraint = 0.85;
+      cadenceSoftness *= 1.15;
+      spacingPressure *= 1.2;
+      breathingIntensity *= 1.2;
+      cinematicDepth *= 1.25;
+      atmosphereModulation *= 1.2;
       break;
 
     case "editorial":
-      // Philosophy: clean, measured, slight tightening
-      cadenceSoftness = 0.95;
-      spacingPressure = 0.95;
-      breathingIntensity = 1;
-      cinematicDepth = 1;
-      atmosphereModulation = 0.9;
-      motionRestraint = 1.1;
-      break;
-
-    case "minimal":
-      // About: restrained, precise, minimal depth
-      cadenceSoftness = 0.9;
-      spacingPressure = 0.85;
-      breathingIntensity = 0.9;
-      cinematicDepth = 0.85;
-      atmosphereModulation = 0.75;
-      motionRestraint = 1.15;
+      cadenceSoftness *= 0.95;
+      spacingPressure *= 0.95;
+      breathingIntensity *= 1;
+      cinematicDepth *= 1;
+      atmosphereModulation *= 0.9;
       break;
 
     case "technical":
-      // Experience: structured, tight, low breathing
-      cadenceSoftness = 0.85;
-      spacingPressure = 0.8;
-      breathingIntensity = 0.8;
-      cinematicDepth = 0.8;
-      atmosphereModulation = 0.7;
-      motionRestraint = 1.2;
+      cadenceSoftness *= 0.85;
+      spacingPressure *= 0.8;
+      breathingIntensity *= 0.8;
+      cinematicDepth *= 0.8;
+      atmosphereModulation *= 0.75;
+      break;
+
+    case "minimal":
+      cadenceSoftness *= 0.9;
+      spacingPressure *= 0.85;
+      breathingIntensity *= 0.9;
+      cinematicDepth *= 0.85;
+      atmosphereModulation *= 0.8;
       break;
 
     case "quiet":
-      // Contact: calm, restrained, minimal motion
-      cadenceSoftness = 0.9;
-      spacingPressure = 0.85;
-      breathingIntensity = 0.85;
-      cinematicDepth = 0.9;
-      atmosphereModulation = 0.8;
-      motionRestraint = 1.2;
+      cadenceSoftness *= 0.92;
+      spacingPressure *= 0.9;
+      breathingIntensity *= 0.85;
+      cinematicDepth *= 0.9;
+      atmosphereModulation *= 0.82;
+      break;
+  }
+
+  //
+  // ENVIRONMENTAL PRESSURE
+  //
+
+  switch (scene.environmentalPressure) {
+    case "soft":
+      cadenceSoftness *= 1.05;
+      breathingIntensity *= 1.05;
+      break;
+
+    case "intense":
+      cadenceSoftness *= 0.92;
+      spacingPressure *= 0.9;
+      cinematicDepth *= 1.1;
+      break;
+  }
+
+  //
+  // BREATHING BIAS
+  //
+
+  switch (scene.breathingBias) {
+    case "compressed":
+      spacingPressure *= 0.85;
+      breathingIntensity *= 0.85;
+      break;
+
+    case "spacious":
+      spacingPressure *= 1.15;
+      breathingIntensity *= 1.15;
+      break;
+  }
+
+  //
+  // MOTION RESTRAINT
+  //
+
+  switch (scene.motionRestraint) {
+    case "restrained":
+      motionRestraint *= 1.15;
+      break;
+
+    case "expressive":
+      motionRestraint *= 0.85;
+      break;
+  }
+
+  //
+  // SCENE INTENSITY
+  //
+
+  switch (composition.sceneIntensity) {
+    case "dramatic":
+      cadenceSoftness *= 1.08;
+      cinematicDepth *= 1.15;
+      atmosphereModulation *= 1.1;
+      break;
+
+    case "soft":
+      cadenceSoftness *= 1.05;
+      atmosphereModulation *= 1.05;
       break;
   }
 
   return {
     cadenceSoftness,
+
     spacingPressure,
+
     breathingIntensity,
+
     atmosphereModulation,
+
     cinematicDepth,
+
     motionRestraint,
   };
 }
@@ -143,11 +206,12 @@ function resolveSceneEasing(
 }
 
 /**
- * Apply scene modulation to cadence
+ * Apply Scene Modulation
  *
- * Takes base cadence and scene modulation, returns modulated cadence.
- * This is purely multiplicative — no destructive changes.
+ * Applies environmental orchestration
+ * to base cadence contracts.
  */
+
 export function applySceneModulation(
   cadence: MotionCadence,
   modulation: SceneModulation,
@@ -155,8 +219,11 @@ export function applySceneModulation(
   return {
     fade: {
       duration: cadence.fade.duration * modulation.cadenceSoftness,
+
       delay: cadence.fade.delay,
+
       offset: cadence.fade.offset * modulation.spacingPressure,
+
       ease: resolveSceneEasing(
         modulation.motionRestraint,
         modulation.cadenceSoftness,
@@ -166,6 +233,7 @@ export function applySceneModulation(
 
     reveal: {
       duration: cadence.reveal.duration * modulation.cadenceSoftness,
+
       distance: cadence.reveal.distance * modulation.spacingPressure,
     },
 
@@ -175,9 +243,10 @@ export function applySceneModulation(
 
     transitionSoftness: cadence.transitionSoftness * modulation.cadenceSoftness,
 
-    // New environmental modulation values
     atmosphereIntensity: modulation.atmosphereModulation,
+
     cinematicPressure: modulation.cinematicDepth,
+
     motionRestraint: modulation.motionRestraint,
   };
 }

@@ -20,6 +20,8 @@ import {
   type RuntimePresentationAttributes,
 } from "./renderPresentationBlocks";
 
+import { sceneDefinitions } from "@/runtime/presentation/scene";
+
 type Props = {
   project: Project;
 
@@ -51,6 +53,8 @@ export default function ProjectPresentationRenderer({
 
   const dialect = resolvePresentationDialect(presentation.mode);
 
+  const scene = sceneDefinitions.projects;
+
   return (
     <article
       className='relative'
@@ -74,6 +78,7 @@ export default function ProjectPresentationRenderer({
             runtime,
             registry: dialect.registry,
             roleMap: dialect.roleMap,
+            scene,
           })}
         </div>
       </MotionCadenceProvider>

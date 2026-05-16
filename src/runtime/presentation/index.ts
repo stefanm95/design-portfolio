@@ -6,7 +6,7 @@ export * from "./scroll/useActiveSection";
 export * from "./scroll/useLenis";
 export * from "./scroll/useScrollProgress";
 
-export * from "./scene/sceneRegistry";
+export * from "./scene/definitions";
 export * from "./scene/useScene";
 
 export * from "./composition";

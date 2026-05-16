@@ -6,6 +6,8 @@ import type { PresentationRegistry } from "@/presentation/renderers/types";
 
 import type { CompositionSemanticMap } from "@/runtime/presentation/semantics";
 
+import type { SceneDefinition } from "@/runtime/presentation/scene";
+
 import { resolvePresentationBlockRuntime } from "./resolvePresentationBlockRuntime";
 
 import type { ResolvedPresentationBlockRuntime } from "./types";
@@ -18,6 +20,8 @@ type Props = {
   registry: PresentationRegistry;
 
   roleMap: CompositionSemanticMap;
+
+  scene: SceneDefinition;
 };
 
 export function resolvePresentationRuntime({
@@ -25,6 +29,7 @@ export function resolvePresentationRuntime({
   composition,
   registry,
   roleMap,
+  scene,
 }: Props): ResolvedPresentationBlockRuntime[] {
   return presentation.blocks
     .map((block) =>
@@ -34,6 +39,7 @@ export function resolvePresentationRuntime({
         composition,
         registry,
         roleMap,
+        scene,
       }),
     )
     .filter(

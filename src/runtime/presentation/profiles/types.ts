@@ -1,17 +1,59 @@
-export type PresentationProfileVariant = "immersive" | "editorial" | "minimal";
+import type {
+  AtmosphericDepth,
+  CompositionDensity,
+  CompositionRhythm,
+  EnvironmentalPressure,
+  MotionRestraint,
+  SceneIntensity,
+  TransitionIntensity,
+} from "@/runtime/presentation/composition";
+
+export type PresentationProfileVariant =
+  | "immersive"
+  | "editorial"
+  | "minimal"
+  | "luxury"
+  | "technical"
+  | "experimental";
+
+export type NavigationStyle = "immersive" | "minimal";
 
 export type PresentationProfile = {
-  density: "tight" | "balanced" | "spacious";
+  //
+  // COMPOSITION
+  //
 
-  rhythm: "editorial" | "cinematic" | "immersive";
+  density: CompositionDensity;
+
+  rhythm: CompositionRhythm;
+
+  //
+  // ENVIRONMENT
+  //
+
+  atmosphericDepth: AtmosphericDepth;
+
+  environmentalPressure: EnvironmentalPressure;
+
+  //
+  // MOTION
+  //
+
+  motionRestraint: MotionRestraint;
+
+  transitions: TransitionIntensity;
+
+  //
+  // SCENE
+  //
+
+  sceneIntensity?: SceneIntensity;
+
+  //
+  // UI
+  //
 
   overlays: boolean;
 
-  atmosphere: "cinematic" | "editorial" | "minimal";
-
-  transitions: "soft" | "balanced" | "dramatic";
-
-  sceneIntensity?: "soft" | "balanced" | "dramatic";
-
-  navigation: "immersive" | "minimal";
+  navigation: NavigationStyle;
 };

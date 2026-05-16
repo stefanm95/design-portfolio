@@ -1,8 +1,3 @@
-import type {
-  CompositionDensity,
-  //   CompositionRhythm,
-} from "@/types/presentation";
-
 /**
  * Composition Reactivity Layer
  *
@@ -18,6 +13,8 @@ import type {
  * - creating state machines
  * - being a generic engine
  */
+
+import type { CompositionDensity } from "../types";
 
 export type CompositionPacing = {
   /**

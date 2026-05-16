@@ -1,3 +1,5 @@
+// runtime/presentation/composition/index.ts
+
 //
 // FOUNDATIONS
 //
@@ -49,6 +51,20 @@ export {
   resolveSpatialBehavior,
   resolveSpatialPressure,
   spatialScale,
-  type SpatialBehavior,
-  type SpatialPressure,
 } from "./spacing";
+
+//
+// ORCHESTRATION TYPES
+//
+
+export type {
+  CompositionDensity,
+  CompositionRhythm,
+  TransitionIntensity,
+  EnvironmentalPressure,
+  AtmosphericDepth,
+  MotionRestraint,
+  SpatialBehavior,
+  SpatialPressure,
+  SceneIntensity,
+} from "./types";

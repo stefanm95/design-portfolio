@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-import type { SceneId } from "./scene/sceneRegistry";
+import type { SceneId } from "./scene/definitions";
 
 type PresentationContextType = {
   currentScene: SceneId;

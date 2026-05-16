@@ -1,46 +1,95 @@
 import type { PresentationProfile } from "../../profiles";
+
 import type { CompositionDensityReactivity } from "./types";
 
 /**
  * Resolve composition density reactivity
  *
- * Determines whether and how density influences section breathing
- * and compositional pressure without adaptive layout generation
+ * Determines how compositional density
+ * influences breathing and environmental pressure
+ * without adaptive layout generation.
  */
+
 export function resolveCompositionDensity(
   profile: PresentationProfile,
   sceneIntensity?: "soft" | "balanced" | "dramatic",
 ): CompositionDensityReactivity {
   const effectiveDensity = profile.density;
+
   const rhythm = profile.rhythm;
 
-  // Calculate pressure modifier based on density and rhythm
-  let pressureModifier = 1.0;
+  //
+  // BASE PRESSURE
+  //
 
-  if (effectiveDensity === "tight") {
-    pressureModifier = 1.2; // Compressed composition feels tighter
-  } else if (effectiveDensity === "spacious") {
-    pressureModifier = 0.8; // Spacious composition feels more open
+  let pressureModifier: number;
+
+  //
+  // DENSITY MODULATION
+  //
+
+  switch (effectiveDensity) {
+    case "tight":
+      pressureModifier = 1.2;
+      break;
+
+    case "spacious":
+      pressureModifier = 0.8;
+      break;
+
+    default:
+      pressureModifier = 1;
+      break;
   }
 
-  // Scene intensity modulates pressure
-  if (sceneIntensity === "dramatic") {
-    pressureModifier *= 1.15;
-  } else if (sceneIntensity === "soft") {
-    pressureModifier *= 0.85;
+  //
+  // SCENE INTENSITY MODULATION
+  //
+
+  switch (sceneIntensity) {
+    case "dramatic":
+      pressureModifier *= 1.15;
+      break;
+
+    case "soft":
+      pressureModifier *= 0.85;
+      break;
   }
 
-  // Immersive rhythm further influences breathing
-  if (rhythm === "immersive") {
-    pressureModifier *= 0.9; // More open pacing
+  //
+  // RHYTHM MODULATION
+  //
+
+  switch (rhythm) {
+    case "immersive":
+      pressureModifier *= 0.9;
+      break;
+
+    case "editorial":
+      pressureModifier *= 1.05;
+      break;
   }
 
-  // Clamp pressure modifier
+  //
+  // CLAMP
+  //
+
   pressureModifier = Math.max(0.7, Math.min(1.3, pressureModifier));
 
   return {
     effectiveDensity,
-    influencesBreathing: profile.atmosphere !== "minimal",
+
+    /**
+     * Minimal environments should now
+     * be resolved through scene orchestration,
+     * not profile identity.
+     *
+     * Density always influences breathing
+     * at the composition layer.
+     */
+
+    influencesBreathing: true,
+
     pressureModifier,
   };
 }
