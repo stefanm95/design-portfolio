@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 
-import type { CinematicPresentationBlock } from "@/presentation/renderers/types";
-
+import type { CinematicPresentationBlock } from "@/types";
 import type { PresentationBlockRendererProps } from "@/presentation/renderers/types";
 
 import CinematicShowcaseDesktop from "./CinematicShowcaseDesktop";

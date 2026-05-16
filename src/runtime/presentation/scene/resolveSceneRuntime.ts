@@ -1,11 +1,11 @@
-import type { CompositionContract } from "@/runtime/presentation/composition";
+import type { CompositionContract } from "../composition";
 
 import type {
   PresentationProfile,
   PresentationProfileVariant,
-} from "@/runtime/presentation/profiles";
+} from "../profiles";
 
-import type { SceneDefinition } from "./types";
+import type { SceneDefinition, SceneRuntime } from "./types";
 
 type Props = {
   scene: SceneDefinition;
@@ -22,25 +22,18 @@ export function resolveSceneRuntime({
   composition,
   profile,
   profileVariant,
-}: Props) {
+}: Props): SceneRuntime {
   return {
     ...scene,
 
-    density: composition.density,
+    composition,
 
-    rhythm: composition.rhythm,
+    profile,
 
-    transition: composition.transition,
+    profileVariant,
 
     sceneIntensity: composition.sceneIntensity,
 
-    profile: profileVariant,
-
-    environmentalIntensity: profile.sceneIntensity,
-
-    atmosphericDepth:
-      scene.overlayDepth === "deep" && composition.sceneIntensity === "dramatic"
-        ? "immersive"
-        : "balanced",
+    atmosphericDepth: composition.atmosphericDepth,
   };
 }

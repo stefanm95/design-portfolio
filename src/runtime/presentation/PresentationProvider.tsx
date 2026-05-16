@@ -1,5 +1,7 @@
 "use client";
 
+import type { ReactNode } from "react";
+
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import { PresentationContext } from "./PresentationContext";
@@ -7,7 +9,7 @@ import { PresentationContext } from "./PresentationContext";
 import { useScene } from "./scene/useScene";
 
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export default function PresentationProvider({ children }: Props) {
@@ -35,12 +37,13 @@ export default function PresentationProvider({ children }: Props) {
 
   const value = useMemo(
     () => ({
-      currentScene: scene.id,
+      currentScene: scene,
+
+      sceneId: scene.id,
 
       isTransitioning,
     }),
-
-    [scene.id, isTransitioning],
+    [scene, isTransitioning],
   );
 
   return (

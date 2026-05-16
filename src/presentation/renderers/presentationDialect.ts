@@ -8,13 +8,17 @@ import {
 
 import type { ProjectPresentation } from "@/types/presentation";
 
-import type { PresentationRegistry } from "./types";
+export type PresentationDialect =
+  | {
+      registry: typeof presentationBlockRegistry.cinematic;
 
-export type PresentationDialect = {
-  registry: PresentationRegistry;
+      roleMap: CompositionSemanticMap;
+    }
+  | {
+      registry: typeof presentationBlockRegistry.editorial;
 
-  roleMap: CompositionSemanticMap;
-};
+      roleMap: CompositionSemanticMap;
+    };
 
 export function resolvePresentationDialect(
   mode: ProjectPresentation["mode"],

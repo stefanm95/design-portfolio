@@ -1,8 +1,11 @@
 import { useContext } from "react";
 
-import { PresentationContext } from "./PresentationContext";
+import {
+  PresentationContext,
+  type PresentationContextType,
+} from "./PresentationContext";
 
-export function usePresentation() {
+export function usePresentation(): PresentationContextType {
   const context = useContext(PresentationContext);
 
   if (!context) {

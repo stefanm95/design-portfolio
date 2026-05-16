@@ -12,8 +12,6 @@ import type { CompositionSemanticMap } from "@/runtime/presentation/semantics";
 
 import { resolvePresentationRuntime } from "@/runtime/presentation/interpreter";
 
-import type { SceneDefinition } from "@/runtime/presentation/scene";
-
 export type RuntimePresentationAttributes = {
   composition: CompositionContract;
 
@@ -30,8 +28,6 @@ type RenderPresentationBlocksProps = {
   registry: PresentationRegistry;
 
   roleMap: CompositionSemanticMap;
-
-  scene: SceneDefinition;
 };
 
 export function renderPresentationBlocks({
@@ -40,14 +36,12 @@ export function renderPresentationBlocks({
   runtime,
   registry,
   roleMap,
-  scene,
 }: RenderPresentationBlocksProps) {
   const resolvedBlocks = resolvePresentationRuntime({
     presentation,
     composition: runtime.composition,
     registry,
     roleMap,
-    scene,
   });
 
   return resolvedBlocks.map((resolvedBlock, index) => {

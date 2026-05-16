@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import { CompositionReactivityContext } from "./CompositionReactivityContext";
 
-import { neutralCompositionReactivity } from "./composition/reactivity/defaults";
+import { neutralCompositionReactivity } from "./defaults";
 
 export function useCompositionReactivity() {
   return (

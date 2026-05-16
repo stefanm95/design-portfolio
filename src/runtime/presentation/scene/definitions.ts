@@ -1,6 +1,14 @@
 import type { SceneDefinition } from "./types";
 
-export const sceneDefinitions = {
+export type SceneId =
+  | "hero"
+  | "philosophy"
+  | "projects"
+  | "experience"
+  | "about"
+  | "contact";
+
+export const sceneDefinitions: Record<SceneId, SceneDefinition> = {
   hero: {
     id: "hero",
 
@@ -96,6 +104,4 @@ export const sceneDefinitions = {
 
     overlayDepth: "minimal",
   },
-} as const satisfies Record<string, SceneDefinition>;
-
-export type SceneId = keyof typeof sceneDefinitions;
+};

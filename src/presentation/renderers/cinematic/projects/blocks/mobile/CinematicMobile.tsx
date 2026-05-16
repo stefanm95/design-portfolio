@@ -10,10 +10,8 @@ import { projectComposition } from "@/runtime/presentation/composition";
 
 import { ui } from "@/theme";
 
-import type {
-  CinematicPresentationBlock,
-  PresentationBlockRendererProps,
-} from "@/presentation/renderers/types";
+import type { PresentationBlockRendererProps } from "@/presentation/renderers/types";
+import type { CinematicPresentationBlock } from "@/types";
 
 import CinematicMobileCarousel from "./CinematicMobileCarousel";
 import CinematicMobileStack from "./CinematicMobileStack";
@@ -63,15 +61,15 @@ export default function CinematicMobile({ project }: Props) {
             <Label>{content.label}</Label>
 
             <Heading
-              as="h3"
-              className="
+              as='h3'
+              className='
                 max-w-[10ch]
 
                 text-3xl
                 sm:text-4xl
                 md:text-5xl
                 xl:text-6xl
-              "
+              '
             >
               {content.heading}
             </Heading>

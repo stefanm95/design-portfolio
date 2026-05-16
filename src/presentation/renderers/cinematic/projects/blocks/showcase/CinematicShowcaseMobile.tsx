@@ -12,7 +12,7 @@ import { ui } from "@/theme";
 
 import CinematicShowcaseSwitcher from "./CinematicShowcaseSwitcher";
 
-import type { CinematicPresentationBlock } from "@/presentation/renderers/types";
+import type { CinematicPresentationBlock } from "@/types";
 import type { Project } from "@/types/projects";
 
 type Props = {
@@ -45,7 +45,7 @@ export default function CinematicShowcaseMobile({
       <div className={composition.intro}>
         <Label>{content?.mobileLabel}</Label>
 
-        <Heading as="h3" className="max-w-[12ch]">
+        <Heading as='h3' className='max-w-[12ch]'>
           {content?.mobileHeading}
         </Heading>
 
@@ -65,15 +65,15 @@ export default function CinematicShowcaseMobile({
         <a
           title={project.title}
           href={project.liveUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="block"
+          target='_blank'
+          rel='noreferrer'
+          className='block'
         >
           <ProjectCinematicFrame
             image={primary}
-            imageFit="cover"
-            minHeight="min-h-[320px]"
-            className="bg-black/20"
+            imageFit='cover'
+            minHeight='min-h-[320px]'
+            className='bg-black/20'
           />
         </a>
       </FadeIn>

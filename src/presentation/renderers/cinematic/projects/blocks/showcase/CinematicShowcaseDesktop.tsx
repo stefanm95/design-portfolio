@@ -12,7 +12,8 @@ import { ui } from "@/theme";
 
 import CinematicShowcaseSwitcher from "./CinematicShowcaseSwitcher";
 
-import type { CinematicPresentationBlock } from "@/presentation/renderers/types";
+import type { CinematicPresentationBlock } from "@/types";
+
 import type { Project } from "@/types/projects";
 
 type Props = {
@@ -45,7 +46,7 @@ export default function CinematicShowcaseDesktop({
       <div className={composition.intro}>
         <Label>{content?.label}</Label>
 
-        <Heading as="h3" className="max-w-[24ch]">
+        <Heading as='h3' className='max-w-[24ch]'>
           {content?.heading}
         </Heading>
 
@@ -64,9 +65,9 @@ export default function CinematicShowcaseDesktop({
       <FadeIn key={primary}>
         <ProjectCinematicFrame
           image={primary}
-          imageFit="cover"
-          minHeight="min-h-[620px]"
-          className="bg-black/20"
+          imageFit='cover'
+          minHeight='min-h-[620px]'
+          className='bg-black/20'
         />
       </FadeIn>
 

@@ -13,11 +13,11 @@ export * from "./composition";
 
 export * from "./motion";
 
-export { useCompositionReactivity } from "./useCompositionReactivity";
+export { useCompositionReactivity } from "./composition/reactivity/useCompositionReactivity";
 
 export { default as PresentationProvider } from "./PresentationProvider";
 export { SectionMotionProvider } from "./SectionMotionProvider";
-export { CompositionReactivityContext } from "./CompositionReactivityContext";
+export { CompositionReactivityContext } from "./composition/reactivity/CompositionReactivityContext";
 export {
   cinematicBlockRoles,
   editorialBlockRoles,

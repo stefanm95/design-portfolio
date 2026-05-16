@@ -7,10 +7,8 @@ import { ui } from "@/theme";
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 import ProjectLiveIndicator from "@/presentation/shared/ProjectLiveIndicator";
 
-import type {
-  EditorialPresentationBlock,
-  PresentationBlockRendererProps,
-} from "@/presentation/renderers/types";
+import type { PresentationBlockRendererProps } from "@/presentation/renderers/types";
+import type { EditorialPresentationBlock } from "@/types";
 
 type Props = PresentationBlockRendererProps<EditorialPresentationBlock>;
 
@@ -26,17 +24,17 @@ export default function EditorialHero({ project }: Props) {
       <a
         title={project.title}
         href={project.liveUrl}
-        target="_blank"
-        rel="noreferrer"
-        className="block"
+        target='_blank'
+        rel='noreferrer'
+        className='block'
       >
-        <div className="relative">
+        <div className='relative'>
           <ProjectCinematicFrame
             image={hero}
             alt={project.title}
-            imageFit="contain"
-            variant="immersive"
-            minHeight="min-h-[420px] xl:min-h-[620px]"
+            imageFit='contain'
+            variant='immersive'
+            minHeight='min-h-[420px] xl:min-h-[620px]'
             className={`
               aspect-[16/9]
 

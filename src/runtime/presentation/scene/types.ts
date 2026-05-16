@@ -1,9 +1,26 @@
+import type { CompositionContract } from "../composition";
+
+import type {
+  PresentationProfile,
+  PresentationProfileVariant,
+} from "../profiles";
+
+import type { SceneId } from "./definitions";
+
+//
+// ATMOSPHERE
+//
+
 export type SceneAtmosphere =
   | "immersive"
   | "editorial"
   | "technical"
   | "minimal"
   | "quiet";
+
+//
+// TONE
+//
 
 export type SceneTone =
   | "cinematic"
@@ -13,16 +30,32 @@ export type SceneTone =
   | "structured"
   | "closing";
 
+//
+// ENVIRONMENT
+//
+
 export type EnvironmentalPressure = "soft" | "balanced" | "intense";
 
 export type BreathingBias = "compressed" | "balanced" | "spacious";
 
+//
+// MOTION
+//
+
 export type MotionRestraint = "restrained" | "balanced" | "expressive";
+
+//
+// VISUAL DEPTH
+//
 
 export type OverlayDepth = "minimal" | "medium" | "deep";
 
+//
+// BASE SCENE
+//
+
 export type SceneDefinition = {
-  id: string;
+  id: SceneId;
 
   atmosphere: SceneAtmosphere;
 
@@ -35,4 +68,20 @@ export type SceneDefinition = {
   motionRestraint: MotionRestraint;
 
   overlayDepth: OverlayDepth;
+};
+
+//
+// RUNTIME SCENE
+//
+
+export type SceneRuntime = SceneDefinition & {
+  composition: CompositionContract;
+
+  profile: PresentationProfile;
+
+  profileVariant: PresentationProfileVariant;
+
+  sceneIntensity: CompositionContract["sceneIntensity"];
+
+  atmosphericDepth: CompositionContract["atmosphericDepth"];
 };

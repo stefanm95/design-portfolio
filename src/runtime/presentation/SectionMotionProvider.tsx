@@ -1,51 +1,60 @@
+"use client";
+
 import type { ReactNode } from "react";
+
 import { useMemo } from "react";
-import type { CompositionContract } from "./composition";
-import { MotionCadenceProvider } from "./motion/MotionCadenceProvider";
-import { useScene } from "./scene/useScene";
-import { neutralCompositionReactivity } from "./composition/reactivity/defaults";
 
-/**
- * Section Motion Provider
- *
- * Wraps main application sections (Hero, Philosophy, About, etc.)
- * to provide scene-modulated motion cadence.
- *
- * This integrates scenes into the motion orchestration automatically:
- * - Gets current scene
- * - Applies scene modulation to baseline cadence
- * - Provides modulated cadence to child components
- *
- * Use this in main sections that don't have explicit composition contracts.
- */
+import {
+  MotionCadenceProvider,
+  resolveCompositionContract,
+} from "@/runtime/presentation";
 
-export function SectionMotionProvider({ children }: { children: ReactNode }) {
+import { resolveProfile } from "@/runtime/presentation/resolvers";
+
+import { useScene } from "@/runtime/presentation/scene";
+
+import type { ProjectPresentation } from "@/types/presentation";
+
+type Props = {
+  children: ReactNode;
+};
+
+export function SectionMotionProvider({ children }: Props) {
   const scene = useScene();
 
-  // Create a sensible default composition contract for main sections
-  const defaultContract: CompositionContract = useMemo(
+  /**
+   * Lightweight synthetic presentation
+   * used only for orchestration defaults.
+   */
+  const syntheticPresentation = useMemo<ProjectPresentation>(
     () => ({
-      density: "balanced",
-      densityClass: "space-y-12 md:space-y-16 lg:space-y-20",
-      rhythm: "cinematic",
-      rhythmProfile: {
-        transitionDelay: 0.16,
-        revealOffset: 80,
-        stagger: 0.08,
-        sectionDelay: 0.2,
-        duration: 1.2,
+      mode: "cinematic",
+
+      composition: {
+        profile: "immersive",
       },
-      transition: "balanced",
-      atmosphere: "cinematic",
-      overlays: true,
-      sceneIntensity: "balanced",
-      reactivity: neutralCompositionReactivity,
+
+      blocks: [],
     }),
     [],
   );
 
+  const profile = resolveProfile(
+    syntheticPresentation.composition?.profile ?? "immersive",
+  );
+
+  const composition = resolveCompositionContract(
+    syntheticPresentation,
+    profile,
+    scene.environmentalPressure === "intense"
+      ? "dramatic"
+      : scene.environmentalPressure === "soft"
+        ? "soft"
+        : "balanced",
+  );
+
   return (
-    <MotionCadenceProvider contract={defaultContract} sceneId={scene.id}>
+    <MotionCadenceProvider contract={composition} sceneId={scene.id}>
       {children}
     </MotionCadenceProvider>
   );

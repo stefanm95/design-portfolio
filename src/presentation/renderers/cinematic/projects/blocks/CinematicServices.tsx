@@ -10,10 +10,8 @@ import { projectComposition } from "@/runtime/presentation/composition";
 
 import { ui, useTheme } from "@/theme";
 
-import type {
-  CinematicPresentationBlock,
-  PresentationBlockRendererProps,
-} from "@/presentation/renderers/types";
+import type { PresentationBlockRendererProps } from "@/presentation/renderers/types";
+import type { CinematicPresentationBlock } from "@/types";
 
 type Props = PresentationBlockRendererProps<CinematicPresentationBlock>;
 
@@ -39,7 +37,7 @@ export default function CinematicSystems({ project }: Props) {
         <div className={composition.leftInner}>
           <Label>{content.label}</Label>
 
-          <Heading as="h3" className="max-w-[11ch]">
+          <Heading as='h3' className='max-w-[11ch]'>
             {content.heading}
           </Heading>
 
@@ -64,8 +62,8 @@ export default function CinematicSystems({ project }: Props) {
             <ProjectCinematicFrame
               image={system}
               alt={content.heading}
-              imageFit="contain"
-              minHeight="min-h-[420px] xl:min-h-[760px]"
+              imageFit='contain'
+              minHeight='min-h-[420px] xl:min-h-[760px]'
               className={`
                 border
 
@@ -76,14 +74,14 @@ export default function CinematicSystems({ project }: Props) {
 
             {/* ATMOSPHERIC BLOOM */}
             <div
-              className="
+              className='
                 pointer-events-none
                 absolute
                 inset-0
 
                 opacity-60
                 blur-md
-              "
+              '
               style={{
                 background: showcase.blooms.secondary,
               }}
@@ -91,7 +89,7 @@ export default function CinematicSystems({ project }: Props) {
 
             {/* FLOATING DETAIL */}
             <div
-              className="
+              className='
                 pointer-events-none
                 absolute
                 -bottom-10
@@ -99,7 +97,7 @@ export default function CinematicSystems({ project }: Props) {
 
                 hidden
                 xl:block
-              "
+              '
             >
               <div
                 className={`

@@ -8,10 +8,8 @@ import { ui } from "@/theme";
 
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
-import type {
-  EditorialPresentationBlock,
-  PresentationBlockRendererProps,
-} from "@/presentation/renderers/types";
+import type { PresentationBlockRendererProps } from "@/presentation/renderers/types";
+import type { EditorialPresentationBlock } from "@/types";
 
 type Props = PresentationBlockRendererProps<EditorialPresentationBlock>;
 
@@ -27,17 +25,17 @@ export default function EditorialUIDetail({ project }: Props) {
   return (
     <FadeIn>
       <section
-        className="
+        className='
           grid
           items-start
           gap-14
 
           lg:grid-cols-12
-        "
+        '
       >
         {/* CONTENT */}
         <div
-          className="
+          className='
             order-2
             lg:order-1
 
@@ -47,14 +45,14 @@ export default function EditorialUIDetail({ project }: Props) {
             lg:col-span-5
             lg:col-start-2
             lg:mt-24
-          "
+          '
         >
-          <div className="max-w-lg space-y-7">
-            <div className="space-y-4">
+          <div className='max-w-lg space-y-7'>
+            <div className='space-y-4'>
               <Label>{content.label}</Label>
 
               <Heading
-                as="h3"
+                as='h3'
                 className={`
                   text-3xl
                   sm:text-4xl
@@ -87,7 +85,7 @@ export default function EditorialUIDetail({ project }: Props) {
 
         {/* VISUAL */}
         <div
-          className="
+          className='
             order-1
             lg:order-2
 
@@ -95,12 +93,12 @@ export default function EditorialUIDetail({ project }: Props) {
 
             lg:col-span-5
             lg:col-start-7
-          "
+          '
         >
           <ProjectCinematicFrame
             image={image}
-            alt="Project interface detail"
-            minHeight="min-h-[240px] sm:min-h-[320px] md:min-h-[420px]"
+            alt='Project interface detail'
+            minHeight='min-h-[240px] sm:min-h-[320px] md:min-h-[420px]'
           />
         </div>
       </section>

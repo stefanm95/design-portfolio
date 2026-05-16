@@ -17,7 +17,7 @@ import {
 
 import { MotionCadenceContext } from "./MotionCadenceContext";
 
-import { CompositionReactivityContext } from "../CompositionReactivityContext";
+import { CompositionReactivityContext } from "../composition/reactivity/CompositionReactivityContext";
 
 type Props = {
   children: ReactNode;

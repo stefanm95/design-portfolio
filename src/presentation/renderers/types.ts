@@ -2,11 +2,19 @@ import type { ComponentType } from "react";
 
 import type { Project } from "@/types/projects";
 
-import type { PresentationBlock } from "@/types/presentation";
+import type {
+  PresentationBlock,
+  CinematicPresentationBlock,
+  EditorialPresentationBlock,
+} from "@/types/presentation";
 
-export type { PresentationBlock } from "@/types/presentation";
+//
+// RENDERER
+//
 
-export type PresentationBlockRendererProps<TBlock = PresentationBlock> = {
+export type PresentationBlockRendererProps<
+  TBlock extends PresentationBlock = PresentationBlock,
+> = {
   project: Project;
 
   block: TBlock;
@@ -14,7 +22,26 @@ export type PresentationBlockRendererProps<TBlock = PresentationBlock> = {
   index: number;
 };
 
-export type PresentationBlockRenderer<TBlock = PresentationBlock> =
-  ComponentType<PresentationBlockRendererProps<TBlock>>;
+export type PresentationBlockRenderer<
+  TBlock extends PresentationBlock = PresentationBlock,
+> = ComponentType<PresentationBlockRendererProps<TBlock>>;
+
+//
+// REGISTRIES
+//
 
 export type PresentationRegistry = Record<string, PresentationBlockRenderer>;
+
+//
+// SPECIALIZED REGISTRIES
+//
+
+export type CinematicPresentationRegistry = Record<
+  string,
+  PresentationBlockRenderer<CinematicPresentationBlock>
+>;
+
+export type EditorialPresentationRegistry = Record<
+  string,
+  PresentationBlockRenderer<EditorialPresentationBlock>
+>;

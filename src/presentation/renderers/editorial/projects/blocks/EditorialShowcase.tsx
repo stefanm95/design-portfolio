@@ -10,10 +10,8 @@ import { projectComposition } from "@/runtime/presentation/composition";
 
 import { ui } from "@/theme";
 
-import type {
-  EditorialPresentationBlock,
-  PresentationBlockRendererProps,
-} from "@/presentation/renderers/types";
+import type { PresentationBlockRendererProps } from "@/presentation/renderers/types";
+import type { EditorialPresentationBlock } from "@/types";
 
 type Props = PresentationBlockRendererProps<EditorialPresentationBlock>;
 
@@ -37,7 +35,7 @@ export default function EditorialShowcase({ project }: Props) {
             <ProjectSectionLabel>{content.label}</ProjectSectionLabel>
 
             <Heading
-              as="h3"
+              as='h3'
               className={`
                 max-w-lg
 
@@ -72,7 +70,7 @@ export default function EditorialShowcase({ project }: Props) {
           <ProjectCinematicFrame
             image={editorial}
             alt={project.title}
-            minHeight="min-h-[260px] sm:min-h-[340px] md:min-h-[420px] xl:min-h-[560px]"
+            minHeight='min-h-[260px] sm:min-h-[340px] md:min-h-[420px] xl:min-h-[560px]'
           />
         </div>
       </section>
