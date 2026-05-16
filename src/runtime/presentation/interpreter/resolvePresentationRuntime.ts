@@ -16,6 +16,7 @@ import { resolvePresentationBlockRuntime } from "./resolvePresentationBlockRunti
 
 import type { ResolvedPresentationBlockRuntime } from "./types";
 import { resolveBlockRelationships } from "./relationships";
+import type { RuntimeLayerSet } from "../layers";
 
 type Props<TBlock extends PresentationBlock> = {
   presentation: {
@@ -29,6 +30,8 @@ type Props<TBlock extends PresentationBlock> = {
   roleMap: CompositionSemanticMap<TBlock>;
 
   scene: SceneRuntime;
+
+  layers: RuntimeLayerSet;
 
   profile: PresentationProfile;
 };

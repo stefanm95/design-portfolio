@@ -2,7 +2,10 @@ import type { PresentationBlock } from "@/types/presentation";
 
 import type { PresentationBlockRenderer } from "@/presentation/renderers/types";
 
-import type { CompositionSemantic } from "@/runtime/presentation/semantics";
+import type {
+  CompositionSemantic,
+  SemanticBehavior,
+} from "@/runtime/presentation/semantics";
 
 import type {
   CompositionContract,
@@ -25,6 +28,8 @@ import type { RuntimeBlockRelationship } from "./relationships";
 import type { AtmosphericModulation } from "../atmosphere/resolveAtmosphericModulation";
 import type { RenderingAttributes } from "../rendering";
 import type { RuntimeSurfaceSet } from "../surfaces";
+import type { RuntimeLayerSet } from "../layers";
+import type { NarrativeTransition } from "../transitions";
 
 //
 // RUNTIME PRIMITIVES
@@ -52,11 +57,17 @@ export type ResolvedPresentationBlockRuntime<TBlock extends PresentationBlock> =
     runtime: {
       motion: MotionCadence;
 
+      transition: NarrativeTransition;
+
       spatialBehavior: SpatialBehavior;
 
       scene: SceneRuntime;
 
       atmosphere: RuntimeAtmosphere;
+
+      semanticBehavior: SemanticBehavior;
+
+      layers: RuntimeLayerSet;
 
       spacing: string;
 
@@ -88,6 +99,8 @@ export type PresentationRuntimeSnapshot = {
   atmosphere: RuntimeAtmosphere;
 
   atmosphericModulation: AtmosphericModulation;
+
+  layers: RuntimeLayerSet;
 
   spatial: {
     cadence: RuntimeCadence;

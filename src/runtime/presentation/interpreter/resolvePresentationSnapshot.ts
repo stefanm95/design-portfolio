@@ -16,6 +16,7 @@ import { resolveAtmosphere } from "../resolvers";
 
 import { resolveRenderingAttributes } from "../rendering";
 import { resolveRuntimeSurfaces } from "../surfaces";
+import { resolveRuntimeLayers } from "../layers";
 
 type Props = {
   composition: CompositionContract;
@@ -95,6 +96,12 @@ export function resolvePresentationSnapshot({
     rendering,
   });
 
+  const layers = resolveRuntimeLayers({
+    atmosphere,
+
+    rendering,
+  });
+
   //
   // RETURN SNAPSHOT
   //
@@ -105,6 +112,8 @@ export function resolvePresentationSnapshot({
     atmosphericModulation,
 
     spatial,
+
+    layers,
 
     motion,
 
