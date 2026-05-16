@@ -27,7 +27,7 @@ type Props<TBlock extends PresentationBlock> = {
 
   registry: PresentationRegistry<TBlock>;
 
-  roleMap: CompositionSemanticMap;
+  roleMap: CompositionSemanticMap<TBlock>;
 
   scene: SceneDefinition;
 };
@@ -60,6 +60,7 @@ export function resolvePresentationBlockRuntime<
   const spacing = resolveBlockSpacing({
     behavior: spatialBehavior,
     composition,
+    scene,
   });
 
   const atmosphere = resolveAtmosphere({

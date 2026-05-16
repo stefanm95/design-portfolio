@@ -1,4 +1,8 @@
-import type { CompositionContract } from "../composition";
+import type {
+  CompositionContract,
+  SpatialBehavior,
+  SpatialPressure,
+} from "../composition";
 
 import type {
   PresentationProfile,
@@ -84,4 +88,8 @@ export type SceneRuntime = SceneDefinition & {
   sceneIntensity: CompositionContract["sceneIntensity"];
 
   atmosphericDepth: CompositionContract["atmosphericDepth"];
+
+  spatialPressure: SpatialPressure;
+
+  spatialBehavior: SpatialBehavior;
 };

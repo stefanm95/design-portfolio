@@ -1,10 +1,18 @@
+import type { SceneDefinition } from "../../scene";
 import type { CompositionContract } from "../contract";
 
 import type { SpatialPressure } from "./types";
 
-export function resolveSpatialPressure(
-  composition: CompositionContract,
-): SpatialPressure {
+type Props = {
+  composition: CompositionContract;
+
+  scene: SceneDefinition;
+};
+
+export function resolveSpatialPressure({
+  composition,
+  scene,
+}: Props): SpatialPressure {
   const { density, rhythm, sceneIntensity } = composition;
 
   //
@@ -13,6 +21,14 @@ export function resolveSpatialPressure(
 
   if (density === "tight" && rhythm === "editorial") {
     return "compressed";
+  }
+
+  if (scene.environmentalPressure === "intense") {
+    return "compressed";
+  }
+
+  if (scene.breathingBias === "spacious") {
+    return "spacious";
   }
 
   //

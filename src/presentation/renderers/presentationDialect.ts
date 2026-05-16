@@ -18,7 +18,7 @@ import type { PresentationRegistry } from "./types";
 export type PresentationDialect<TBlock extends PresentationBlock> = {
   registry: PresentationRegistry<TBlock>;
 
-  roleMap: CompositionSemanticMap;
+  roleMap: CompositionSemanticMap<TBlock>;
 };
 
 export function resolvePresentationDialect(

@@ -1,3 +1,5 @@
+import type { PresentationBlock } from "@/types";
+
 export type CompositionSemantic =
   | "hero"
   | "intro"
@@ -11,4 +13,6 @@ export type CompositionSemantic =
   | "section"
   | "feature";
 
-export type CompositionSemanticMap = Record<string, CompositionSemantic>;
+export type CompositionSemanticMap<TBlock extends PresentationBlock> = {
+  [K in TBlock["type"]]: CompositionSemantic;
+};

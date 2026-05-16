@@ -1,4 +1,7 @@
-import type { CompositionContract } from "../composition";
+import {
+  resolveSpatialPressure,
+  type CompositionContract,
+} from "../composition";
 
 import type {
   PresentationProfile,
@@ -35,5 +38,13 @@ export function resolveSceneRuntime({
     sceneIntensity: composition.sceneIntensity,
 
     atmosphericDepth: composition.atmosphericDepth,
+
+    spatialPressure: resolveSpatialPressure({
+      composition,
+      scene,
+    }),
+
+    spatialBehavior:
+      scene.breathingBias === "spacious" ? "immersive" : "balanced",
   };
 }

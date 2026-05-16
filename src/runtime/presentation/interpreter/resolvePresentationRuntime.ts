@@ -21,7 +21,7 @@ type Props<TBlock extends PresentationBlock> = {
 
   registry: PresentationRegistry<TBlock>;
 
-  roleMap: CompositionSemanticMap;
+  roleMap: CompositionSemanticMap<TBlock>;
 
   scene: SceneDefinition;
 };
