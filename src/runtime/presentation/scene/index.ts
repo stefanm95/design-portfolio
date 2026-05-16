@@ -17,6 +17,7 @@ export { useScene } from "./useScene";
 //
 
 export type {
+  SceneRuntime,
   SceneDefinition,
   SceneAtmosphere,
   SceneTone,

@@ -6,6 +6,8 @@ import type { ProjectPresentation } from "@/types/presentation";
 
 import type { Project } from "@/types/projects";
 
+import { resolveSceneRuntime } from "@/runtime/presentation/scene";
+
 import {
   MotionCadenceProvider,
   resolveCompositionContract,
@@ -50,7 +52,12 @@ export default function ProjectPresentationRenderer({
     profileVariant,
   };
 
-  const scene = sceneDefinitions.projects;
+  const scene = resolveSceneRuntime({
+    scene: sceneDefinitions.projects,
+    composition,
+    profile,
+    profileVariant,
+  });
 
   let content: React.ReactNode;
 

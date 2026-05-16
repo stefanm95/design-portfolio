@@ -1,6 +1,6 @@
 import type { CompositionContract } from "@/runtime/presentation/composition";
 
-import type { SceneDefinition } from "@/runtime/presentation/scene";
+import type { SceneRuntime } from "@/runtime/presentation/scene";
 
 export type AtmosphereState =
   | "immersive"
@@ -10,7 +10,7 @@ export type AtmosphereState =
   | "quiet";
 
 type Props = {
-  scene: SceneDefinition;
+  scene: SceneRuntime;
 
   composition: CompositionContract;
 };

@@ -11,7 +11,7 @@ import type { PresentationProfileVariant } from "@/runtime/presentation/profiles
 import type { CompositionSemanticMap } from "@/runtime/presentation/semantics";
 
 import { resolvePresentationRuntime } from "@/runtime/presentation/interpreter";
-import type { SceneDefinition } from "@/runtime/presentation/scene";
+import type { SceneRuntime } from "@/runtime/presentation/scene";
 
 export type RuntimePresentationAttributes = {
   composition: CompositionContract;
@@ -32,7 +32,7 @@ type RenderPresentationBlocksProps<TBlock extends PresentationBlock> = {
 
   roleMap: CompositionSemanticMap<TBlock>;
 
-  scene: SceneDefinition;
+  scene: SceneRuntime;
 };
 
 export function renderPresentationBlocks<TBlock extends PresentationBlock>({

@@ -6,7 +6,7 @@ import type { PresentationRegistry } from "@/presentation/renderers/types";
 
 import type { CompositionSemanticMap } from "@/runtime/presentation/semantics";
 
-import type { SceneDefinition } from "@/runtime/presentation/scene";
+import type { SceneRuntime } from "@/runtime/presentation/scene";
 
 import { resolvePresentationBlockRuntime } from "./resolvePresentationBlockRuntime";
 
@@ -23,7 +23,7 @@ type Props<TBlock extends PresentationBlock> = {
 
   roleMap: CompositionSemanticMap<TBlock>;
 
-  scene: SceneDefinition;
+  scene: SceneRuntime;
 };
 
 export function resolvePresentationRuntime<TBlock extends PresentationBlock>({

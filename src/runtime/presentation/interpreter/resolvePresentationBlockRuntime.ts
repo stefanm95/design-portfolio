@@ -14,7 +14,7 @@ import type {
 
 import type { CompositionSemanticMap } from "@/runtime/presentation/semantics";
 
-import type { SceneDefinition } from "@/runtime/presentation/scene";
+import type { SceneRuntime } from "@/runtime/presentation/scene";
 
 import type { PresentationBlock } from "@/types/presentation";
 
@@ -29,7 +29,7 @@ type Props<TBlock extends PresentationBlock> = {
 
   roleMap: CompositionSemanticMap<TBlock>;
 
-  scene: SceneDefinition;
+  scene: SceneRuntime;
 };
 
 export function resolvePresentationBlockRuntime<
