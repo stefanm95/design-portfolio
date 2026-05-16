@@ -1,34 +1,18 @@
-import type { AtmosphericModulation } from "@/runtime/presentation/atmosphere";
+import type { AtmosphericModulation } from "../atmosphere";
 
-import type { MotionCadence } from "@/runtime/presentation/motion";
+import type { MotionCadence } from "../motion";
 
-import type { SpatialPressure } from "@/runtime/presentation/composition";
+import type { SpatialPressure } from "../composition";
 
-export type RenderingAttributes = {
-  surface: {
-    translucency: number;
-    blur: number;
-    elevation: number;
-  };
+import type { RenderingAttributes } from "./types";
 
-  typography: {
-    contrast: number;
-    softness: number;
-    density: number;
-  };
+import { resolveSurfaceTreatment } from "./resolveSurfaceTreatment";
 
-  cinematic: {
-    intensity: number;
-    motionPresence: number;
-    atmosphericDepth: number;
-  };
+import { resolveDepthTreatment } from "./resolveDepthTreatment";
 
-  overlays: {
-    opacity: number;
-    noise: number;
-    blur: number;
-  };
-};
+import { resolveOverlayTreatment } from "./resolveOverlayTreatment";
+
+import { resolveMotionTreatment } from "./resolveMotionTreatment";
 
 type Props = {
   atmospheric: AtmosphericModulation;
@@ -43,44 +27,26 @@ export function resolveRenderingAttributes({
   motion,
   spatialPressure,
 }: Props): RenderingAttributes {
-  const pressureMultiplier =
-    spatialPressure === "compressed"
-      ? 0.9
-      : spatialPressure === "spacious"
-        ? 1.1
-        : 1;
-
   return {
-    surface: {
-      translucency: atmospheric.overlays.opacity * 0.8,
+    surface: resolveSurfaceTreatment({
+      atmospheric,
+      spatialPressure,
+    }),
 
-      blur: atmospheric.overlays.blur,
+    depth: resolveDepthTreatment({
+      atmospheric,
+    }),
 
-      elevation: atmospheric.cinematic.atmosphericDepth * pressureMultiplier,
-    },
+    overlay: resolveOverlayTreatment({
+      atmospheric,
+    }),
 
-    typography: {
-      contrast: atmospheric.visual.contrast,
+    motion: resolveMotionTreatment({
+      motion,
+    }),
 
-      softness: motion.transitionSoftness,
+    atmosphere: atmospheric,
 
-      density: pressureMultiplier,
-    },
-
-    cinematic: {
-      intensity: atmospheric.cinematic.motionIntensity,
-
-      motionPresence: motion.transitionSoftness,
-
-      atmosphericDepth: atmospheric.cinematic.atmosphericDepth,
-    },
-
-    overlays: {
-      opacity: atmospheric.overlays.opacity,
-
-      noise: atmospheric.overlays.noise,
-
-      blur: atmospheric.overlays.blur,
-    },
+    spatialPressure,
   };
 }

@@ -16,17 +16,41 @@ function resolveSurfaceIntensity(
   atmosphere: AtmosphereState,
   rendering: RenderingAttributes,
 ): SurfaceIntensity {
-  if (atmosphere === "immersive" && rendering.cinematic.intensity > 0.75) {
+  const cinematicDepth = rendering.depth.cinematicDepth;
+
+  const atmosphericDepth = rendering.atmosphere.cinematic.atmosphericDepth;
+
+  //
+  // IMMERSIVE
+  //
+
+  if (
+    atmosphere === "immersive" &&
+    cinematicDepth > 1 &&
+    atmosphericDepth > 1
+  ) {
     return "deep";
   }
+
+  //
+  // EDITORIAL
+  //
 
   if (atmosphere === "editorial") {
     return "soft";
   }
 
+  //
+  // QUIET / MINIMAL
+  //
+
   if (atmosphere === "minimal" || atmosphere === "quiet") {
     return "minimal";
   }
+
+  //
+  // DEFAULT
+  //
 
   return "medium";
 }

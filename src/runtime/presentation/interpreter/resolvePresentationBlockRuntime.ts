@@ -90,6 +90,10 @@ export function resolvePresentationBlockRuntime<
     role,
 
     runtime: {
+      rendering: snapshot.rendering,
+
+      atmosphericModulation: snapshot.atmosphericModulation,
+
       transition,
 
       semanticBehavior,

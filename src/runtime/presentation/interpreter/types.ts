@@ -57,6 +57,10 @@ export type ResolvedPresentationBlockRuntime<TBlock extends PresentationBlock> =
     runtime: {
       motion: MotionCadence;
 
+      rendering: RenderingAttributes;
+
+      atmosphericModulation: AtmosphericModulation;
+
       transition: NarrativeTransition;
 
       spatialBehavior: SpatialBehavior;
