@@ -6,11 +6,12 @@ import type { SceneRuntime } from "@/runtime/presentation/scene";
 
 import type { PresentationProfile } from "@/runtime/presentation/profiles";
 
-import { resolveAtmosphere } from "@/runtime/presentation/resolvers";
-
 import type { PresentationRuntimeSnapshot } from "./types";
 
 import { resolveCadence } from "../motion";
+
+import { resolveAtmosphericModulation } from "../atmosphere";
+import { resolveAtmosphere } from "../resolvers";
 
 type Props = {
   composition: CompositionContract;
@@ -24,11 +25,14 @@ export function resolvePresentationSnapshot({
   composition,
   scene,
 }: Props): PresentationRuntimeSnapshot {
+  const atmosphere = resolveAtmosphere({
+    scene,
+    composition,
+  });
   return {
-    atmosphere: resolveAtmosphere({
-      scene,
-      composition,
-    }),
+    atmosphere,
+
+    atmosphericModulation: resolveAtmosphericModulation(atmosphere),
 
     spatial: {
       cadence: composition.rhythm,

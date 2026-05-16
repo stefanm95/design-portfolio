@@ -1,5 +1,5 @@
 import {
-  resolveBlockSpacing,
+  resolveContextualSpacing,
   resolveSpatialBehavior,
 } from "@/runtime/presentation/composition";
 
@@ -17,6 +17,7 @@ import type {
   ResolvedPresentationBlockRuntime,
 } from "./types";
 import type { RuntimeBlockRelationship } from "./relationships";
+import { resolveContextualMotion } from "../motion";
 
 type Props<TBlock extends PresentationBlock> = {
   block: TBlock;
@@ -55,9 +56,16 @@ export function resolvePresentationBlockRuntime<
 
   const spatialBehavior = resolveSpatialBehavior(role);
 
-  const spacing = resolveBlockSpacing({
+  const spacing = resolveContextualSpacing({
     behavior: spatialBehavior,
     snapshot,
+    relationships,
+  });
+
+  const motion = resolveContextualMotion({
+    cadence: snapshot.motion,
+
+    relationships,
   });
 
   return {
@@ -68,6 +76,8 @@ export function resolvePresentationBlockRuntime<
     role,
 
     runtime: {
+      motion,
+
       spatialBehavior,
 
       scene: snapshot.scene,

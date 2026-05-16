@@ -9,3 +9,5 @@ export { resolveSpatialPressure } from "./resolveSpatialPressure";
 export { spatialScale } from "./scale";
 
 export type { SpatialBehavior, SpatialPressure } from "./types";
+
+export { resolveContextualSpacing } from "./resolveContextualSpacing";

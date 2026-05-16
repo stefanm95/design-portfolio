@@ -51,6 +51,7 @@ export {
   resolveSpatialBehavior,
   resolveSpatialPressure,
   spatialScale,
+  resolveContextualSpacing,
 } from "./spacing";
 
 //

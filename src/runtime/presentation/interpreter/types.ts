@@ -22,6 +22,7 @@ import type {
 } from "../profiles";
 import type { MotionCadence } from "../motion";
 import type { RuntimeBlockRelationship } from "./relationships";
+import type { AtmosphericModulation } from "../atmosphere/resolveAtmosphericModulation";
 
 //
 // RUNTIME PRIMITIVES
@@ -47,6 +48,8 @@ export type ResolvedPresentationBlockRuntime<TBlock extends PresentationBlock> =
     role: CompositionSemantic;
 
     runtime: {
+      motion: MotionCadence;
+
       spatialBehavior: SpatialBehavior;
 
       scene: SceneRuntime;
@@ -79,6 +82,8 @@ export type PresentationRuntime = {
 
 export type PresentationRuntimeSnapshot = {
   atmosphere: RuntimeAtmosphere;
+
+  atmosphericModulation: AtmosphericModulation;
 
   spatial: {
     cadence: RuntimeCadence;

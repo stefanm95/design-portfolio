@@ -4,6 +4,8 @@ export { MotionCadenceProvider } from "./MotionCadenceProvider";
 
 export { useMotionCadence } from "./useMotionCadence";
 
+export { resolveContextualMotion } from "./resolveContextualMotion";
+
 export {
   cinematicEasing,
   resolveMotionEasing,
