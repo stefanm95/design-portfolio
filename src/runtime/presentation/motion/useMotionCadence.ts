@@ -21,6 +21,7 @@ export function useMotionCadence(): MotionCadence {
         duration: 0.6,
         delay: 0.08,
         offset: 24,
+        ease: [0.22, 1, 0.36, 1],
       },
 
       reveal: {

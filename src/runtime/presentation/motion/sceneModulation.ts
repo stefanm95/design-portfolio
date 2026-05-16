@@ -1,6 +1,7 @@
 import type { SceneId } from "../scene/sceneRegistry";
 import { sceneRegistry } from "../scene/sceneRegistry";
 import type { MotionCadence } from "./cadence";
+import { cinematicEasing, type CubicBezier } from "./resolveMotionEasing";
 
 /**
  * Scene Modulation Contract
@@ -125,6 +126,22 @@ export function resolveSceneModulation(sceneId: SceneId): SceneModulation {
   };
 }
 
+function resolveSceneEasing(
+  restraint: number,
+  softness: number,
+  currentEase: CubicBezier,
+): CubicBezier {
+  if (restraint >= 1.15) {
+    return cinematicEasing.tight;
+  }
+
+  if (softness >= 1.1) {
+    return cinematicEasing.soft;
+  }
+
+  return currentEase;
+}
+
 /**
  * Apply scene modulation to cadence
  *
@@ -140,6 +157,11 @@ export function applySceneModulation(
       duration: cadence.fade.duration * modulation.cadenceSoftness,
       delay: cadence.fade.delay,
       offset: cadence.fade.offset * modulation.spacingPressure,
+      ease: resolveSceneEasing(
+        modulation.motionRestraint,
+        modulation.cadenceSoftness,
+        cadence.fade.ease,
+      ),
     },
 
     reveal: {

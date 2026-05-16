@@ -11,8 +11,8 @@ import type {
 import type { Project } from "@/types/projects";
 
 import {
-  cinematicSpacing,
-  editorialSpacing,
+  editorialBlockRoles,
+  cinematicBlockRoles,
   MotionCadenceProvider,
   resolveCompositionContract,
 } from "@/runtime/presentation";
@@ -29,6 +29,7 @@ import {
 } from "@/presentation/renderers/registryResolver";
 import type { CompositionContract } from "@/runtime/presentation/composition";
 import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
+import { resolveBlockSpacing } from "@/runtime/presentation/composition/spacing/resolveBlockSpacing";
 
 type Props = {
   project: Project;
@@ -60,10 +61,17 @@ function renderCinematicPresentation(
 
     const atmosphere = resolveAtmosphere(presentation.mode, scene);
 
+    const role = cinematicBlockRoles[block.type];
+
+    const spacing = resolveBlockSpacing({
+      role,
+      composition: runtime.composition,
+    });
+
     return (
       <div
         key={`${block.type}-${blockIndex}`}
-        className={cinematicSpacing[block.type]}
+        className={spacing}
         data-scene={scene}
         data-atmosphere={atmosphere}
         data-profile={runtime.profileVariant}
@@ -96,10 +104,17 @@ function renderEditorialPresentation(
 
     const atmosphere = resolveAtmosphere(presentation.mode, scene);
 
+    const role = editorialBlockRoles[block.type];
+
+    const spacing = resolveBlockSpacing({
+      role,
+      composition: runtime.composition,
+    });
+
     return (
       <div
         key={`${block.type}-${blockIndex}`}
-        className={editorialSpacing[block.type]}
+        className={spacing}
         data-scene={scene}
         data-atmosphere={atmosphere}
         data-profile={runtime.profileVariant}

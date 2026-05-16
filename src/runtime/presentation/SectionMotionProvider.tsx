@@ -3,6 +3,7 @@ import { useMemo } from "react";
 import type { CompositionContract } from "./composition";
 import { MotionCadenceProvider } from "./motion/MotionCadenceProvider";
 import { useScene } from "./scene/useScene";
+import { neutralCompositionReactivity } from "./composition/reactivity/defaults";
 
 /**
  * Section Motion Provider
@@ -38,6 +39,7 @@ export function SectionMotionProvider({ children }: { children: ReactNode }) {
       atmosphere: "cinematic",
       overlays: true,
       sceneIntensity: "balanced",
+      reactivity: neutralCompositionReactivity,
     }),
     [],
   );

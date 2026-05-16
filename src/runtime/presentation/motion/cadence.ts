@@ -1,3 +1,4 @@
+import { resolveMotionEasing, type CubicBezier } from "..";
 import type { CompositionContract } from "../composition";
 import {
   resolveCompositionMotionInfluence,
@@ -23,6 +24,7 @@ export type MotionCadence = {
     duration: number;
     delay: number;
     offset: number; // y-axis movement
+    ease: CubicBezier;
   };
 
   // Reveal motion
@@ -95,7 +97,11 @@ export function resolveCadence(contract: CompositionContract): MotionCadence {
     fade: {
       duration: rhythmProfile.duration * transitionSoftness,
       delay: rhythmProfile.transitionDelay,
-      offset: rhythmProfile.revealOffset * densityOffsetMultiplier,
+      offset:
+        rhythmProfile.revealOffset *
+        densityOffsetMultiplier *
+        motionInfluence.offsetModifier,
+      ease: resolveMotionEasing(motionInfluence),
     },
 
     reveal: {

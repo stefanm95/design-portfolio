@@ -5,6 +5,12 @@ export { MotionCadenceProvider } from "./MotionCadenceProvider";
 export { useMotionCadence } from "./useMotionCadence";
 
 export {
+  cinematicEasing,
+  resolveMotionEasing,
+  type CubicBezier,
+} from "./resolveMotionEasing";
+
+export {
   applySceneModulation,
   resolveSceneModulation,
   type SceneModulation,

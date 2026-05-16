@@ -18,5 +18,9 @@ export { useCompositionReactivity } from "./useCompositionReactivity";
 export { default as PresentationProvider } from "./PresentationProvider";
 export { SectionMotionProvider } from "./SectionMotionProvider";
 export { CompositionReactivityContext } from "./CompositionReactivityContext";
+export {
+  cinematicBlockRoles,
+  editorialBlockRoles,
+} from "./semantics/blockRoles";
 
 // export { default as PresentationRuntime } from "./orchestration/PresentationRuntime";

@@ -13,28 +13,26 @@ type Props = {
   className?: string;
 };
 
-const transitionEases = {
-  soft: [0.25, 1, 0.5, 1],
-  balanced: [0.22, 1, 0.36, 1],
-  dramatic: [0.16, 1, 0.3, 1],
-} as const;
-
 function resolveAxis(direction: RevealDirection, distance: number) {
+  const directionalMultiplier =
+    direction === "left" || direction === "right" ? 0.8 : 1;
+  const effectiveDistance = distance * directionalMultiplier;
+
   switch (direction) {
     case "up":
-      return { x: 0, y: distance };
+      return { x: 0, y: effectiveDistance };
 
     case "down":
-      return { x: 0, y: -distance };
+      return { x: 0, y: -effectiveDistance };
 
     case "left":
-      return { x: distance, y: 0 };
+      return { x: effectiveDistance, y: 0 };
 
     case "right":
-      return { x: -distance, y: 0 };
+      return { x: -effectiveDistance, y: 0 };
 
     default:
-      return { x: 0, y: distance };
+      return { x: 0, y: effectiveDistance };
   }
 }
 
@@ -47,7 +45,10 @@ export default function Reveal({
 }: Props) {
   const cadence = useMotionCadence();
 
-  const axis = resolveAxis(direction, cadence.reveal.distance);
+  const restrainedDistance =
+    cadence.reveal.distance / (cadence.motionRestraint ?? 1);
+
+  const axis = resolveAxis(direction, restrainedDistance);
 
   return (
     <div className={`overflow-hidden ${className ?? ""}`}>
@@ -69,7 +70,7 @@ export default function Reveal({
         transition={{
           duration: cadence.reveal.duration,
 
-          ease: transitionEases.balanced,
+          ease: cadence.fade.ease,
         }}
       >
         {children}

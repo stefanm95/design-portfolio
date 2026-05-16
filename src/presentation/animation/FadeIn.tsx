@@ -11,12 +11,6 @@ type Props = {
   delay?: number;
 };
 
-const transitionEases = {
-  soft: [0.25, 1, 0.5, 1],
-  balanced: [0.22, 1, 0.36, 1],
-  dramatic: [0.16, 1, 0.3, 1],
-} as const;
-
 export default function FadeIn({
   children,
 
@@ -46,7 +40,7 @@ export default function FadeIn({
 
         delay: cadence.fade.delay + delay,
 
-        ease: transitionEases.balanced,
+        ease: cadence.fade.ease,
       }}
     >
       {children}

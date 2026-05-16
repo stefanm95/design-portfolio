@@ -45,6 +45,8 @@ export type CompositionMotionInfluence = {
    * Range: 0.85-1.15
    */
   pressureSoftness: number;
+
+  offsetModifier: number;
 };
 
 /**
@@ -82,6 +84,8 @@ export function resolveCompositionMotionInfluence(
   // Reveal timing modifier comes directly from reactivity
   const revealTimeModifier = reactivity.revealTimeModifier;
 
+  const offsetModifier = reactivity.breathing.breathingFactor;
+
   // Stagger modifier based on stagger distribution
   let staggerModifier = 1.0;
   if (reactivity.pacing.staggerDistribution === "compressed") {
@@ -107,6 +111,7 @@ export function resolveCompositionMotionInfluence(
     staggerModifier,
     breathingDelayModifier,
     pressureSoftness,
+    offsetModifier,
   };
 }
 

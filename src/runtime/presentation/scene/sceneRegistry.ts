@@ -15,14 +15,6 @@ export const sceneRegistry = {
     tone: "reflective",
   },
 
-  about: {
-    id: "about",
-
-    atmosphere: "minimal",
-
-    tone: "structured",
-  },
-
   projects: {
     id: "projects",
 
@@ -37,6 +29,14 @@ export const sceneRegistry = {
     atmosphere: "technical",
 
     tone: "systemic",
+  },
+
+  about: {
+    id: "about",
+
+    atmosphere: "minimal",
+
+    tone: "structured",
   },
 
   contact: {
