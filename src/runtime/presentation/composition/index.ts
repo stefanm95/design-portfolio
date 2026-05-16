@@ -1,23 +1,35 @@
-import { compositionDensity } from "./density";
+//
+// FOUNDATIONS
+//
 
-import { compositionRhythm } from "./rhythm";
+export { compositionDensity } from "./density";
 
-import { gridSpacing, stackSpacing } from "./spacing";
+export { compositionRhythm } from "./rhythm";
 
-import { sectionSpacing } from "./section";
+export { compositionStack } from "./stack";
 
-import { compositionStack } from "./stack";
+export { sectionLayouts } from "./layout";
 
-import { sectionLayouts } from "./layout";
+export { sectionSpacing } from "./section";
 
-import { projectComposition } from "./projects";
+export { gridSpacing, stackSpacing } from "./gridSpacing";
 
-import {
+export { projectComposition } from "./projects";
+
+//
+// CONTRACTS
+//
+
+export {
   resolveCompositionContract,
   type CompositionContract,
 } from "./contract";
 
-import {
+//
+// REACTIVITY
+//
+
+export {
   resolveCompositionReactivity,
   resolveCompositionPacing,
   resolveCompositionBreathing,
@@ -28,23 +40,15 @@ import {
   type CompositionDensityReactivity,
 } from "./reactivity";
 
+//
+// SPATIAL ORCHESTRATION
+//
+
 export {
-  type CompositionContract,
-  compositionDensity,
-  compositionRhythm,
-  compositionStack,
-  gridSpacing,
-  projectComposition,
-  resolveCompositionContract,
-  sectionLayouts,
-  sectionSpacing,
-  stackSpacing,
-  resolveCompositionReactivity,
-  resolveCompositionPacing,
-  resolveCompositionBreathing,
-  resolveCompositionDensity,
-  type CompositionReactivityContextType,
-  type CompositionPacing,
-  type CompositionBreathing,
-  type CompositionDensityReactivity,
-};
+  resolveBlockSpacing,
+  resolveSpatialBehavior,
+  resolveSpatialPressure,
+  spatialScale,
+  type SpatialBehavior,
+  type SpatialPressure,
+} from "./spacing";

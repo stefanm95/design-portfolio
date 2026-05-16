@@ -4,16 +4,16 @@ import { resolveSpatialPressure } from "./resolveSpatialPressure";
 
 import type { CompositionContract } from "../contract";
 
-import type { SpatialRole } from "./types";
+import type { SpatialBehavior } from "./types";
 
 type Props = {
-  role: SpatialRole;
+  behavior: SpatialBehavior;
 
   composition: CompositionContract;
 };
 
-export function resolveBlockSpacing({ role, composition }: Props) {
+export function resolveBlockSpacing({ behavior, composition }: Props) {
   const pressure = resolveSpatialPressure(composition);
 
-  return spatialScale[pressure][role];
+  return spatialScale[pressure][behavior];
 }

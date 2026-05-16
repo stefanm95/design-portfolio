@@ -1,11 +1,5 @@
-// runtime/presentation/composition/spacing/types.ts
+export type CompositionRole = "intro" | "supporting" | "feature" | "transition";
 
-export type SpatialRole =
-  | "intro"
-  | "supporting"
-  | "feature"
-  | "immersive"
-  | "transition"
-  | "compact";
+export type SpatialBehavior = "immersive" | "balanced" | "compact";
 
 export type SpatialPressure = "compressed" | "balanced" | "spacious";

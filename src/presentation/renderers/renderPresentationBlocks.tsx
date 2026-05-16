@@ -5,7 +5,10 @@ import type {
   PresentationBlock,
 } from "@/types/presentation";
 
-import type { CompositionContract } from "@/runtime/presentation/composition";
+import {
+  resolveSpatialBehavior,
+  type CompositionContract,
+} from "@/runtime/presentation/composition";
 
 import {
   resolveAtmosphere,
@@ -14,10 +17,7 @@ import {
 
 import { resolveBlockSpacing } from "@/runtime/presentation/composition/spacing/resolveBlockSpacing";
 
-import type {
-  PresentationRegistry,
-  PresentationRoleMap,
-} from "./types";
+import type { PresentationRegistry, PresentationRoleMap } from "./types";
 
 import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
 
@@ -47,9 +47,8 @@ export function renderPresentationBlocks({
   roleMap,
 }: RenderPresentationBlocksProps) {
   return presentation.blocks.map((block, blockIndex) => {
-    const Component = registry[
-      block.type as keyof typeof registry
-    ];
+    const blockType = block.type as keyof PresentationRegistry;
+    const Component = registry[block.type as keyof typeof registry];
 
     if (!Component) {
       return null;
@@ -57,17 +56,18 @@ export function renderPresentationBlocks({
 
     const scene = resolveScene(block.type);
 
-    const atmosphere = resolveAtmosphere(
-      presentation.mode,
-      scene,
-    );
+    const atmosphere = resolveAtmosphere(presentation.mode, scene);
 
-    const role = roleMap[
-      block.type as keyof typeof roleMap
-    ];
+    const role = roleMap[blockType];
+
+    if (!role) {
+      return null;
+    }
+
+    const spatialBehavior = resolveSpatialBehavior(role);
 
     const spacing = resolveBlockSpacing({
-      role,
+      behavior: spatialBehavior,
       composition: runtime.composition,
     });
 
@@ -80,12 +80,8 @@ export function renderPresentationBlocks({
         data-profile={runtime.profileVariant}
         data-density={runtime.composition.density}
         data-rhythm={runtime.composition.rhythm}
-        data-transition={
-          runtime.composition.transition
-        }
-        data-scene-intensity={
-          runtime.composition.sceneIntensity
-        }
+        data-transition={runtime.composition.transition}
+        data-scene-intensity={runtime.composition.sceneIntensity}
       >
         <Component
           project={project}

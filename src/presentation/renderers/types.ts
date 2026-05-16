@@ -28,6 +28,8 @@ export type PresentationRole =
   | "detail"
   | "immersive"
   | "meta"
-  | "closing";
+  | "closing"
+  | "section"
+  | "feature";
 
 export type PresentationRoleMap = Record<string, PresentationRole>;
