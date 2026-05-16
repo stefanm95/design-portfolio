@@ -2,19 +2,11 @@ import type { ComponentType } from "react";
 
 import type { Project } from "@/types/projects";
 
-import type {
-  CinematicPresentationBlock,
-  EditorialPresentationBlock,
-} from "@/types/presentation";
+import type { PresentationBlock } from "@/types/presentation";
 
-export type {
-  CinematicPresentationBlock,
-  EditorialPresentationBlock,
-} from "@/types/presentation";
+export type { PresentationBlock } from "@/types/presentation";
 
-export type PresentationBlockRendererProps<
-  TBlock = CinematicPresentationBlock | EditorialPresentationBlock,
-> = {
+export type PresentationBlockRendererProps<TBlock = PresentationBlock> = {
   project: Project;
 
   block: TBlock;
@@ -22,10 +14,20 @@ export type PresentationBlockRendererProps<
   index: number;
 };
 
-export type CinematicBlockRenderer = ComponentType<
-  PresentationBlockRendererProps<CinematicPresentationBlock>
->;
+export type PresentationBlockRenderer<TBlock = PresentationBlock> =
+  ComponentType<PresentationBlockRendererProps<TBlock>>;
 
-export type EditorialBlockRenderer = ComponentType<
-  PresentationBlockRendererProps<EditorialPresentationBlock>
->;
+export type PresentationRegistry = Record<string, PresentationBlockRenderer>;
+
+export type PresentationRole =
+  | "hero"
+  | "intro"
+  | "transition"
+  | "showcase"
+  | "gallery"
+  | "detail"
+  | "immersive"
+  | "meta"
+  | "closing";
+
+export type PresentationRoleMap = Record<string, PresentationRole>;

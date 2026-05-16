@@ -2,12 +2,7 @@ import { compositionDensity } from "./density";
 
 import { compositionRhythm } from "./rhythm";
 
-import {
-  cinematicSpacing,
-  editorialSpacing,
-  gridSpacing,
-  stackSpacing,
-} from "./spacing";
+import { gridSpacing, stackSpacing } from "./spacing";
 
 import { sectionSpacing } from "./section";
 
@@ -34,12 +29,10 @@ import {
 } from "./reactivity";
 
 export {
-  cinematicSpacing,
   type CompositionContract,
   compositionDensity,
   compositionRhythm,
   compositionStack,
-  editorialSpacing,
   gridSpacing,
   projectComposition,
   resolveCompositionContract,
