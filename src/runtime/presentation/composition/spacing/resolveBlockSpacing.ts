@@ -1,20 +1,17 @@
 import { spatialScale } from "./scale";
 
-import type { CompositionContract } from "../contract";
-
 import type { SpatialBehavior } from "./types";
-import type { SceneRuntime } from "@/runtime/presentation/scene";
+
+import type { PresentationRuntimeSnapshot } from "@/runtime/presentation/interpreter/types";
 
 type Props = {
   behavior: SpatialBehavior;
 
-  composition: CompositionContract;
-
-  scene: SceneRuntime;
+  snapshot: PresentationRuntimeSnapshot;
 };
 
-export function resolveBlockSpacing({ behavior, scene }: Props) {
-  const pressure = scene.spatialPressure;
+export function resolveBlockSpacing({ behavior, snapshot }: Props): string {
+  const { spatialPressure } = snapshot.spatial;
 
-  return spatialScale[pressure][behavior];
+  return spatialScale[spatialPressure][behavior];
 }

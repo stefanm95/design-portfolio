@@ -44,27 +44,37 @@ export function renderPresentationBlocks<TBlock extends PresentationBlock>({
 }: RenderPresentationBlocksProps<TBlock>) {
   const resolvedBlocks = resolvePresentationRuntime({
     presentation,
+
     composition: runtime.composition,
+
     registry,
+
     roleMap,
+
     scene: runtime.scene,
+
+    profile: runtime.profile,
   });
 
   return resolvedBlocks.map((resolvedBlock, index) => {
     const Component = resolvedBlock.component;
+
     const block = resolvedBlock.block;
+
+    const blockRuntime = resolvedBlock.runtime;
 
     return (
       <div
         key={`${resolvedBlock.block.type}-${index}`}
-        className={resolvedBlock.spacing}
-        data-scene={resolvedBlock.scene.id}
-        data-atmosphere={resolvedBlock.atmosphere}
+        className={blockRuntime.spacing}
+        data-scene={blockRuntime.scene.id}
+        data-atmosphere={blockRuntime.atmosphere}
         data-profile={runtime.profileVariant}
         data-density={runtime.composition.density}
         data-rhythm={runtime.composition.rhythm}
         data-transition={runtime.composition.transition}
         data-scene-intensity={runtime.composition.sceneIntensity}
+        data-spatial-behavior={blockRuntime.spatialBehavior}
       >
         <Component project={project} block={block} index={index} />
       </div>

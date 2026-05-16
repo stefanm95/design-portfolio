@@ -1,11 +1,7 @@
-import { resolveAtmosphere } from "@/runtime/presentation/resolvers";
-
 import {
   resolveBlockSpacing,
   resolveSpatialBehavior,
 } from "@/runtime/presentation/composition";
-
-import type { CompositionContract } from "@/runtime/presentation/composition";
 
 import type {
   PresentationBlockRenderer,
@@ -14,32 +10,30 @@ import type {
 
 import type { CompositionSemanticMap } from "@/runtime/presentation/semantics";
 
-import type { SceneRuntime } from "@/runtime/presentation/scene";
-
 import type { PresentationBlock } from "@/types/presentation";
 
-import type { ResolvedPresentationBlockRuntime } from "./types";
+import type {
+  PresentationRuntimeSnapshot,
+  ResolvedPresentationBlockRuntime,
+} from "./types";
 
 type Props<TBlock extends PresentationBlock> = {
   block: TBlock;
-
-  composition: CompositionContract;
 
   registry: PresentationRegistry<TBlock>;
 
   roleMap: CompositionSemanticMap<TBlock>;
 
-  scene: SceneRuntime;
+  snapshot: PresentationRuntimeSnapshot;
 };
 
 export function resolvePresentationBlockRuntime<
   TBlock extends PresentationBlock,
 >({
   block,
-  composition,
   registry,
   roleMap,
-  scene,
+  snapshot,
 }: Props<TBlock>): ResolvedPresentationBlockRuntime<TBlock> | null {
   const blockType = block.type as TBlock["type"];
 
@@ -59,22 +53,24 @@ export function resolvePresentationBlockRuntime<
 
   const spacing = resolveBlockSpacing({
     behavior: spatialBehavior,
-    composition,
-    scene,
-  });
-
-  const atmosphere = resolveAtmosphere({
-    scene,
-    composition,
+    snapshot,
   });
 
   return {
     block,
+
     component,
+
     role,
-    spatialBehavior,
-    scene,
-    atmosphere,
-    spacing,
+
+    runtime: {
+      spatialBehavior,
+
+      scene: snapshot.scene,
+
+      atmosphere: snapshot.atmosphere,
+
+      spacing,
+    },
   };
 }
