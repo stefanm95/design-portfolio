@@ -13,6 +13,8 @@ export * from "./composition";
 
 export * from "./motion";
 
+export * from "./resolvers";
+
 export { useCompositionReactivity } from "./composition/reactivity/useCompositionReactivity";
 
 export { default as PresentationProvider } from "./PresentationProvider";

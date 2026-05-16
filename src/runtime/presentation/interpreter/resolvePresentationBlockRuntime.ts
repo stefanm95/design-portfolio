@@ -16,6 +16,7 @@ import type {
   PresentationRuntimeSnapshot,
   ResolvedPresentationBlockRuntime,
 } from "./types";
+import type { RuntimeBlockRelationship } from "./relationships";
 
 type Props<TBlock extends PresentationBlock> = {
   block: TBlock;
@@ -25,6 +26,8 @@ type Props<TBlock extends PresentationBlock> = {
   roleMap: CompositionSemanticMap<TBlock>;
 
   snapshot: PresentationRuntimeSnapshot;
+
+  relationships: RuntimeBlockRelationship;
 };
 
 export function resolvePresentationBlockRuntime<
@@ -34,6 +37,7 @@ export function resolvePresentationBlockRuntime<
   registry,
   roleMap,
   snapshot,
+  relationships,
 }: Props<TBlock>): ResolvedPresentationBlockRuntime<TBlock> | null {
   const blockType = block.type as TBlock["type"];
 
@@ -71,6 +75,8 @@ export function resolvePresentationBlockRuntime<
       atmosphere: snapshot.atmosphere,
 
       spacing,
+
+      relationships,
     },
   };
 }

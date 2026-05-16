@@ -15,6 +15,7 @@ import { resolvePresentationSnapshot } from "./resolvePresentationSnapshot";
 import { resolvePresentationBlockRuntime } from "./resolvePresentationBlockRuntime";
 
 import type { ResolvedPresentationBlockRuntime } from "./types";
+import { resolveBlockRelationships } from "./relationships";
 
 type Props<TBlock extends PresentationBlock> = {
   presentation: {
@@ -46,15 +47,56 @@ export function resolvePresentationRuntime<TBlock extends PresentationBlock>({
     profile,
   });
 
+  const totalBlocks = presentation.blocks.length;
+
   return presentation.blocks
-    .map((block) =>
-      resolvePresentationBlockRuntime({
+    .map((block, index) => {
+      const previousBlock = presentation.blocks[index - 1];
+
+      const nextBlock = presentation.blocks[index + 1];
+
+      const blockType = block.type as TBlock["type"];
+
+      const currentRole = roleMap[blockType];
+
+      if (!currentRole) {
+        return null;
+      }
+
+      const relationships = resolveBlockRelationships({
+        index,
+
+        totalBlocks,
+
+        currentRole,
+
+        previousRole: previousBlock
+          ? roleMap[previousBlock.type as TBlock["type"]]
+          : undefined,
+
+        nextRole: nextBlock
+          ? roleMap[nextBlock.type as TBlock["type"]]
+          : undefined,
+
+        currentAtmosphere: snapshot.atmosphere,
+
+        previousAtmosphere: snapshot.atmosphere,
+
+        nextAtmosphere: snapshot.atmosphere,
+      });
+
+      return resolvePresentationBlockRuntime({
         block,
+
         registry,
+
         roleMap,
+
         snapshot,
-      }),
-    )
+
+        relationships,
+      });
+    })
     .filter(
       (runtime): runtime is ResolvedPresentationBlockRuntime<TBlock> =>
         runtime !== null,

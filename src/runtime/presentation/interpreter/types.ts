@@ -21,6 +21,7 @@ import type {
   PresentationProfileVariant,
 } from "../profiles";
 import type { MotionCadence } from "../motion";
+import type { RuntimeBlockRelationship } from "./relationships";
 
 //
 // RUNTIME PRIMITIVES
@@ -53,6 +54,8 @@ export type ResolvedPresentationBlockRuntime<TBlock extends PresentationBlock> =
       atmosphere: RuntimeAtmosphere;
 
       spacing: string;
+
+      relationships: RuntimeBlockRelationship;
     };
   };
 
