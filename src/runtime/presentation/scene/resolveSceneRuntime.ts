@@ -43,8 +43,5 @@ export function resolveSceneRuntime({
       composition,
       scene,
     }),
-
-    spatialBehavior:
-      scene.breathingBias === "spacious" ? "immersive" : "balanced",
   };
 }
