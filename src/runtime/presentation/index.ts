@@ -19,6 +19,8 @@ export * from "./resolvers";
 
 export * from "./semantics";
 
+export * from "./rendering";
+
 export { useCompositionReactivity } from "./composition/reactivity/useCompositionReactivity";
 
 export { default as PresentationProvider } from "./PresentationProvider";

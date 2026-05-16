@@ -80,6 +80,8 @@ export function resolvePresentationBlockRuntime<
 
       spatialBehavior,
 
+      surfaces: snapshot.surfaces,
+
       scene: snapshot.scene,
 
       atmosphere: snapshot.atmosphere,

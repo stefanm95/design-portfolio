@@ -23,6 +23,8 @@ import type {
 import type { MotionCadence } from "../motion";
 import type { RuntimeBlockRelationship } from "./relationships";
 import type { AtmosphericModulation } from "../atmosphere/resolveAtmosphericModulation";
+import type { RenderingAttributes } from "../rendering";
+import type { RuntimeSurfaceSet } from "../surfaces";
 
 //
 // RUNTIME PRIMITIVES
@@ -59,6 +61,8 @@ export type ResolvedPresentationBlockRuntime<TBlock extends PresentationBlock> =
       spacing: string;
 
       relationships: RuntimeBlockRelationship;
+
+      surfaces: RuntimeSurfaceSet;
     };
   };
 
@@ -101,6 +105,8 @@ export type PresentationRuntimeSnapshot = {
 
   motion: MotionCadence;
 
+  rendering: RenderingAttributes;
+
   environmental: {
     cinematicEnergy: number;
 
@@ -110,6 +116,8 @@ export type PresentationRuntimeSnapshot = {
 
     environmentalPressure: CompositionContract["environmentalPressure"];
   };
+
+  surfaces: RuntimeSurfaceSet;
 
   scene: SceneRuntime;
 };
