@@ -35,7 +35,7 @@ Composition should feel:
 - breathable
 - experientially cohesive
 
-Composition should evolve from:
+Composition evolves from:
 
 ```txt
 manually tuned spacing
@@ -79,7 +79,7 @@ NOT:
 
 ## Composition Responsibilities
 
-The composition system is responsible for:
+The composition system coordinates:
 
 - section assembly
 - cinematic spacing
@@ -89,18 +89,18 @@ The composition system is responsible for:
 - visual breathing
 - environmental continuity
 
-Composition should coordinate:
+Composition coordinates:
 
-- runtime orchestration
 - cadence
 - scene modulation
 - experiential density
+- orchestration influence
 
-WITHOUT:
+WITHOUT becoming:
 
-- adaptive layout systems
-- dynamic render trees
-- generated composition systems
+- adaptive composition systems
+- generated layout systems
+- orchestration engines
 
 ---
 
@@ -115,19 +115,15 @@ Composition contracts define:
 - cinematic softness
 - experiential structure
 
-Composition contracts should remain:
+Composition contracts remain:
 
-### declarative
-
-NOT:
-
-### behavioral engines
+### declarative orchestration semantics
 
 ---
 
 ## Composition Reactivity
 
-Composition should subtly react to:
+Composition subtly reacts to:
 
 - cadence softness
 - scene modulation
@@ -135,7 +131,7 @@ Composition should subtly react to:
 - atmospheric intensity
 - experiential density
 
-Examples:
+---
 
 ### immersive + spacious
 
@@ -182,25 +178,24 @@ NOT:
 
 ### control composition
 
-Meaning:
+Runtime influence includes:
 
 - subtle modulation
 - restrained pacing shifts
 - cinematic spacing influence
 - compositional breathing
 
-NOT:
+WITHOUT:
 
 - dynamic layout generation
 - runtime-authored structure
 - adaptive composition systems
-- orchestration-driven UI generation
 
 ---
 
 ## Composition Layers
 
-## Structural Composition
+### Structural Composition
 
 Defines:
 
@@ -209,13 +204,13 @@ Defines:
 - experiential progression
 - authored structure
 
-Should remain:
+Structural composition remains:
 
-### static and intentional
+### intentional and stable
 
 ---
 
-## Experiential Composition
+### Experiential Composition
 
 Defines:
 
@@ -225,7 +220,7 @@ Defines:
 - cinematic continuity
 - environmental separation
 
-This layer may subtly react to:
+This layer reacts to:
 
 - cadence
 - scene modulation
@@ -233,7 +228,7 @@ This layer may subtly react to:
 
 ---
 
-## Environmental Composition
+### Environmental Composition
 
 Defines:
 
@@ -242,7 +237,7 @@ Defines:
 - visual depth rhythm
 - experiential transitions
 
-Environmental composition should remain:
+Environmental composition remains:
 
 ### restrained and subtle
 
@@ -257,9 +252,9 @@ Density controls:
 - reveal grouping
 - cinematic separation
 
-Density should influence:
+Density influences:
 
-### feeling
+### experiential feeling
 
 NOT:
 
@@ -277,7 +272,7 @@ Rhythm orchestrates:
 - cinematic progression
 - experiential tempo
 
-Rhythm should emerge from:
+Rhythm emerges from:
 
 - profile identity
 - cadence
@@ -286,48 +281,24 @@ Rhythm should emerge from:
 
 ---
 
-## Composition Constraints
-
-Avoid:
-
-❌ Adaptive layout engines  
-❌ Runtime-generated composition  
-❌ Dynamic section restructuring  
-❌ Scene-specific layout systems  
-❌ Behavioral composition graphs  
-❌ Composition state machines  
-❌ Hyper-reactive orchestration  
-❌ Runtime layout intelligence  
-
-Prefer:
-
-✅ Authored composition  
-✅ Runtime-aware pacing  
-✅ Cinematic spacing  
-✅ Experiential continuity  
-✅ Compositional restraint  
-✅ Centralized orchestration  
-✅ Declarative structure  
-
----
-
 ## Composition Reactivity Layer
 
-Composition reactivity should remain:
+Composition reactivity remains:
 
 ### lightweight and compositional
 
-It should:
+It subtly influences:
 
-- subtly influence spacing
-- subtly influence breathing
-- subtly influence reveal grouping
+- spacing
+- breathing
+- reveal grouping
+- cinematic pacing
 
-It should NOT:
+WITHOUT becoming:
 
-- become orchestration infrastructure
-- become runtime state management
-- become adaptive rendering logic
+- orchestration infrastructure
+- runtime state management
+- adaptive rendering logic
 
 ---
 
@@ -340,11 +311,13 @@ Presentation consumes:
 - cinematic spacing
 - experiential grouping
 
-Presentation should NOT:
+Presentation remains:
 
-- own composition orchestration
-- duplicate composition semantics
-- dynamically restructure composition
+### composition-consumptive
+
+NOT:
+
+### composition-authoritative
 
 ---
 
@@ -354,17 +327,13 @@ Every composition semantic MUST:
 
 ### produce meaningful experiential consequence
 
-If a composition abstraction:
+The system evolves through:
 
-- does not improve pacing
-- does not improve cinematic feeling
-- does not improve experiential cohesion
+### deeper cinematic meaning
 
-REMOVE IT.
+NOT:
 
-Avoid:
-
-### composition inflation
+### compositional inflation
 
 ---
 

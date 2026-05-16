@@ -67,8 +67,6 @@ profile
 → rendered experience
 ```
 
-This hierarchy is important.
-
 Experiential behavior should emerge from:
 
 ### orchestrated runtime causality
@@ -79,21 +77,13 @@ NOT:
 
 ---
 
-### Experiential Principles
+## Experiential Principles
 
-## 1. Composition First
+### 1. Composition First
 
 Pages are assembled through:
 
 ### authored composition systems
-
-Sections should:
-
-- remain isolated
-- expose clean interfaces
-- avoid orchestration leakage
-- consume runtime behavior
-- avoid owning experiential semantics
 
 Composition should evolve from:
 
@@ -113,15 +103,11 @@ WITHOUT losing:
 
 ---
 
-## 2. Runtime-Directed Motion
+### 2. Runtime-Directed Motion
 
 Motion should remain:
 
 ### runtime-owned
-
-NOT:
-
-### component-owned
 
 Components consume orchestration through:
 
@@ -129,16 +115,20 @@ Components consume orchestration through:
 - scene modulation
 - runtime providers
 
-Components should NOT:
+The runtime influences:
 
-- hardcode motion semantics
-- own pacing behavior
-- duplicate orchestration logic
-- contain experiential conditionals
+- pacing
+- reveal timing
+- cinematic softness
+- atmospheric restraint
+
+WITHOUT removing:
+
+### authored intentionality
 
 ---
 
-## 3. Scene Modulation
+### 3. Scene Modulation
 
 Scenes are:
 
@@ -158,7 +148,7 @@ Scenes contextually influence:
 
 Scenes should:
 
-### modulate baseline orchestration
+### modulate orchestration
 
 NOT:
 
@@ -172,9 +162,9 @@ This preserves:
 
 ---
 
-## 4. Runtime Composition Reactivity
+### 4. Runtime Composition Reactivity
 
-Composition itself should subtly react to:
+Composition subtly reacts to:
 
 - cadence
 - scene modulation
@@ -192,9 +182,9 @@ This includes:
 
 WITHOUT:
 
-- changing layout structure
 - generating layouts
-- adaptive render systems
+- restructuring composition
+- producing adaptive rendering systems
 
 The runtime should:
 
@@ -206,9 +196,9 @@ NOT:
 
 ---
 
-## 5. Themes As Experiential Identity
+### 5. Themes As Experiential Identity
 
-Themes are evolving from:
+Themes evolve from:
 
 ```txt
 style presets
@@ -218,19 +208,19 @@ into:
 
 ### experiential runtime identities
 
-Themes should eventually influence:
+Themes may influence:
 
-- cadence softness
 - atmospheric pressure
 - cinematic restraint
 - environmental depth
 - compositional feeling
+- visual tone
 
 WITHOUT becoming:
 
-- plugin systems
-- adaptive engines
-- runtime gimmicks
+- runtime engines
+- plugin architectures
+- adaptive systems
 
 Themes remain:
 
@@ -240,9 +230,9 @@ Themes remain:
 
 ## System Boundaries
 
-## Content
+### Content
 
-Defines:
+Content defines:
 
 ### meaning
 
@@ -252,17 +242,11 @@ Content contains:
 - semantic information
 - authored messaging
 
-Content should NOT:
-
-- orchestrate behavior
-- own presentation logic
-- contain runtime semantics
-
 ---
 
-## Presentation
+### Presentation
 
-Defines:
+Presentation defines:
 
 ### rendering behavior
 
@@ -272,7 +256,7 @@ Presentation consumes:
 - composition contracts
 - experiential semantics
 
-Presentation should remain:
+Presentation remains:
 
 - declarative
 - compositional
@@ -280,9 +264,9 @@ Presentation should remain:
 
 ---
 
-## Runtime
+### Runtime
 
-Defines:
+Runtime defines:
 
 ### experiential orchestration
 
@@ -294,21 +278,15 @@ Runtime coordinates:
 - composition pacing
 - environmental pressure
 
-Runtime should remain:
+Runtime remains:
 
 ### centralized and restrained
 
-Avoid:
-
-- orchestration sprawl
-- semantic inflation
-- duplicated runtime ownership
-
 ---
 
-## Motion
+### Motion
 
-Defines:
+Motion defines:
 
 ### temporal orchestration
 
@@ -318,19 +296,15 @@ Motion behavior emerges from:
 - scene modulation
 - runtime orchestration
 
-Motion should remain:
+Motion remains:
 
 ### runtime-reactive
 
-NOT:
-
-### component-authored
-
 ---
 
-## Theme
+### Theme
 
-Defines:
+Theme defines:
 
 ### experiential aesthetic language
 
@@ -341,11 +315,13 @@ Themes influence:
 - cinematic atmosphere
 - compositional identity
 
-Themes should NOT:
+Themes support:
 
-- own orchestration logic
-- become runtime engines
-- fragment system cohesion
+### experiential continuity
+
+NOT:
+
+### orchestration authority
 
 ---
 
@@ -358,13 +334,6 @@ Rendering should remain:
 - compositional
 - runtime-aware
 
-Rendering should NOT contain:
-
-- hardcoded emotional logic
-- duplicated cadence logic
-- duplicated scene logic
-- orchestration ownership
-
 Components are:
 
 ### experiential render surfaces
@@ -375,49 +344,47 @@ NOT:
 
 ---
 
-### Runtime Ownership Principles
+## Runtime Ownership Principles
 
-## Cadence
+### Cadence
 
 Cadence is:
 
 ### experiential pacing infrastructure
 
-Cadence currently orchestrates:
+Cadence influences:
 
-- fade timing
 - reveal timing
-- stagger
-- section delay
 - cinematic softness
 - atmospheric intensity
 - motion restraint
+- experiential pacing
 
-Cadence should NOT evolve into:
+Cadence should remain:
 
-### global experiential state
-
----
-
-## Providers
-
-Providers should remain:
-
-### lightweight experiential bridges
-
-NOT:
-
-### orchestration god objects
-
-Avoid:
-
-- duplicated orchestration resolution
-- hidden runtime behavior
-- provider inflation
+### restrained orchestration infrastructure
 
 ---
 
-## Presentation Renderers
+### Providers
+
+Providers are:
+
+### orchestration bridges
+
+Providers connect:
+
+- runtime semantics
+- orchestration contracts
+- presentation consumption
+
+WITHOUT becoming:
+
+### orchestration centers
+
+---
+
+### Presentation Renderers
 
 Presentation renderers are:
 
@@ -431,7 +398,7 @@ They coordinate:
 
 WITHOUT becoming:
 
-### universal runtime engines
+### universal rendering engines
 
 ---
 
@@ -455,43 +422,24 @@ src/
 
 ---
 
-## Anti-Patterns
+## Architectural Constraints
 
-The architecture intentionally avoids:
+The system intentionally avoids:
 
-❌ Adaptive layout engines  
-❌ Runtime-generated composition  
-❌ Plugin orchestration systems  
-❌ Dynamic render trees  
-❌ Experiential state graphs  
-❌ Semantic inflation  
-❌ Hyper-reactive runtime systems  
-❌ Runtime gimmicks  
-❌ Component-owned orchestration  
-❌ Orchestration duplication  
+- adaptive layout engines
+- runtime-generated composition
+- plugin orchestration systems
+- dynamic render trees
+- hyper-reactive runtime systems
+- orchestration fragmentation
 
----
-
-## Semantic Constraint
-
-Every orchestration semantic MUST:
-
-### produce meaningful experiential consequence
-
-If a semantic layer does not visibly influence experience:
-REMOVE IT.
-
-Avoid:
-
-### semantic inflation
-
-The system should evolve through:
+The architecture evolves through:
 
 ### deeper experiential meaning
 
 NOT:
 
-### more infrastructure
+### infrastructure expansion
 
 ---
 
