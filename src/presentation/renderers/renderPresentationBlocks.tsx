@@ -10,8 +10,10 @@ import type { PresentationProfileVariant } from "@/runtime/presentation/profiles
 
 import type { CompositionSemanticMap } from "@/runtime/presentation/semantics";
 
-import { resolvePresentationRuntime } from "@/runtime/presentation/interpreter";
-import type { SceneRuntime } from "@/runtime/presentation/scene";
+import {
+  resolvePresentationRuntime,
+  type PresentationRuntime,
+} from "@/runtime/presentation/interpreter";
 
 export type RuntimePresentationAttributes = {
   composition: CompositionContract;
@@ -26,13 +28,11 @@ type RenderPresentationBlocksProps<TBlock extends PresentationBlock> = {
     blocks: TBlock[];
   };
 
-  runtime: RuntimePresentationAttributes;
+  runtime: PresentationRuntime;
 
   registry: PresentationRegistry<TBlock>;
 
   roleMap: CompositionSemanticMap<TBlock>;
-
-  scene: SceneRuntime;
 };
 
 export function renderPresentationBlocks<TBlock extends PresentationBlock>({
@@ -41,14 +41,13 @@ export function renderPresentationBlocks<TBlock extends PresentationBlock>({
   runtime,
   registry,
   roleMap,
-  scene,
 }: RenderPresentationBlocksProps<TBlock>) {
   const resolvedBlocks = resolvePresentationRuntime({
     presentation,
     composition: runtime.composition,
     registry,
     roleMap,
-    scene,
+    scene: runtime.scene,
   });
 
   return resolvedBlocks.map((resolvedBlock, index) => {

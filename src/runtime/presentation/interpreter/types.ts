@@ -4,8 +4,15 @@ import type { PresentationBlockRenderer } from "@/presentation/renderers/types";
 
 import type { CompositionSemantic } from "@/runtime/presentation/semantics";
 
-import type { SpatialBehavior } from "@/runtime/presentation/composition";
+import type {
+  CompositionContract,
+  SpatialBehavior,
+} from "@/runtime/presentation/composition";
 import type { SceneAtmosphere, SceneRuntime } from "../scene";
+import type {
+  PresentationProfile,
+  PresentationProfileVariant,
+} from "../profiles";
 
 export type ResolvedPresentationBlockRuntime<TBlock extends PresentationBlock> =
   {
@@ -23,3 +30,13 @@ export type ResolvedPresentationBlockRuntime<TBlock extends PresentationBlock> =
 
     spacing: string;
   };
+
+export type PresentationRuntime = {
+  composition: CompositionContract;
+
+  profile: PresentationProfile;
+
+  profileVariant: PresentationProfileVariant;
+
+  scene: SceneRuntime;
+};

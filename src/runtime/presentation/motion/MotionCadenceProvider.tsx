@@ -2,11 +2,7 @@ import type { ReactNode } from "react";
 
 import { useMemo } from "react";
 
-import type { CompositionContract } from "../composition";
-
-import type { SceneId } from "../scene/definitions";
-
-import { sceneDefinitions } from "../scene/definitions";
+import type { PresentationRuntime } from "../interpreter";
 
 import { resolveCadence } from "./cadence";
 
@@ -22,43 +18,33 @@ import { CompositionReactivityContext } from "../composition/reactivity/Composit
 type Props = {
   children: ReactNode;
 
-  contract: CompositionContract;
-
-  sceneId?: SceneId;
+  runtime: PresentationRuntime;
 };
 
-export function MotionCadenceProvider({ children, contract, sceneId }: Props) {
+export function MotionCadenceProvider({ children, runtime }: Props) {
   const cadence = useMemo(() => {
     //
     // BASE CADENCE
     //
 
-    const baseCadence = resolveCadence(contract);
+    const baseCadence = resolveCadence(runtime.composition);
 
     //
-    // OPTIONAL SCENE MODULATION
+    // SCENE MODULATION
     //
 
-    if (sceneId) {
-      const scene = sceneDefinitions[sceneId];
+    const modulation = resolveSceneModulation({
+      scene: runtime.scene,
+      composition: runtime.composition,
+    });
 
-      const modulation = resolveSceneModulation({
-        scene,
-        composition: contract,
-      });
-
-      return applySceneModulation(baseCadence, modulation);
-    }
-
-    //
-    // DEFAULT
-    //
-
-    return baseCadence;
-  }, [contract, sceneId]);
+    return applySceneModulation(baseCadence, modulation);
+  }, [runtime]);
 
   return (
-    <CompositionReactivityContext.Provider value={contract.reactivity}>
+    <CompositionReactivityContext.Provider
+      value={runtime.composition.reactivity}
+    >
       <MotionCadenceContext.Provider value={cadence}>
         {children}
       </MotionCadenceContext.Provider>

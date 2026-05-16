@@ -1,6 +1,6 @@
 import type { CompositionContract } from "@/runtime/presentation/composition";
 
-import type { SceneDefinition } from "@/runtime/presentation/scene";
+import type { SceneRuntime } from "@/runtime/presentation/scene";
 
 import type { MotionCadence } from "./cadence";
 
@@ -32,7 +32,7 @@ export type SceneModulation = {
 };
 
 type Props = {
-  scene: SceneDefinition;
+  scene: SceneRuntime;
 
   composition: CompositionContract;
 };

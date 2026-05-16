@@ -14,6 +14,7 @@ import { resolveProfile } from "@/runtime/presentation/resolvers";
 import { useScene } from "@/runtime/presentation/scene";
 
 import type { ProjectPresentation } from "@/types/presentation";
+import type { PresentationRuntime } from "./interpreter";
 
 type Props = {
   children: ReactNode;
@@ -53,9 +54,17 @@ export function SectionMotionProvider({ children }: Props) {
         : "balanced",
   );
 
+  const runtime: PresentationRuntime = {
+    composition,
+
+    profile,
+
+    profileVariant: syntheticPresentation.composition?.profile ?? "immersive",
+
+    scene,
+  };
+
   return (
-    <MotionCadenceProvider contract={composition} sceneId={scene.id}>
-      {children}
-    </MotionCadenceProvider>
+    <MotionCadenceProvider runtime={runtime}>{children}</MotionCadenceProvider>
   );
 }

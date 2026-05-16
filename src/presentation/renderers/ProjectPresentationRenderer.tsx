@@ -17,12 +17,10 @@ import { resolveProfile } from "@/runtime/presentation/resolvers";
 
 import { resolvePresentationDialect } from "./presentationDialect";
 
-import {
-  renderPresentationBlocks,
-  type RuntimePresentationAttributes,
-} from "./renderPresentationBlocks";
+import { renderPresentationBlocks } from "./renderPresentationBlocks";
 
 import { sceneDefinitions } from "@/runtime/presentation/scene";
+import type { PresentationRuntime } from "@/runtime/presentation/interpreter";
 
 type Props = {
   project: Project;
@@ -47,17 +45,22 @@ export default function ProjectPresentationRenderer({
     profile.sceneIntensity,
   );
 
-  const runtime: RuntimePresentationAttributes = {
-    composition,
-    profileVariant,
-  };
-
   const scene = resolveSceneRuntime({
     scene: sceneDefinitions.projects,
     composition,
     profile,
     profileVariant,
   });
+
+  const runtime: PresentationRuntime = {
+    composition,
+
+    profile,
+
+    profileVariant,
+
+    scene,
+  };
 
   let content: React.ReactNode;
 
@@ -70,7 +73,6 @@ export default function ProjectPresentationRenderer({
       runtime,
       registry: dialect.registry,
       roleMap: dialect.roleMap,
-      scene,
     });
   } else {
     const dialect = resolvePresentationDialect("editorial");
@@ -81,7 +83,6 @@ export default function ProjectPresentationRenderer({
       runtime,
       registry: dialect.registry,
       roleMap: dialect.roleMap,
-      scene,
     });
   }
 
@@ -96,7 +97,7 @@ export default function ProjectPresentationRenderer({
     >
       <ProjectDivider />
 
-      <MotionCadenceProvider contract={composition}>
+      <MotionCadenceProvider runtime={runtime}>
         <div className={composition.densityClass}>
           <FadeIn>
             <ProjectMeta project={project} index={index} />
