@@ -18,18 +18,3 @@ export type PresentationBlockRenderer<TBlock = PresentationBlock> =
   ComponentType<PresentationBlockRendererProps<TBlock>>;
 
 export type PresentationRegistry = Record<string, PresentationBlockRenderer>;
-
-export type PresentationRole =
-  | "hero"
-  | "intro"
-  | "transition"
-  | "showcase"
-  | "gallery"
-  | "detail"
-  | "immersive"
-  | "meta"
-  | "closing"
-  | "section"
-  | "feature";
-
-export type PresentationRoleMap = Record<string, PresentationRole>;

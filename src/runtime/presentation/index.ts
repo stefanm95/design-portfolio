@@ -21,6 +21,8 @@ export { CompositionReactivityContext } from "./CompositionReactivityContext";
 export {
   cinematicBlockRoles,
   editorialBlockRoles,
-} from "./semantics/blockRoles";
+  type CompositionSemantic,
+  type CompositionSemanticMap,
+} from "./semantics";
 
 // export { default as PresentationRuntime } from "./orchestration/PresentationRuntime";

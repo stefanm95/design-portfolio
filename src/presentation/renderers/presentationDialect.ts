@@ -3,16 +3,17 @@ import { presentationBlockRegistry } from "./index";
 import {
   cinematicBlockRoles,
   editorialBlockRoles,
+  type CompositionSemanticMap,
 } from "@/runtime/presentation";
 
 import type { ProjectPresentation } from "@/types/presentation";
 
-import type { PresentationRegistry, PresentationRoleMap } from "./types";
+import type { PresentationRegistry } from "./types";
 
 export type PresentationDialect = {
   registry: PresentationRegistry;
 
-  roleMap: PresentationRoleMap;
+  roleMap: CompositionSemanticMap;
 };
 
 export function resolvePresentationDialect(
@@ -22,18 +23,21 @@ export function resolvePresentationDialect(
     case "cinematic":
       return {
         registry: presentationBlockRegistry.cinematic,
+
         roleMap: cinematicBlockRoles,
       };
 
     case "editorial":
       return {
         registry: presentationBlockRegistry.editorial,
+
         roleMap: editorialBlockRoles,
       };
 
     default:
       return {
         registry: presentationBlockRegistry.cinematic,
+
         roleMap: cinematicBlockRoles,
       };
   }

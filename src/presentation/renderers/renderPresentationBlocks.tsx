@@ -1,25 +1,16 @@
 import type { Project } from "@/types/projects";
 
-import type {
-  ProjectPresentation,
-  PresentationBlock,
-} from "@/types/presentation";
+import type { ProjectPresentation } from "@/types/presentation";
 
-import {
-  resolveSpatialBehavior,
-  type CompositionContract,
-} from "@/runtime/presentation/composition";
+import type { CompositionContract } from "@/runtime/presentation/composition";
 
-import {
-  resolveAtmosphere,
-  resolveScene,
-} from "@/runtime/presentation/resolvers";
-
-import { resolveBlockSpacing } from "@/runtime/presentation/composition/spacing/resolveBlockSpacing";
-
-import type { PresentationRegistry, PresentationRoleMap } from "./types";
+import type { PresentationRegistry } from "./types";
 
 import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
+
+import type { CompositionSemanticMap } from "@/runtime/presentation/semantics";
+
+import { resolvePresentationRuntime } from "@/runtime/presentation/interpreter";
 
 export type RuntimePresentationAttributes = {
   composition: CompositionContract;
@@ -36,7 +27,7 @@ type RenderPresentationBlocksProps = {
 
   registry: PresentationRegistry;
 
-  roleMap: PresentationRoleMap;
+  roleMap: CompositionSemanticMap;
 };
 
 export function renderPresentationBlocks({
@@ -46,37 +37,22 @@ export function renderPresentationBlocks({
   registry,
   roleMap,
 }: RenderPresentationBlocksProps) {
-  return presentation.blocks.map((block, blockIndex) => {
-    const blockType = block.type as keyof PresentationRegistry;
-    const Component = registry[block.type as keyof typeof registry];
+  const resolvedBlocks = resolvePresentationRuntime({
+    presentation,
+    composition: runtime.composition,
+    registry,
+    roleMap,
+  });
 
-    if (!Component) {
-      return null;
-    }
-
-    const scene = resolveScene(block.type);
-
-    const atmosphere = resolveAtmosphere(presentation.mode, scene);
-
-    const role = roleMap[blockType];
-
-    if (!role) {
-      return null;
-    }
-
-    const spatialBehavior = resolveSpatialBehavior(role);
-
-    const spacing = resolveBlockSpacing({
-      behavior: spatialBehavior,
-      composition: runtime.composition,
-    });
+  return resolvedBlocks.map((resolvedBlock, index) => {
+    const Component = resolvedBlock.component;
 
     return (
       <div
-        key={`${block.type}-${blockIndex}`}
-        className={spacing}
-        data-scene={scene}
-        data-atmosphere={atmosphere}
+        key={`${resolvedBlock.block.type}-${index}`}
+        className={resolvedBlock.spacing}
+        data-scene={resolvedBlock.scene}
+        data-atmosphere={resolvedBlock.atmosphere}
         data-profile={runtime.profileVariant}
         data-density={runtime.composition.density}
         data-rhythm={runtime.composition.rhythm}
@@ -85,8 +61,8 @@ export function renderPresentationBlocks({
       >
         <Component
           project={project}
-          block={block as PresentationBlock}
-          index={blockIndex}
+          block={resolvedBlock.block}
+          index={index}
         />
       </div>
     );
