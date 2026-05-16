@@ -22,6 +22,17 @@ import {
   type CompositionContract,
 } from "./contract";
 
+import {
+  resolveCompositionReactivity,
+  resolveCompositionPacing,
+  resolveCompositionBreathing,
+  resolveCompositionDensity,
+  type CompositionReactivityContextType,
+  type CompositionPacing,
+  type CompositionBreathing,
+  type CompositionDensityReactivity,
+} from "./reactivity";
+
 export {
   cinematicSpacing,
   type CompositionContract,
@@ -35,4 +46,12 @@ export {
   sectionLayouts,
   sectionSpacing,
   stackSpacing,
+  resolveCompositionReactivity,
+  resolveCompositionPacing,
+  resolveCompositionBreathing,
+  resolveCompositionDensity,
+  type CompositionReactivityContextType,
+  type CompositionPacing,
+  type CompositionBreathing,
+  type CompositionDensityReactivity,
 };

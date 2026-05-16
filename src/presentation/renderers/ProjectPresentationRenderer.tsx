@@ -123,7 +123,11 @@ export default function ProjectPresentationRenderer({
 
   const profile = resolveProfile(profileVariant);
 
-  const composition = resolveCompositionContract(presentation, profile);
+  const composition = resolveCompositionContract(
+    presentation,
+    profile,
+    profile.sceneIntensity,
+  );
 
   const runtime: RuntimePresentationAttributes = {
     composition,
@@ -133,7 +137,7 @@ export default function ProjectPresentationRenderer({
 
   return (
     <article
-      className="relative"
+      className='relative'
       data-profile={runtime.profileVariant}
       data-density={composition.density}
       data-rhythm={composition.rhythm}

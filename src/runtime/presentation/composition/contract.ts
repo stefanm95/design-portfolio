@@ -9,6 +9,10 @@ import type { PresentationProfile } from "../profiles/types";
 
 import { compositionDensity } from "./density";
 import { compositionRhythm, type RhythmProfile } from "./rhythm";
+import {
+  resolveCompositionReactivity,
+  type CompositionReactivityContextType,
+} from "./reactivity";
 
 export type CompositionContract = {
   density: CompositionDensity;
@@ -26,11 +30,18 @@ export type CompositionContract = {
   overlays: boolean;
 
   sceneIntensity: NonNullable<PresentationProfile["sceneIntensity"]>;
+
+  /**
+   * Runtime composition reactivity context
+   * Determines subtle composition influence without layout generation
+   */
+  reactivity: CompositionReactivityContextType;
 };
 
 export function resolveCompositionContract(
   presentation: ProjectPresentation,
   profile: PresentationProfile,
+  sceneIntensity?: "soft" | "balanced" | "dramatic",
 ): CompositionContract {
   const density = presentation.composition?.density ?? profile.density;
 
@@ -38,6 +49,8 @@ export function resolveCompositionContract(
 
   const transition =
     presentation.composition?.transitions ?? profile.transitions;
+
+  const reactivity = resolveCompositionReactivity(profile, sceneIntensity);
 
   return {
     density,
@@ -47,6 +60,8 @@ export function resolveCompositionContract(
     transition,
     atmosphere: profile.atmosphere,
     overlays: profile.overlays,
-    sceneIntensity: profile.sceneIntensity ?? "balanced",
+    sceneIntensity:
+      sceneIntensity ?? profile.sceneIntensity ?? ("balanced" as const),
+    reactivity,
   };
 }

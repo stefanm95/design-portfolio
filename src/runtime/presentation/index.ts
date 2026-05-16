@@ -13,7 +13,10 @@ export * from "./composition";
 
 export * from "./motion";
 
+export { useCompositionReactivity } from "./useCompositionReactivity";
+
 export { default as PresentationProvider } from "./PresentationProvider";
 export { SectionMotionProvider } from "./SectionMotionProvider";
+export { CompositionReactivityContext } from "./CompositionReactivityContext";
 
 // export { default as PresentationRuntime } from "./orchestration/PresentationRuntime";

@@ -12,6 +12,7 @@ import {
 } from "./sceneModulation";
 
 import { MotionCadenceContext } from "./MotionCadenceContext";
+import { CompositionReactivityContext } from "../CompositionReactivityContext";
 
 export function MotionCadenceProvider({
   children,
@@ -35,8 +36,10 @@ export function MotionCadenceProvider({
   }, [contract, sceneId]);
 
   return (
-    <MotionCadenceContext.Provider value={cadence}>
-      {children}
-    </MotionCadenceContext.Provider>
+    <CompositionReactivityContext.Provider value={contract.reactivity}>
+      <MotionCadenceContext.Provider value={cadence}>
+        {children}
+      </MotionCadenceContext.Provider>
+    </CompositionReactivityContext.Provider>
   );
 }

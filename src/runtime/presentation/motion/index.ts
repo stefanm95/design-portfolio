@@ -9,3 +9,18 @@ export {
   resolveSceneModulation,
   type SceneModulation,
 } from "./sceneModulation";
+
+export {
+  resolveCompositionMotionInfluence,
+  applyCompositionMotionInfluence,
+  type CompositionMotionInfluence,
+} from "./compositionMotionSemantics";
+
+export {
+  calculateBreathingDelay,
+  calculatePressureStagger,
+  calculateBreathingDistance,
+  applyBreathingModulation,
+  calculateCinematicSpacingModifier,
+  calculateCompositionalSeparation,
+} from "./breathingAwareAnimation";
