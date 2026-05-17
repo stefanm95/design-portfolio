@@ -1,13 +1,4 @@
-import {
-  resolveSpatialPressure,
-  type CompositionContract,
-} from "../composition";
-
-import type {
-  PresentationProfile,
-  PresentationProfileVariant,
-} from "../profiles";
-
+import type { CompositionContract } from "../composition";
 import { resolveEnvironmentalRuntime } from "./environment/resolveEnvironmentalRuntime";
 
 import type { SceneDefinition, SceneRuntime } from "./types";
@@ -16,39 +7,17 @@ type Props = {
   scene: SceneDefinition;
 
   composition: CompositionContract;
-
-  profile: PresentationProfile;
-
-  profileVariant: PresentationProfileVariant;
 };
 
 export function resolveSceneRuntime({
   scene,
   composition,
-  profile,
-  profileVariant,
 }: Props): SceneRuntime {
   return {
-    ...scene,
-
-    composition,
-
-    profile,
-
-    profileVariant,
-
-    sceneIntensity: composition.sceneIntensity,
-
-    atmosphericDepth: composition.atmosphericDepth,
-
-    spatialPressure: resolveSpatialPressure({
-      composition,
-      scene,
-    }),
+    definition: scene,
 
     environment: resolveEnvironmentalRuntime({
       scene,
-
       composition,
     }),
   };

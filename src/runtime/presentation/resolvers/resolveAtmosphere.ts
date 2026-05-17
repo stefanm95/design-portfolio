@@ -19,11 +19,13 @@ export function resolveAtmosphere({
   scene,
   composition,
 }: Props): AtmosphereState {
+  const definition = scene.definition;
+
   //
   // TECHNICAL OVERRIDE
   //
 
-  if (scene.atmosphere === "technical") {
+  if (definition.atmosphere === "technical") {
     return "technical";
   }
 
@@ -31,7 +33,7 @@ export function resolveAtmosphere({
   // QUIET ENVIRONMENTS
   //
 
-  if (scene.atmosphere === "quiet") {
+  if (definition.atmosphere === "quiet") {
     return "quiet";
   }
 
@@ -39,7 +41,7 @@ export function resolveAtmosphere({
   // MINIMAL ENVIRONMENTS
   //
 
-  if (scene.atmosphere === "minimal") {
+  if (definition.atmosphere === "minimal") {
     return "minimal";
   }
 

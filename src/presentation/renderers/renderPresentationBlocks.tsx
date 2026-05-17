@@ -52,8 +52,6 @@ export function renderPresentationBlocks<TBlock extends PresentationBlock>({
     roleMap,
 
     scene: runtime.scene,
-
-    profile: runtime.profile,
   });
 
   return resolvedBlocks.map((resolvedBlock, index) => {
@@ -67,7 +65,7 @@ export function renderPresentationBlocks<TBlock extends PresentationBlock>({
       <div
         key={`${resolvedBlock.block.type}-${index}`}
         className={blockRuntime.spacing}
-        data-scene={blockRuntime.scene.id}
+        data-scene={blockRuntime.scene.definition.id}
         data-atmosphere={blockRuntime.atmosphere}
         data-profile={runtime.profileVariant}
         data-density={runtime.composition.density}

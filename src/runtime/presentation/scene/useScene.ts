@@ -53,7 +53,5 @@ export function useScene({
   return resolveSceneRuntime({
     scene,
     composition,
-    profile,
-    profileVariant,
   });
 }

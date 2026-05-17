@@ -46,7 +46,9 @@ export function resolvePresentationBlockRuntime<
 }: Props<TBlock>): ResolvedPresentationBlockRuntime<TBlock> | null {
   const blockType = block.type as TBlock["type"];
 
-  const component = registry[blockType] as PresentationBlockRenderer<TBlock>;
+  const component = registry[blockType] as PresentationBlockRenderer<
+    typeof block
+  >;
 
   if (!component) {
     return null;

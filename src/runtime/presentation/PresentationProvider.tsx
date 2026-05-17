@@ -15,16 +15,16 @@ type Props = {
 export default function PresentationProvider({ children }: Props) {
   const scene = useScene();
 
-  const previousScene = useRef(scene.id);
+  const previousScene = useRef(scene.definition.id);
 
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
-    if (previousScene.current === scene.id) {
+    if (previousScene.current === scene.definition.id) {
       return;
     }
 
-    previousScene.current = scene.id;
+    previousScene.current = scene.definition.id;
 
     setIsTransitioning(true);
 
@@ -33,13 +33,13 @@ export default function PresentationProvider({ children }: Props) {
     }, 900);
 
     return () => window.clearTimeout(timeout);
-  }, [scene.id]);
+  }, [scene.definition.id]);
 
   const value = useMemo(
     () => ({
       currentScene: scene,
 
-      sceneId: scene.id,
+      sceneId: scene.definition.id,
 
       isTransitioning,
     }),

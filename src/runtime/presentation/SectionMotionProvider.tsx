@@ -47,17 +47,15 @@ export function SectionMotionProvider({ children }: Props) {
   const composition = resolveCompositionContract(
     syntheticPresentation,
     profile,
-    scene.environmentalPressure === "intense"
+    scene.definition.environmentalPressure === "intense"
       ? "dramatic"
-      : scene.environmentalPressure === "soft"
+      : scene.definition.environmentalPressure === "soft"
         ? "soft"
         : "balanced",
   );
 
   const runtime: PresentationRuntime = {
     composition,
-
-    profile,
 
     profileVariant: syntheticPresentation.composition?.profile ?? "immersive",
 

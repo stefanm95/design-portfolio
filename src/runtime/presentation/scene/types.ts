@@ -1,10 +1,3 @@
-import type { CompositionContract, SpatialPressure } from "../composition";
-
-import type {
-  PresentationProfile,
-  PresentationProfileVariant,
-} from "../profiles";
-
 import type { SceneId } from "./definitions";
 
 //
@@ -88,18 +81,8 @@ export type SceneDefinition = {
 // RUNTIME SCENE
 //
 
-export type SceneRuntime = SceneDefinition & {
-  composition: CompositionContract;
-
-  profile: PresentationProfile;
-
-  profileVariant: PresentationProfileVariant;
-
-  sceneIntensity: CompositionContract["sceneIntensity"];
-
-  atmosphericDepth: CompositionContract["atmosphericDepth"];
-
-  spatialPressure: SpatialPressure;
+export type SceneRuntime = {
+  definition: SceneDefinition;
 
   environment: EnvironmentalRuntime;
 };

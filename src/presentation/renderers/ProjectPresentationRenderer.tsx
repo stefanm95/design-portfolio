@@ -48,14 +48,10 @@ export default function ProjectPresentationRenderer({
   const scene = resolveSceneRuntime({
     scene: sceneDefinitions.projects,
     composition,
-    profile,
-    profileVariant,
   });
 
   const runtime: PresentationRuntime = {
     composition,
-
-    profile,
 
     profileVariant,
 

@@ -16,10 +16,7 @@ import type {
 
 import type { SceneRuntime } from "@/runtime/presentation/scene";
 
-import type {
-  PresentationProfile,
-  PresentationProfileVariant,
-} from "../profiles";
+import type { PresentationProfileVariant } from "../profiles";
 import type { MotionCadence } from "../motion";
 import type { RuntimeBlockRelationship } from "./relationships";
 import type { AtmosphericModulation } from "../atmosphere/resolveAtmosphericModulation";
@@ -103,8 +100,6 @@ export type ResolvedPresentationBlockRuntime<TBlock extends PresentationBlock> =
 export type PresentationRuntime = {
   composition: CompositionContract;
 
-  profile: PresentationProfile;
-
   profileVariant: PresentationProfileVariant;
 
   scene: SceneRuntime;
@@ -152,4 +147,10 @@ export type PresentationRuntimeSnapshot = {
 
     typography: TypographyRendering;
   };
+};
+
+export type ResolvedBlockComponentPair<TBlock extends PresentationBlock> = {
+  block: TBlock;
+
+  component: PresentationBlockRenderer<TBlock>;
 };

@@ -22,6 +22,7 @@ export type {
   SceneAtmosphere,
   SceneTone,
   EnvironmentalRuntime,
+  EnvironmentalPressure,
   BreathingBias,
   MotionRestraint,
   OverlayDepth,

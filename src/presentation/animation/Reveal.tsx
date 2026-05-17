@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 
 import { useMotionCadence } from "@/runtime/presentation/motion";
 import { motion } from "framer-motion";
+import { usePresentation } from "@/runtime/presentation";
 
 type RevealDirection = "up" | "down" | "left" | "right";
 
@@ -45,8 +46,10 @@ export default function Reveal({
 }: Props) {
   const cadence = useMotionCadence();
 
-  const restrainedDistance =
-    cadence.reveal.distance / (cadence.motionRestraint ?? 1);
+  const presentation = usePresentation();
+
+  const restraint = presentation.currentScene.environment.motionRestraint;
+  const restrainedDistance = cadence.reveal.distance / restraint;
 
   const axis = resolveAxis(direction, restrainedDistance);
 

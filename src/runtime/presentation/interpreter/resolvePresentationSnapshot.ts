@@ -1,8 +1,9 @@
-import type { CompositionContract } from "@/runtime/presentation/composition";
+import {
+  resolveSpatialPressure,
+  type CompositionContract,
+} from "@/runtime/presentation/composition";
 
 import type { SceneRuntime } from "@/runtime/presentation/scene";
-
-import type { PresentationProfile } from "@/runtime/presentation/profiles";
 
 import type { PresentationRuntimeSnapshot } from "./types";
 
@@ -13,8 +14,11 @@ import { resolveAtmosphericModulation } from "../atmosphere";
 import { resolveAtmosphere } from "../resolvers";
 
 import { resolveRenderingAttributes } from "../rendering";
+
 import { resolveRuntimeSurfaces } from "../surfaces";
+
 import { resolveRuntimeLayers } from "../layers";
+
 import {
   resolveCinematicContainer,
   resolveOverlayRendering,
@@ -26,9 +30,8 @@ type Props = {
   composition: CompositionContract;
 
   scene: SceneRuntime;
-
-  profile: PresentationProfile;
 };
+
 export function resolvePresentationSnapshot({
   composition,
   scene,
@@ -47,6 +50,11 @@ export function resolvePresentationSnapshot({
   //
   // SPATIAL
   //
+
+  const spatialPressure = resolveSpatialPressure({
+    composition,
+    scene: scene.definition,
+  });
 
   const spatial = {
     cadence: composition.rhythm,
@@ -69,7 +77,7 @@ export function resolvePresentationSnapshot({
           ? 0.5
           : 0.2,
 
-    spatialPressure: scene.spatialPressure,
+    spatialPressure,
   };
 
   //
@@ -93,7 +101,7 @@ export function resolvePresentationSnapshot({
 
     motion,
 
-    spatialPressure: spatial.spatialPressure,
+    spatialPressure,
   });
 
   //
