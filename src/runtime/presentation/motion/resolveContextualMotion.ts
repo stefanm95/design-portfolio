@@ -1,6 +1,5 @@
-import type { MotionCadence } from "./cadence";
-
 import type { RuntimeBlockRelationship } from "@/runtime/presentation/interpreter/relationships";
+import type { MotionCadence } from "./types";
 
 type Props = {
   cadence: MotionCadence;

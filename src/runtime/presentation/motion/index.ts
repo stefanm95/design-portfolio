@@ -1,4 +1,4 @@
-export { resolveCadence, type MotionCadence } from "./cadence";
+export { resolveCadence } from "./cadence";
 
 export { MotionCadenceProvider } from "./MotionCadenceProvider";
 
@@ -6,22 +6,11 @@ export { useMotionCadence } from "./useMotionCadence";
 
 export { resolveContextualMotion } from "./resolveContextualMotion";
 
-export {
-  cinematicEasing,
-  resolveMotionEasing,
-  type CubicBezier,
-} from "./resolveMotionEasing";
-
-export {
-  applySceneModulation,
-  resolveSceneModulation,
-  type SceneModulation,
-} from "./sceneModulation";
+export { cinematicEasing, resolveMotionEasing } from "./resolveMotionEasing";
 
 export {
   resolveCompositionMotionInfluence,
   applyCompositionMotionInfluence,
-  type CompositionMotionInfluence,
 } from "./compositionMotionSemantics";
 
 export {
@@ -32,3 +21,10 @@ export {
   calculateCinematicSpacingModifier,
   calculateCompositionalSeparation,
 } from "./breathingAwareAnimation";
+
+export type {
+  MotionCadence,
+  CubicBezier,
+  SceneModulation,
+  CompositionMotionInfluence,
+} from "./types";

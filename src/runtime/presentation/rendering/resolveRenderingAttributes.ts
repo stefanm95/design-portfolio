@@ -13,9 +13,12 @@ import { resolveDepthTreatment } from "./resolveDepthTreatment";
 import { resolveOverlayTreatment } from "./resolveOverlayTreatment";
 
 import { resolveMotionTreatment } from "./resolveMotionTreatment";
+import type { EnvironmentalRuntime } from "../scene";
 
 type Props = {
   atmospheric: AtmosphericModulation;
+
+  environment: EnvironmentalRuntime;
 
   motion: MotionCadence;
 
@@ -24,25 +27,30 @@ type Props = {
 
 export function resolveRenderingAttributes({
   atmospheric,
+  environment,
   motion,
   spatialPressure,
 }: Props): RenderingAttributes {
   return {
     surface: resolveSurfaceTreatment({
       atmospheric,
+      environment,
       spatialPressure,
     }),
 
     depth: resolveDepthTreatment({
       atmospheric,
+      environment,
     }),
 
     overlay: resolveOverlayTreatment({
       atmospheric,
+      environment,
     }),
 
     motion: resolveMotionTreatment({
       motion,
+      environment,
     }),
 
     atmosphere: atmospheric,

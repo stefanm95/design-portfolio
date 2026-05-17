@@ -1,6 +1,6 @@
-import type { CompositionMotionInfluence } from "./compositionMotionSemantics";
+import type { EnvironmentalRuntime } from "../scene";
 
-export type CubicBezier = [number, number, number, number];
+import type { CompositionMotionInfluence, CubicBezier } from "./types";
 
 export const cinematicEasing: Record<
   "soft" | "balanced" | "tight",
@@ -13,7 +13,36 @@ export const cinematicEasing: Record<
   tight: [0.16, 1, 0.3, 1],
 };
 
-export function resolveMotionEasing(influence: CompositionMotionInfluence) {
+type Props = {
+  influence: CompositionMotionInfluence;
+
+  environment: EnvironmentalRuntime;
+};
+
+export function resolveMotionEasing({
+  influence,
+  environment,
+}: Props): CubicBezier {
+  //
+  // ENVIRONMENTAL RESTRAINT
+  //
+
+  if (environment.motionRestraint >= 1.15) {
+    return cinematicEasing.tight;
+  }
+
+  //
+  // ENVIRONMENTAL SOFTNESS
+  //
+
+  if (environment.cadenceSoftness >= 1.1) {
+    return cinematicEasing.soft;
+  }
+
+  //
+  // COMPOSITION PRESSURE
+  //
+
   if (influence.pressureSoftness > 1.05) {
     return cinematicEasing.soft;
   }
@@ -21,6 +50,10 @@ export function resolveMotionEasing(influence: CompositionMotionInfluence) {
   if (influence.pressureSoftness < 0.95) {
     return cinematicEasing.tight;
   }
+
+  //
+  // DEFAULT
+  //
 
   return cinematicEasing.balanced;
 }

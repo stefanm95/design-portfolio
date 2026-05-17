@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import { MotionCadenceContext } from "./MotionCadenceContext";
 
-import type { MotionCadence } from "./cadence";
+import type { MotionCadence } from "./types";
 
 /**
  * useMotionCadence
@@ -34,12 +34,6 @@ export function useMotionCadence(): MotionCadence {
       sectionDelay: 0.12,
 
       transitionSoftness: 1,
-
-      atmosphereIntensity: 1,
-
-      cinematicPressure: 1,
-
-      motionRestraint: 1,
     };
   }
 

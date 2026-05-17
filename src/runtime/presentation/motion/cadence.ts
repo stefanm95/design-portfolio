@@ -1,5 +1,7 @@
-import { resolveMotionEasing, type CubicBezier } from "..";
+import { resolveMotionEasing, type EnvironmentalRuntime } from "..";
+
 import type { CompositionContract } from "../composition";
+import type { MotionCadence } from "./types.ts";
 import {
   resolveCompositionMotionInfluence,
   applyCompositionMotionInfluence,
@@ -8,111 +10,107 @@ import {
 /**
  * Runtime Motion Cadence Contract
  *
- * Transforms composition profile/rhythm/transition semantics
- * into actionable motion behavior for components.
+ * Final temporal motion behavior resolved from:
  *
- * This is the bridge between profile resolution and experiential consequences.
- *
- * Extended to include:
- * - Composition reactivity influence (breathing, pacing, pressure)
- * - Environmental modulation values from scenes
+ * - Composition structure
+ * - Rhythm profile
+ * - Reactivity semantics
+ * - Environmental orchestration
  */
 
-export type MotionCadence = {
-  // Fade motion
-  fade: {
-    duration: number;
-    delay: number;
-    offset: number; // y-axis movement
-    ease: CubicBezier;
-  };
+type Props = {
+  composition: CompositionContract;
 
-  // Reveal motion
-  reveal: {
-    duration: number;
-    distance: number;
-  };
-
-  // Stagger timing for multiple elements
-  // Influenced by composition pacing and breathing
-  stagger: number;
-
-  // Section breathing (delay between sections)
-  // Influenced by composition breathing factor
-  sectionDelay: number;
-
-  // Transition softness (ease multiplier)
-  // Influenced by composition pressure
-  transitionSoftness: number;
-
-  // Environmental modulation values (added by scenes)
-  atmosphereIntensity?: number;
-  cinematicPressure?: number;
-  motionRestraint?: number;
+  environment: EnvironmentalRuntime;
 };
 
-/**
- * Resolve motion cadence from composition contract
- *
- * Profile + Rhythm + Transition → Motion Behavior
- * PLUS Composition Reactivity → Breathing, Pacing, Pressure Modulation
- *
- * This ensures motion feels consistent with the overall composition intent:
- * - Editorial profiles feel tighter, sharper
- * - Cinematic profiles feel slower, more deliberate
- * - Immersive profiles feel deeper, more breathable
- *
- * Composition reactivity subtly modulates timing without changing the rhythm profile
- */
-export function resolveCadence(contract: CompositionContract): MotionCadence {
-  const { rhythmProfile, transition } = contract;
+export function resolveCadence({
+  composition,
+  environment,
+}: Props): MotionCadence {
+  const { rhythmProfile, transition } = composition;
 
-  // Resolve composition motion influence from reactivity
-  const motionInfluence = resolveCompositionMotionInfluence(contract);
+  //
+  // COMPOSITION MOTION INFLUENCE
+  //
 
-  // Transition softness: how much the ease curves lengthen/shorten durations
-  // Further modulated by composition pressure
+  const motionInfluence = resolveCompositionMotionInfluence(composition);
+
+  //
+  // TRANSITION SOFTNESS
+  //
+
   let transitionSoftness =
     transition === "soft" ? 0.9 : transition === "dramatic" ? 1.2 : 1;
 
-  // Apply pressure-aware softness from composition breathing
+  //
+  // COMPOSITION PRESSURE MODULATION
+  //
+
   transitionSoftness *= motionInfluence.pressureSoftness;
 
-  // Density influences offsets: tighter density = smaller movement
+  //
+  // ENVIRONMENTAL MODULATION
+  //
+
+  transitionSoftness *= environment.cadenceSoftness;
+
+  //
+  // DENSITY OFFSET MODULATION
+  //
+
   const densityOffsetMultiplier =
-    contract.density === "tight"
+    composition.density === "tight"
       ? 0.7
-      : contract.density === "spacious"
+      : composition.density === "spacious"
         ? 1.3
         : 1;
 
-  // Apply composition motion influence to cadence timing
+  //
+  // BASE TEMPORAL VALUES
+  //
+
   const { stagger, sectionDelay } = applyCompositionMotionInfluence(
     rhythmProfile.stagger,
     rhythmProfile.sectionDelay,
     motionInfluence,
   );
 
+  //
+  // FINAL CADENCE
+  //
+
   return {
     fade: {
       duration: rhythmProfile.duration * transitionSoftness,
+
       delay: rhythmProfile.transitionDelay,
+
       offset:
         rhythmProfile.revealOffset *
         densityOffsetMultiplier *
-        motionInfluence.offsetModifier,
-      ease: resolveMotionEasing(motionInfluence),
+        motionInfluence.offsetModifier *
+        environment.spacingPressure,
+
+      ease: resolveMotionEasing({
+        influence: motionInfluence,
+
+        environment,
+      }),
     },
 
     reveal: {
       duration: rhythmProfile.duration * transitionSoftness,
-      distance: rhythmProfile.revealOffset * densityOffsetMultiplier,
+
+      distance:
+        rhythmProfile.revealOffset *
+        densityOffsetMultiplier *
+        environment.spacingPressure,
     },
 
-    // Stagger and sectionDelay now incorporate composition reactivity
-    stagger,
+    stagger: stagger * environment.breathingIntensity,
 
-    sectionDelay,
+    sectionDelay: sectionDelay * environment.breathingIntensity,
 
     transitionSoftness,
   };

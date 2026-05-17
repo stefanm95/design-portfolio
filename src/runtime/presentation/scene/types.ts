@@ -37,21 +37,17 @@ export type SceneTone =
 export type EnvironmentalPressure = "soft" | "balanced" | "intense";
 
 export type EnvironmentalRuntime = {
-  cinematicEnergy: number;
-
-  atmosphericDensity: number;
-
-  spatialCompression: number;
-
-  motionSoftness: number;
-
   cadenceSoftness: number;
 
-  visualBreathing: number;
+  spacingPressure: number;
 
-  overlayIntensity: number;
+  breathingIntensity: number;
 
-  environmentalRestraint: number;
+  atmosphereModulation: number;
+
+  cinematicDepth: number;
+
+  motionRestraint: number;
 };
 
 export type BreathingBias = "compressed" | "balanced" | "spacious";

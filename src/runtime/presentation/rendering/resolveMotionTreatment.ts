@@ -1,15 +1,21 @@
+import type { EnvironmentalRuntime } from "../scene";
+
 import type { MotionCadence } from "../motion";
 
 import type { MotionTreatment } from "./types";
 
 type Props = {
   motion: MotionCadence;
+
+  environment: EnvironmentalRuntime;
 };
 
-export function resolveMotionTreatment({ motion }: Props): MotionTreatment {
+export function resolveMotionTreatment({
+  environment,
+}: Props): MotionTreatment {
   return {
-    softness: motion.transitionSoftness,
+    softness: environment.cadenceSoftness,
 
-    restraint: motion.motionRestraint ?? 1,
+    restraint: environment.motionRestraint,
   };
 }

@@ -1,7 +1,5 @@
 import type { CompositionContract } from "@/runtime/presentation/composition";
 
-import { resolveSpatialPressure } from "@/runtime/presentation/composition";
-
 import type { SceneRuntime } from "@/runtime/presentation/scene";
 
 import type { PresentationProfile } from "@/runtime/presentation/profiles";
@@ -31,7 +29,6 @@ type Props = {
 
   profile: PresentationProfile;
 };
-
 export function resolvePresentationSnapshot({
   composition,
   scene,
@@ -72,17 +69,18 @@ export function resolvePresentationSnapshot({
           ? 0.5
           : 0.2,
 
-    spatialPressure: resolveSpatialPressure({
-      composition,
-      scene,
-    }),
+    spatialPressure: scene.spatialPressure,
   };
 
   //
   // MOTION
   //
 
-  const motion = resolveCadence(composition);
+  const motion = resolveCadence({
+    composition,
+
+    environment: scene.environment,
+  });
 
   //
   // RENDERING
@@ -91,10 +89,16 @@ export function resolvePresentationSnapshot({
   const rendering = resolveRenderingAttributes({
     atmospheric: atmosphericModulation,
 
+    environment: scene.environment,
+
     motion,
 
     spatialPressure: spatial.spatialPressure,
   });
+
+  //
+  // SYSTEM
+  //
 
   const system = {
     cinematic: resolveCinematicContainer({
@@ -114,11 +118,19 @@ export function resolvePresentationSnapshot({
     }),
   };
 
+  //
+  // SURFACES
+  //
+
   const surfaces = resolveRuntimeSurfaces({
     atmosphere,
 
     rendering,
   });
+
+  //
+  // LAYERS
+  //
 
   const layers = resolveRuntimeLayers({
     atmosphere,
@@ -144,26 +156,6 @@ export function resolvePresentationSnapshot({
     motion,
 
     rendering,
-
-    environmental: {
-      cinematicEnergy:
-        composition.sceneIntensity === "dramatic"
-          ? 0.9
-          : composition.sceneIntensity === "balanced"
-            ? 0.6
-            : 0.4,
-
-      overlayIntensity: composition.overlays ? 0.8 : 0.2,
-
-      atmosphericDensity:
-        composition.atmosphericDepth === "immersive"
-          ? 0.9
-          : composition.atmosphericDepth === "balanced"
-            ? 0.6
-            : 0.3,
-
-      environmentalPressure: composition.environmentalPressure,
-    },
 
     surfaces,
 

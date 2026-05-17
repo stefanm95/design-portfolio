@@ -1,4 +1,4 @@
-import type { MotionCadence } from "./cadence";
+import type { MotionCadence } from "./types";
 import type { CompositionReactivityContextType } from "../composition/reactivity";
 
 /**

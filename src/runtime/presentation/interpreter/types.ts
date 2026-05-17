@@ -14,10 +14,7 @@ import type {
   SpatialPressure,
 } from "@/runtime/presentation/composition";
 
-import type {
-  SceneAtmosphere,
-  SceneRuntime,
-} from "@/runtime/presentation/scene";
+import type { SceneRuntime } from "@/runtime/presentation/scene";
 
 import type {
   PresentationProfile,
@@ -37,6 +34,7 @@ import type {
   PanelRendering,
   TypographyRendering,
 } from "../system";
+import type { AtmosphereState } from "../resolvers";
 
 //
 // RUNTIME PRIMITIVES
@@ -47,7 +45,7 @@ export type RuntimeCadence = CompositionContract["rhythm"];
 export type RuntimePressure = CompositionContract["sceneIntensity"];
 
 export type RuntimeBreathing = CompositionReactivityContextType["breathing"];
-export type RuntimeAtmosphere = SceneAtmosphere;
+export type RuntimeAtmosphere = AtmosphereState;
 
 //
 // BLOCK RUNTIME
@@ -140,16 +138,6 @@ export type PresentationRuntimeSnapshot = {
   motion: MotionCadence;
 
   rendering: RenderingAttributes;
-
-  environmental: {
-    cinematicEnergy: number;
-
-    overlayIntensity: number;
-
-    atmosphericDensity: number;
-
-    environmentalPressure: CompositionContract["environmentalPressure"];
-  };
 
   surfaces: RuntimeSurfaceSet;
 

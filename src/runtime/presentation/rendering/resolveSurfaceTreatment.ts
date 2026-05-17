@@ -1,11 +1,14 @@
 import type { AtmosphericModulation } from "../atmosphere";
 
 import type { SpatialPressure } from "../composition";
+import type { EnvironmentalRuntime } from "../scene";
 
 import type { SurfaceTreatment } from "./types";
 
 type Props = {
   atmospheric: AtmosphericModulation;
+
+  environment: EnvironmentalRuntime;
 
   spatialPressure: SpatialPressure;
 };
@@ -13,6 +16,7 @@ type Props = {
 export function resolveSurfaceTreatment({
   atmospheric,
   spatialPressure,
+  environment,
 }: Props): SurfaceTreatment {
   const pressureMultiplier =
     spatialPressure === "compressed"
@@ -28,7 +32,7 @@ export function resolveSurfaceTreatment({
 
     borderOpacity: atmospheric.visual.contrast * 0.12,
 
-    glowIntensity: atmospheric.cinematic.motionIntensity * pressureMultiplier,
+    glowIntensity: environment.cinematicDepth * pressureMultiplier,
 
     textureIntensity: atmospheric.overlays.noise,
   };

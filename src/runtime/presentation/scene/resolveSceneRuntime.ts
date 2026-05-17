@@ -48,6 +48,7 @@ export function resolveSceneRuntime({
 
     environment: resolveEnvironmentalRuntime({
       scene,
+
       composition,
     }),
   };
