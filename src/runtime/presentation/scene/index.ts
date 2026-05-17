@@ -22,7 +22,10 @@ export type {
   SceneAtmosphere,
   SceneTone,
   EnvironmentalPressure,
+  EnvironmentalRuntime,
   BreathingBias,
   MotionRestraint,
   OverlayDepth,
 } from "./types";
+
+export * from "./environment";

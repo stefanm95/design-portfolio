@@ -6,8 +6,20 @@ export * from "./scroll/useActiveSection";
 export * from "./scroll/useLenis";
 export * from "./scroll/useScrollProgress";
 
-export * from "./scene/definitions";
-export * from "./scene/useScene";
+export { sceneDefinitions, resolveSceneRuntime, useScene } from "./scene";
+
+export type {
+  SceneRuntime,
+  SceneDefinition,
+  SceneAtmosphere,
+  SceneTone,
+  EnvironmentalPressure,
+  EnvironmentalRuntime,
+  BreathingBias,
+  MotionRestraint,
+  OverlayDepth,
+  SceneId,
+} from "./scene";
 
 export * from "./atmosphere";
 

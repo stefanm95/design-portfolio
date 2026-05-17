@@ -1,21 +1,23 @@
 import type { RenderingAttributes } from "@/runtime/presentation/rendering";
 
+import type { TypographyRendering } from "./types";
+
 type Props = {
   rendering: RenderingAttributes;
 };
 
-export function resolveTypographyRendering({ rendering }: Props) {
-  const contrast = rendering.atmosphere.visual.contrast;
-
+export function resolveTypographyRendering({
+  rendering,
+}: Props): TypographyRendering {
   const softness = rendering.motion.softness;
 
   return {
-    contrast,
+    contrast: 1,
 
     softness,
 
-    titleClass: contrast > 1 ? "text-white" : "text-white/92",
+    titleClass: softness > 0.9 ? "text-white" : "text-white/92",
 
-    bodyClass: softness > 1 ? "text-white/72" : "text-white/80",
+    bodyClass: softness > 0.9 ? "text-white/72" : "text-white/80",
   };
 }

@@ -1,10 +1,12 @@
 import type { RenderingAttributes } from "@/runtime/presentation/rendering";
 
+import type { PanelRendering } from "./types";
+
 type Props = {
   rendering: RenderingAttributes;
 };
 
-export function resolvePanelRendering({ rendering }: Props) {
+export function resolvePanelRendering({ rendering }: Props): PanelRendering {
   const opacity = rendering.surface.panelOpacity;
 
   const blur = rendering.surface.blur;

@@ -8,6 +8,8 @@ import type {
   PresentationProfileVariant,
 } from "../profiles";
 
+import { resolveEnvironmentalRuntime } from "./environment/resolveEnvironmentalRuntime";
+
 import type { SceneDefinition, SceneRuntime } from "./types";
 
 type Props = {
@@ -42,6 +44,11 @@ export function resolveSceneRuntime({
     spatialPressure: resolveSpatialPressure({
       composition,
       scene,
+    }),
+
+    environment: resolveEnvironmentalRuntime({
+      scene,
+      composition,
     }),
   };
 }

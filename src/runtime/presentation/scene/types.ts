@@ -36,6 +36,24 @@ export type SceneTone =
 
 export type EnvironmentalPressure = "soft" | "balanced" | "intense";
 
+export type EnvironmentalRuntime = {
+  cinematicEnergy: number;
+
+  atmosphericDensity: number;
+
+  spatialCompression: number;
+
+  motionSoftness: number;
+
+  cadenceSoftness: number;
+
+  visualBreathing: number;
+
+  overlayIntensity: number;
+
+  environmentalRestraint: number;
+};
+
 export type BreathingBias = "compressed" | "balanced" | "spacious";
 
 //
@@ -86,4 +104,6 @@ export type SceneRuntime = SceneDefinition & {
   atmosphericDepth: CompositionContract["atmosphericDepth"];
 
   spatialPressure: SpatialPressure;
+
+  environment: EnvironmentalRuntime;
 };

@@ -31,6 +31,13 @@ import type { RuntimeSurfaceSet } from "../surfaces";
 import type { RuntimeLayerSet } from "../layers";
 import type { NarrativeTransition } from "../transitions";
 
+import type {
+  CinematicContainerAttributes,
+  OverlayRendering,
+  PanelRendering,
+  TypographyRendering,
+} from "../system";
+
 //
 // RUNTIME PRIMITIVES
 //
@@ -58,6 +65,16 @@ export type ResolvedPresentationBlockRuntime<TBlock extends PresentationBlock> =
       motion: MotionCadence;
 
       rendering: RenderingAttributes;
+
+      system: {
+        cinematic: CinematicContainerAttributes;
+
+        overlay: OverlayRendering;
+
+        panel: PanelRendering;
+
+        typography: TypographyRendering;
+      };
 
       atmosphericModulation: AtmosphericModulation;
 
@@ -137,4 +154,14 @@ export type PresentationRuntimeSnapshot = {
   surfaces: RuntimeSurfaceSet;
 
   scene: SceneRuntime;
+
+  system: {
+    cinematic: CinematicContainerAttributes;
+
+    overlay: OverlayRendering;
+
+    panel: PanelRendering;
+
+    typography: TypographyRendering;
+  };
 };

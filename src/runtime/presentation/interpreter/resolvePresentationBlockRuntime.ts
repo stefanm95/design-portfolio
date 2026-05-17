@@ -92,6 +92,8 @@ export function resolvePresentationBlockRuntime<
     runtime: {
       rendering: snapshot.rendering,
 
+      system: snapshot.system,
+
       atmosphericModulation: snapshot.atmosphericModulation,
 
       transition,

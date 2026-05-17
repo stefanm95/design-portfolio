@@ -17,6 +17,12 @@ import { resolveAtmosphere } from "../resolvers";
 import { resolveRenderingAttributes } from "../rendering";
 import { resolveRuntimeSurfaces } from "../surfaces";
 import { resolveRuntimeLayers } from "../layers";
+import {
+  resolveCinematicContainer,
+  resolveOverlayRendering,
+  resolvePanelRendering,
+  resolveTypographyRendering,
+} from "../system";
 
 type Props = {
   composition: CompositionContract;
@@ -90,6 +96,24 @@ export function resolvePresentationSnapshot({
     spatialPressure: spatial.spatialPressure,
   });
 
+  const system = {
+    cinematic: resolveCinematicContainer({
+      rendering,
+    }),
+
+    overlay: resolveOverlayRendering({
+      rendering,
+    }),
+
+    panel: resolvePanelRendering({
+      rendering,
+    }),
+
+    typography: resolveTypographyRendering({
+      rendering,
+    }),
+  };
+
   const surfaces = resolveRuntimeSurfaces({
     atmosphere,
 
@@ -107,6 +131,8 @@ export function resolvePresentationSnapshot({
   //
 
   return {
+    system,
+
     atmosphere,
 
     atmosphericModulation,
