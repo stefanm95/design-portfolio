@@ -7,21 +7,23 @@ import { aboutContent } from "@/content/about";
 import Heading from "@/design/typography/Heading";
 import Text from "@/design/typography/Text";
 
-import { compositionStack } from "@/runtime/presentation/composition";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
 
 import { ui } from "@/theme";
 
 export default function AboutPhilosophy() {
   const { philosophy } = aboutContent;
 
+  const layout = resolveLayoutRuntime();
+
   return (
-    <div className={compositionStack.about.philosophy.root}>
+    <div className={layout.about.philosophy.root}>
       {/* LEFT */}
-      <div className="col-span-1 md:col-span-12 lg:col-span-5">
+      <div className={layout.about.philosophy.left}>
         <FadeIn>
           <Heading
-            as="h3"
-            className="max-w-[12ch] text-2xl md:text-3xl lg:text-4xl"
+            as='h3'
+            className='max-w-[12ch] text-2xl md:text-3xl lg:text-4xl'
           >
             {philosophy.title}
           </Heading>
@@ -29,9 +31,9 @@ export default function AboutPhilosophy() {
       </div>
 
       {/* RIGHT */}
-      <div className="col-span-1 md:col-span-12 lg:col-span-7">
+      <div className={layout.about.philosophy.right}>
         <FadeIn delay={0.12}>
-          <div className={compositionStack.about.philosophy.content}>
+          <div className={layout.about.philosophy.content}>
             <Text
               className={`
                 max-w-[42ch]
@@ -50,11 +52,11 @@ export default function AboutPhilosophy() {
 
             <Text
               className={`
-                max-wsm
-                md:text-base
-                lg:text--[42ch]
+                max-w-[42ch]
 
                 text-[16px]
+                md:text-base
+
                 leading-[2]
 
                 ${ui.text.muted}

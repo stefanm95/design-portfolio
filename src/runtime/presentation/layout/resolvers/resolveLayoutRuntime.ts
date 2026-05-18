@@ -44,6 +44,42 @@ export function resolveLayoutRuntime(): ResolvedLayoutRuntime {
   });
 
   //
+  // CONTACT
+  //
+
+  const contactStack = resolveStackLayout({
+    layout: "contact",
+  });
+
+  const contactSpacing = resolveSectionSpacing({
+    section: "contact",
+  });
+
+  //
+  // ABOUT
+  //
+
+  const aboutStack = resolveStackLayout({
+    layout: "about",
+  });
+
+  const aboutSpacing = resolveSectionSpacing({
+    section: "about",
+  });
+
+  //
+  // PROJECTS
+  //
+
+  const projectsSpacing = resolveSectionSpacing({
+    section: "projects",
+  });
+
+  const projectsStack = resolveStackLayout({
+    layout: "projects",
+  });
+
+  //
   // RETURN
   //
 
@@ -102,6 +138,17 @@ export function resolveLayoutRuntime(): ResolvedLayoutRuntime {
       metadataItem: philosophyStack.metadataItem,
     },
 
+    projects: {
+      section: projectsSpacing.root,
+
+      bloom: projectsSpacing.bloom,
+
+      content: `
+    ${projectsStack.content}
+    ${projectsSpacing.content}
+  `,
+    },
+
     experience: {
       section: experienceSpacing.root,
 
@@ -151,6 +198,98 @@ export function resolveLayoutRuntime(): ResolvedLayoutRuntime {
 
         description: experienceStack.panel.description,
       },
+    },
+
+    contact: {
+      section: contactSpacing.root,
+
+      hero: {
+        root: contactSpacing.hero,
+
+        content: contactSpacing.heroContent,
+
+        left: contactStack.hero.left,
+
+        right: contactStack.hero.right,
+
+        card: contactSpacing.heroCard,
+
+        infoGroup: contactStack.hero.infoGroup,
+      },
+
+      links: {
+        list: contactStack.links.list,
+
+        row: contactStack.links.row,
+
+        top: contactStack.links.top,
+
+        status: contactStack.links.status,
+      },
+
+      availability: {
+        root: contactSpacing.heroCard,
+
+        content: contactStack.availability.content,
+      },
+
+      footer: {
+        root: contactSpacing.footer,
+
+        content: contactStack.footer.content,
+
+        left: contactStack.footer.left,
+
+        right: contactStack.footer.right,
+
+        meta: contactStack.footer.meta,
+      },
+    },
+    about: {
+      section: aboutSpacing.root,
+
+      stack: aboutSpacing.stack,
+
+      hero: {
+        root: aboutStack.hero.root,
+
+        label: aboutStack.hero.label,
+
+        statement: aboutStack.hero.statement,
+      },
+
+      philosophy: {
+        root: aboutStack.philosophy.root,
+
+        left: aboutStack.philosophy.left,
+
+        right: aboutStack.philosophy.right,
+
+        content: aboutStack.philosophy.content,
+      },
+
+      principles: {
+        root: `
+      ${aboutStack.principles.root}
+      ${aboutSpacing.principles}
+    `,
+
+        content: `
+      ${aboutStack.principles.content}
+      ${aboutSpacing.principlesContent}
+    `,
+
+        right: aboutStack.principles.right,
+
+        stack: aboutStack.principles.stack,
+
+        list: aboutStack.principles.list,
+      },
+
+      stackFooter: `
+    ${aboutStack.stackFooter}
+    ${aboutSpacing.stackFooter}
+  `,
     },
   };
 }

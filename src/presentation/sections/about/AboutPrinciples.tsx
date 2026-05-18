@@ -4,38 +4,30 @@ import { aboutContent } from "@/content/about";
 
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import {
-  compositionStack,
-  sectionSpacing,
-} from "@/runtime/presentation/composition";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
 
 import { opacityClass, ui } from "@/theme";
 
 export default function AboutPrinciples() {
   const { stack } = aboutContent;
 
-  return (
-    <section
-      className={`
-        relative
-        overflow-hidden
+  const layout = resolveLayoutRuntime();
 
-        ${sectionSpacing.about.principles}
-      `}
-    >
+  return (
+    <section className={layout.about.principles.root}>
       {/* ATMOSPHERIC BASE */}
       <div
-        className="
+        className='
           absolute
           inset-0
 
           bg-transparent
-        "
+        '
       />
 
       {/* STONE SLAB */}
       <div
-        className="
+        className='
           absolute
 
           left-[-140%]
@@ -57,12 +49,12 @@ export default function AboutPrinciples() {
           rounded-r-[2rem]
 
           opacity-[0.22]
-        "
+        '
       >
         <img
-          src="/textures/stone/bekky-bekks-79k1zS6SnzY-unsplash.jpg"
-          alt=""
-          className="
+          src='/textures/stone/bekky-bekks-79k1zS6SnzY-unsplash.jpg'
+          alt=''
+          className='
             h-full
             w-full
 
@@ -71,17 +63,17 @@ export default function AboutPrinciples() {
 
             scale-[0.82]
             md:scale-[0.78]
-          "
+          '
         />
 
         {/* DARKEN */}
         <div
-          className="
+          className='
             absolute
             inset-0
 
             bg-black/45
-          "
+          '
         />
 
         {/* LIGHT EDGE */}
@@ -130,33 +122,13 @@ export default function AboutPrinciples() {
       />
 
       {/* CONTENT */}
-      <div
-        className={`
-          relative
-          z-10
-
-          grid
-          grid-cols-1
-
-          xl:grid-cols-12
-          xl:items-center
-
-          ${sectionSpacing.about.principlesContent}
-        `}
-      >
+      <div className={layout.about.principles.content}>
         {/* LEFT SPACER */}
-        <div className="hidden xl:block xl:col-span-5" />
+        <div className='hidden xl:block xl:col-span-5' />
 
         {/* RIGHT CONTENT */}
-        <div
-          className="
-            max-w-[720px]
-
-            xl:col-span-6
-            xl:col-start-7
-          "
-        >
-          <div className={compositionStack.about.principles.content}>
+        <div className={layout.about.principles.right}>
+          <div className={layout.about.principles.stack}>
             <FadeIn>
               <div
                 className={`
@@ -212,7 +184,7 @@ export default function AboutPrinciples() {
 
             {/* PRINCIPLES */}
             <FadeIn delay={0.18}>
-              <div className={compositionStack.about.principles.list}>
+              <div className={layout.about.principles.list}>
                 {stack.list.map((item) => (
                   <div
                     key={item}
@@ -230,7 +202,6 @@ export default function AboutPrinciples() {
                       ${ui.text.supporting}
                     `}
                   >
-                    {/* subtle marker */}
                     <div
                       className={`
                         absolute

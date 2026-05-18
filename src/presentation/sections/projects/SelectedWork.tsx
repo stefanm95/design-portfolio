@@ -2,24 +2,26 @@ import { projects } from "@/content/projects";
 
 import Section from "@/design/layout/Section";
 
-import { sectionSpacing } from "@/runtime/presentation/composition";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
 
 import ProjectShowcase from "./ProjectShowcase";
 
 export default function SelectedWork() {
+  const layout = resolveLayoutRuntime();
+
   return (
     <Section
-      id="projects"
+      id='projects'
       className={`
         relative
         overflow-hidden
 
-        ${sectionSpacing.projects.root}
+        ${layout.projects.section}
       `}
     >
       {/* ATMOSPHERIC PURPLE BLOOM */}
       <div
-        className={sectionSpacing.projects.bloom}
+        className={layout.projects.bloom}
         style={{
           background:
             "radial-gradient(circle, rgba(126,87,255,0.16), transparent 72%)",
@@ -27,7 +29,7 @@ export default function SelectedWork() {
       />
 
       {/* CONTENT */}
-      <div className={sectionSpacing.projects.content}>
+      <div className={layout.projects.content}>
         {projects.map((project, index) => (
           <ProjectShowcase key={project.id} index={index} project={project} />
         ))}

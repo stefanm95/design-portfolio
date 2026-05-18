@@ -84,10 +84,108 @@ export type ResolvedExperienceLayout = {
   };
 };
 
+export type ResolvedContactLayout = {
+  section: string;
+
+  hero: {
+    root: string;
+
+    content: string;
+
+    left: string;
+
+    right: string;
+
+    card: string;
+
+    infoGroup: string;
+  };
+
+  links: {
+    list: string;
+
+    row: string;
+
+    top: string;
+
+    status: string;
+  };
+
+  availability: {
+    root: string;
+
+    content: string;
+  };
+
+  footer: {
+    root: string;
+
+    content: string;
+
+    left: string;
+
+    right: string;
+
+    meta: string;
+  };
+};
+
+export type ResolvedAboutLayout = {
+  section: string;
+
+  stack: string;
+
+  hero: {
+    root: string;
+
+    label: string;
+
+    statement: string;
+  };
+
+  philosophy: {
+    root: string;
+
+    left: string;
+
+    right: string;
+
+    content: string;
+  };
+
+  principles: {
+    root: string;
+
+    content: string;
+
+    right: string;
+
+    stack: string;
+
+    list: string;
+  };
+
+  stackFooter: string;
+};
+
+export type ResolvedProjectsLayout = {
+  section: string;
+
+  bloom: string;
+
+  content: string;
+};
+
 export type ResolvedLayoutRuntime = {
   hero: ResolvedHeroLayout;
 
   philosophy: ResolvedPhilosophyLayout;
 
+  projects: ResolvedProjectsLayout;
+
   experience: ResolvedExperienceLayout;
+
+  contact: ResolvedContactLayout;
+
+  about: ResolvedAboutLayout;
 };

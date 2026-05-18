@@ -1,189 +1,150 @@
 export const stackLayoutScale = {
   hero: {
     root: `
-    relative
-    flex
-    items-start
-    overflow-hidden
-  `,
+      relative
+      flex
+      items-start
+      overflow-hidden
+    `,
 
     grid: `
-    hero-grid
+      hero-grid
 
+      relative
+      z-10
+
+      grid
+      w-full
+      grid-cols-12
+      items-center
+    `,
+
+    content: `
+      col-span-12
+      xl:col-span-9
+    `,
+
+    meta: `
+      flex
+      items-center
+      gap-6
+    `,
+
+    display: `
+      space-y-0
+      md:-space-y-6
+      xl:-space-y-10
+    `,
+
+    description: `
+      flex
+      flex-col
+
+      max-w-190
+
+      md:flex-row
+      md:gap-6
+
+      lg:gap-10
+    `,
+
+    marker: `
+      relative
+      hidden
+      pt-4
+
+      md:block
+    `,
+
+    copy: `
+      space-y-7
+    `,
+
+    availability: `
+      flex
+      flex-wrap
+      items-center
+
+      gap-3
+      md:gap-4
+      lg:gap-5
+    `,
+  },
+
+  projects: {
+    content: `
     relative
     z-10
 
-    grid
-    w-full
-    grid-cols-12
-    items-center
-  `,
-
-    content: `
-    col-span-12
-    xl:col-span-9
-  `,
-
-    meta: `
-    flex
-    items-center
-    gap-6
-  `,
-
-    display: `
-    space-y-0
-    md:-space-y-6
-    xl:-space-y-10
-  `,
-
-    description: `
     flex
     flex-col
 
-    max-w-190
-
-    md:flex-row
-    md:gap-6
-
-    lg:gap-10
-  `,
-
-    marker: `
-    relative
-    hidden
-    pt-4
-
-    md:block
-  `,
-
-    copy: `
-    space-y-7
-  `,
-
-    availability: `
-    flex
-    flex-wrap
-    items-center
-
-    gap-3
-    md:gap-4
-    lg:gap-5
+    gap-32
+    md:gap-40
+    xl:gap-48
   `,
   },
-  contact: {
-    hero: {
-      left: "space-y-10",
 
-      right: "space-y-8",
+  philosophy: {
+    root: `
+      relative
+      z-10
 
-      infoGroup: "space-y-2",
-    },
+      grid
+      grid-cols-1
 
-    panel: {
-      content: "space-y-6",
-    },
+      md:grid-cols-1
 
-    footer: {
-      left: "space-y-8",
+      lg:grid-cols-12
 
-      right: `
-        flex
-        flex-col
-        gap-8
-        items-end
-        xl:items-end
-      `,
+      gap-y-16
+      md:gap-y-20
+      lg:gap-y-24
+    `,
 
-      meta: `
-        flex
-        flex-col
-        gap-3
+    left: `
+      col-span-1
+      md:col-span-1
+      lg:col-span-6
+    `,
 
-        md:flex-row
-        md:items-center
-        md:gap-8
-      `,
-    },
+    right: `
+      col-span-1
+      md:col-span-1
+      lg:col-span-5
+      lg:col-start-8
+    `,
 
-    links: {
-      list: "space-y-8",
+    heading: `
+      space-y-8
+      md:space-y-10
+    `,
 
-      row: `
-        flex
-        items-end
-        justify-between
-        gap-6
-      `,
+    body: `
+      space-y-8
+      md:space-y-10
+      lg:space-y-12
+    `,
 
-      top: `
-        mb-4
-        flex
-        items-center
-        justify-between
-      `,
+    metadata: `
+      flex
+      flex-col
 
-      status: `
-        flex
-        items-center
-        gap-2
-      `,
-    },
+      md:flex-wrap
 
-    availability: {
-      content: "space-y-4",
-    },
+      gap-x-8
+      lg:gap-x-10
+
+      gap-y-5
+
+      border-t
+    `,
+
+    metadataItem: `
+      space-y-2
+    `,
   },
-  about: {
-    hero: {
-      root: `
-      grid
-      grid-cols-1
-      md:grid-cols-12
 
-      gap-y-10
-      md:gap-y-16
-      lg:gap-x-12
-    `,
-    },
-
-    philosophy: {
-      root: `
-      grid
-      grid-cols-1
-      md:grid-cols-12
-
-      gap-y-10
-      md:gap-y-14
-      lg:gap-x-16
-    `,
-
-      content: `
-      space-y-6
-      md:space-y-8
-    `,
-    },
-
-    principles: {
-      content: `
-      space-y-12
-      md:space-y-14
-    `,
-
-      list: `
-      grid
-      grid-cols-1
-      sm:grid-cols-2
-
-      gap-x-10
-      gap-y-4
-
-      pt-6
-      md:pt-8
-
-      max-w-[28rem]
-    `,
-    },
-  },
   experience: {
     root: `
       grid
@@ -348,63 +309,221 @@ export const stackLayoutScale = {
       `,
     },
   },
-  philosophy: {
-    root: `
-    relative
-    z-10
 
-    grid
-    grid-cols-1
+  contact: {
+    hero: {
+      root: `
+        grid
+        grid-cols-1
 
-    md:grid-cols-1
+        gap-16
 
-    lg:grid-cols-12
+        lg:grid-cols-12
+        lg:gap-20
+        lg:items-start
+      `,
 
-    gap-y-16
-    md:gap-y-20
-    lg:gap-y-24
-  `,
+      content: `
+        lg:col-span-12
 
-    left: `
-    col-span-1
-    md:col-span-1
-    lg:col-span-6
-  `,
+        grid
+        grid-cols-1
 
-    right: `
-    col-span-1
-    md:col-span-1
-    lg:col-span-5
-    lg:col-start-8
-  `,
+        lg:grid-cols-12
+        lg:gap-20
+      `,
 
-    heading: `
-    space-y-8
-    md:space-y-10
-  `,
+      left: `
+        lg:col-span-7
+      `,
 
-    body: `
-    space-y-8
-    md:space-y-10
-    lg:space-y-12
-  `,
+      right: `
+        lg:col-span-4
+        lg:col-start-9
+      `,
 
-    metadata: `
-    flex
-    flex-col
+      infoGroup: `
+        space-y-2
+      `,
+    },
 
-    md:flex-wrap
+    links: {
+      list: `
+        space-y-8
+      `,
 
-    gap-x-8
-    lg:gap-x-10
+      row: `
+        flex
+        items-end
+        justify-between
 
-    gap-y-5
+        gap-6
+      `,
 
-    border-t
-  `,
+      top: `
+        mb-4
 
-    metadataItem: `
-    space-y-2
-  `,
+        flex
+        items-center
+        justify-between
+      `,
+
+      status: `
+        flex
+        items-center
+        gap-2
+      `,
+    },
+
+    availability: {
+      content: `
+        space-y-4
+      `,
+    },
+
+    footer: {
+      content: `
+        flex
+        flex-col
+
+        gap-10
+        md:gap-12
+        lg:gap-14
+
+        lg:flex-row
+        lg:items-end
+        lg:justify-between
+      `,
+
+      left: `
+        space-y-8
+      `,
+
+      right: `
+        flex
+        flex-col
+        gap-8
+
+        items-start
+        lg:items-end
+      `,
+
+      meta: `
+        flex
+        flex-col
+
+        gap-3
+
+        md:flex-row
+        md:items-center
+        md:gap-8
+      `,
+    },
+  },
+
+  about: {
+    hero: {
+      root: `
+        grid
+        grid-cols-1
+
+        md:grid-cols-12
+
+        gap-y-10
+        md:gap-y-16
+        lg:gap-x-12
+      `,
+
+      label: `
+        col-span-1
+        md:col-span-12
+        lg:col-span-2
+      `,
+
+      statement: `
+        col-span-1
+        md:col-span-12
+        lg:col-span-10
+      `,
+    },
+
+    philosophy: {
+      root: `
+        grid
+        grid-cols-1
+
+        md:grid-cols-12
+
+        gap-y-10
+        md:gap-y-14
+        lg:gap-x-16
+      `,
+
+      left: `
+        col-span-1
+        md:col-span-12
+        lg:col-span-5
+      `,
+
+      right: `
+        col-span-1
+        md:col-span-12
+        lg:col-span-7
+      `,
+
+      content: `
+        space-y-6
+        md:space-y-8
+      `,
+    },
+
+    principles: {
+      root: `
+        relative
+        overflow-hidden
+      `,
+
+      content: `
+        relative
+        z-10
+
+        grid
+        grid-cols-1
+
+        xl:grid-cols-12
+        xl:items-center
+      `,
+
+      right: `
+        max-w-[720px]
+
+        xl:col-span-6
+        xl:col-start-7
+      `,
+
+      stack: `
+        space-y-12
+        md:space-y-14
+      `,
+
+      list: `
+        grid
+        grid-cols-1
+
+        sm:grid-cols-2
+
+        gap-x-10
+        gap-y-4
+
+        pt-6
+        md:pt-8
+
+        max-w-[28rem]
+      `,
+    },
+
+    stackFooter: `
+      border-t
+    `,
   },
 } as const;

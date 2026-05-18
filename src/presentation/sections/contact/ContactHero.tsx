@@ -1,229 +1,155 @@
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import Display from "@/design/typography/Display";
-import Heading from "@/design/typography/Heading";
-
-import {
-  compositionStack,
-  sectionSpacing,
-} from "@/runtime/presentation/composition";
-
 import { contactContent } from "@/content/contact";
 
-import { ui, useTheme } from "@/theme";
+import Heading from "@/design/typography/Heading";
+import Label from "@/design/typography/Label";
+import Text from "@/design/typography/Text";
+
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
+
+import { ui } from "@/theme";
 
 export default function ContactHero() {
-  const { theme } = useTheme();
   const { hero } = contactContent;
 
-  const scene = theme.scenes.contact;
-
-  const spacing = sectionSpacing.contact;
-  const stack = compositionStack.contact;
+  const layout = resolveLayoutRuntime();
 
   return (
-    <section
-      className={`
-        relative
-        overflow-hidden
-
-        ${scene.layout.sectionPadding}
-      `}
-    >
-      {/* BASE TEXTURE */}
-      <div
-        className={`
-          absolute
-          inset-0
-
-          ${scene.texture.opacity}
-        `}
-        style={{
-          backgroundImage: `url(${scene.texture.image})`,
-          backgroundSize: scene.texture.size,
-          backgroundPosition: scene.texture.position,
-        }}
-      />
-
-      {/* ATMOSPHERIC LIGHT */}
-      <div
-        className={`
-          absolute
-          rounded-full
-          blur-sm
-
-          ${scene.atmosphere.primary.position}
-          ${scene.atmosphere.primary.size}
-          ${scene.atmosphere.primary.opacity}
-        `}
-        style={{
-          background: scene.atmosphere.primary.background,
-        }}
-      />
-
-      {/* VERTICAL DIVIDER */}
-      <div
-        className={`
-          absolute
-          left-1/2
-          top-0
-
-          h-full
-
-          border-l
-
-          ${scene.dividers.vertical.visibility}
-          ${scene.dividers.vertical.width}
-          ${scene.dividers.vertical.color}
-        `}
-      />
-
-      {/* CONTENT */}
-      <div
-        className={`
-          relative
-          z-10
-
-          grid
-          grid-cols-12
-
-          ${spacing.heroContent}
-        `}
-      >
+    <div className={layout.contact.hero.root}>
+      <div className={layout.contact.hero.content}>
         {/* LEFT */}
-        <div className="col-span-12 xl:col-span-7">
-          <div
-            className={`
-              ${stack.hero.left}
-              ${spacing.heroLeft}
-            `}
-          >
-            <FadeIn>
-              <Heading
-                className={`
-                  text-[32px]
+        <FadeIn>
+          <div className={layout.contact.hero.left}>
+            <Label className={ui.text.context}>{hero.label}</Label>
 
-                  uppercase
-                  tracking-[0.28em]
-
-                  ${ui.text.metadata}
-                `}
-              >
-                {hero.label}
-              </Heading>
-            </FadeIn>
-
-            <FadeIn delay={0.06}>
-              <Display
-                className={`
-                  max-w-[11ch]
-
-                  text-4xl
-                  sm:text-5xl
-                  md:text-6xl
-                  lg:text-7xl
-                  xl:text-[6.5rem]
-
-                  leading-[0.92]
-
-                  ${ui.text.primary}
-                `}
-              >
-                {hero.title}
-              </Display>
-            </FadeIn>
-
-            <FadeIn delay={0.12}>
-              <p
-                className={`
-                  max-w-[34ch]
-
-                  text-base
-                  md:text-sm
-
-                  leading-[1.9]
-
-                  ${ui.text.tertiary}
-                `}
-              >
-                {hero.description}
-              </p>
-            </FadeIn>
-          </div>
-        </div>
-
-        {/* RIGHT */}
-        <div
-          className={`
-            col-span-12
-            xl:col-span-4
-            xl:col-start-9
-
-            ${spacing.heroRight}
-          `}
-        >
-          <FadeIn delay={0.18}>
-            <div
+            <Heading
+              as='h2'
               className={`
-                ${stack.hero.right}
+                mt-8
 
-                border-t
+                max-w-[10ch]
 
-                ${spacing.heroCard}
+                text-[clamp(3rem,7vw,7rem)]
 
-                ${ui.borders.focus}
-                ${ui.borders.focusMd}
+                leading-[0.9]
+                tracking-[-0.06em]
+
+                ${ui.text.strong}
               `}
             >
-              <div className={stack.hero.infoGroup}>
-                <div
-                  className={`
-                    text-[11px]
-                    uppercase
-                    tracking-[0.28em]
+              {hero.title}
+            </Heading>
 
-                    ${ui.text.annotation}
-                  `}
-                >
-                  {hero.email.label}
+            <Text
+              className={`
+                mt-10
+
+                max-w-[34rem]
+
+                text-sm
+                leading-[1.9]
+
+                ${ui.text.muted}
+              `}
+            >
+              {hero.description}
+            </Text>
+          </div>
+        </FadeIn>
+
+        {/* RIGHT */}
+        <FadeIn delay={0.12}>
+          <div className={layout.contact.hero.right}>
+            <div
+              className={`
+                relative
+
+                border
+                backdrop-blur-xl
+
+                ${layout.contact.hero.card}
+
+                ${ui.borders.subtle}
+                ${ui.surfaces.panel}
+              `}
+            >
+              <div
+                className='
+                  absolute
+                  inset-0
+
+                  opacity-[0.06]
+                '
+                style={{
+                  background:
+                    "radial-gradient(circle at top left, rgba(120,200,255,0.28), transparent 60%)",
+                }}
+              />
+
+              <div className='relative z-10 space-y-8'>
+                {/* EMAIL */}
+                <div className={layout.contact.hero.infoGroup}>
+                  <div
+                    className={`
+                      text-[10px]
+                      uppercase
+                      tracking-[0.28em]
+
+                      ${ui.text.annotation}
+                    `}
+                  >
+                    {hero.email.label}
+                  </div>
+
+                  <a
+                    href={hero.email.href}
+                    className={`
+                      text-sm
+                      leading-[1.8]
+
+                      transition-opacity
+                      duration-500
+
+                      hover:opacity-80
+
+                      ${ui.text.secondary}
+                    `}
+                  >
+                    {hero.email.value}
+                  </a>
                 </div>
 
-                <a
-                  href="mailto:your@email.com"
-                  className={`
-                    text-lg
+                {/* AVAILABILITY */}
+                <div className={layout.contact.hero.infoGroup}>
+                  <div
+                    className={`
+                      text-[10px]
+                      uppercase
+                      tracking-[0.28em]
 
-                    transition-opacity
-                    duration-500
+                      ${ui.text.annotation}
+                    `}
+                  >
+                    {hero.availability.label}
+                  </div>
 
-                    hover:opacity-60
+                  <div
+                    className={`
+                      text-sm
+                      leading-[1.8]
 
-                    ${ui.text.interactive}
-                  `}
-                >
-                  {hero.email.value}
-                </a>
-              </div>
-
-              <div className={stack.hero.infoGroup}>
-                <div
-                  className={`
-                    text-[11px]
-                    uppercase
-                    tracking-[0.28em]
-
-                    ${ui.text.annotation}
-                  `}
-                >
-                  {hero.availability.label}
+                      ${ui.text.secondary}
+                    `}
+                  >
+                    {hero.availability.value}
+                  </div>
                 </div>
-
-                <p className={ui.text.supporting}>{hero.availability.value}</p>
               </div>
             </div>
-          </FadeIn>
-        </div>
+          </div>
+        </FadeIn>
       </div>
-    </section>
+    </div>
   );
 }

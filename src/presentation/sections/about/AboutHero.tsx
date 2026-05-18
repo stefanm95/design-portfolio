@@ -5,36 +5,38 @@ import Label from "@/design/typography/Label";
 
 import { aboutContent } from "@/content/about";
 
-import { compositionStack } from "@/runtime/presentation/composition";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
 
 export default function AboutHero() {
   const { hero } = aboutContent;
+
+  const layout = resolveLayoutRuntime();
 
   return (
     <div
       className={`
         relative
         left-[45%]
-        xl:left-0
         lg:left-0
+        xl:left-0
 
-        ${compositionStack.about.hero.root}
+        ${layout.about.hero.root}
       `}
     >
       {/* LABEL */}
-      <div className="col-span-1 md:col-span-12 lg:col-span-2">
+      <div className={layout.about.hero.label}>
         <FadeIn>
           <Label>{hero.label}</Label>
         </FadeIn>
       </div>
 
       {/* STATEMENT */}
-      <div className="col-span-1 md:col-span-12 lg:col-span-10">
+      <div className={layout.about.hero.statement}>
         <FadeIn delay={0.08}>
           <Display
-            as="h2"
-            variant="secondary"
-            className="
+            as='h2'
+            variant='secondary'
+            className='
               max-w-[11ch]
 
               text-3xl
@@ -45,7 +47,7 @@ export default function AboutHero() {
               2xl:text-[8rem]
 
               leading-[0.92]
-            "
+            '
           >
             {hero.statement}
           </Display>

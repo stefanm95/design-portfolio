@@ -6,21 +6,22 @@ import { aboutContent } from "@/content/about";
 
 import Text from "@/design/typography/Text";
 
-import { sectionSpacing } from "@/runtime/presentation/composition";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
 
 import { ui } from "@/theme";
 
 export default function AboutStack() {
   const { description } = aboutContent.stack;
 
+  const layout = resolveLayoutRuntime();
+
   return (
     <FadeIn>
       <div
         className={`
-          border-t
+          ${layout.about.stackFooter}
 
           ${ui.borders.hairline}
-          ${sectionSpacing.about.stackFooter}
         `}
       >
         <Text

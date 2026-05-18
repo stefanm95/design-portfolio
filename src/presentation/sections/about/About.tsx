@@ -1,8 +1,10 @@
+// About.tsx
+
 import { opacityClass } from "@/theme";
 
 import Section from "@/design/layout/Section";
 
-import { sectionSpacing } from "@/runtime/presentation/composition";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
 
 import AboutHero from "./AboutHero";
 import AboutPhilosophy from "./AboutPhilosophy";
@@ -10,14 +12,16 @@ import AboutPrinciples from "./AboutPrinciples";
 import AboutStack from "./AboutStack";
 
 export default function About() {
+  const layout = resolveLayoutRuntime();
+
   return (
     <Section
-      id="about"
+      id='about'
       className={`
         relative
         overflow-hidden
 
-        ${sectionSpacing.about.root}
+        ${layout.about.section}
       `}
     >
       {/* ATMOSPHERIC BLOOM */}
@@ -47,7 +51,7 @@ export default function About() {
           relative
           z-10
 
-          ${sectionSpacing.about.stack}
+          ${layout.about.stack}
         `}
       >
         <AboutHero />
