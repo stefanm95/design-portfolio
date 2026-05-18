@@ -1,6 +1,6 @@
 import type { RenderingAttributes } from "@/runtime/presentation/rendering";
 
-import type { CinematicContainerAttributes } from "./types";
+import type { ResolvedCinematicContainer } from "../contracts/types";
 
 type Props = {
   rendering: RenderingAttributes;
@@ -8,7 +8,7 @@ type Props = {
 
 export function resolveCinematicContainer({
   rendering,
-}: Props): CinematicContainerAttributes {
+}: Props): ResolvedCinematicContainer {
   const cinematicDepth = rendering.depth.cinematicDepth;
 
   const atmosphericDepth = rendering.atmosphere.cinematic.atmosphericDepth;

@@ -1,12 +1,15 @@
 import {
-  compositionRhythm,
+  compositionRhythmScale,
   resolveCompositionReactivity,
 } from "@/runtime/presentation/composition";
+
 import type {
   CompositionContract,
   SceneIntensity,
 } from "@/runtime/presentation/composition/contract";
+
 import type { PresentationProfile } from "@/runtime/presentation/profiles";
+
 import type { ProjectPresentation } from "@/types";
 
 export function resolveCompositionContract(
@@ -18,12 +21,14 @@ export function resolveCompositionContract(
   // AUTHORED OVERRIDES
   //
 
-  const density = presentation.composition?.density ?? profile.density;
+  const density =
+    presentation.composition?.density ?? profile.orchestration.density;
 
-  const rhythm = presentation.composition?.rhythm ?? profile.rhythm;
+  const rhythm =
+    presentation.composition?.rhythm ?? profile.orchestration.rhythm;
 
   const transition =
-    presentation.composition?.transitions ?? profile.transitions;
+    presentation.composition?.transitions ?? profile.orchestration.transitions;
 
   //
   // REACTIVITY
@@ -37,7 +42,9 @@ export function resolveCompositionContract(
 
   return {
     semantics: {
-      overlays: profile.overlays,
+      overlays: profile.semantics.overlays,
+
+      navigation: profile.semantics.navigation,
     },
 
     orchestration: {
@@ -45,17 +52,18 @@ export function resolveCompositionContract(
 
       rhythm,
 
-      rhythmProfile: compositionRhythm[rhythm],
+      rhythmProfile: compositionRhythmScale[rhythm],
 
       transition,
 
-      atmosphericDepth: profile.atmosphericDepth,
+      atmosphericDepth: profile.orchestration.atmosphericDepth,
 
-      environmentalPressure: profile.environmentalPressure,
+      environmentalPressure: profile.orchestration.environmentalPressure,
 
-      motionRestraint: profile.motionRestraint,
+      motionRestraint: profile.orchestration.motionRestraint,
 
-      sceneIntensity: sceneIntensity ?? profile.sceneIntensity ?? "balanced",
+      sceneIntensity:
+        sceneIntensity ?? profile.orchestration.sceneIntensity ?? "balanced",
 
       reactivity,
     },

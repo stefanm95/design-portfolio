@@ -1,3 +1,3 @@
-export * from "./types";
+export { resolveRuntimeLayers } from "./realization";
 
-export * from "./resolveRuntimeLayers";
+export type { RuntimeLayerSet } from "./contracts";

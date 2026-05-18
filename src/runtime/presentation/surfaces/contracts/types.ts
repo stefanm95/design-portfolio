@@ -1,6 +1,6 @@
 export type SurfaceIntensity = "minimal" | "soft" | "medium" | "deep";
 
-export type RuntimeSurfaceSet = {
+export type ResolvedSurfaceRealization = {
   panel: string;
 
   elevated: string;

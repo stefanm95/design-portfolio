@@ -4,8 +4,6 @@
 
 export type CompositionDensity = "tight" | "balanced" | "spacious";
 
-export type CompositionRhythm = "editorial" | "cinematic" | "immersive";
-
 //
 // TRANSITIONS
 //

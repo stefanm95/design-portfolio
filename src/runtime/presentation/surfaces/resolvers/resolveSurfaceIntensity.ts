@@ -1,10 +1,8 @@
-import type { RenderingAttributes } from "../rendering";
+import type { RenderingAttributes } from "../../rendering";
 
-import type { AtmosphereState } from "../resolvers";
+import type { AtmosphereState } from "../../resolvers";
 
-import { surfaceScale } from "./scale";
-
-import type { RuntimeSurfaceSet, SurfaceIntensity } from "./types";
+import type { SurfaceIntensity } from "../contracts";
 
 type Props = {
   atmosphere: AtmosphereState;
@@ -12,10 +10,10 @@ type Props = {
   rendering: RenderingAttributes;
 };
 
-function resolveSurfaceIntensity(
-  atmosphere: AtmosphereState,
-  rendering: RenderingAttributes,
-): SurfaceIntensity {
+export function resolveSurfaceIntensity({
+  atmosphere,
+  rendering,
+}: Props): SurfaceIntensity {
   const cinematicDepth = rendering.depth.cinematicDepth;
 
   const atmosphericDepth = rendering.atmosphere.cinematic.atmosphericDepth;
@@ -53,13 +51,4 @@ function resolveSurfaceIntensity(
   //
 
   return "medium";
-}
-
-export function resolveRuntimeSurfaces({
-  atmosphere,
-  rendering,
-}: Props): RuntimeSurfaceSet {
-  const intensity = resolveSurfaceIntensity(atmosphere, rendering);
-
-  return surfaceScale[intensity];
 }

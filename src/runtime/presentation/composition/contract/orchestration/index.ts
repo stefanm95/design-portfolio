@@ -1,7 +1,6 @@
 export type {
   AtmosphericDepth,
   CompositionDensity,
-  CompositionRhythm,
   EnvironmentalPressure,
   MotionRestraint,
   SceneIntensity,

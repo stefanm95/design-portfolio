@@ -1,6 +1,6 @@
 import type { RenderingAttributes } from "@/runtime/presentation/rendering";
 
-import type { TypographyRendering } from "./types";
+import type { ResolvedTypographyRendering } from "../contracts/types";
 
 type Props = {
   rendering: RenderingAttributes;
@@ -8,7 +8,7 @@ type Props = {
 
 export function resolveTypographyRendering({
   rendering,
-}: Props): TypographyRendering {
+}: Props): ResolvedTypographyRendering {
   const softness = rendering.motion.softness;
 
   return {

@@ -7,7 +7,6 @@ export type { OrchestrationContract } from "./orchestration";
 export type {
   AtmosphericDepth,
   CompositionDensity,
-  CompositionRhythm,
   EnvironmentalPressure,
   MotionRestraint,
   SceneIntensity,

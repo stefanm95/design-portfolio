@@ -1,9 +1,11 @@
+import type {
+  CompositionRhythm,
+  RhythmProfile,
+} from "@/runtime/presentation/composition/orchestration/contracts/types";
 import type { CompositionReactivityContextType } from "@/runtime/presentation/composition/reactivity";
-import type { RhythmProfile } from "@/runtime/presentation/composition/rhythm";
 import type {
   AtmosphericDepth,
   CompositionDensity,
-  CompositionRhythm,
   EnvironmentalPressure,
   MotionRestraint,
   SceneIntensity,

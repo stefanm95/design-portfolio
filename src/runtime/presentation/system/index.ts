@@ -1,14 +1,14 @@
 export type {
-  CinematicContainerAttributes,
-  OverlayRendering,
-  PanelRendering,
-  TypographyRendering,
-} from "./types";
+  ResolvedCinematicContainer,
+  ResolvedOverlayRendering,
+  ResolvedPanelRendering,
+  ResolvedTypographyRendering,
+} from "./contracts/types";
 
-export { resolveCinematicContainer } from "./resolveCinematicContainer";
+export { resolveCinematicContainer } from "./realization/resolveCinematicContainer";
 
-export { resolveOverlayRendering } from "./resolveOverlayRendering";
+export { resolveOverlayRendering } from "./realization/resolveOverlayRendering";
 
-export { resolvePanelRendering } from "./resolvePanelRendering";
+export { resolvePanelRendering } from "./realization/resolvePanelRendering";
 
-export { resolveTypographyRendering } from "./resolveTypographyRendering";
+export { resolveTypographyRendering } from "./realization/resolveTypographyRendering";

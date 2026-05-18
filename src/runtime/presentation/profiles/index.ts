@@ -1,5 +1,8 @@
-export { presentationProfiles } from "./profiles";
+export { presentationProfiles } from "./realization/profiles";
 
-export { resolvePresentationProfile } from "./resolver";
+export { resolvePresentationProfile } from "./resolvers/resolver";
 
-export type { PresentationProfile, PresentationProfileVariant } from "./types";
+export type {
+  PresentationProfile,
+  PresentationProfileVariant,
+} from "./contracts";

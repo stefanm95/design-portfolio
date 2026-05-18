@@ -1,10 +1,10 @@
-export type CinematicContainerAttributes = {
+export type ResolvedCinematicContainer = {
   cinematic: string;
 
   spacing: string;
 };
 
-export type OverlayRendering = {
+export type ResolvedOverlayRendering = {
   opacity: number;
 
   blur: number;
@@ -12,7 +12,7 @@ export type OverlayRendering = {
   vignette: number;
 };
 
-export type PanelRendering = {
+export type ResolvedPanelRendering = {
   panel: string;
 
   elevation: number;
@@ -20,7 +20,7 @@ export type PanelRendering = {
   glow: string;
 };
 
-export type TypographyRendering = {
+export type ResolvedTypographyRendering = {
   contrast: number;
 
   softness: number;

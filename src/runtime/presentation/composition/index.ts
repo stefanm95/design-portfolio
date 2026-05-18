@@ -6,14 +6,6 @@
 
 export { compositionDensity } from "../realization/composition/density";
 
-export { compositionRhythm } from "./rhythm";
-
-export { compositionStack } from "./stack";
-
-export { sectionSpacing } from "./section";
-
-export { gridSpacing, stackSpacing } from "./gridSpacing";
-
 export { projectComposition } from "./projects";
 
 //
@@ -59,7 +51,6 @@ export {
 export type {
   AtmosphericDepth,
   CompositionDensity,
-  CompositionRhythm,
   EnvironmentalPressure,
   MotionRestraint,
   SceneIntensity,
@@ -67,3 +58,5 @@ export type {
   SpatialPressure,
   TransitionIntensity,
 } from "./contract/orchestration/types.shared";
+
+export * from "./orchestration";

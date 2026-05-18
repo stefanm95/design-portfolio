@@ -1,6 +1,5 @@
 import type { RenderingAttributes } from "@/runtime/presentation/rendering";
-
-import type { OverlayRendering } from "./types";
+import type { ResolvedOverlayRendering } from "@/runtime/presentation/system/contracts/types";
 
 type Props = {
   rendering: RenderingAttributes;
@@ -8,7 +7,7 @@ type Props = {
 
 export function resolveOverlayRendering({
   rendering,
-}: Props): OverlayRendering {
+}: Props): ResolvedOverlayRendering {
   return {
     opacity: rendering.overlay.overlayOpacity,
 

@@ -18,42 +18,42 @@ export type PresentationProfileVariant =
 
 export type NavigationStyle = "immersive" | "minimal";
 
-export type PresentationProfile = {
-  //
-  // COMPOSITION
-  //
+//
+// SEMANTICS
+//
 
+export type ProfileSemantics = {
+  overlays: boolean;
+
+  navigation: NavigationStyle;
+};
+
+//
+// ORCHESTRATION
+//
+
+export type ProfileOrchestration = {
   density: CompositionDensity;
 
   rhythm: CompositionRhythm;
-
-  //
-  // ENVIRONMENT
-  //
 
   atmosphericDepth: AtmosphericDepth;
 
   environmentalPressure: EnvironmentalPressure;
 
-  //
-  // MOTION
-  //
-
   motionRestraint: MotionRestraint;
 
   transitions: TransitionIntensity;
 
-  //
-  // SCENE
-  //
-
   sceneIntensity?: SceneIntensity;
+};
 
-  //
-  // UI
-  //
+//
+// PROFILE
+//
 
-  overlays: boolean;
+export type PresentationProfile = {
+  semantics: ProfileSemantics;
 
-  navigation: NavigationStyle;
+  orchestration: ProfileOrchestration;
 };
