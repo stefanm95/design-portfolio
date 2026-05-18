@@ -11,34 +11,30 @@ import RightSideVisual from "@/design/visuals/RightSideVisual";
 
 import { heroContent } from "@/content/hero";
 
-import {
-  compositionStack,
-  sectionSpacing,
-} from "@/runtime/presentation/composition";
-
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
 import { dividersGradients, opacityClass, ui } from "@/theme";
 
 export default function Hero() {
   const { meta, display, description, availability } = heroContent;
 
+  //
+  // LAYOUT RUNTIME
+  //
+
+  const layout = resolveLayoutRuntime();
+
   return (
-    <Section
-      id="hero"
-      className={`
-        ${compositionStack.hero.root}
-        ${sectionSpacing.hero.root}
-      `}
-    >
+    <Section id="hero" className={layout.hero.root}>
       {/* ENVIRONMENT */}
       <RightSideVisual />
 
       {/* HERO GRID */}
-      <div className={compositionStack.hero.grid}>
+      <div className={layout.hero.grid}>
         {/* CONTENT */}
-        <div className={compositionStack.hero.content}>
+        <div className={layout.hero.content}>
           {/* TOP META */}
           <FadeIn>
-            <div className={compositionStack.hero.meta}>
+            <div className={layout.hero.meta}>
               <div className={`h-px w-16 ${ui.dividers.subtle}`} />
 
               <Label>{meta.role}</Label>
@@ -47,8 +43,8 @@ export default function Hero() {
 
           {/* DISPLAY TYPOGRAPHY */}
           <Reveal>
-            <div className={sectionSpacing.hero.display}>
-              <div className={compositionStack.hero.display}>
+            <div className={layout.hero.display}>
+              <div className={layout.hero.display}>
                 <Display>{display.primary}</Display>
 
                 <Display
@@ -78,14 +74,9 @@ export default function Hero() {
 
           {/* DESCRIPTION BLOCK */}
           <FadeIn>
-            <div
-              className={`
-                ${sectionSpacing.hero.description}
-                ${compositionStack.hero.description}
-              `}
-            >
+            <div className={layout.hero.description}>
               {/* EDITORIAL MARKER */}
-              <div className={compositionStack.hero.marker}>
+              <div className={layout.hero.marker}>
                 <div className={`h-px w-20 ${ui.dividers.subtle}`} />
 
                 <div
@@ -103,7 +94,7 @@ export default function Hero() {
               </div>
 
               {/* COPY */}
-              <div className={compositionStack.hero.copy}>
+              <div className={layout.hero.copy}>
                 <Text
                   className={`
                     max-w-145
@@ -124,7 +115,7 @@ export default function Hero() {
                 {/* BOTTOM META */}
                 <div
                   className={`
-                    ${compositionStack.hero.availability}
+                    ${layout.hero.availability}
 
                     text-[11px]
                     uppercase

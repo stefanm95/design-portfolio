@@ -1,7 +1,0 @@
-//
-// GRID SPACING
-//
-
-//
-// STACK SPACING
-//

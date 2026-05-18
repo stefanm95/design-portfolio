@@ -2,8 +2,7 @@ import type { SpatialBehavior } from "./types";
 
 import type { RuntimeBlockRelationship } from "@/runtime/presentation/interpreter/relationships";
 
-import type { PresentationRuntimeSnapshot } from "@/runtime/presentation/interpreter/types";
-
+import type { PresentationRuntimeSnapshot } from "@/runtime/presentation/execution/snapshot/contracts/types";
 import { resolveBlockSpacing } from "./resolveBlockSpacing";
 
 type Props = {

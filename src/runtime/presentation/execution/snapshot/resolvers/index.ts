@@ -1,0 +1,1 @@
+export { resolvePresentationSnapshot } from "./resolvePresentationSnapshot";

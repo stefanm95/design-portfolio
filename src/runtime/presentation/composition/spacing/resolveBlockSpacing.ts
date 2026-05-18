@@ -1,7 +1,6 @@
+import type { PresentationRuntimeSnapshot } from "@/runtime/presentation/execution/snapshot/contracts/types";
 import { spatialScale } from "@/runtime/presentation/realization/spatial";
 import type { SpatialBehavior } from "./types";
-
-import type { PresentationRuntimeSnapshot } from "@/runtime/presentation/interpreter/types";
 
 type Props = {
   behavior: SpatialBehavior;

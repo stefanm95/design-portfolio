@@ -1,12 +1,21 @@
 import type { AtmosphereState } from "@/runtime/presentation/resolvers";
 
+import type { RenderingAttributes } from "@/runtime/presentation/rendering";
+
 import type { RuntimeLayerSet } from "../contracts";
 
 type Props = {
   atmosphere: AtmosphereState;
+
+  rendering: RenderingAttributes;
 };
 
-export function resolveRuntimeLayers({ atmosphere }: Props): RuntimeLayerSet {
+export function resolveRuntimeLayers({
+  atmosphere,
+  rendering,
+}: Props): RuntimeLayerSet {
+  const cinematicDepth = rendering.depth.cinematicDepth;
+
   //
   // IMMERSIVE
   //
@@ -28,9 +37,14 @@ export function resolveRuntimeLayers({ atmosphere }: Props): RuntimeLayerSet {
         blur-3xl
       `,
 
-      cinematicGlow: `
-        shadow-[0_0_120px_rgba(255,255,255,0.08)]
-      `,
+      cinematicGlow:
+        cinematicDepth > 1
+          ? `
+              shadow-[0_0_120px_rgba(255,255,255,0.08)]
+            `
+          : `
+              shadow-[0_0_80px_rgba(255,255,255,0.05)]
+            `,
 
       depthTreatment: `
         ring-1 ring-white/[0.08]

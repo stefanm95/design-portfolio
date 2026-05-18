@@ -1,8 +1,7 @@
 import type {
-  CompositionSemantic,
   AtmosphereState,
+  CompositionSemantic,
 } from "@/runtime/presentation";
-import type {} from "@/runtime/presentation";
 
 export type RuntimeContinuityState = {
   enteringImmersive: boolean;

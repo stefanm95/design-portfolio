@@ -1,12 +1,4 @@
-// runtime/presentation/composition/index.ts
-
-//
-// FOUNDATIONS
-//
-
 export { compositionDensity } from "../realization/composition/density";
-
-export { projectComposition } from "./projects";
 
 //
 // CONTRACTS

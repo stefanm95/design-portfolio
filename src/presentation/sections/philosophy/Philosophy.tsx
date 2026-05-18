@@ -10,15 +10,17 @@ import Text from "@/design/typography/Text";
 
 import LeftSideVisual from "@/design/visuals/LeftSideVisual";
 
-import {
-  compositionStack,
-  sectionSpacing,
-} from "@/runtime/presentation/composition";
-
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
 import { dividersGradients, ui } from "@/theme";
 
 export default function Philosophy() {
   const { hero, body, metadata } = philosophyContent;
+
+  //
+  // LAYOUT RUNTIME
+  //
+
+  const layout = resolveLayoutRuntime();
 
   return (
     <Section
@@ -26,7 +28,7 @@ export default function Philosophy() {
       className={`
         relative
 
-        ${sectionSpacing.philosophy.root}
+        ${layout.philosophy.root}
       `}
     >
       <LeftSideVisual />
@@ -34,25 +36,25 @@ export default function Philosophy() {
       {/* Atmospheric Divider */}
       <div
         className={`
-          ${sectionSpacing.philosophy.divider}
+          ${layout.philosophy.divider}
           ${dividersGradients.atmospheric}
         `}
       />
 
       {/* Ambient Bloom */}
       <div
-        className={sectionSpacing.philosophy.ambientBloom}
+        className={layout.philosophy.ambientBloom}
         style={{
           background:
             "radial-gradient(circle, rgba(0,180,255,0.18), transparent 72%)",
         }}
       />
 
-      <div className={compositionStack.philosophy.root}>
+      <div className={layout.philosophy.stack}>
         {/* LEFT */}
-        <div className={compositionStack.philosophy.left}>
+        <div className={layout.philosophy.left}>
           <FadeIn>
-            <div className={compositionStack.philosophy.heading}>
+            <div className={layout.philosophy.heading}>
               <Label>{hero.label}</Label>
 
               <Heading
@@ -77,9 +79,9 @@ export default function Philosophy() {
         </div>
 
         {/* RIGHT */}
-        <div className={compositionStack.philosophy.right}>
+        <div className={layout.philosophy.right}>
           <FadeIn delay={0.15}>
-            <div className={compositionStack.philosophy.body}>
+            <div className={layout.philosophy.body}>
               <Text
                 className={`
                   text-base
@@ -111,15 +113,14 @@ export default function Philosophy() {
               {/* Metadata */}
               <div
                 className={`
-                  ${compositionStack.philosophy.metadata}
-                  ${sectionSpacing.philosophy.metadata}
+                  ${layout.philosophy.metadata}
                   ${ui.borders.subtle}
                 `}
               >
                 {metadata.map((item) => (
                   <div
                     key={item.label}
-                    className={compositionStack.philosophy.metadataItem}
+                    className={layout.philosophy.metadataItem}
                   >
                     <Label className={ui.text.annotation}>{item.label}</Label>
 

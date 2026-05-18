@@ -1,5 +1,4 @@
-export { resolvePresentationRuntime } from "./resolvePresentationRuntime";
-export { resolvePresentationBlockRuntime } from "./resolvePresentationBlockRuntime";
+export { resolvePresentationBlockRuntime } from "../execution/blocks/resolvers/resolvePresentationBlockRuntime";
+export { resolvePresentationRuntime } from "../execution/pipeline/resolvers/resolvePresentationRuntime";
 
-export { type ResolvedPresentationBlockRuntime } from "./types";
-export { type PresentationRuntime } from "./types";
+export { type ResolvedBlockComponentPair } from "./types";

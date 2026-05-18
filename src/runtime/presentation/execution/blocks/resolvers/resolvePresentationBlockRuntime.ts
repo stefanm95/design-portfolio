@@ -15,13 +15,12 @@ import {
 
 import type { PresentationBlock } from "@/types/presentation";
 
-import { resolveContextualMotion } from "../motion";
-import { resolveNarrativeTransition } from "../transitions";
-import type { RuntimeBlockRelationship } from "./relationships";
-import type {
-  PresentationRuntimeSnapshot,
-  ResolvedPresentationBlockRuntime,
-} from "./types";
+import type { RuntimeBlockRelationship } from "../../../interpreter/relationships";
+
+import type { ResolvedPresentationBlockRuntime } from "@/runtime/presentation/execution/blocks/contracts/types";
+import type { PresentationRuntimeSnapshot } from "@/runtime/presentation/execution/snapshot/contracts/types";
+import { resolveContextualMotion } from "../../../motion";
+import { resolveNarrativeTransition } from "../../../transitions";
 
 type Props<TBlock extends PresentationBlock> = {
   block: TBlock;

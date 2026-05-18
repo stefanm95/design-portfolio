@@ -1,28 +1,29 @@
+import type { CompositionContract } from "@/runtime/presentation/composition/contract";
+
 import { resolveSpatialPressure } from "@/runtime/presentation/composition";
 
 import type { SceneRuntime } from "@/runtime/presentation/scene";
 
-import type { PresentationRuntimeSnapshot } from "./types";
+import { resolveCadence } from "@/runtime/presentation/motion";
 
-import { resolveCadence } from "../motion";
+import { resolveAtmosphericModulation } from "@/runtime/presentation/atmosphere";
 
-import { resolveAtmosphericModulation } from "../atmosphere";
+import { resolveAtmosphere } from "@/runtime/presentation/resolvers";
 
-import { resolveAtmosphere } from "../resolvers";
+import { resolveRenderingAttributes } from "@/runtime/presentation/rendering";
 
-import { resolveRenderingAttributes } from "../rendering";
+import { resolveRuntimeSurfaces } from "@/runtime/presentation/surfaces";
 
-import { resolveRuntimeSurfaces } from "../surfaces";
+import { resolveRuntimeLayers } from "@/runtime/presentation/layers";
 
-import { resolveRuntimeLayers } from "../layers";
-
-import type { CompositionContract } from "@/runtime/presentation/composition/contract";
 import {
   resolveCinematicContainer,
   resolveOverlayRendering,
   resolvePanelRendering,
   resolveTypographyRendering,
-} from "../system";
+} from "@/runtime/presentation/system";
+
+import type { PresentationRuntimeSnapshot } from "../contracts";
 
 type Props = {
   composition: CompositionContract;
