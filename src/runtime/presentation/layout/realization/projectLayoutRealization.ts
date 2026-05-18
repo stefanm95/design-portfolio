@@ -1,4 +1,4 @@
-export const projectLayoutScale = {
+export const projectLayoutRealization = {
   cinematic: {
     systems: {
       section: `

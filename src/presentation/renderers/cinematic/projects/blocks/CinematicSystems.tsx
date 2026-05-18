@@ -6,35 +6,54 @@ import Text from "@/design/typography/Text";
 
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
-import { projectComposition } from "@/runtime/presentation/composition";
-
 import { ui, useTheme } from "@/theme";
 
 import type { PresentationBlockRendererProps } from "@/presentation/renderers/types";
+
 import type { CinematicPresentationBlock } from "@/types";
 
 type Props = PresentationBlockRendererProps<CinematicPresentationBlock>;
 
-export default function CinematicSystems({ project }: Props) {
+export default function CinematicSystems({ project, runtime }: Props) {
+  //
+  // CONTENT
+  //
+
   const system = project.media.systems?.[0];
 
   const content = project.cinematic?.systems;
+
+  //
+  // THEME
+  //
 
   const { theme } = useTheme();
 
   const showcase = theme.showcase;
 
-  const composition = projectComposition.cinematic.systems;
+  //
+  // LAYOUT
+  //
+
+  const layout = runtime.layout.project.cinematic.systems;
+
+  //
+  // GUARD
+  //
 
   if (!system || !content) {
     return null;
   }
 
+  //
+  // RENDER
+  //
+
   return (
-    <section className={composition.section}>
+    <section className={layout.section}>
       {/* LEFT */}
-      <div className={composition.left}>
-        <div className={composition.leftInner}>
+      <div className={layout.left}>
+        <div className={layout.leftInner}>
           <Label>{content.label}</Label>
 
           <Heading as='h3' className='max-w-[11ch]'>
@@ -55,9 +74,9 @@ export default function CinematicSystems({ project }: Props) {
       </div>
 
       {/* RIGHT */}
-      <div className={composition.right}>
+      <div className={layout.right}>
         <FadeIn>
-          <div className={composition.visual}>
+          <div className={layout.visual}>
             {/* MAIN VISUAL */}
             <ProjectCinematicFrame
               image={system}

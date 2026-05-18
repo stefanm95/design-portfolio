@@ -11,7 +11,7 @@ import { experienceContent } from "@/content/experience";
 
 import { dividersGradients, ui } from "@/theme";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import ExperienceVisual from "./ExperienceVisual";
 
@@ -22,7 +22,7 @@ export default function Experience() {
 
   return (
     <Section
-      id="experience"
+      id='experience'
       className={`
         relative
         overflow-hidden
@@ -32,16 +32,16 @@ export default function Experience() {
     >
       {/* BACKGROUND ATMOSPHERE */}
       <div
-        className="
+        className='
           pointer-events-none
           absolute
           inset-0
           overflow-hidden
-        "
+        '
       >
         {/* BLUE LIGHT */}
         <div
-          className="
+          className='
             absolute
             left-[8%]
             top-[10%]
@@ -53,12 +53,12 @@ export default function Experience() {
             blur-sm
 
             bg-blue-500/10
-          "
+          '
         />
 
         {/* WARM LIGHT */}
         <div
-          className="
+          className='
             absolute
             bottom-[0%]
             right-[0%]
@@ -70,7 +70,7 @@ export default function Experience() {
             blur-sm
 
             bg-orange-400/10
-          "
+          '
         />
 
         {/* CENTRAL VERTICAL LIGHT */}
@@ -91,16 +91,16 @@ export default function Experience() {
 
         {/* VIGNETTE */}
         <div
-          className="
+          className='
             absolute
             inset-0
 
             bg-[radial-gradient(circle_at_center,transparent_35%,rgba(0,0,0,0.55)_100%)]
-          "
+          '
         />
       </div>
 
-      <Container className="relative z-10">
+      <Container className='relative z-10'>
         <div className={layout.experience.root}>
           {/* LEFT SIDE */}
           <FadeIn>
@@ -121,7 +121,7 @@ export default function Experience() {
                 />
 
                 <Heading
-                  className="
+                  className='
                     relative
                     z-10
 
@@ -139,13 +139,13 @@ export default function Experience() {
                     bg-[linear-gradient(180deg,rgba(240,244,248,0.98)_0%,rgba(210,220,228,0.92)_50%,rgba(214,195,161,0.88)_100%)]
 
                     drop-shadow-[0_0_30px_rgba(255,255,255,0.03)]
-                  "
+                  '
                 >
-                  <span className="block">{hero.title.line1}</span>
+                  <span className='block'>{hero.title.line1}</span>
 
-                  <span className="block ml-[0.04em]">{hero.title.line2}</span>
+                  <span className='block ml-[0.04em]'>{hero.title.line2}</span>
 
-                  <span className="block">{hero.title.line3}.</span>
+                  <span className='block'>{hero.title.line3}.</span>
                 </Heading>
               </div>
 

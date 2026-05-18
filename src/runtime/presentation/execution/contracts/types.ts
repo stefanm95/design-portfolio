@@ -2,10 +2,6 @@ import type { CompositionContract } from "@/runtime/presentation/composition/con
 
 import type { CompositionReactivityContextType } from "@/runtime/presentation/composition";
 
-import type { SceneRuntime } from "@/runtime/presentation/scene";
-
-import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
-
 import type { AtmosphereState } from "@/runtime/presentation/resolvers";
 
 //
@@ -20,15 +16,3 @@ export type RuntimePressure =
 export type RuntimeBreathing = CompositionReactivityContextType["breathing"];
 
 export type RuntimeAtmosphere = AtmosphereState;
-
-//
-// EXECUTION CONTEXT
-//
-
-export type PresentationRuntime = {
-  composition: CompositionContract;
-
-  profileVariant: PresentationProfileVariant;
-
-  scene: SceneRuntime;
-};

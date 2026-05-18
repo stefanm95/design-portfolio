@@ -2,7 +2,7 @@ import { projects } from "@/content/projects";
 
 import Section from "@/design/layout/Section";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import ProjectShowcase from "./ProjectShowcase";
 

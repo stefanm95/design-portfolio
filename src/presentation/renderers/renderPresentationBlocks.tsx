@@ -1,3 +1,5 @@
+// presentation/renderers/renderPresentationBlocks.tsx
+
 import type { Project } from "@/types/projects";
 
 import type { PresentationBlock } from "@/types/presentation";
@@ -8,14 +10,11 @@ import type { PresentationProfileVariant } from "@/runtime/presentation/profiles
 
 import type { CompositionSemanticMap } from "@/runtime/presentation/semantics";
 
-import type { CompositionContract } from "@/runtime/presentation/composition/contract";
-import {
-  resolvePresentationRuntime,
-  type PresentationRuntime,
-} from "@/runtime/presentation/interpreter";
+import { resolvePresentationRuntime } from "@/runtime/presentation/interpreter";
+import type { PresentationRuntimeSnapshot } from "@/runtime/presentation/execution/snapshot/contracts";
 
 export type RuntimePresentationAttributes = {
-  composition: CompositionContract;
+  snapshot: PresentationRuntimeSnapshot;
 
   profileVariant: PresentationProfileVariant;
 };
@@ -27,7 +26,9 @@ type RenderPresentationBlocksProps<TBlock extends PresentationBlock> = {
     blocks: TBlock[];
   };
 
-  runtime: PresentationRuntime;
+  snapshot: PresentationRuntimeSnapshot;
+
+  profileVariant: PresentationProfileVariant;
 
   registry: PresentationRegistry<TBlock>;
 
@@ -37,20 +38,21 @@ type RenderPresentationBlocksProps<TBlock extends PresentationBlock> = {
 export function renderPresentationBlocks<TBlock extends PresentationBlock>({
   project,
   presentation,
-  runtime,
+  snapshot,
+  profileVariant,
   registry,
   roleMap,
 }: RenderPresentationBlocksProps<TBlock>) {
   const resolvedBlocks = resolvePresentationRuntime({
     presentation,
 
-    composition: runtime.composition,
+    composition: snapshot.composition,
 
     registry,
 
     roleMap,
 
-    scene: runtime.scene,
+    scene: snapshot.scene,
   });
 
   return resolvedBlocks.map((resolvedBlock, index) => {
@@ -66,14 +68,19 @@ export function renderPresentationBlocks<TBlock extends PresentationBlock>({
         className={blockRuntime.spacing}
         data-scene={blockRuntime.scene.definition.id}
         data-atmosphere={blockRuntime.atmosphere}
-        data-profile={runtime.profileVariant}
-        data-density={runtime.composition.orchestration.density}
-        data-rhythm={runtime.composition.orchestration.rhythm}
-        data-transition={runtime.composition.orchestration.transition}
-        data-scene-intensity={runtime.composition.orchestration.sceneIntensity}
+        data-profile={profileVariant}
+        data-density={snapshot.composition.orchestration.density}
+        data-rhythm={snapshot.composition.orchestration.rhythm}
+        data-transition={snapshot.composition.orchestration.transition}
+        data-scene-intensity={snapshot.composition.orchestration.sceneIntensity}
         data-spatial-behavior={blockRuntime.spatialBehavior}
       >
-        <Component project={project} block={block} index={index} />
+        <Component
+          project={project}
+          block={block}
+          index={index}
+          runtime={blockRuntime}
+        />
       </div>
     );
   });

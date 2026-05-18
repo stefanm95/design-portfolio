@@ -1,3 +1,5 @@
+"use client";
+
 import FadeIn from "@/presentation/animation/FadeIn";
 
 import Heading from "@/design/typography/Heading";
@@ -6,22 +8,15 @@ import Text from "@/design/typography/Text";
 
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
-import { projectComposition } from "@/runtime/presentation/composition";
-
 import { ui } from "@/theme";
 
 import CinematicShowcaseSwitcher from "./CinematicShowcaseSwitcher";
 
+import type { PresentationBlockRendererProps } from "@/presentation/renderers/types";
+
 import type { CinematicPresentationBlock } from "@/types";
-import type { Project } from "@/types/projects";
 
-type Props = {
-  project: Project;
-
-  block: CinematicPresentationBlock;
-
-  index: number;
-
+type Props = PresentationBlockRendererProps<CinematicPresentationBlock> & {
   active: number;
 
   setActive: React.Dispatch<React.SetStateAction<number>>;
@@ -29,24 +24,46 @@ type Props = {
 
 export default function CinematicShowcaseMobile({
   project,
+  runtime,
   active,
   setActive,
 }: Props) {
+  //
+  // CONTENT
+  //
+
   const showcase = project.media.showcase ?? [];
 
   const content = project.cinematic?.showcase;
 
   const primary = showcase[active];
 
-  const composition = projectComposition.cinematic.showcase.mobile;
+  //
+  // LAYOUT
+  //
+
+  const layout = runtime.layout.project.cinematic.showcase.mobile;
+
+  //
+  // GUARD
+  //
+
+  if (!primary || !content) {
+    return null;
+  }
+
+  //
+  // RENDER
+  //
 
   return (
-    <section className={composition.section}>
-      <div className={composition.intro}>
-        <Label>{content?.mobileLabel}</Label>
+    <section className={layout.section}>
+      {/* INTRO */}
+      <div className={layout.intro}>
+        <Label>{content.mobileLabel}</Label>
 
         <Heading as='h3' className='max-w-[12ch]'>
-          {content?.mobileHeading}
+          {content.mobileHeading}
         </Heading>
 
         <Text
@@ -57,10 +74,11 @@ export default function CinematicShowcaseMobile({
             ${ui.text.narrative}
           `}
         >
-          {content?.mobileDescription}
+          {content.mobileDescription}
         </Text>
       </div>
 
+      {/* ACTIVE FRAME */}
       <FadeIn key={primary}>
         <a
           title={project.title}
@@ -78,12 +96,14 @@ export default function CinematicShowcaseMobile({
         </a>
       </FadeIn>
 
-      <div className={composition.switcherWrap}>
+      {/* SWITCHER */}
+      <div className={layout.switcherWrap}>
         <CinematicShowcaseSwitcher
           showcase={showcase}
           active={active}
           setActive={setActive}
           mobile
+          layout={runtime.layout.project.cinematic.showcase.switcher}
         />
       </div>
     </section>

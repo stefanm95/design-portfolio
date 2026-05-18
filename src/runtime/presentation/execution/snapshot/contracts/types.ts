@@ -24,11 +24,22 @@ import type {
   ResolvedPanelRendering,
   ResolvedTypographyRendering,
 } from "@/runtime/presentation/system";
+import type { ResolvedPageLayoutRuntime } from "@/runtime/presentation/layout";
+import type { ResolvedProjectLayoutRuntime } from "@/runtime/presentation/layout/contracts";
+import type { CompositionContract } from "@/runtime/presentation/composition/contract";
 
 export type PresentationRuntimeSnapshot = {
   atmosphere: RuntimeAtmosphere;
 
+  layout: {
+    page: ResolvedPageLayoutRuntime;
+
+    project: ResolvedProjectLayoutRuntime;
+  };
+
   atmosphericModulation: AtmosphericModulation;
+
+  composition: CompositionContract;
 
   layers: RuntimeLayerSet;
 

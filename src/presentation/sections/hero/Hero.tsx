@@ -11,7 +11,7 @@ import RightSideVisual from "@/design/visuals/RightSideVisual";
 
 import { heroContent } from "@/content/hero";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 import { dividersGradients, opacityClass, ui } from "@/theme";
 
 export default function Hero() {
@@ -24,7 +24,7 @@ export default function Hero() {
   const layout = resolveLayoutRuntime();
 
   return (
-    <Section id="hero" className={layout.hero.root}>
+    <Section id='hero' className={layout.hero.root}>
       {/* ENVIRONMENT */}
       <RightSideVisual />
 
@@ -48,8 +48,8 @@ export default function Hero() {
                 <Display>{display.primary}</Display>
 
                 <Display
-                  variant="secondary"
-                  className="
+                  variant='secondary'
+                  className='
                     ml-[8vw]
 
                     text-[4.8rem]
@@ -60,12 +60,12 @@ export default function Hero() {
                     font-normal
 
                     opacity-95
-                  "
+                  '
                 >
                   {display.secondary}
                 </Display>
 
-                <Display variant="tertiary" className={opacityClass.dominant}>
+                <Display variant='tertiary' className={opacityClass.dominant}>
                   {display.tertiary}
                 </Display>
               </div>

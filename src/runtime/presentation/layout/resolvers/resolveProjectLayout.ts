@@ -1,6 +1,6 @@
 import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
 
-import { projectLayoutScale } from "../realization/projectLayoutScale";
+import { projectLayoutRealization } from "../realization/projectLayoutRealization";
 
 type Props = {
   profile: PresentationProfileVariant;
@@ -11,14 +11,14 @@ export function resolveProjectLayout({ profile }: Props) {
     case "immersive":
     case "luxury":
     case "experimental":
-      return projectLayoutScale.cinematic;
+      return projectLayoutRealization.cinematic;
 
     case "editorial":
     case "technical":
     case "minimal":
-      return projectLayoutScale.editorial;
+      return projectLayoutRealization.editorial;
 
     default:
-      return projectLayoutScale.editorial;
+      return projectLayoutRealization.editorial;
   }
 }

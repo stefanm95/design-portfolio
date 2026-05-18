@@ -3,7 +3,10 @@
 //
 // CONTRACTS
 //
-export type { ResolvedHeroLayout, ResolvedLayoutRuntime } from "./contracts";
+export type {
+  ResolvedHeroLayout,
+  ResolvedPageLayoutRuntime,
+} from "./contracts";
 
 //
 // REALIZATION
@@ -11,7 +14,7 @@ export type { ResolvedHeroLayout, ResolvedLayoutRuntime } from "./contracts";
 
 export {
   gridSpacingScale,
-  projectLayoutScale,
+  projectLayoutRealization,
   sectionSpacingScale,
   stackLayoutScale,
   stackSpacingScale,

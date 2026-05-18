@@ -9,3 +9,7 @@ export { resolveSectionSpacing } from "./resolveSectionSpacing";
 export { resolveStackLayout } from "./resolveStackLayout";
 
 export { resolveStackSpacing } from "./resolveStackSpacing";
+
+export { resolveProjectLayoutRuntime } from "./resolveProjectLayoutRuntime";
+
+export { resolvePageLayoutRuntime } from "./resolvePageLayoutRuntime";

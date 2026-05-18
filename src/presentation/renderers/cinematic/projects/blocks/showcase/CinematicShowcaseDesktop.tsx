@@ -6,23 +6,15 @@ import Text from "@/design/typography/Text";
 
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
-import { projectComposition } from "@/runtime/presentation/composition";
-
 import { ui } from "@/theme";
 
 import CinematicShowcaseSwitcher from "./CinematicShowcaseSwitcher";
 
+import type { PresentationBlockRendererProps } from "@/presentation/renderers/types";
+
 import type { CinematicPresentationBlock } from "@/types";
 
-import type { Project } from "@/types/projects";
-
-type Props = {
-  project: Project;
-
-  block: CinematicPresentationBlock;
-
-  index: number;
-
+type Props = PresentationBlockRendererProps<CinematicPresentationBlock> & {
   active: number;
 
   setActive: React.Dispatch<React.SetStateAction<number>>;
@@ -30,24 +22,46 @@ type Props = {
 
 export default function CinematicShowcaseDesktop({
   project,
+  runtime,
   active,
   setActive,
 }: Props) {
+  //
+  // CONTENT
+  //
+
   const showcase = project.media.showcase ?? [];
 
   const content = project.cinematic?.showcase;
 
   const primary = showcase[active];
 
-  const composition = projectComposition.cinematic.showcase.desktop;
+  //
+  // LAYOUT
+  //
+
+  const layout = runtime.layout.project.cinematic.showcase.desktop;
+
+  //
+  // GUARD
+  //
+
+  if (!primary || !content) {
+    return null;
+  }
+
+  //
+  // RENDER
+  //
 
   return (
-    <section className={composition.section}>
-      <div className={composition.intro}>
-        <Label>{content?.label}</Label>
+    <section className={layout.section}>
+      {/* INTRO */}
+      <div className={layout.intro}>
+        <Label>{content.label}</Label>
 
         <Heading as='h3' className='max-w-[24ch]'>
-          {content?.heading}
+          {content.heading}
         </Heading>
 
         <Text
@@ -58,10 +72,11 @@ export default function CinematicShowcaseDesktop({
             ${ui.text.narrative}
           `}
         >
-          {content?.description}
+          {content.description}
         </Text>
       </div>
 
+      {/* SHOWCASE */}
       <FadeIn key={primary}>
         <ProjectCinematicFrame
           image={primary}
@@ -71,11 +86,13 @@ export default function CinematicShowcaseDesktop({
         />
       </FadeIn>
 
-      <div className={composition.switcherWrap}>
+      {/* SWITCHER */}
+      <div className={layout.switcherWrap}>
         <CinematicShowcaseSwitcher
           showcase={showcase}
           active={active}
           setActive={setActive}
+          layout={runtime.layout.project.cinematic.showcase.switcher}
         />
       </div>
     </section>

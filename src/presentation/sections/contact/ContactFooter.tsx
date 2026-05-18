@@ -6,7 +6,7 @@ import Text from "@/design/typography/Text";
 
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import { opacityClass, ui } from "@/theme";
 

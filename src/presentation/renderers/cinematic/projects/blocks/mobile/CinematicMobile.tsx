@@ -1,92 +1,189 @@
-import { useState } from "react";
+import { useTheme } from "@/theme";
 
-import Heading from "@/design/typography/Heading";
-import Label from "@/design/typography/Label";
-import Text from "@/design/typography/Text";
+type Props = {
+  image: string;
 
-import RightSideVisual from "@/design/visuals/RightSideVisual";
+  isActive: boolean;
+  isLeft: boolean;
+  isRight: boolean;
 
-import { projectComposition } from "@/runtime/presentation/composition";
+  onClick: () => void;
+};
 
-import { ui } from "@/theme";
-
-import type { PresentationBlockRendererProps } from "@/presentation/renderers/types";
-import type { CinematicPresentationBlock } from "@/types";
-
-import CinematicMobileCarousel from "./CinematicMobileCarousel";
-import CinematicMobileStack from "./CinematicMobileStack";
-
-type Props = PresentationBlockRendererProps<CinematicPresentationBlock>;
-
-export default function CinematicMobile({ project }: Props) {
-  const mobile = project.media.mobile ?? [];
-
-  const content = project.cinematic?.mobile;
-
-  const [active, setActive] = useState(1);
-
-  const composition = projectComposition.cinematic.mobile;
-
-  if (mobile.length < 3 || !content) {
-    return null;
-  }
+export default function CinematicMobileCard({
+  image,
+  isActive,
+  isLeft,
+  isRight,
+  onClick,
+}: Props) {
+  const { theme } = useTheme();
+  const overlaysGradients = theme.gradients.overlays;
 
   return (
-    <section className={composition.section}>
-      <div className={composition.environment}>
-        <RightSideVisual />
-      </div>
+    <button
+      onClick={onClick}
+      className={`
+        absolute
 
-      <div className={composition.grid}>
-        {/* VISUALS */}
-        <div className={composition.visuals}>
-          {/* TABLET */}
-          <div className={composition.tablet}>
-            <CinematicMobileStack images={mobile} />
-          </div>
+        transition-all
+        duration-[1400ms]
+        ease-[cubic-bezier(0.22,1,0.36,1)]
 
-          {/* DESKTOP */}
-          <div className={composition.desktop}>
-            <CinematicMobileCarousel
-              images={mobile}
-              active={active}
-              setActive={setActive}
-            />
-          </div>
-        </div>
+        cursor-pointer
 
-        {/* CONTENT */}
-        <div className={composition.content}>
-          <div className={composition.contentInner}>
-            <Label>{content.label}</Label>
+        ${
+          isActive
+            ? `
+              z-[5]
 
-            <Heading
-              as='h3'
+              w-[320px]
+              md:w-[360px]
+              xl:w-[390px]
+
+              opacity-80
+              scale-[80%]
+
+              -translate-x-[32%]
+              -translate-y-1/2
+
+              rotate-0
+            `
+            : ""
+        }
+
+        ${
+          isLeft
+            ? `
+              z-[2]
+
+              hidden
+              md:block
+
+              w-[190px]
+              xl:w-[220px]
+
+              -translate-x-[130%]
+              -translate-y-[10%]
+
+              rotate-[-8deg]
+
+              scale-[0.88]
+              opacity-45
+            `
+            : ""
+        }
+
+        ${
+          isRight
+            ? `
+              z-[2]
+
+              hidden
+              lg:block
+
+              w-[190px]
+              xl:w-[220px]
+
+              translate-x-[90%]
+              -translate-y-[10%]
+
+              rotate-[6deg]
+
+              scale-[0.88]
+              opacity-45
+            `
+            : ""
+        }
+
+        ${
+          !isActive && !isLeft && !isRight
+            ? `
+              opacity-0
+              pointer-events-none
+              scale-[0.6]
+            `
+            : ""
+        }
+      `}
+    >
+      <div className='relative overflow-hidden'>
+        {/* IMAGE */}
+        <img
+          src={image}
+          alt=''
+          className={`
+            w-full
+            object-cover
+
+            transition-all
+            duration-[1400ms]
+            ease-[cubic-bezier(0.22,1,0.36,1)]
+
+            ${
+              isActive
+                ? `
+                  shadow-[0_45px_140px_rgba(0,0,0,0.55)]
+                `
+                : `
+                  blur-[0.6px]
+                  brightness-[0.72]
+
+                  shadow-[0_24px_70px_rgba(0,0,0,0.28)]
+                `
+            }
+          `}
+        />
+
+        {/* ATMOSPHERIC OVERLAY */}
+        <div
+          className={`
+            absolute
+            inset-0
+
+            transition-opacity
+            duration-[1200ms]
+
+            ${
+              isActive
+                ? `
+                  opacity-0
+                `
+                : `
+                  opacity-30
+                  bg-black
+                `
+            }
+          `}
+        />
+
+        {/* ACTIVE FRAME */}
+        {isActive && (
+          <>
+            <div
               className='
-                max-w-[10ch]
+                absolute
+                inset-0
 
-                text-3xl
-                sm:text-4xl
-                md:text-5xl
-                xl:text-6xl
+                ring-1
+                ring-white/[0.08]
               '
-            >
-              {content.heading}
-            </Heading>
+            />
 
-            <Text
+            <div
               className={`
-                max-w-[32ch]
-                leading-[1.9]
+                absolute
+                inset-x-0
+                bottom-0
 
-                ${ui.text.narrative}
+                h-[30%]
+
+                ${overlaysGradients.fadeBottom}
               `}
-            >
-              {content.description}
-            </Text>
-          </div>
-        </div>
+            />
+          </>
+        )}
       </div>
-    </section>
+    </button>
   );
 }

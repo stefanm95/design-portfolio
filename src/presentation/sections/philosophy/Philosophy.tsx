@@ -10,7 +10,7 @@ import Text from "@/design/typography/Text";
 
 import LeftSideVisual from "@/design/visuals/LeftSideVisual";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 import { dividersGradients, ui } from "@/theme";
 
 export default function Philosophy() {
@@ -24,7 +24,7 @@ export default function Philosophy() {
 
   return (
     <Section
-      id="philosophy"
+      id='philosophy'
       className={`
         relative
 
@@ -58,7 +58,7 @@ export default function Philosophy() {
               <Label>{hero.label}</Label>
 
               <Heading
-                as="h2"
+                as='h2'
                 className={`
                   max-w-[10ch]
 

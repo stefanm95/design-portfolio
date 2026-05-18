@@ -4,7 +4,7 @@ import { opacityClass } from "@/theme";
 
 import Section from "@/design/layout/Section";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import AboutHero from "./AboutHero";
 import AboutPhilosophy from "./AboutPhilosophy";

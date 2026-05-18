@@ -24,6 +24,7 @@ import {
 } from "@/runtime/presentation/system";
 
 import type { PresentationRuntimeSnapshot } from "../contracts";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
 
 type Props = {
   composition: CompositionContract;
@@ -146,10 +147,22 @@ export function resolvePresentationSnapshot({
   });
 
   //
+  // LAYOUT
+  //
+
+  const layout = resolveLayoutRuntime({
+    composition,
+  });
+
+  //
   // RETURN SNAPSHOT
   //
 
   return {
+    layout,
+
+    composition,
+
     system,
 
     atmosphere,

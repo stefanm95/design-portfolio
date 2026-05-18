@@ -6,8 +6,6 @@ import type { ProjectPresentation } from "@/types/presentation";
 
 import type { Project } from "@/types/projects";
 
-import { resolveSceneRuntime } from "@/runtime/presentation/scene";
-
 import {
   MotionCadenceProvider,
   resolveCompositionContract,
@@ -19,9 +17,13 @@ import { resolvePresentationDialect } from "./presentationDialect";
 
 import { renderPresentationBlocks } from "./renderPresentationBlocks";
 
-import type { PresentationRuntime } from "@/runtime/presentation/interpreter";
 import { resolveDensityClass } from "@/runtime/presentation/realization/composition/resolveDensityClass";
+
+import { resolveSceneRuntime } from "@/runtime/presentation/scene";
+
 import { sceneDefinitions } from "@/runtime/presentation/scene";
+
+import { resolvePresentationSnapshot } from "@/runtime/presentation/execution/snapshot";
 
 type Props = {
   project: Project;
@@ -36,28 +38,47 @@ export default function ProjectPresentationRenderer({
   presentation,
   index = 0,
 }: Props) {
+  //
+  // PROFILE
+  //
+
   const profileVariant = presentation.composition?.profile ?? "immersive";
 
   const profile = resolveProfile(profileVariant);
 
+  //
+  // COMPOSITION
+  //
+
   const composition = resolveCompositionContract(
     presentation,
     profile,
-    profile.sceneIntensity,
+    profile.orchestration.sceneIntensity,
   );
+
+  //
+  // SCENE
+  //
 
   const scene = resolveSceneRuntime({
     scene: sceneDefinitions.projects,
+
     composition,
   });
 
-  const runtime: PresentationRuntime = {
+  //
+  // SNAPSHOT
+  //
+
+  const snapshot = resolvePresentationSnapshot({
     composition,
 
-    profileVariant,
-
     scene,
-  };
+  });
+
+  //
+  // CONTENT
+  //
 
   let content: React.ReactNode;
 
@@ -66,9 +87,15 @@ export default function ProjectPresentationRenderer({
 
     content = renderPresentationBlocks({
       project,
+
       presentation,
-      runtime,
+
+      profileVariant,
+
+      snapshot,
+
       registry: dialect.registry,
+
       roleMap: dialect.roleMap,
     });
   } else {
@@ -76,17 +103,27 @@ export default function ProjectPresentationRenderer({
 
     content = renderPresentationBlocks({
       project,
+
       presentation,
-      runtime,
+
+      profileVariant,
+
+      snapshot,
+
       registry: dialect.registry,
+
       roleMap: dialect.roleMap,
     });
   }
 
+  //
+  // RENDER
+  //
+
   return (
     <article
-      className="relative"
-      data-profile={runtime.profileVariant}
+      className='relative'
+      data-profile={profileVariant}
       data-density={composition.orchestration.density}
       data-rhythm={composition.orchestration.rhythm}
       data-transition={composition.orchestration.transition}
@@ -94,7 +131,10 @@ export default function ProjectPresentationRenderer({
     >
       <ProjectDivider />
 
-      <MotionCadenceProvider runtime={runtime}>
+      <MotionCadenceProvider
+        cadence={snapshot.motion}
+        reactivity={composition.orchestration.reactivity}
+      >
         <div className={resolveDensityClass(composition.orchestration.density)}>
           <FadeIn>
             <ProjectMeta project={project} index={index} />

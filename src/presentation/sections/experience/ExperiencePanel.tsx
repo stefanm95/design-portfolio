@@ -1,4 +1,4 @@
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import { useTheme } from "@/theme";
 
@@ -40,7 +40,7 @@ export default function ExperiencePanel({
     >
       {/* ATMOSPHERIC LIGHT */}
       <div
-        className="absolute inset-0 opacity-60"
+        className='absolute inset-0 opacity-60'
         style={{
           background: panel.overlays.atmosphere,
         }}
@@ -48,13 +48,13 @@ export default function ExperiencePanel({
 
       {/* GLASS REFLECTION */}
       <div
-        className="
+        className='
           absolute
           inset-0
 
           opacity-30
           mix-blend-screen
-        "
+        '
         style={{
           background: panel.overlays.reflection,
         }}
@@ -62,7 +62,7 @@ export default function ExperiencePanel({
 
       {/* INNER SHADE */}
       <div
-        className="absolute inset-0"
+        className='absolute inset-0'
         style={{
           background: panel.overlays.innerShade,
         }}
@@ -70,7 +70,7 @@ export default function ExperiencePanel({
 
       {/* HOVER BLOOM */}
       <div
-        className="
+        className='
           absolute
           inset-0
 
@@ -80,7 +80,7 @@ export default function ExperiencePanel({
           duration-700
 
           group-hover:opacity-100
-        "
+        '
         style={{
           background: panel.overlays.hoverBloom,
         }}
@@ -125,12 +125,12 @@ export default function ExperiencePanel({
 
       {/* EDGE LIGHT */}
       <div
-        className="
+        className='
           absolute
           inset-y-0
           left-0
           w-px
-        "
+        '
         style={{
           background: panel.dividers.edge,
         }}

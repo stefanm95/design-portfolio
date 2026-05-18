@@ -1,3 +1,5 @@
+// presentation/renderers/types.ts
+
 import type { ComponentType } from "react";
 
 import type { Project } from "@/types/projects";
@@ -7,6 +9,8 @@ import type {
   CinematicPresentationBlock,
   EditorialPresentationBlock,
 } from "@/types/presentation";
+
+import type { ResolvedPresentationBlockRuntime } from "@/runtime/presentation/execution/blocks/contracts/types";
 
 //
 // RENDERER
@@ -20,10 +24,13 @@ export type PresentationBlockRendererProps<
   block: TBlock;
 
   index: number;
+
+  runtime: ResolvedPresentationBlockRuntime<TBlock>["runtime"];
 };
 
 export type PresentationBlockRenderer<TBlock extends PresentationBlock> =
   ComponentType<PresentationBlockRendererProps<TBlock>>;
+
 //
 // REGISTRIES
 //
@@ -34,6 +41,7 @@ export type PresentationRegistry<TBlock extends PresentationBlock> = {
   >;
 };
 
+//
 // SPECIALIZED REGISTRIES
 //
 

@@ -6,21 +6,20 @@ import Text from "@/design/typography/Text";
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 import ProjectSectionLabel from "@/presentation/shared/ProjectSectionLabel";
 
-import { projectComposition } from "@/runtime/presentation/composition";
-
 import { ui } from "@/theme";
 
 import type { PresentationBlockRendererProps } from "@/presentation/renderers/types";
+
 import type { EditorialPresentationBlock } from "@/types";
 
 type Props = PresentationBlockRendererProps<EditorialPresentationBlock>;
 
-export default function EditorialShowcase({ project }: Props) {
+export default function EditorialShowcase({ project, runtime }: Props) {
   const editorial = project.media.editorial?.[0];
 
   const content = project.editorial?.showcase;
 
-  const composition = projectComposition.editorial.showcase;
+  const layout = runtime.layout.project.editorial.showcase;
 
   if (!editorial || !content) {
     return null;
@@ -28,10 +27,10 @@ export default function EditorialShowcase({ project }: Props) {
 
   return (
     <FadeIn>
-      <section className={composition.section}>
+      <section className={layout.section}>
         {/* LEFT */}
-        <div className={composition.left}>
-          <div className={composition.leftInner}>
+        <div className={layout.left}>
+          <div className={layout.leftInner}>
             <ProjectSectionLabel>{content.label}</ProjectSectionLabel>
 
             <Heading
@@ -66,7 +65,7 @@ export default function EditorialShowcase({ project }: Props) {
         </div>
 
         {/* RIGHT */}
-        <div className={composition.right}>
+        <div className={layout.right}>
           <ProjectCinematicFrame
             image={editorial}
             alt={project.title}

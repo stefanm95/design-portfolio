@@ -4,7 +4,7 @@ import { contactContent } from "@/content/contact";
 
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import { ui } from "@/theme";
 

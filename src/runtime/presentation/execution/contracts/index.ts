@@ -1,5 +1,4 @@
 export type {
-  PresentationRuntime,
   RuntimeAtmosphere,
   RuntimeBreathing,
   RuntimeCadence,

@@ -6,44 +6,65 @@ import Text from "@/design/typography/Text";
 
 import ProjectCinematicFrame from "@/presentation/shared/ProjectCinematicFrame";
 
-import { projectComposition } from "@/runtime/presentation/composition";
-
 import { ui, useTheme } from "@/theme";
 
 import type { PresentationBlockRendererProps } from "@/presentation/renderers/types";
+
 import type { CinematicPresentationBlock } from "@/types";
 
 type Props = PresentationBlockRendererProps<CinematicPresentationBlock>;
 
-export default function CinematicSystems({ project }: Props) {
-  const system = project.media.systems?.[0];
+export default function CinematicServices({ project, runtime }: Props) {
+  //
+  // CONTENT
+  //
 
-  const content = project.cinematic?.systems;
+  const primary = project.media.services?.[0];
+
+  const secondary = project.media.services?.[1];
+
+  const content = project.cinematic?.services;
+
+  //
+  // THEME
+  //
 
   const { theme } = useTheme();
 
   const showcase = theme.showcase;
 
-  const composition = projectComposition.cinematic.systems;
+  //
+  // LAYOUT
+  //
 
-  if (!system || !content) {
+  const layout = runtime.layout.project.cinematic.services;
+
+  //
+  // GUARD
+  //
+
+  if (!primary || !content) {
     return null;
   }
 
+  //
+  // RENDER
+  //
+
   return (
-    <section className={composition.section}>
-      {/* LEFT */}
-      <div className={composition.left}>
-        <div className={composition.leftInner}>
+    <section className={layout.section}>
+      {/* INTRO */}
+      <FadeIn>
+        <div className={layout.intro}>
           <Label>{content.label}</Label>
 
-          <Heading as='h3' className='max-w-[11ch]'>
+          <Heading as='h3' className='max-w-[12ch]'>
             {content.heading}
           </Heading>
 
           <Text
             className={`
-              max-w-[32ch]
+              max-w-[60ch]
               leading-[1.9]
 
               ${ui.text.narrative}
@@ -52,18 +73,17 @@ export default function CinematicSystems({ project }: Props) {
             {content.description}
           </Text>
         </div>
-      </div>
+      </FadeIn>
 
-      {/* RIGHT */}
-      <div className={composition.right}>
+      {/* GRID */}
+      <div className={layout.grid}>
+        {/* PRIMARY */}
         <FadeIn>
-          <div className={composition.visual}>
-            {/* MAIN VISUAL */}
+          <div className={layout.primary}>
             <ProjectCinematicFrame
-              image={system}
+              image={primary}
               alt={content.heading}
-              imageFit='contain'
-              minHeight='min-h-[420px] xl:min-h-[760px]'
+              minHeight='min-h-[420px] xl:min-h-[720px]'
               className={`
                 border
 
@@ -71,61 +91,27 @@ export default function CinematicSystems({ project }: Props) {
                 ${showcase.surfaces.border}
               `}
             />
-
-            {/* ATMOSPHERIC BLOOM */}
-            <div
-              className='
-                pointer-events-none
-                absolute
-                inset-0
-
-                opacity-60
-                blur-md
-              '
-              style={{
-                background: showcase.blooms.secondary,
-              }}
-            />
-
-            {/* FLOATING DETAIL */}
-            <div
-              className='
-                pointer-events-none
-                absolute
-                -bottom-10
-                left-10
-
-                hidden
-                xl:block
-              '
-            >
-              <div
-                className={`
-                  flex
-                  items-center
-                  gap-3
-
-                  text-[10px]
-                  uppercase
-                  tracking-[0.24em]
-
-                  ${ui.text.muted}
-                `}
-              >
-                <div
-                  className={`
-                    h-px
-                    w-16
-
-                    ${ui.surfaces.chip}
-                  `}
-                />
-
-                <span>{content.floatingLabel}</span>
-              </div>
-            </div>
           </div>
         </FadeIn>
+
+        {/* SECONDARY */}
+        {secondary ? (
+          <FadeIn>
+            <div className={layout.secondary}>
+              <ProjectCinematicFrame
+                image={secondary}
+                alt={`${content.heading} secondary`}
+                minHeight='min-h-[280px] xl:min-h-[420px]'
+                className={`
+                  border
+
+                  ${showcase.surfaces.base}
+                  ${showcase.surfaces.border}
+                `}
+              />
+            </div>
+          </FadeIn>
+        ) : null}
       </div>
     </section>
   );

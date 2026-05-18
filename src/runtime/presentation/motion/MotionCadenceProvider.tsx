@@ -1,34 +1,28 @@
 import type { ReactNode } from "react";
 
-import { useMemo } from "react";
-
-import type { PresentationRuntime } from "../interpreter";
-
-import { resolveCadence } from "./cadence";
-
 import { MotionCadenceContext } from "./MotionCadenceContext";
 
 import { CompositionReactivityContext } from "../composition/reactivity/CompositionReactivityContext";
 
+import type { MotionCadence } from "./types";
+
+import type { CompositionReactivityContextType } from "../composition";
+
 type Props = {
   children: ReactNode;
 
-  runtime: PresentationRuntime;
+  cadence: MotionCadence;
+
+  reactivity: CompositionReactivityContextType;
 };
 
-export function MotionCadenceProvider({ children, runtime }: Props) {
-  const cadence = useMemo(() => {
-    return resolveCadence({
-      composition: runtime.composition,
-
-      environment: runtime.scene.environment,
-    });
-  }, [runtime]);
-
+export function MotionCadenceProvider({
+  children,
+  cadence,
+  reactivity,
+}: Props) {
   return (
-    <CompositionReactivityContext.Provider
-      value={runtime.composition.orchestration.reactivity}
-    >
+    <CompositionReactivityContext.Provider value={reactivity}>
       <MotionCadenceContext.Provider value={cadence}>
         {children}
       </MotionCadenceContext.Provider>

@@ -32,6 +32,7 @@ import type {
   ResolvedPanelRendering,
   ResolvedTypographyRendering,
 } from "@/runtime/presentation/system";
+import type { PresentationRuntimeSnapshot } from "../../snapshot/contracts";
 
 //
 // BLOCK RUNTIME
@@ -47,6 +48,8 @@ export type ResolvedPresentationBlockRuntime<TBlock extends PresentationBlock> =
 
     runtime: {
       motion: MotionCadence;
+
+      layout: PresentationRuntimeSnapshot["layout"];
 
       rendering: RenderingAttributes;
 
