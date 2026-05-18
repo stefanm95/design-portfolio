@@ -1,4 +1,3 @@
-export * from "./Navigation";
+export { Navigation } from "./Navigation";
 
-export * from "./variants/cinematic";
-export * from "./variants/immersive";
+export { ImmersiveNavigation, CinematicNavigation } from "./variants";

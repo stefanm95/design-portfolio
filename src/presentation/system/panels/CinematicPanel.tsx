@@ -1,54 +1,54 @@
-"use client";
+// "use client";
 
-import clsx from "clsx";
+// import clsx from "clsx";
 
-import type { ReactNode } from "react";
+// import type { ReactNode } from "react";
 
-import type { PanelRendering } from "@/runtime/presentation/system";
+// import type { PanelRendering } from "@/runtime/presentation/system";
 
-type Props = {
-  children: ReactNode;
+// type Props = {
+//   children: ReactNode;
 
-  panel: PanelRendering;
+//   panel: PanelRendering;
 
-  className?: string;
-};
+//   className?: string;
+// };
 
-export default function CinematicPanel({ children, panel, className }: Props) {
-  return (
-    <div
-      className={clsx(
-        //
-        // Runtime cinematic surface
-        //
-        panel.panel,
+// export default function CinematicPanel({ children, panel, className }: Props) {
+//   return (
+//     <div
+//       className={clsx(
+//         //
+//         // Runtime cinematic surface
+//         //
+//         panel.panel,
 
-        //
-        // Runtime glow behavior
-        //
-        panel.glow,
+//         //
+//         // Runtime glow behavior
+//         //
+//         panel.glow,
 
-        //
-        // Structural behavior
-        //
-        `
-          relative
-          overflow-hidden
-        `,
+//         //
+//         // Structural behavior
+//         //
+//         `
+//           relative
+//           overflow-hidden
+//         `,
 
-        //
-        // Cinematic transitions
-        //
-        `
-          transition-all
-          duration-700
-        `,
+//         //
+//         // Cinematic transitions
+//         //
+//         `
+//           transition-all
+//           duration-700
+//         `,
 
-        className,
-      )}
-      data-elevation={panel.elevation}
-    >
-      {children}
-    </div>
-  );
-}
+//         className,
+//       )}
+//       data-elevation={panel.elevation}
+//     >
+//       {children}
+//     </div>
+//   );
+// }

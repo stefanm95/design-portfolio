@@ -3,7 +3,7 @@ import GridOverlay from "@/design/atmosphere/GridOverlay";
 import NoiseOverlay from "@/design/atmosphere/NoiseOverlay";
 import ThemeSwitcher from "@/design/controls/ThemeSwitcher";
 import CinematicExperience from "@/presentation/experiences/cinematic/CinematicExperience";
-import { Navigation } from "./presentation";
+// import { Navigation } from "./presentation/navigation";
 
 export default function App() {
   return (
@@ -11,7 +11,7 @@ export default function App() {
       <Atmosphere />
       <NoiseOverlay />
       <GridOverlay />
-      <Navigation />
+      {/* <Navigation /> */}
       <ThemeSwitcher />
 
       <CinematicExperience />

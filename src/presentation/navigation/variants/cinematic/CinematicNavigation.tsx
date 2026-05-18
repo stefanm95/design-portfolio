@@ -1,5 +1,3 @@
-"use client";
-
 import { useNavigation } from "@/runtime/navigation";
 
 import { useNavigationSections } from "@/runtime/navigation";
