@@ -6,14 +6,14 @@ import Heading from "@/design/typography/Heading";
 import Label from "@/design/typography/Label";
 import Text from "@/design/typography/Text";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import { ui } from "@/theme";
 
 export default function ContactHero() {
   const { hero } = contactContent;
 
-  const layout = resolveLayoutRuntime();
+  const layout = resolvePageLayoutRuntime();
 
   return (
     <div className={layout.contact.hero.root}>

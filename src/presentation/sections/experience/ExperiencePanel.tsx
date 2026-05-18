@@ -1,4 +1,4 @@
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import { useTheme } from "@/theme";
 
@@ -15,7 +15,7 @@ export default function ExperiencePanel({
   description,
   className,
 }: Props) {
-  const layout = resolveLayoutRuntime();
+  const layout = resolvePageLayoutRuntime();
 
   const { theme } = useTheme();
 

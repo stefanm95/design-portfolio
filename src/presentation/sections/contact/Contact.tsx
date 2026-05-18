@@ -1,4 +1,4 @@
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import Section from "@/design/layout/Section";
 
@@ -10,7 +10,7 @@ import ContactFooter from "./ContactFooter";
 import { ui } from "@/theme";
 
 export default function Contact() {
-  const layout = resolveLayoutRuntime();
+  const layout = resolvePageLayoutRuntime();
 
   return (
     <Section id='contact' className={layout.contact.section}>

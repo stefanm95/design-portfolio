@@ -4,14 +4,14 @@ import { contactContent } from "@/content/contact";
 
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import { ui } from "@/theme";
 
 export default function ContactAvailability() {
   const { availability } = contactContent;
 
-  const layout = resolveLayoutRuntime();
+  const layout = resolvePageLayoutRuntime();
 
   return (
     <FadeIn delay={0.12}>

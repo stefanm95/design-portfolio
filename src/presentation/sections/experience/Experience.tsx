@@ -11,14 +11,14 @@ import { experienceContent } from "@/content/experience";
 
 import { dividersGradients, ui } from "@/theme";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import ExperienceVisual from "./ExperienceVisual";
 
 export default function Experience() {
   const { hero } = experienceContent;
 
-  const layout = resolveLayoutRuntime();
+  const layout = resolvePageLayoutRuntime();
 
   return (
     <Section

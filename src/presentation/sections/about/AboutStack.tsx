@@ -6,14 +6,14 @@ import { aboutContent } from "@/content/about";
 
 import Text from "@/design/typography/Text";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import { ui } from "@/theme";
 
 export default function AboutStack() {
   const { description } = aboutContent.stack;
 
-  const layout = resolveLayoutRuntime();
+  const layout = resolvePageLayoutRuntime();
 
   return (
     <FadeIn>

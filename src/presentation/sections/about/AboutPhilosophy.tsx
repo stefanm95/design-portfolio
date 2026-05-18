@@ -7,14 +7,14 @@ import { aboutContent } from "@/content/about";
 import Heading from "@/design/typography/Heading";
 import Text from "@/design/typography/Text";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import { ui } from "@/theme";
 
 export default function AboutPhilosophy() {
   const { philosophy } = aboutContent;
 
-  const layout = resolveLayoutRuntime();
+  const layout = resolvePageLayoutRuntime();
 
   return (
     <div className={layout.about.philosophy.root}>

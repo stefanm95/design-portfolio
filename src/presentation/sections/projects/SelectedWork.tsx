@@ -2,12 +2,51 @@ import { projects } from "@/content/projects";
 
 import Section from "@/design/layout/Section";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
-
 import ProjectShowcase from "./ProjectShowcase";
 
-export default function SelectedWork() {
-  const layout = resolveLayoutRuntime();
+import { resolveCompositionContract } from "@/runtime/presentation/composition";
+
+import { resolveProfile } from "@/runtime/presentation/resolvers";
+
+import type { ProjectPresentation } from "@/types/presentation";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
+
+type Props = {
+  presentation: ProjectPresentation;
+};
+
+export default function SelectedWork({ presentation }: Props) {
+  //
+  // PROFILE
+  //
+
+  const profileVariant = presentation.composition?.profile ?? "immersive";
+
+  const profile = resolveProfile(profileVariant);
+
+  //
+  // COMPOSITION
+  //
+
+  const composition = resolveCompositionContract(
+    presentation,
+    profile,
+    profile.orchestration.sceneIntensity,
+  );
+
+  //
+  // LAYOUT
+  //
+
+  const layout = resolveLayoutRuntime({
+    composition,
+  });
+
+  const projectsLayout = layout.page.projects;
+
+  //
+  // RENDER
+  //
 
   return (
     <Section
@@ -16,12 +55,12 @@ export default function SelectedWork() {
         relative
         overflow-hidden
 
-        ${layout.projects.section}
+        ${projectsLayout.section}
       `}
     >
-      {/* ATMOSPHERIC PURPLE BLOOM */}
+      {/* ATMOSPHERIC BLOOM */}
       <div
-        className={layout.projects.bloom}
+        className={projectsLayout.bloom}
         style={{
           background:
             "radial-gradient(circle, rgba(126,87,255,0.16), transparent 72%)",
@@ -29,7 +68,7 @@ export default function SelectedWork() {
       />
 
       {/* CONTENT */}
-      <div className={layout.projects.content}>
+      <div className={projectsLayout.content}>
         {projects.map((project, index) => (
           <ProjectShowcase key={project.id} index={index} project={project} />
         ))}

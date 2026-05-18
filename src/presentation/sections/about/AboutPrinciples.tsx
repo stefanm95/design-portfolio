@@ -4,14 +4,14 @@ import { aboutContent } from "@/content/about";
 
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import { opacityClass, ui } from "@/theme";
 
 export default function AboutPrinciples() {
   const { stack } = aboutContent;
 
-  const layout = resolveLayoutRuntime();
+  const layout = resolvePageLayoutRuntime();
 
   return (
     <section className={layout.about.principles.root}>

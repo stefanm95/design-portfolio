@@ -5,12 +5,12 @@ import Label from "@/design/typography/Label";
 
 import { aboutContent } from "@/content/about";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 export default function AboutHero() {
   const { hero } = aboutContent;
 
-  const layout = resolveLayoutRuntime();
+  const layout = resolvePageLayoutRuntime();
 
   return (
     <div

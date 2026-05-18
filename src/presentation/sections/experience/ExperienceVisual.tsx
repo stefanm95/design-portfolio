@@ -2,13 +2,13 @@ import FadeIn from "@/presentation/animation/FadeIn";
 
 import { experienceContent } from "@/content/experience";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import ExperiencePanel from "./ExperiencePanel";
 import ExperienceVisualBackground from "./ExperienceVisualBackground";
 
 export default function ExperienceVisual() {
-  const layout = resolveLayoutRuntime();
+  const layout = resolvePageLayoutRuntime();
 
   return (
     <FadeIn delay={0.2}>

@@ -2,14 +2,14 @@ import FadeIn from "@/presentation/animation/FadeIn";
 
 import { contactContent } from "@/content/contact";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import { ui } from "@/theme";
 
 export default function ContactLinks() {
   const { links } = contactContent;
 
-  const layout = resolveLayoutRuntime();
+  const layout = resolvePageLayoutRuntime();
 
   return (
     <div

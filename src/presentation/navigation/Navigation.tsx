@@ -2,7 +2,9 @@ import { navigationRegistry } from "./registry";
 
 import { resolveNavigation } from "@/runtime/presentation/resolvers";
 
-import { resolvePresentationProfile } from "@/runtime/presentation/profiles";
+import { resolveProfile } from "@/runtime/presentation/resolvers";
+
+import type { NavigationVariant } from "./registry";
 
 type Props = {
   profileVariant?: "immersive" | "editorial" | "minimal";
@@ -10,16 +12,26 @@ type Props = {
 
 export function Navigation({ profileVariant = "immersive" }: Props) {
   //
-  // TEMPORARY:
-  // later this resolves from
-  // active presentation state
+  // PROFILE
   //
 
-  const profile = resolvePresentationProfile(profileVariant);
+  const profile = resolveProfile(profileVariant);
 
-  const navigationVariant = resolveNavigation(profile);
+  //
+  // VARIANT
+  //
+
+  const navigationVariant: NavigationVariant = resolveNavigation(profile);
+
+  //
+  // COMPONENT
+  //
 
   const NavigationComponent = navigationRegistry[navigationVariant];
+
+  //
+  // RENDER
+  //
 
   return <NavigationComponent />;
 }

@@ -11,7 +11,7 @@ import RightSideVisual from "@/design/visuals/RightSideVisual";
 
 import { heroContent } from "@/content/hero";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 import { dividersGradients, opacityClass, ui } from "@/theme";
 
 export default function Hero() {
@@ -21,7 +21,7 @@ export default function Hero() {
   // LAYOUT RUNTIME
   //
 
-  const layout = resolveLayoutRuntime();
+  const layout = resolvePageLayoutRuntime();
 
   return (
     <Section id='hero' className={layout.hero.root}>

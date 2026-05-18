@@ -10,7 +10,7 @@ import Text from "@/design/typography/Text";
 
 import LeftSideVisual from "@/design/visuals/LeftSideVisual";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 import { dividersGradients, ui } from "@/theme";
 
 export default function Philosophy() {
@@ -20,7 +20,7 @@ export default function Philosophy() {
   // LAYOUT RUNTIME
   //
 
-  const layout = resolveLayoutRuntime();
+  const layout = resolvePageLayoutRuntime();
 
   return (
     <Section
