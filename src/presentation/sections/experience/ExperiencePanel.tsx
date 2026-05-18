@@ -1,4 +1,4 @@
-import { compositionStack } from "@/runtime/presentation/composition";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
 
 import { useTheme } from "@/theme";
 
@@ -15,13 +15,16 @@ export default function ExperiencePanel({
   description,
   className,
 }: Props) {
+  const layout = resolveLayoutRuntime();
+
   const { theme } = useTheme();
+
   const panel = theme.experiencePanel;
 
   return (
     <div
       className={`
-        ${compositionStack.experience.panel.root}
+        ${layout.experience.panel.root}
 
         ${panel.surface.base}
         ${panel.surface.border}
@@ -84,8 +87,7 @@ export default function ExperiencePanel({
       />
 
       {/* CONTENT */}
-      <div className={compositionStack.experience.panel.content}>
-        {/* ID */}
+      <div className={layout.experience.panel.content}>
         <span
           className={`
             text-[9px]
@@ -98,10 +100,9 @@ export default function ExperiencePanel({
         </span>
 
         <div>
-          {/* TITLE */}
           <h3
             className={`
-              ${compositionStack.experience.panel.title}
+              ${layout.experience.panel.title}
 
               ${panel.typography.title}
               ${panel.typography.titleHover}
@@ -110,10 +111,9 @@ export default function ExperiencePanel({
             {title}
           </h3>
 
-          {/* DESCRIPTION */}
           <p
             className={`
-              ${compositionStack.experience.panel.description}
+              ${layout.experience.panel.description}
 
               ${panel.typography.description}
             `}

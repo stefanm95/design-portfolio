@@ -2,42 +2,30 @@ import FadeIn from "@/presentation/animation/FadeIn";
 
 import { experienceContent } from "@/content/experience";
 
-import {
-  compositionStack,
-  sectionSpacing,
-} from "@/runtime/presentation/composition";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
 
 import ExperiencePanel from "./ExperiencePanel";
 import ExperienceVisualBackground from "./ExperienceVisualBackground";
 
 export default function ExperienceVisual() {
+  const layout = resolveLayoutRuntime();
+
   return (
     <FadeIn delay={0.2}>
-      <div
-        className={`
-          ${compositionStack.experience.visual.root}
-          ${sectionSpacing.experience.visualRoot}
-        `}
-      >
-        {/* EXTENDED ATMOSPHERIC BACKGROUND */}
-        <div className={compositionStack.experience.visual.desktopBackground}>
+      <div className={layout.experience.visual.root}>
+        {/* DESKTOP ATMOSPHERE */}
+        <div className={layout.experience.visual.desktopBackground}>
           <ExperienceVisualBackground />
         </div>
 
-        {/* MOBILE BACKGROUND */}
-        <div className={compositionStack.experience.visual.mobileBackground}>
+        {/* MOBILE ATMOSPHERE */}
+        <div className={layout.experience.visual.mobileBackground}>
           <ExperienceVisualBackground />
         </div>
 
-        {/* CONTENT AREA */}
-        <div
-          className={`
-            ${compositionStack.experience.visual.content}
-            ${sectionSpacing.experience.visualContent}
-          `}
-        >
-          {/* STACK */}
-          <div className={compositionStack.experience.visual.stack}>
+        {/* CONTENT */}
+        <div className={layout.experience.visual.content}>
+          <div className={layout.experience.visual.stack}>
             {experienceContent.panels.map((panel) => (
               <ExperiencePanel
                 key={panel.id}

@@ -9,17 +9,16 @@ import Text from "@/design/typography/Text";
 
 import { experienceContent } from "@/content/experience";
 
-import {
-  compositionStack,
-  sectionSpacing,
-} from "@/runtime/presentation/composition";
-
 import { dividersGradients, ui } from "@/theme";
+
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
 
 import ExperienceVisual from "./ExperienceVisual";
 
 export default function Experience() {
   const { hero } = experienceContent;
+
+  const layout = resolveLayoutRuntime();
 
   return (
     <Section
@@ -28,7 +27,7 @@ export default function Experience() {
         relative
         overflow-hidden
 
-        ${sectionSpacing.experience.root}
+        ${layout.experience.section}
       `}
     >
       {/* BACKGROUND ATMOSPHERE */}
@@ -102,24 +101,21 @@ export default function Experience() {
       </div>
 
       <Container className="relative z-10">
-        <div className={compositionStack.experience.root}>
+        <div className={layout.experience.root}>
           {/* LEFT SIDE */}
           <FadeIn>
-            <div className={compositionStack.experience.hero.content}>
-              {/* LABEL */}
+            <div className={layout.experience.hero.content}>
               <Label className={ui.text.context}>{hero.label}</Label>
 
               {/* TITLE */}
-              <div className={compositionStack.experience.hero.titleWrap}>
-                {/* SUBTLE GLOW */}
+              <div className={layout.experience.hero.titleWrap}>
                 <div
                   className={`
                     absolute
-
                     rounded-full
                     blur-sm
 
-                    ${sectionSpacing.experience.heroGlow}
+                    ${layout.experience.hero.glow}
                     ${ui.surfaces.faint}
                   `}
                 />
@@ -156,7 +152,7 @@ export default function Experience() {
               {/* DIVIDER */}
               <div
                 className={`
-                  ${sectionSpacing.experience.divider}
+                  ${layout.experience.hero.divider}
                   ${dividersGradients.leadIn}
                 `}
               />
@@ -164,7 +160,7 @@ export default function Experience() {
               {/* DESCRIPTION */}
               <Text
                 className={`
-                  ${sectionSpacing.experience.description}
+                  ${layout.experience.hero.description}
 
                   text-sm
                   leading-[1.9]
@@ -175,11 +171,10 @@ export default function Experience() {
                 {hero.description}
               </Text>
 
-              {/* MINI TAGS */}
+              {/* TAGS */}
               <div
                 className={`
-                  ${sectionSpacing.experience.tags}
-                  ${compositionStack.experience.hero.tags}
+                  ${layout.experience.hero.tags}
                 `}
               >
                 {hero.tags.map((item) => (
