@@ -67,10 +67,10 @@ export function renderPresentationBlocks<TBlock extends PresentationBlock>({
         data-scene={blockRuntime.scene.definition.id}
         data-atmosphere={blockRuntime.atmosphere}
         data-profile={runtime.profileVariant}
-        data-density={runtime.composition.density}
-        data-rhythm={runtime.composition.rhythm}
-        data-transition={runtime.composition.transition}
-        data-scene-intensity={runtime.composition.sceneIntensity}
+        data-density={runtime.composition.orchestration.density}
+        data-rhythm={runtime.composition.orchestration.rhythm}
+        data-transition={runtime.composition.orchestration.transition}
+        data-scene-intensity={runtime.composition.orchestration.sceneIntensity}
         data-spatial-behavior={blockRuntime.spatialBehavior}
       >
         <Component project={project} block={block} index={index} />
