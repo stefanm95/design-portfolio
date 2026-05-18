@@ -1,4 +1,4 @@
-export type SemanticBehavior = {
+export type ResolvedVisualTreatment = {
   separation: string;
 
   emphasis: string;

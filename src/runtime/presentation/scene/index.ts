@@ -16,16 +16,20 @@ export { useScene } from "./useScene";
 // TYPES
 //
 
-export type {
-  SceneRuntime,
-  SceneDefinition,
-  SceneAtmosphere,
-  SceneTone,
-  EnvironmentalRuntime,
-  EnvironmentalPressure,
-  BreathingBias,
-  MotionRestraint,
-  OverlayDepth,
-} from "./types";
+export type { SceneDefinition, SceneRuntime } from "./types";
 
-export * from "./environment";
+export type {
+  SceneAtmosphere,
+  SceneSemantics,
+  SceneTone,
+} from "./semantics/types";
+
+export type {
+  BreathingBias,
+  OverlayDepth,
+  SceneOrchestration,
+} from "./orchestration/types";
+
+export type { EnvironmentalRuntime } from "./environment";
+
+export { resolveEnvironmentalRuntime } from "./environment";

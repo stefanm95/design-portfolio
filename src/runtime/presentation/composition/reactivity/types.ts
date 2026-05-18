@@ -14,7 +14,7 @@
  * - being a generic engine
  */
 
-import type { CompositionDensity } from "../types";
+import type { CompositionDensity } from "@/runtime/presentation/composition/contract";
 
 export type CompositionPacing = {
   /**

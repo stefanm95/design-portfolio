@@ -1,4 +1,7 @@
-import type { SpatialBehavior, SpatialPressure } from "./types";
+import type {
+  SpatialBehavior,
+  SpatialPressure,
+} from "@/runtime/presentation/composition";
 
 export const spatialScale: Record<
   SpatialPressure,

@@ -1,8 +1,7 @@
-import type { AtmosphereState } from "../resolvers";
+import type { ResolvedVisualTreatment } from "@/runtime/presentation/semantics";
+import type { AtmosphereState } from "../../resolvers";
 
-import type { CompositionSemantic } from "./types";
-
-import type { SemanticBehavior } from "./types.behavior";
+import type { CompositionSemantic } from "../../semantics/types";
 
 type Props = {
   role: CompositionSemantic;
@@ -10,10 +9,10 @@ type Props = {
   atmosphere: AtmosphereState;
 };
 
-export function resolveSemanticBehavior({
+export function resolveVisualTreatment({
   role,
   atmosphere,
-}: Props): SemanticBehavior {
+}: Props): ResolvedVisualTreatment {
   //
   // HERO / IMMERSIVE
   //

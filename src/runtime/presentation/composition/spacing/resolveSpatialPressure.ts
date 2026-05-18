@@ -14,13 +14,13 @@ export function resolveSpatialPressure({
   composition,
   scene,
 }: Props): SpatialPressure {
-  const { density, rhythm, sceneIntensity } = composition;
+  const { density, rhythm, sceneIntensity } = composition.orchestration;
 
   if (density === "tight" && rhythm === "editorial") {
     return "compressed";
   }
 
-  if (scene.environmentalPressure === "intense") {
+  if (scene.orchestration.environmentalPressure === "intense") {
     return "compressed";
   }
 
@@ -28,7 +28,7 @@ export function resolveSpatialPressure({
     return "spacious";
   }
 
-  if (scene.breathingBias === "spacious") {
+  if (scene.orchestration.breathingBias === "spacious") {
     return "spacious";
   }
 

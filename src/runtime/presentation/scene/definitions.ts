@@ -12,96 +12,120 @@ export const sceneDefinitions: Record<SceneId, SceneDefinition> = {
   hero: {
     id: "hero",
 
-    atmosphere: "immersive",
+    semantics: {
+      atmosphere: "immersive",
 
-    tone: "cinematic",
+      tone: "cinematic",
+    },
 
-    environmentalPressure: "soft",
+    orchestration: {
+      environmentalPressure: "soft",
 
-    breathingBias: "spacious",
+      breathingBias: "spacious",
 
-    motionRestraint: "restrained",
+      motionRestraint: "restrained",
 
-    overlayDepth: "deep",
+      overlayDepth: "deep",
+    },
   },
 
   philosophy: {
     id: "philosophy",
 
-    atmosphere: "editorial",
+    semantics: {
+      atmosphere: "editorial",
 
-    tone: "reflective",
+      tone: "reflective",
+    },
 
-    environmentalPressure: "balanced",
+    orchestration: {
+      environmentalPressure: "balanced",
 
-    breathingBias: "balanced",
+      breathingBias: "balanced",
 
-    motionRestraint: "restrained",
+      motionRestraint: "restrained",
 
-    overlayDepth: "medium",
+      overlayDepth: "medium",
+    },
   },
 
   projects: {
     id: "projects",
 
-    atmosphere: "immersive",
+    semantics: {
+      atmosphere: "immersive",
 
-    tone: "showcase",
+      tone: "showcase",
+    },
 
-    environmentalPressure: "balanced",
+    orchestration: {
+      environmentalPressure: "balanced",
 
-    breathingBias: "spacious",
+      breathingBias: "spacious",
 
-    motionRestraint: "balanced",
+      motionRestraint: "balanced",
 
-    overlayDepth: "deep",
+      overlayDepth: "deep",
+    },
   },
 
   experience: {
     id: "experience",
 
-    atmosphere: "technical",
+    semantics: {
+      atmosphere: "technical",
 
-    tone: "systemic",
+      tone: "systemic",
+    },
 
-    environmentalPressure: "intense",
+    orchestration: {
+      environmentalPressure: "intense",
 
-    breathingBias: "compressed",
+      breathingBias: "compressed",
 
-    motionRestraint: "balanced",
+      motionRestraint: "balanced",
 
-    overlayDepth: "medium",
+      overlayDepth: "medium",
+    },
   },
 
   about: {
     id: "about",
 
-    atmosphere: "minimal",
+    semantics: {
+      atmosphere: "minimal",
 
-    tone: "structured",
+      tone: "structured",
+    },
 
-    environmentalPressure: "soft",
+    orchestration: {
+      environmentalPressure: "soft",
 
-    breathingBias: "balanced",
+      breathingBias: "balanced",
 
-    motionRestraint: "restrained",
+      motionRestraint: "restrained",
 
-    overlayDepth: "minimal",
+      overlayDepth: "minimal",
+    },
   },
 
   contact: {
     id: "contact",
 
-    atmosphere: "quiet",
+    semantics: {
+      atmosphere: "quiet",
 
-    tone: "closing",
+      tone: "closing",
+    },
 
-    environmentalPressure: "soft",
+    orchestration: {
+      environmentalPressure: "soft",
 
-    breathingBias: "spacious",
+      breathingBias: "spacious",
 
-    motionRestraint: "restrained",
+      motionRestraint: "restrained",
 
-    overlayDepth: "minimal",
+      overlayDepth: "minimal",
+    },
   },
 };

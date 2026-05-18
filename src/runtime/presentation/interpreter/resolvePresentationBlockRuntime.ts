@@ -9,19 +9,19 @@ import type {
 } from "@/presentation/renderers/types";
 
 import {
-  resolveSemanticBehavior,
+  resolveVisualTreatment,
   type CompositionSemanticMap,
 } from "@/runtime/presentation/semantics";
 
 import type { PresentationBlock } from "@/types/presentation";
 
+import { resolveContextualMotion } from "../motion";
+import { resolveNarrativeTransition } from "../transitions";
+import type { RuntimeBlockRelationship } from "./relationships";
 import type {
   PresentationRuntimeSnapshot,
   ResolvedPresentationBlockRuntime,
 } from "./types";
-import type { RuntimeBlockRelationship } from "./relationships";
-import { resolveContextualMotion } from "../motion";
-import { resolveNarrativeTransition } from "../transitions";
 
 type Props<TBlock extends PresentationBlock> = {
   block: TBlock;
@@ -74,7 +74,7 @@ export function resolvePresentationBlockRuntime<
     relationships,
   });
 
-  const semanticBehavior = resolveSemanticBehavior({
+  const visualTreatment = resolveVisualTreatment({
     role,
 
     atmosphere: snapshot.atmosphere,
@@ -100,7 +100,7 @@ export function resolvePresentationBlockRuntime<
 
       transition,
 
-      semanticBehavior,
+      visualTreatment,
 
       motion,
 

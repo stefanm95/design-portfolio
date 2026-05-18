@@ -1,11 +1,12 @@
-import { resolveMotionEasing, type EnvironmentalRuntime } from "..";
-
-import type { CompositionContract } from "../composition";
-import type { MotionCadence } from "./types.ts";
+import type { CompositionContract } from "@/runtime/presentation/composition/contract/types.ts";
 import {
-  resolveCompositionMotionInfluence,
-  applyCompositionMotionInfluence,
-} from "./compositionMotionSemantics";
+  applyMotionInfluence,
+  resolveMotionEasing,
+  resolveMotionInfluence,
+  type EnvironmentalRuntime,
+} from "..";
+
+import type { MotionCadence } from "./types.ts";
 
 /**
  * Runtime Motion Cadence Contract
@@ -28,13 +29,13 @@ export function resolveCadence({
   composition,
   environment,
 }: Props): MotionCadence {
-  const { rhythmProfile, transition } = composition;
+  const { rhythmProfile, transition } = composition.orchestration;
 
   //
   // COMPOSITION MOTION INFLUENCE
   //
 
-  const motionInfluence = resolveCompositionMotionInfluence(composition);
+  const motionInfluence = resolveMotionInfluence(composition);
 
   //
   // TRANSITION SOFTNESS
@@ -60,9 +61,9 @@ export function resolveCadence({
   //
 
   const densityOffsetMultiplier =
-    composition.density === "tight"
+    composition.orchestration.density === "tight"
       ? 0.7
-      : composition.density === "spacious"
+      : composition.orchestration.density === "spacious"
         ? 1.3
         : 1;
 
@@ -70,7 +71,7 @@ export function resolveCadence({
   // BASE TEMPORAL VALUES
   //
 
-  const { stagger, sectionDelay } = applyCompositionMotionInfluence(
+  const { stagger, sectionDelay } = applyMotionInfluence(
     rhythmProfile.stagger,
     rhythmProfile.sectionDelay,
     motionInfluence,

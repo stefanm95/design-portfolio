@@ -1,4 +1,4 @@
-import type { CompositionContract } from "../composition";
+import type { CompositionContract } from "@/runtime/presentation/composition/contract/types";
 import { resolveEnvironmentalRuntime } from "./environment/resolveEnvironmentalRuntime";
 
 import type { SceneDefinition, SceneRuntime } from "./types";

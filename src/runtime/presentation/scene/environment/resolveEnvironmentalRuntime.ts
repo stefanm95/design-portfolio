@@ -1,5 +1,6 @@
+import type { CompositionContract } from "@/runtime/presentation/composition/contract";
+
 import type { EnvironmentalRuntime, SceneDefinition } from "..";
-import type { CompositionContract } from "../../composition";
 
 type Props = {
   scene: SceneDefinition;
@@ -38,7 +39,7 @@ export function resolveEnvironmentalRuntime({
   // ATMOSPHERE MODULATION
   //
 
-  switch (scene.atmosphere) {
+  switch (scene.semantics.atmosphere) {
     case "immersive":
       cadenceSoftness *= 1.15;
       spacingPressure *= 1.2;
@@ -84,7 +85,7 @@ export function resolveEnvironmentalRuntime({
   // ENVIRONMENTAL PRESSURE
   //
 
-  switch (scene.environmentalPressure) {
+  switch (scene.orchestration.environmentalPressure) {
     case "soft":
       cadenceSoftness *= 1.05;
       breathingIntensity *= 1.05;
@@ -101,7 +102,7 @@ export function resolveEnvironmentalRuntime({
   // BREATHING BIAS
   //
 
-  switch (scene.breathingBias) {
+  switch (scene.orchestration.breathingBias) {
     case "compressed":
       spacingPressure *= 0.85;
       breathingIntensity *= 0.85;
@@ -117,12 +118,12 @@ export function resolveEnvironmentalRuntime({
   // MOTION RESTRAINT
   //
 
-  switch (scene.motionRestraint) {
+  switch (scene.orchestration.motionRestraint) {
     case "restrained":
       motionRestraint *= 1.15;
       break;
 
-    case "expressive":
+    case "dynamic":
       motionRestraint *= 0.85;
       break;
   }
@@ -131,7 +132,7 @@ export function resolveEnvironmentalRuntime({
   // SCENE INTENSITY
   //
 
-  switch (composition.sceneIntensity) {
+  switch (composition.orchestration.sceneIntensity) {
     case "dramatic":
       cadenceSoftness *= 1.08;
       cinematicDepth *= 1.15;

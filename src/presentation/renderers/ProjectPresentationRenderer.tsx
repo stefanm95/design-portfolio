@@ -19,8 +19,9 @@ import { resolvePresentationDialect } from "./presentationDialect";
 
 import { renderPresentationBlocks } from "./renderPresentationBlocks";
 
-import { sceneDefinitions } from "@/runtime/presentation/scene";
 import type { PresentationRuntime } from "@/runtime/presentation/interpreter";
+import { resolveDensityClass } from "@/runtime/presentation/realization/composition/resolveDensityClass";
+import { sceneDefinitions } from "@/runtime/presentation/scene";
 
 type Props = {
   project: Project;
@@ -84,17 +85,17 @@ export default function ProjectPresentationRenderer({
 
   return (
     <article
-      className='relative'
+      className="relative"
       data-profile={runtime.profileVariant}
-      data-density={composition.density}
-      data-rhythm={composition.rhythm}
-      data-transition={composition.transition}
-      data-scene-intensity={composition.sceneIntensity}
+      data-density={composition.orchestration.density}
+      data-rhythm={composition.orchestration.rhythm}
+      data-transition={composition.orchestration.transition}
+      data-scene-intensity={composition.orchestration.sceneIntensity}
     >
       <ProjectDivider />
 
       <MotionCadenceProvider runtime={runtime}>
-        <div className={composition.densityClass}>
+        <div className={resolveDensityClass(composition.orchestration.density)}>
           <FadeIn>
             <ProjectMeta project={project} index={index} />
           </FadeIn>

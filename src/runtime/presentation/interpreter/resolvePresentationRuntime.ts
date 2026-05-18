@@ -1,7 +1,5 @@
 import type { PresentationBlock } from "@/types/presentation";
 
-import type { CompositionContract } from "@/runtime/presentation/composition";
-
 import type { PresentationRegistry } from "@/presentation/renderers/types";
 
 import type { CompositionSemanticMap } from "@/runtime/presentation/semantics";
@@ -14,6 +12,7 @@ import { resolvePresentationBlockRuntime } from "./resolvePresentationBlockRunti
 
 import type { ResolvedPresentationBlockRuntime } from "./types";
 
+import type { CompositionContract } from "@/runtime/presentation/composition/contract/types";
 import { resolveBlockRelationships } from "./relationships";
 
 type Props<TBlock extends PresentationBlock> = {

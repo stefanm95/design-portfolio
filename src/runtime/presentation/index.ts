@@ -6,18 +6,15 @@ export * from "./scroll/useActiveSection";
 export * from "./scroll/useLenis";
 export * from "./scroll/useScrollProgress";
 
-export { sceneDefinitions, resolveSceneRuntime, useScene } from "./scene";
+export { resolveSceneRuntime, sceneDefinitions, useScene } from "./scene";
 
 export type {
-  SceneRuntime,
-  SceneDefinition,
-  SceneAtmosphere,
-  SceneTone,
   EnvironmentalRuntime,
-  BreathingBias,
-  MotionRestraint,
-  OverlayDepth,
+  SceneAtmosphere,
+  SceneDefinition,
   SceneId,
+  SceneRuntime,
+  SceneTone,
 } from "./scene";
 
 export * from "./atmosphere";
@@ -34,6 +31,6 @@ export * from "./rendering";
 
 export { useCompositionReactivity } from "./composition/reactivity/useCompositionReactivity";
 
+export { CompositionReactivityContext } from "./composition/reactivity/CompositionReactivityContext";
 export { default as PresentationProvider } from "./PresentationProvider";
 export { SectionMotionProvider } from "./SectionMotionProvider";
-export { CompositionReactivityContext } from "./composition/reactivity/CompositionReactivityContext";

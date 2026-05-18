@@ -27,7 +27,7 @@ export function MotionCadenceProvider({ children, runtime }: Props) {
 
   return (
     <CompositionReactivityContext.Provider
-      value={runtime.composition.reactivity}
+      value={runtime.composition.orchestration.reactivity}
     >
       <MotionCadenceContext.Provider value={cadence}>
         {children}

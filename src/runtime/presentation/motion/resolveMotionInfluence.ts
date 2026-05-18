@@ -1,4 +1,4 @@
-import type { CompositionContract } from "../composition";
+import type { CompositionContract } from "@/runtime/presentation/composition/contract/types";
 import type { CompositionMotionInfluence } from "./types";
 
 /**
@@ -20,10 +20,10 @@ import type { CompositionMotionInfluence } from "./types";
  * Extracts actionable motion semantics from composition reactivity
  * while maintaining semantic clarity and avoiding state machine complexity
  */
-export function resolveCompositionMotionInfluence(
+export function resolveMotionInfluence(
   contract: CompositionContract,
 ): CompositionMotionInfluence {
-  const reactivity = contract.reactivity ?? {
+  const reactivity = contract.orchestration.reactivity ?? {
     pacing: {
       revealGrouping: "balanced",
       spacingModifier: 1.0,
@@ -86,7 +86,7 @@ export function resolveCompositionMotionInfluence(
  * Transforms base cadence timing by composition reactivity
  * while preserving authored rhythm profile
  */
-export function applyCompositionMotionInfluence(
+export function applyMotionInfluence(
   baseStagger: number,
   baseSectionDelay: number,
   influence: CompositionMotionInfluence,

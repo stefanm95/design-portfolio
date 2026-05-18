@@ -1,7 +1,7 @@
-export { cinematicBlockRoles, editorialBlockRoles } from "./blockRoles";
+export { cinematicBlockRoles, editorialBlockRoles } from "./roles/blockRoles";
 
 export type { CompositionSemantic, CompositionSemanticMap } from "./types";
 
-export * from "./types.behavior";
+export * from "../realization/treatment/types";
 
-export * from "./resolveSemanticBehavior";
+export * from "../realization/treatment/resolveVisualTreatment";

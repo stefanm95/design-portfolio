@@ -1,5 +1,4 @@
-import { spatialScale } from "./scale";
-
+import { spatialScale } from "@/runtime/presentation/realization/spatial";
 import type { SpatialBehavior } from "./types";
 
 import type { PresentationRuntimeSnapshot } from "@/runtime/presentation/interpreter/types";

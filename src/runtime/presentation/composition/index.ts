@@ -4,13 +4,11 @@
 // FOUNDATIONS
 //
 
-export { compositionDensity } from "./density";
+export { compositionDensity } from "../realization/composition/density";
 
 export { compositionRhythm } from "./rhythm";
 
 export { compositionStack } from "./stack";
-
-export { sectionLayouts } from "./layout";
 
 export { sectionSpacing } from "./section";
 
@@ -24,7 +22,8 @@ export { projectComposition } from "./projects";
 
 export {
   resolveCompositionContract,
-  type CompositionContract,
+  type OrchestrationContract,
+  type SemanticContract,
 } from "./contract";
 
 //
@@ -32,14 +31,14 @@ export {
 //
 
 export {
-  resolveCompositionReactivity,
-  resolveCompositionPacing,
   resolveCompositionBreathing,
   resolveCompositionDensity,
-  type CompositionReactivityContextType,
-  type CompositionPacing,
+  resolveCompositionPacing,
+  resolveCompositionReactivity,
   type CompositionBreathing,
   type CompositionDensityReactivity,
+  type CompositionPacing,
+  type CompositionReactivityContextType,
 } from "./reactivity";
 
 //
@@ -48,10 +47,9 @@ export {
 
 export {
   resolveBlockSpacing,
+  resolveContextualSpacing,
   resolveSpatialBehavior,
   resolveSpatialPressure,
-  spatialScale,
-  resolveContextualSpacing,
 } from "./spacing";
 
 //
@@ -59,13 +57,13 @@ export {
 //
 
 export type {
+  AtmosphericDepth,
   CompositionDensity,
   CompositionRhythm,
-  TransitionIntensity,
   EnvironmentalPressure,
-  AtmosphericDepth,
   MotionRestraint,
+  SceneIntensity,
   SpatialBehavior,
   SpatialPressure,
-  SceneIntensity,
-} from "./types";
+  TransitionIntensity,
+} from "./contract/orchestration/types.shared";

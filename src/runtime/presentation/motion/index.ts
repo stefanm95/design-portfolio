@@ -9,22 +9,22 @@ export { resolveContextualMotion } from "./resolveContextualMotion";
 export { cinematicEasing, resolveMotionEasing } from "./resolveMotionEasing";
 
 export {
-  resolveCompositionMotionInfluence,
-  applyCompositionMotionInfluence,
-} from "./compositionMotionSemantics";
+  applyMotionInfluence,
+  resolveMotionInfluence,
+} from "./resolveMotionInfluence";
 
 export {
-  calculateBreathingDelay,
-  calculatePressureStagger,
-  calculateBreathingDistance,
   applyBreathingModulation,
+  calculateBreathingDelay,
+  calculateBreathingDistance,
   calculateCinematicSpacingModifier,
   calculateCompositionalSeparation,
+  calculatePressureStagger,
 } from "./breathingAwareAnimation";
 
 export type {
-  MotionCadence,
-  CubicBezier,
-  SceneModulation,
   CompositionMotionInfluence,
+  CubicBezier,
+  MotionCadence,
+  SceneModulation,
 } from "./types";

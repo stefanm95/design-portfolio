@@ -2,14 +2,13 @@ import type { Project } from "@/types/projects";
 
 import type { PresentationBlock } from "@/types/presentation";
 
-import type { CompositionContract } from "@/runtime/presentation/composition";
-
 import type { PresentationRegistry } from "./types";
 
 import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
 
 import type { CompositionSemanticMap } from "@/runtime/presentation/semantics";
 
+import type { CompositionContract } from "@/runtime/presentation/composition/contract";
 import {
   resolvePresentationRuntime,
   type PresentationRuntime,

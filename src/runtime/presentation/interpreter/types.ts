@@ -4,11 +4,10 @@ import type { PresentationBlockRenderer } from "@/presentation/renderers/types";
 
 import type {
   CompositionSemantic,
-  SemanticBehavior,
+  ResolvedVisualTreatment,
 } from "@/runtime/presentation/semantics";
 
 import type {
-  CompositionContract,
   CompositionReactivityContextType,
   SpatialBehavior,
   SpatialPressure,
@@ -16,30 +15,32 @@ import type {
 
 import type { SceneRuntime } from "@/runtime/presentation/scene";
 
-import type { PresentationProfileVariant } from "../profiles";
-import type { MotionCadence } from "../motion";
-import type { RuntimeBlockRelationship } from "./relationships";
 import type { AtmosphericModulation } from "../atmosphere/resolveAtmosphericModulation";
+import type { RuntimeLayerSet } from "../layers";
+import type { MotionCadence } from "../motion";
+import type { PresentationProfileVariant } from "../profiles";
 import type { RenderingAttributes } from "../rendering";
 import type { RuntimeSurfaceSet } from "../surfaces";
-import type { RuntimeLayerSet } from "../layers";
 import type { NarrativeTransition } from "../transitions";
+import type { RuntimeBlockRelationship } from "./relationships";
 
+import type { CompositionContract } from "@/runtime/presentation/composition/contract";
+import type { AtmosphereState } from "../resolvers";
 import type {
   CinematicContainerAttributes,
   OverlayRendering,
   PanelRendering,
   TypographyRendering,
 } from "../system";
-import type { AtmosphereState } from "../resolvers";
 
 //
 // RUNTIME PRIMITIVES
 //
 
-export type RuntimeCadence = CompositionContract["rhythm"];
+export type RuntimeCadence = CompositionContract["orchestration"]["rhythm"];
 
-export type RuntimePressure = CompositionContract["sceneIntensity"];
+export type RuntimePressure =
+  CompositionContract["orchestration"]["sceneIntensity"];
 
 export type RuntimeBreathing = CompositionReactivityContextType["breathing"];
 export type RuntimeAtmosphere = AtmosphereState;
@@ -81,7 +82,7 @@ export type ResolvedPresentationBlockRuntime<TBlock extends PresentationBlock> =
 
       atmosphere: RuntimeAtmosphere;
 
-      semanticBehavior: SemanticBehavior;
+      visualTreatment: ResolvedVisualTreatment;
 
       layers: RuntimeLayerSet;
 

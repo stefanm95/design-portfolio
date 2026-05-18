@@ -1,7 +1,4 @@
-import {
-  resolveSpatialPressure,
-  type CompositionContract,
-} from "@/runtime/presentation/composition";
+import { resolveSpatialPressure } from "@/runtime/presentation/composition";
 
 import type { SceneRuntime } from "@/runtime/presentation/scene";
 
@@ -19,6 +16,7 @@ import { resolveRuntimeSurfaces } from "../surfaces";
 
 import { resolveRuntimeLayers } from "../layers";
 
+import type { CompositionContract } from "@/runtime/presentation/composition/contract";
 import {
   resolveCinematicContainer,
   resolveOverlayRendering,
@@ -57,23 +55,23 @@ export function resolvePresentationSnapshot({
   });
 
   const spatial = {
-    cadence: composition.rhythm,
+    cadence: composition.orchestration.rhythm,
 
-    pressure: composition.sceneIntensity,
+    pressure: composition.orchestration.sceneIntensity,
 
-    breathing: composition.reactivity.breathing,
+    breathing: composition.orchestration.reactivity.breathing,
 
     openness:
-      composition.environmentalPressure === "soft"
+      composition.orchestration.environmentalPressure === "soft"
         ? 0.9
-        : composition.environmentalPressure === "balanced"
+        : composition.orchestration.environmentalPressure === "balanced"
           ? 0.6
           : 0.3,
 
     compression:
-      composition.density === "tight"
+      composition.orchestration.density === "tight"
         ? 0.9
-        : composition.density === "balanced"
+        : composition.orchestration.density === "balanced"
           ? 0.5
           : 0.2,
 
