@@ -313,17 +313,9 @@ export const stackLayoutScale = {
   contact: {
     hero: {
       root: `
-        grid
-        grid-cols-1
+      relative
+      z-10
 
-        gap-16
-
-        lg:grid-cols-12
-        lg:gap-20
-        lg:items-start
-      `,
-
-      content: `
       grid
       grid-cols-1
 
@@ -331,6 +323,7 @@ export const stackLayoutScale = {
 
       lg:grid-cols-12
       lg:gap-20
+      lg:items-start
     `,
 
       left: `
@@ -339,7 +332,7 @@ export const stackLayoutScale = {
 
       right: `
       lg:col-span-4
-      lg:col-start-8
+      lg:col-start-9
     `,
 
       card: `

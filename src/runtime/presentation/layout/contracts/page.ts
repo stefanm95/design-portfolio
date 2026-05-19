@@ -122,8 +122,6 @@ export type ResolvedContactLayout = {
   hero: {
     root: string;
 
-    content: string;
-
     left: string;
 
     right: string;

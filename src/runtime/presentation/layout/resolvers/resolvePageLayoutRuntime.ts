@@ -221,10 +221,19 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
 
       content: `
     ${contactSection.content}
-
-    ${contactSpacing.root}
     ${contactSpacing.padding}
-    ${contactSpacing.content}
+
+    relative
+  z-10
+
+  mx-auto
+  w-full
+  max-w-[1600px]
+
+  px-6
+  md:px-10
+  xl:px-16
+
   `,
 
       environment: contactEnvironment,
@@ -235,8 +244,6 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
 
       hero: {
         root: contactStack.hero.root,
-
-        content: contactStack.hero.content,
 
         left: contactStack.hero.left,
 

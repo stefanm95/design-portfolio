@@ -16,29 +16,40 @@ export default function Contact({ layout }: Props) {
   const { panel } = contactContent;
 
   return (
-    <section id="contact" className={layout.section}>
-      {/* ATMOSPHERIC BASE */}
-      <div
-        className={layout.environment.texture}
-        style={{
-          backgroundImage:
-            "url('/textures/stone/photo-ground-texture-pattern.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
+    <section
+      id="contact"
+      className={`
+    relative
+    isolate
+    overflow-hidden
 
-      {/* DARK VIGNETTE */}
-      <div className={layout.environment.vignette} />
+    ${layout.section}
+  `}
+    >
+      <div className={layout.environment.root}>
+        {/* ATMOSPHERIC BASE */}
+        <div
+          className={layout.environment.texture}
+          style={{
+            backgroundImage:
+              "url('/textures/stone/photo-ground-texture-pattern.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
 
-      {/* SOFT ATMOSPHERIC BLOOM */}
-      <div
-        className={layout.environment.bloom}
-        style={{
-          background:
-            "radial-gradient(circle, rgba(90,180,255,0.22), transparent 72%)",
-        }}
-      />
+        {/* DARK VIGNETTE */}
+        <div className={layout.environment.vignette} />
+
+        {/* SOFT ATMOSPHERIC BLOOM */}
+        <div
+          className={layout.environment.bloom}
+          style={{
+            background:
+              "radial-gradient(circle, rgba(90,180,255,0.22), transparent 72%)",
+          }}
+        />
+      </div>
 
       {/* CONTENT */}
       <div className={layout.content}>
