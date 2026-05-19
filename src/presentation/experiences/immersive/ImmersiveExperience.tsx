@@ -1,4 +1,4 @@
-import Contact from "@/presentation/sections/Contact/index.tsx";
+import Contact from "@/presentation/sections/contact/Contact";
 import Experience from "@/presentation/sections/experience/Experience";
 import Hero from "@/presentation/sections/hero/Hero";
 import Philosophy from "@/presentation/sections/philosophy/Philosophy";

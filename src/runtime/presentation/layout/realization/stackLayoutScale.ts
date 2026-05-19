@@ -311,11 +311,30 @@ export const stackLayoutScale = {
   },
 
   contact: {
+    root: `
+    relative
+    overflow-hidden
+  `,
+
+    content: `
+    relative
+    z-10
+
+    flex
+    flex-col
+
+    gap-16
+    md:gap-20
+    lg:gap-28
+  `,
+
     hero: {
       root: `
       relative
       z-10
+    `,
 
+      content: `
       grid
       grid-cols-1
 
@@ -327,17 +346,18 @@ export const stackLayoutScale = {
     `,
 
       left: `
+      col-span-12
       lg:col-span-7
     `,
 
       right: `
+      col-span-12
       lg:col-span-4
       lg:col-start-9
     `,
 
       card: `
-      p-8
-      md:p-10
+      relative
     `,
 
       infoGroup: `
@@ -346,76 +366,109 @@ export const stackLayoutScale = {
     },
 
     links: {
+      root: `
+      relative
+      overflow-hidden
+    `,
+
+      content: `
+      relative
+      z-10
+    `,
+
+      label: `
+      mb-12
+    `,
+
       list: `
-        space-y-8
-      `,
+      space-y-8
+    `,
 
       row: `
-        flex
-        items-end
-        justify-between
+      flex
+      items-end
+      justify-between
 
-        gap-6
-      `,
+      gap-6
+    `,
 
       top: `
-        mb-4
+      mb-4
 
-        flex
-        items-center
-        justify-between
-      `,
+      flex
+      items-center
+      justify-between
+    `,
 
       status: `
-        flex
-        items-center
-        gap-2
-      `,
+      flex
+      items-center
+      gap-2
+    `,
     },
 
     availability: {
+      root: `
+      relative
+    `,
+
       content: `
-        space-y-4
-      `,
+      space-y-4
+    `,
     },
 
     footer: {
+      root: `
+      relative
+      overflow-hidden
+    `,
+
       content: `
-        flex
-        flex-col
+      relative
+      z-10
 
-        gap-10
-        md:gap-12
-        lg:gap-14
+      flex
+      flex-col
 
-        lg:flex-row
-        lg:items-end
-        lg:justify-between
-      `,
+      gap-10
+      md:gap-12
+      lg:gap-14
+
+      lg:flex-row
+      lg:items-end
+      lg:justify-between
+    `,
 
       left: `
-        space-y-8
-      `,
+      space-y-8
+    `,
 
       right: `
-        flex
-        flex-col
-        gap-8
+      flex
+      flex-col
+      gap-8
 
-        items-start
-        lg:items-end
-      `,
+      items-start
+      lg:items-end
+    `,
 
       meta: `
-        flex
-        flex-col
+      flex
+      flex-col
 
-        gap-3
+      gap-3
 
-        md:flex-row
-        md:items-center
-        md:gap-8
-      `,
+      md:flex-row
+      md:items-center
+      md:gap-8
+    `,
+
+      cta: `
+      group
+      inline-flex
+      items-center
+      gap-4
+    `,
     },
   },
 

@@ -3,6 +3,7 @@
 import { contactContent } from "@/content/contact";
 
 import FadeIn from "@/presentation/animation/FadeIn";
+
 import type { ResolvedContactLayout } from "@/runtime/presentation/layout/contracts";
 
 import { ui } from "@/theme";
@@ -18,19 +19,14 @@ export default function ContactAvailability({ layout }: Props) {
     <FadeIn delay={0.12}>
       <div
         className={`
-          relative
-
-          border-t
-          ${ui.borders.hairline}
-
-          px-8
-
           ${layout.root}
+
+          ${ui.borders.hairline}
         `}
       >
         {/* SOFT GLOW */}
         <div
-          className="
+          className='
             absolute
             left-0
             top-0
@@ -39,7 +35,7 @@ export default function ContactAvailability({ layout }: Props) {
             w-24
 
             bg-cyan-300/30
-          "
+          '
         />
 
         <div className={layout.content}>

@@ -1,11 +1,3 @@
-// runtime/presentation/layout/resolvers/resolveLayoutRuntime.ts
-
-import {
-  environmentLayoutScale,
-  gridLayoutScale,
-  panelLayoutScale,
-  sectionLayoutScale,
-} from "@/runtime/presentation/layout/realization";
 import type { ResolvedPageLayoutRuntime } from "../contracts";
 
 import { resolveSectionSpacing } from "./resolveSectionSpacing";
@@ -84,16 +76,6 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
   const projectsStack = resolveStackLayout({
     layout: "projects",
   });
-
-  //
-  //Environment
-  const contactEnvironment = environmentLayoutScale.cinematic;
-
-  const contactGrid = gridLayoutScale.cinematic;
-
-  const contactPanel = panelLayoutScale.cinematic;
-
-  const contactSection = sectionLayoutScale.cinematic;
 
   //
   // RETURN
@@ -217,33 +199,28 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
     },
 
     contact: {
-      section: contactSection.root,
-
-      content: `
-    ${contactSection.content}
-    ${contactSpacing.padding}
-
-    relative
-  z-10
-
-  mx-auto
-  w-full
-  max-w-[1600px]
-
-  px-6
-  md:px-10
-  xl:px-16
-
+      root: `
+    ${contactStack.root}
+    ${contactSpacing.root}
   `,
 
-      environment: contactEnvironment,
+      content: `
 
-      grid: contactGrid,
+        ${contactSpacing.padding}
 
-      panel: contactPanel,
+        mx-auto
+        w-full
+        max-w-[1600px]
+
+        px-6
+        md:px-10
+        xl:px-16
+      `,
 
       hero: {
         root: contactStack.hero.root,
+
+        content: contactStack.hero.content,
 
         left: contactStack.hero.left,
 
@@ -255,6 +232,12 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
       },
 
       links: {
+        root: contactStack.links.root,
+
+        content: contactStack.links.content,
+
+        label: contactStack.links.label,
+
         list: contactStack.links.list,
 
         row: contactStack.links.row,
@@ -265,13 +248,13 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
       },
 
       availability: {
-        root: "",
+        root: contactStack.availability.root,
 
         content: contactStack.availability.content,
       },
 
       footer: {
-        root: contactSpacing.footer,
+        root: contactStack.footer.root,
 
         content: contactStack.footer.content,
 
@@ -280,8 +263,11 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
         right: contactStack.footer.right,
 
         meta: contactStack.footer.meta,
+
+        cta: contactStack.footer.cta,
       },
     },
+
     about: {
       section: aboutSpacing.root,
 

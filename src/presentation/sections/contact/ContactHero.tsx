@@ -19,139 +19,148 @@ export default function ContactHero({ layout }: Props) {
 
   return (
     <div className={layout.root}>
-      {/* LEFT */}
-      <FadeIn>
-        <div className={layout.left}>
-          <Label className={ui.text.context}>{hero.label}</Label>
+      <div className={layout.content}>
+        {/* LEFT */}
+        <FadeIn>
+          <div className={layout.left}>
+            <div className='space-y-10'>
+              <Label
+                className={`
+                  text-[11px]
+                  uppercase
+                  tracking-[0.28em]
 
-          <Heading
-            as="h2"
-            className={`
-              mt-8
+                  ${ui.text.context}
+                `}
+              >
+                {hero.label}
+              </Label>
 
-              max-w-[10ch]
+              <Heading
+                as='h2'
+                className={`
+                  max-w-[10ch]
 
-              text-[clamp(3rem,7vw,7rem)]
+                  text-[clamp(3rem,7vw,7rem)]
 
-              leading-[0.9]
-              tracking-[-0.06em]
+                  leading-[0.9]
+                  tracking-[-0.06em]
 
-              ${ui.text.strong}
-            `}
-          >
-            {hero.title}
-          </Heading>
+                  ${ui.text.strong}
+                `}
+              >
+                {hero.title}
+              </Heading>
 
-          <Text
-            className={`
-              mt-10
+              <Text
+                className={`
+                  max-w-[34rem]
 
-              max-w-[34rem]
+                  text-sm
+                  leading-[1.9]
 
-              text-sm
-              leading-[1.9]
+                  ${ui.text.muted}
+                `}
+              >
+                {hero.description}
+              </Text>
+            </div>
+          </div>
+        </FadeIn>
 
-              ${ui.text.muted}
-            `}
-          >
-            {hero.description}
-          </Text>
-        </div>
-      </FadeIn>
-
-      {/* RIGHT */}
-      <FadeIn delay={0.12}>
-        <div className={layout.right}>
-          <div
-            className={`
-              relative
-
-              border
-              backdrop-blur-xl
-
-              ${layout.card}
-
-              ${ui.borders.subtle}
-              ${ui.surfaces.panel}
-            `}
-          >
-            {/* ATMOSPHERIC BLOOM */}
+        {/* RIGHT */}
+        <FadeIn delay={0.12}>
+          <div className={layout.right}>
             <div
-              className="
-                absolute
-                inset-0
+              className={`
+                relative
 
-                opacity-[0.06]
-              "
-              style={{
-                background:
-                  "radial-gradient(circle at top left, rgba(120,200,255,0.28), transparent 60%)",
-              }}
-            />
+                border-t
+                pt-8
 
-            {/* CONTENT */}
-            <div className="relative z-10 space-y-8">
-              {/* EMAIL */}
-              <div className={layout.infoGroup}>
-                <div
-                  className={`
-                    text-[10px]
-                    uppercase
-                    tracking-[0.28em]
+                ${layout.card}
 
-                    ${ui.text.annotation}
-                  `}
-                >
-                  {hero.email.label}
+                ${ui.borders.focus}
+                ${ui.borders.focusMd}
+              `}
+            >
+              {/* ATMOSPHERIC BLOOM */}
+              <div
+                className='
+                  absolute
+                  inset-0
+
+                  opacity-[0.06]
+                '
+                style={{
+                  background:
+                    "radial-gradient(circle at top left, rgba(120,200,255,0.28), transparent 60%)",
+                }}
+              />
+
+              {/* CONTENT */}
+              <div className='relative z-10 space-y-8'>
+                {/* EMAIL */}
+                <div className={layout.infoGroup}>
+                  <div
+                    className={`
+                      text-[10px]
+                      uppercase
+                      tracking-[0.28em]
+
+                      ${ui.text.annotation}
+                    `}
+                  >
+                    {hero.email.label}
+                  </div>
+
+                  <a
+                    href={hero.email.href}
+                    className={`
+                      text-lg
+
+                      transition-opacity
+                      duration-500
+
+                      hover:opacity-60
+
+                      ${ui.text.interactive}
+                    `}
+                  >
+                    {hero.email.value}
+                  </a>
                 </div>
 
-                <a
-                  href={hero.email.href}
-                  className={`
-                    text-sm
-                    leading-[1.8]
+                {/* AVAILABILITY */}
+                <div className={layout.infoGroup}>
+                  <div
+                    className={`
+                      text-[10px]
+                      uppercase
+                      tracking-[0.28em]
 
-                    transition-opacity
-                    duration-500
+                      ${ui.text.annotation}
+                    `}
+                  >
+                    {hero.availability.label}
+                  </div>
 
-                    hover:opacity-80
+                  <div
+                    className={`
+                      text-sm
+                      leading-[1.8]
 
-                    ${ui.text.secondary}
-                  `}
-                >
-                  {hero.email.value}
-                </a>
-              </div>
-
-              {/* AVAILABILITY */}
-              <div className={layout.infoGroup}>
-                <div
-                  className={`
-                    text-[10px]
-                    uppercase
-                    tracking-[0.28em]
-
-                    ${ui.text.annotation}
-                  `}
-                >
-                  {hero.availability.label}
-                </div>
-
-                <div
-                  className={`
-                    text-sm
-                    leading-[1.8]
-
-                    ${ui.text.secondary}
-                  `}
-                >
-                  {hero.availability.value}
+                      ${ui.text.supporting}
+                    `}
+                  >
+                    {hero.availability.value}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </FadeIn>
+        </FadeIn>
+      </div>
     </div>
   );
 }

@@ -83,44 +83,14 @@ export type ResolvedExperienceLayout = {
 };
 
 export type ResolvedContactLayout = {
-  section: string;
+  root: string;
 
   content: string;
 
-  environment: {
-    root: string;
-
-    texture: string;
-
-    vignette: string;
-
-    bloom: string;
-  };
-
-  grid: {
-    root: string;
-
-    left: string;
-
-    right: string;
-  };
-
-  panel: {
-    root: string;
-
-    image: string;
-
-    gradient: string;
-
-    bloom: string;
-
-    content: string;
-
-    header: string;
-  };
-
   hero: {
     root: string;
+
+    content: string;
 
     left: string;
 
@@ -132,6 +102,12 @@ export type ResolvedContactLayout = {
   };
 
   links: {
+    root: string;
+
+    content: string;
+
+    label: string;
+
     list: string;
 
     row: string;
@@ -157,9 +133,10 @@ export type ResolvedContactLayout = {
     right: string;
 
     meta: string;
+
+    cta: string;
   };
 };
-
 export type ResolvedAboutLayout = {
   section: string;
 
