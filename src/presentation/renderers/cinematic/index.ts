@@ -1,9 +1,9 @@
 import type { CinematicPresentationRegistry } from "../types";
 
+import CinematicMobileRenderer from "@/presentation/renderers/cinematic/projects/blocks/mobile/CinematicMobileRenderer";
 import CinematicHero from "./projects/blocks/CinematicHero";
-import CinematicSystems from "./projects/blocks/CinematicSystems";
 import CinematicServices from "./projects/blocks/CinematicServices";
-import CinematicMobile from "./projects/blocks/mobile/CinematicMobile";
+import CinematicSystems from "./projects/blocks/CinematicSystems";
 import CinematicShowcase from "./projects/blocks/showcase/CinematicShowcase";
 
 export const cinematicBlockRegistry: CinematicPresentationRegistry = {
@@ -15,5 +15,5 @@ export const cinematicBlockRegistry: CinematicPresentationRegistry = {
 
   services: CinematicServices,
 
-  mobile: CinematicMobile,
+  mobile: CinematicMobileRenderer,
 };

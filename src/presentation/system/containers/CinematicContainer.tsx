@@ -4,8 +4,6 @@
 
 // import type { ReactNode } from "react";
 
-// import type { CinematicContainerAttributes } from "@/runtime/presentation/system";
-
 // type Props = {
 //   children: ReactNode;
 
