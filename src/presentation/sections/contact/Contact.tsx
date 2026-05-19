@@ -1,5 +1,3 @@
-// index.tsx
-
 import { contactContent } from "@/content/contact";
 
 import type { ResolvedContactLayout } from "@/runtime/presentation/layout/contracts/page";
@@ -71,40 +69,12 @@ export default function Contact({ layout }: Props) {
 
       {/* CONTENT */}
       <div className={layout.content}>
-        {/* HERO */}
         <ContactHero layout={layout.hero} />
 
         {/* CONTACT GRID */}
-        <div
-          className='
-            grid
-            grid-cols-1
-            lg:grid-cols-12
-
-            gap-y-10
-            md:gap-y-12
-            lg:gap-y-0
-            lg:gap-x-20
-          '
-        >
+        <div className={layout.grid.root}>
           {/* LEFT */}
-          <div
-            className='
-              relative
-
-              hidden
-              lg:flex
-
-              col-span-1
-              lg:col-span-4
-
-              min-h-[480px]
-              md:min-h-[560px]
-              lg:min-h-[620px]
-
-              overflow-hidden
-            '
-          >
+          <div className={layout.grid.left}>
             <div className={layout.hero.card}>
               {/* IMAGE */}
               <div
@@ -217,14 +187,13 @@ export default function Contact({ layout }: Props) {
           </div>
 
           {/* RIGHT */}
-          <div className={layout.hero.right}>
+          <div className={layout.grid.right}>
             <ContactLinks layout={layout.links} />
 
             <ContactAvailability layout={layout.availability} />
           </div>
         </div>
 
-        {/* FOOTER */}
         <ContactFooter layout={layout.footer} />
       </div>
     </section>

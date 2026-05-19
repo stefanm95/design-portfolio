@@ -205,17 +205,18 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
   `,
 
       content: `
+    ${contactStack.content}
 
-        ${contactSpacing.padding}
+    ${contactSpacing.padding}
+  `,
 
-        mx-auto
-        w-full
-        max-w-[1600px]
+      grid: {
+        root: contactStack.grid.root,
 
-        px-6
-        md:px-10
-        xl:px-16
-      `,
+        left: contactStack.grid.left,
+
+        right: contactStack.grid.right,
+      },
 
       hero: {
         root: contactStack.hero.root,

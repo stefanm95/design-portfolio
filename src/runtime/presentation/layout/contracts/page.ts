@@ -87,6 +87,14 @@ export type ResolvedContactLayout = {
 
   content: string;
 
+  grid: {
+    root: string;
+
+    left: string;
+
+    right: string;
+  };
+
   hero: {
     root: string;
 

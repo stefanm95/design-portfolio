@@ -326,6 +326,19 @@ export const stackLayoutScale = {
     gap-16
     md:gap-20
     lg:gap-28
+
+    py-20
+    md:py-24
+    lg:py-28
+    xl:py-36
+
+    mx-auto
+    w-full
+    max-w-[1600px]
+
+    px-6
+    md:px-10
+    xl:px-16
   `,
 
     hero: {
@@ -346,18 +359,18 @@ export const stackLayoutScale = {
     `,
 
       left: `
-      col-span-12
       lg:col-span-7
     `,
 
       right: `
-      col-span-12
       lg:col-span-4
       lg:col-start-9
     `,
 
       card: `
       relative
+      h-full
+      w-full
     `,
 
       infoGroup: `
@@ -365,15 +378,58 @@ export const stackLayoutScale = {
     `,
     },
 
+    grid: {
+      root: `
+      grid
+      grid-cols-1
+
+      gap-y-10
+      md:gap-y-12
+
+      lg:grid-cols-12
+      lg:gap-y-0
+      lg:gap-x-20
+    `,
+
+      left: `
+      relative
+
+      hidden
+      lg:flex
+
+      lg:col-span-4
+
+      min-h-[620px]
+
+      overflow-hidden
+    `,
+
+      right: `
+      lg:col-span-8
+
+      space-y-12
+      md:space-y-16
+      lg:space-y-20
+    `,
+    },
+
     links: {
       root: `
       relative
       overflow-hidden
+
+      border
     `,
 
       content: `
       relative
       z-10
+
+      px-6
+      py-8
+
+      md:px-10
+      md:py-10
     `,
 
       label: `
@@ -410,6 +466,11 @@ export const stackLayoutScale = {
     availability: {
       root: `
       relative
+
+      border-t
+
+      px-8
+      pt-8
     `,
 
       content: `
@@ -420,13 +481,15 @@ export const stackLayoutScale = {
     footer: {
       root: `
       relative
-      overflow-hidden
+
+      border-t
+
+      py-10
+      md:py-12
+      lg:py-14
     `,
 
       content: `
-      relative
-      z-10
-
       flex
       flex-col
 
@@ -468,6 +531,11 @@ export const stackLayoutScale = {
       inline-flex
       items-center
       gap-4
+
+      border
+
+      px-6
+      py-4
     `,
     },
   },
