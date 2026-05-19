@@ -10,6 +10,7 @@ import type { CompositionContract } from "@/runtime/presentation/composition/con
 import type { ResolvedPresentationBlockRuntime } from "@/runtime/presentation/execution/blocks/contracts/types";
 import { resolvePresentationBlockRuntime } from "@/runtime/presentation/execution/blocks/resolvers";
 import { resolvePresentationSnapshot } from "@/runtime/presentation/execution/snapshot";
+import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
 import { resolveBlockRelationships } from "../../../interpreter/relationships";
 
 type Props<TBlock extends PresentationBlock> = {
@@ -24,6 +25,8 @@ type Props<TBlock extends PresentationBlock> = {
   roleMap: CompositionSemanticMap<TBlock>;
 
   scene: SceneRuntime;
+
+  profile: PresentationProfileVariant;
 };
 
 export function resolvePresentationRuntime<TBlock extends PresentationBlock>({
@@ -32,10 +35,12 @@ export function resolvePresentationRuntime<TBlock extends PresentationBlock>({
   registry,
   roleMap,
   scene,
+  profile,
 }: Props<TBlock>): ResolvedPresentationBlockRuntime<TBlock>[] {
   const snapshot = resolvePresentationSnapshot({
     composition,
     scene,
+    profile,
   });
 
   const totalBlocks = presentation.blocks.length;

@@ -4,12 +4,12 @@ import clsx from "clsx";
 
 import type { ElementType, ReactNode } from "react";
 
-import type { TypographyRendering } from "@/runtime/presentation/system";
+import type { ResolvedTypographyRendering } from "@/runtime/presentation/system";
 
 type Props = {
   children: ReactNode;
 
-  typography: TypographyRendering;
+  typography: ResolvedTypographyRendering;
 
   as?: ElementType;
 

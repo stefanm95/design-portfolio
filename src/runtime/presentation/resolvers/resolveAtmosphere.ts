@@ -1,4 +1,4 @@
-import type { CompositionContract } from "@/runtime/presentation/composition";
+import type { CompositionContract } from "@/runtime/presentation/composition/contract";
 
 import type { SceneRuntime } from "@/runtime/presentation/scene";
 
@@ -19,45 +19,66 @@ export function resolveAtmosphere({
   scene,
   composition,
 }: Props): AtmosphereState {
-  const definition = scene.definition;
-
   //
-  // TECHNICAL OVERRIDE
+  // ENVIRONMENT
   //
 
-  if (definition.atmosphere === "technical") {
+  const environment = scene.environment;
+
+  //
+  // ORCHESTRATION
+  //
+
+  const orchestration = composition.orchestration;
+
+  //
+  // TECHNICAL
+  //
+
+  if (
+    environment.cinematicDepth < 0.35 &&
+    environment.spacingPressure > 0.7 &&
+    environment.motionRestraint > 0.7
+  ) {
     return "technical";
   }
 
   //
-  // QUIET ENVIRONMENTS
+  // QUIET
   //
 
-  if (definition.atmosphere === "quiet") {
+  if (
+    environment.breathingIntensity < 0.35 &&
+    environment.cadenceSoftness > 0.7
+  ) {
     return "quiet";
   }
 
   //
-  // MINIMAL ENVIRONMENTS
+  // MINIMAL
   //
 
-  if (definition.atmosphere === "minimal") {
+  if (
+    orchestration.atmosphericDepth === "minimal" ||
+    orchestration.motionRestraint === "minimal"
+  ) {
     return "minimal";
   }
 
   //
-  // IMMERSIVE ORCHESTRATION
+  // IMMERSIVE
   //
 
   if (
-    composition.sceneIntensity === "dramatic" ||
-    composition.atmosphericDepth === "immersive"
+    orchestration.sceneIntensity === "dramatic" ||
+    orchestration.atmosphericDepth === "immersive" ||
+    environment.cinematicDepth > 0.75
   ) {
     return "immersive";
   }
 
   //
-  // DEFAULT EDITORIAL
+  // DEFAULT
   //
 
   return "editorial";

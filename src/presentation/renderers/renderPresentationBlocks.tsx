@@ -10,8 +10,8 @@ import type { PresentationProfileVariant } from "@/runtime/presentation/profiles
 
 import type { CompositionSemanticMap } from "@/runtime/presentation/semantics";
 
-import { resolvePresentationRuntime } from "@/runtime/presentation/interpreter";
 import type { PresentationRuntimeSnapshot } from "@/runtime/presentation/execution/snapshot/contracts";
+import { resolvePresentationRuntime } from "@/runtime/presentation/interpreter";
 
 export type RuntimePresentationAttributes = {
   snapshot: PresentationRuntimeSnapshot;
@@ -53,6 +53,8 @@ export function renderPresentationBlocks<TBlock extends PresentationBlock>({
     roleMap,
 
     scene: snapshot.scene,
+
+    profile: profileVariant,
   });
 
   return resolvedBlocks.map((resolvedBlock, index) => {

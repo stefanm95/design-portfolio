@@ -4,45 +4,20 @@ import Section from "@/design/layout/Section";
 
 import ProjectShowcase from "./ProjectShowcase";
 
-import { resolveCompositionContract } from "@/runtime/presentation/composition";
-
-import { resolveProfile } from "@/runtime/presentation/resolvers";
-
-import type { ProjectPresentation } from "@/types/presentation";
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
+import type { PresentationRuntimeSnapshot } from "@/runtime/presentation/execution/snapshot/contracts";
 
 type Props = {
-  presentation: ProjectPresentation;
+  snapshot: PresentationRuntimeSnapshot;
+
+  className?: string;
 };
 
-export default function SelectedWork({ presentation }: Props) {
-  //
-  // PROFILE
-  //
-
-  const profileVariant = presentation.composition?.profile ?? "immersive";
-
-  const profile = resolveProfile(profileVariant);
-
-  //
-  // COMPOSITION
-  //
-
-  const composition = resolveCompositionContract(
-    presentation,
-    profile,
-    profile.orchestration.sceneIntensity,
-  );
-
+export default function SelectedWork({ snapshot, className }: Props) {
   //
   // LAYOUT
   //
 
-  const layout = resolveLayoutRuntime({
-    composition,
-  });
-
-  const projectsLayout = layout.page.projects;
+  const layout = snapshot.layout.page.projects;
 
   //
   // RENDER
@@ -50,17 +25,19 @@ export default function SelectedWork({ presentation }: Props) {
 
   return (
     <Section
-      id='projects'
+      id="projects"
       className={`
         relative
         overflow-hidden
 
-        ${projectsLayout.section}
+        ${layout.section}
+
+        ${className ?? ""}
       `}
     >
       {/* ATMOSPHERIC BLOOM */}
       <div
-        className={projectsLayout.bloom}
+        className={layout.bloom}
         style={{
           background:
             "radial-gradient(circle, rgba(126,87,255,0.16), transparent 72%)",
@@ -68,9 +45,14 @@ export default function SelectedWork({ presentation }: Props) {
       />
 
       {/* CONTENT */}
-      <div className={projectsLayout.content}>
+      <div className={layout.content}>
         {projects.map((project, index) => (
-          <ProjectShowcase key={project.id} index={index} project={project} />
+          <ProjectShowcase
+            key={project.id}
+            index={index}
+            project={project}
+            snapshot={snapshot}
+          />
         ))}
       </div>
     </Section>

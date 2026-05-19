@@ -6,12 +6,7 @@ import type { ProjectPresentation } from "@/types/presentation";
 
 import type { Project } from "@/types/projects";
 
-import {
-  MotionCadenceProvider,
-  resolveCompositionContract,
-} from "@/runtime/presentation";
-
-import { resolveProfile } from "@/runtime/presentation/resolvers";
+import { MotionCadenceProvider } from "@/runtime/presentation";
 
 import { resolvePresentationDialect } from "./presentationDialect";
 
@@ -19,16 +14,14 @@ import { renderPresentationBlocks } from "./renderPresentationBlocks";
 
 import { resolveDensityClass } from "@/runtime/presentation/realization/composition/resolveDensityClass";
 
-import { resolveSceneRuntime } from "@/runtime/presentation/scene";
-
-import { sceneDefinitions } from "@/runtime/presentation/scene";
-
-import { resolvePresentationSnapshot } from "@/runtime/presentation/execution/snapshot";
+import type { PresentationRuntimeSnapshot } from "@/runtime/presentation/execution/snapshot/contracts";
 
 type Props = {
   project: Project;
 
   presentation: ProjectPresentation;
+
+  snapshot: PresentationRuntimeSnapshot;
 
   index?: number;
 };
@@ -36,45 +29,20 @@ type Props = {
 export default function ProjectPresentationRenderer({
   project,
   presentation,
+  snapshot,
   index = 0,
 }: Props) {
-  //
-  // PROFILE
-  //
-
-  const profileVariant = presentation.composition?.profile ?? "immersive";
-
-  const profile = resolveProfile(profileVariant);
-
   //
   // COMPOSITION
   //
 
-  const composition = resolveCompositionContract(
-    presentation,
-    profile,
-    profile.orchestration.sceneIntensity,
-  );
+  const composition = snapshot.composition;
 
   //
-  // SCENE
+  // PROFILE
   //
 
-  const scene = resolveSceneRuntime({
-    scene: sceneDefinitions.projects,
-
-    composition,
-  });
-
-  //
-  // SNAPSHOT
-  //
-
-  const snapshot = resolvePresentationSnapshot({
-    composition,
-
-    scene,
-  });
+  const profileVariant = snapshot.profile;
 
   //
   // CONTENT
@@ -122,7 +90,7 @@ export default function ProjectPresentationRenderer({
 
   return (
     <article
-      className='relative'
+      className="relative"
       data-profile={profileVariant}
       data-density={composition.orchestration.density}
       data-rhythm={composition.orchestration.rhythm}

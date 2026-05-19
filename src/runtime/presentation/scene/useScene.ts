@@ -47,7 +47,7 @@ export function useScene({
   const composition = resolveCompositionContract(
     syntheticPresentation,
     profile,
-    profile.sceneIntensity,
+    profile.orchestration.sceneIntensity,
   );
 
   return resolveSceneRuntime({

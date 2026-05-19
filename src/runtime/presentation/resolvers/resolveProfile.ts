@@ -1,6 +1,7 @@
-import { resolvePresentationProfile } from "../profiles";
-
-import type { PresentationProfileVariant } from "../profiles/types";
+import {
+  resolvePresentationProfile,
+  type PresentationProfileVariant,
+} from "../profiles";
 
 export function resolveProfile(profile: PresentationProfileVariant) {
   return resolvePresentationProfile(profile);

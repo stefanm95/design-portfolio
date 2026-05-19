@@ -13,20 +13,25 @@ import { resolveProfile } from "@/runtime/presentation/resolvers";
 
 import { useScene } from "@/runtime/presentation/scene";
 
+import { resolvePresentationSnapshot } from "@/runtime/presentation/execution/snapshot";
+
 import type { ProjectPresentation } from "@/types/presentation";
-import type { PresentationRuntime } from "./interpreter";
 
 type Props = {
   children: ReactNode;
 };
 
 export function SectionMotionProvider({ children }: Props) {
+  //
+  // SCENE
+  //
+
   const scene = useScene();
 
-  /**
-   * Lightweight synthetic presentation
-   * used only for orchestration defaults.
-   */
+  //
+  // SYNTHETIC PRESENTATION
+  //
+
   const syntheticPresentation = useMemo<ProjectPresentation>(
     () => ({
       mode: "cinematic",
@@ -40,29 +45,49 @@ export function SectionMotionProvider({ children }: Props) {
     [],
   );
 
-  const profile = resolveProfile(
-    syntheticPresentation.composition?.profile ?? "immersive",
-  );
+  //
+  // PROFILE
+  //
+
+  const profileVariant =
+    syntheticPresentation.composition?.profile ?? "immersive";
+
+  const profile = resolveProfile(profileVariant);
+
+  //
+  // COMPOSITION
+  //
 
   const composition = resolveCompositionContract(
     syntheticPresentation,
+
     profile,
-    scene.definition.environmentalPressure === "intense"
-      ? "dramatic"
-      : scene.definition.environmentalPressure === "soft"
-        ? "soft"
-        : "balanced",
+
+    profile.orchestration.sceneIntensity ?? "balanced",
   );
 
-  const runtime: PresentationRuntime = {
+  //
+  // SNAPSHOT
+  //
+
+  const snapshot = resolvePresentationSnapshot({
     composition,
 
-    profileVariant: syntheticPresentation.composition?.profile ?? "immersive",
-
     scene,
-  };
+
+    profile: profileVariant,
+  });
+
+  //
+  // RENDER
+  //
 
   return (
-    <MotionCadenceProvider runtime={runtime}>{children}</MotionCadenceProvider>
+    <MotionCadenceProvider
+      cadence={snapshot.motion}
+      reactivity={composition.orchestration.reactivity}
+    >
+      {children}
+    </MotionCadenceProvider>
   );
 }

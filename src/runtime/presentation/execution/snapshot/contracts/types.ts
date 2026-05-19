@@ -12,21 +12,22 @@ import type { SceneRuntime } from "@/runtime/presentation/scene";
 
 import type { ResolvedSurfaceRealization } from "@/runtime/presentation/surfaces";
 
+import type { CompositionContract } from "@/runtime/presentation/composition/contract";
 import type {
   RuntimeAtmosphere,
   RuntimeBreathing,
   RuntimeCadence,
   RuntimePressure,
 } from "@/runtime/presentation/execution/contracts/types";
+import type { ResolvedPageLayoutRuntime } from "@/runtime/presentation/layout";
+import type { ResolvedProjectLayoutRuntime } from "@/runtime/presentation/layout/contracts";
+import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
 import type {
   ResolvedCinematicContainer,
   ResolvedOverlayRendering,
   ResolvedPanelRendering,
   ResolvedTypographyRendering,
 } from "@/runtime/presentation/system";
-import type { ResolvedPageLayoutRuntime } from "@/runtime/presentation/layout";
-import type { ResolvedProjectLayoutRuntime } from "@/runtime/presentation/layout/contracts";
-import type { CompositionContract } from "@/runtime/presentation/composition/contract";
 
 export type PresentationRuntimeSnapshot = {
   atmosphere: RuntimeAtmosphere;
@@ -42,6 +43,8 @@ export type PresentationRuntimeSnapshot = {
   composition: CompositionContract;
 
   layers: RuntimeLayerSet;
+
+  profile: PresentationProfileVariant;
 
   spatial: {
     cadence: RuntimeCadence;

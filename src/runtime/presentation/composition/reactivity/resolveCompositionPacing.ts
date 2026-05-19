@@ -12,9 +12,9 @@ import type { CompositionPacing } from "./types";
 export function resolveCompositionPacing(
   profile: PresentationProfile,
 ): CompositionPacing {
-  const rhythm = profile.rhythm;
+  const rhythm = profile.orchestration.rhythm;
 
-  const density = profile.density;
+  const density = profile.orchestration.density;
 
   //
   // EDITORIAL + TIGHT

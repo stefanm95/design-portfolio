@@ -1,16 +1,14 @@
-// presentation/renderers/types.ts
-
 import type { ComponentType } from "react";
 
 import type { Project } from "@/types/projects";
 
 import type {
-  PresentationBlock,
   CinematicPresentationBlock,
   EditorialPresentationBlock,
+  PresentationBlock,
 } from "@/types/presentation";
 
-import type { ResolvedPresentationBlockRuntime } from "@/runtime/presentation/execution/blocks/contracts/types";
+import type { PresentationRendererRuntime } from "@/runtime/presentation/execution/contracts/rendererRuntime";
 
 //
 // RENDERER
@@ -25,7 +23,7 @@ export type PresentationBlockRendererProps<
 
   index: number;
 
-  runtime: ResolvedPresentationBlockRuntime<TBlock>["runtime"];
+  runtime: PresentationRendererRuntime;
 };
 
 export type PresentationBlockRenderer<TBlock extends PresentationBlock> =

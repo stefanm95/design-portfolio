@@ -23,18 +23,22 @@ import {
   resolveTypographyRendering,
 } from "@/runtime/presentation/system";
 
-import type { PresentationRuntimeSnapshot } from "../contracts";
 import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
+import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
+import type { PresentationRuntimeSnapshot } from "../contracts";
 
 type Props = {
   composition: CompositionContract;
 
   scene: SceneRuntime;
+
+  profile: PresentationProfileVariant;
 };
 
 export function resolvePresentationSnapshot({
   composition,
   scene,
+  profile,
 }: Props): PresentationRuntimeSnapshot {
   //
   // ATMOSPHERE
@@ -159,6 +163,8 @@ export function resolvePresentationSnapshot({
   //
 
   return {
+    profile,
+
     layout,
 
     composition,

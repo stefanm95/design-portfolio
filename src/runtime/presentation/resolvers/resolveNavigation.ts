@@ -1,5 +1,5 @@
-import type { PresentationProfile } from "../profiles/types";
+import type { PresentationProfile } from "@/runtime/presentation/profiles/contracts/types";
 
 export function resolveNavigation(profile: PresentationProfile) {
-  return profile.navigation;
+  return profile.semantics.navigation;
 }

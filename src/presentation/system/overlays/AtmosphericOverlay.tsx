@@ -2,10 +2,10 @@
 
 import clsx from "clsx";
 
-import type { OverlayRendering } from "@/runtime/presentation/system";
+import type { ResolvedOverlayRendering } from "@/runtime/presentation/system";
 
 type Props = {
-  overlay: OverlayRendering;
+  overlay: ResolvedOverlayRendering;
 };
 
 export default function AtmosphericOverlay({ overlay }: Props) {
@@ -36,13 +36,13 @@ export default function AtmosphericOverlay({ overlay }: Props) {
       />
 
       <div
-        className='
+        className="
           pointer-events-none
           absolute inset-0
           bg-gradient-to-b
           from-white/[0.04]
           to-transparent
-        '
+        "
         style={{
           opacity: overlay.vignette,
         }}

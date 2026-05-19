@@ -4,19 +4,15 @@ import type { CompositionDensityReactivity } from "./types";
 
 /**
  * Resolve composition density reactivity
- *
- * Determines how compositional density
- * influences breathing and environmental pressure
- * without adaptive layout generation.
  */
 
 export function resolveCompositionDensity(
   profile: PresentationProfile,
   sceneIntensity?: "soft" | "balanced" | "dramatic",
 ): CompositionDensityReactivity {
-  const effectiveDensity = profile.density;
+  const effectiveDensity = profile.orchestration.density;
 
-  const rhythm = profile.rhythm;
+  const rhythm = profile.orchestration.rhythm;
 
   //
   // BASE PRESSURE
@@ -43,7 +39,7 @@ export function resolveCompositionDensity(
   }
 
   //
-  // SCENE INTENSITY MODULATION
+  // SCENE INTENSITY
   //
 
   switch (sceneIntensity) {
@@ -78,15 +74,6 @@ export function resolveCompositionDensity(
 
   return {
     effectiveDensity,
-
-    /**
-     * Minimal environments should now
-     * be resolved through scene orchestration,
-     * not profile identity.
-     *
-     * Density always influences breathing
-     * at the composition layer.
-     */
 
     influencesBreathing: true,
 

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import type { TypographyRendering } from "@/runtime/presentation/system";
+import type { ResolvedTypographyRendering } from "@/runtime/presentation/system";
 
 import type { AtmosphereState } from "@/runtime/presentation/resolvers";
 
@@ -11,7 +11,7 @@ import type { TypographyVariant } from "./types";
 type Props = {
   variant: TypographyVariant;
 
-  rendering: TypographyRendering;
+  rendering: ResolvedTypographyRendering;
 
   atmosphere: AtmosphereState;
 };

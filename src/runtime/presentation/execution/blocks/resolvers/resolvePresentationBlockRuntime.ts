@@ -91,6 +91,8 @@ export function resolvePresentationBlockRuntime<
     role,
 
     runtime: {
+      layout: snapshot.layout,
+
       rendering: snapshot.rendering,
 
       system: snapshot.system,
