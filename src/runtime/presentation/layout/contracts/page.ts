@@ -85,6 +85,40 @@ export type ResolvedExperienceLayout = {
 export type ResolvedContactLayout = {
   section: string;
 
+  content: string;
+
+  environment: {
+    root: string;
+
+    texture: string;
+
+    vignette: string;
+
+    bloom: string;
+  };
+
+  grid: {
+    root: string;
+
+    left: string;
+
+    right: string;
+  };
+
+  panel: {
+    root: string;
+
+    image: string;
+
+    gradient: string;
+
+    bloom: string;
+
+    content: string;
+
+    header: string;
+  };
+
   hero: {
     root: string;
 

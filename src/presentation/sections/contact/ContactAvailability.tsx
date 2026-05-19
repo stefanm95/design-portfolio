@@ -3,15 +3,16 @@
 import { contactContent } from "@/content/contact";
 
 import FadeIn from "@/presentation/animation/FadeIn";
-
-import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import type { ResolvedContactLayout } from "@/runtime/presentation/layout/contracts";
 
 import { ui } from "@/theme";
 
-export default function ContactAvailability() {
-  const { availability } = contactContent;
+type Props = {
+  layout: ResolvedContactLayout["availability"];
+};
 
-  const layout = resolvePageLayoutRuntime();
+export default function ContactAvailability({ layout }: Props) {
+  const { availability } = contactContent;
 
   return (
     <FadeIn delay={0.12}>
@@ -24,12 +25,12 @@ export default function ContactAvailability() {
 
           px-8
 
-          ${layout.contact.availability.root}
+          ${layout.root}
         `}
       >
         {/* SOFT GLOW */}
         <div
-          className='
+          className="
             absolute
             left-0
             top-0
@@ -38,10 +39,10 @@ export default function ContactAvailability() {
             w-24
 
             bg-cyan-300/30
-          '
+          "
         />
 
-        <div className={layout.contact.availability.content}>
+        <div className={layout.content}>
           <div
             className={`
               text-[11px]

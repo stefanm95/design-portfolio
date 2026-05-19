@@ -1,5 +1,11 @@
 // runtime/presentation/layout/resolvers/resolveLayoutRuntime.ts
 
+import {
+  environmentLayoutScale,
+  gridLayoutScale,
+  panelLayoutScale,
+  sectionLayoutScale,
+} from "@/runtime/presentation/layout/realization";
 import type { ResolvedPageLayoutRuntime } from "../contracts";
 
 import { resolveSectionSpacing } from "./resolveSectionSpacing";
@@ -78,6 +84,16 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
   const projectsStack = resolveStackLayout({
     layout: "projects",
   });
+
+  //
+  //Environment
+  const contactEnvironment = environmentLayoutScale.cinematic;
+
+  const contactGrid = gridLayoutScale.cinematic;
+
+  const contactPanel = panelLayoutScale.cinematic;
+
+  const contactSection = sectionLayoutScale.cinematic;
 
   //
   // RETURN
@@ -201,18 +217,32 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
     },
 
     contact: {
-      section: contactSpacing.root,
+      section: contactSection.root,
+
+      content: `
+    ${contactSection.content}
+
+    ${contactSpacing.root}
+    ${contactSpacing.padding}
+    ${contactSpacing.content}
+  `,
+
+      environment: contactEnvironment,
+
+      grid: contactGrid,
+
+      panel: contactPanel,
 
       hero: {
-        root: contactSpacing.hero,
+        root: contactStack.hero.root,
 
-        content: contactSpacing.heroContent,
+        content: contactStack.hero.content,
 
         left: contactStack.hero.left,
 
         right: contactStack.hero.right,
 
-        card: contactSpacing.heroCard,
+        card: contactStack.hero.card,
 
         infoGroup: contactStack.hero.infoGroup,
       },
@@ -228,7 +258,7 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
       },
 
       availability: {
-        root: contactSpacing.heroCard,
+        root: "",
 
         content: contactStack.availability.content,
       },

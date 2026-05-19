@@ -5,15 +5,16 @@ import { contactContent } from "@/content/contact";
 import Text from "@/design/typography/Text";
 
 import FadeIn from "@/presentation/animation/FadeIn";
-
-import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import type { ResolvedContactLayout } from "@/runtime/presentation/layout/contracts";
 
 import { opacityClass, ui } from "@/theme";
 
-export default function ContactFooter() {
-  const { footer } = contactContent;
+type Props = {
+  layout: ResolvedContactLayout["footer"];
+};
 
-  const layout = resolvePageLayoutRuntime();
+export default function ContactFooter({ layout }: Props) {
+  const { footer } = contactContent;
 
   return (
     <footer
@@ -27,17 +28,17 @@ export default function ContactFooter() {
         border-t
         ${ui.borders.faint}
 
-        ${layout.contact.footer.root}
+        ${layout.root}
       `}
     >
       {/* ATMOSPHERIC GRADIENT */}
       <div
-        className='
+        className="
           absolute
           inset-0
 
           opacity-[0.06]
-        '
+        "
         style={{
           background:
             "linear-gradient(90deg, rgba(90,180,255,0.12) 0%, transparent 38%, rgba(255,120,80,0.08) 100%)",
@@ -65,11 +66,11 @@ export default function ContactFooter() {
             relative
             z-10
 
-            ${layout.contact.footer.content}
+            ${layout.content}
           `}
         >
           {/* LEFT */}
-          <div className={layout.contact.footer.left}>
+          <div className={layout.left}>
             <div
               className={`
                 text-[11px]
@@ -112,9 +113,9 @@ export default function ContactFooter() {
           </div>
 
           {/* RIGHT */}
-          <div className={layout.contact.footer.right}>
+          <div className={layout.right}>
             <a
-              href='mailto:hello@yourstudio.dev'
+              href="mailto:hello@yourstudio.dev"
               className={`
                 group
                 inline-flex
@@ -145,12 +146,12 @@ export default function ContactFooter() {
               {footer.cta.label}
 
               <span
-                className='
+                className="
                   transition-transform
                   duration-500
 
                   group-hover:translate-x-1
-                '
+                "
               >
                 →
               </span>
@@ -158,7 +159,7 @@ export default function ContactFooter() {
 
             <div
               className={`
-                ${layout.contact.footer.meta}
+                ${layout.meta}
 
                 text-[11px]
                 uppercase
@@ -169,7 +170,7 @@ export default function ContactFooter() {
             >
               <Text>{footer.meta.author}</Text>
 
-              <Text className='text-lg'>{footer.meta.copyright}</Text>
+              <Text className="text-lg">{footer.meta.copyright}</Text>
             </div>
           </div>
         </div>

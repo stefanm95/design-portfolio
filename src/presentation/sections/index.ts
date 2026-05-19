@@ -8,4 +8,4 @@ export { default as Philosophy } from "./philosophy/Philosophy";
 
 export { default as SelectedWork } from "./projects/SelectedWork";
 
-export { default as Contact } from "./contact/Contact";
+export { default as Contact } from "./Contact/index.tsx";

@@ -324,27 +324,32 @@ export const stackLayoutScale = {
       `,
 
       content: `
-        lg:col-span-12
+      grid
+      grid-cols-1
 
-        grid
-        grid-cols-1
+      gap-16
 
-        lg:grid-cols-12
-        lg:gap-20
-      `,
+      lg:grid-cols-12
+      lg:gap-20
+    `,
 
       left: `
-        lg:col-span-7
-      `,
+      lg:col-span-7
+    `,
 
       right: `
-        lg:col-span-4
-        lg:col-start-9
-      `,
+      lg:col-span-4
+      lg:col-start-8
+    `,
+
+      card: `
+      p-8
+      md:p-10
+    `,
 
       infoGroup: `
-        space-y-2
-      `,
+      space-y-2
+    `,
     },
 
     links: {

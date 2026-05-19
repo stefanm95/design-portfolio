@@ -6,25 +6,26 @@ import Heading from "@/design/typography/Heading";
 import Label from "@/design/typography/Label";
 import Text from "@/design/typography/Text";
 
-import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
-
+import type { ResolvedContactLayout } from "@/runtime/presentation/layout/contracts";
 import { ui } from "@/theme";
 
-export default function ContactHero() {
+type Props = {
+  layout: ResolvedContactLayout["hero"];
+};
+
+export default function ContactHero({ layout }: Props) {
   const { hero } = contactContent;
 
-  const layout = resolvePageLayoutRuntime();
-
   return (
-    <div className={layout.contact.hero.root}>
-      <div className={layout.contact.hero.content}>
+    <div className={layout.root}>
+      <div className={layout.content}>
         {/* LEFT */}
         <FadeIn>
-          <div className={layout.contact.hero.left}>
+          <div className={layout.left}>
             <Label className={ui.text.context}>{hero.label}</Label>
 
             <Heading
-              as='h2'
+              as="h2"
               className={`
                 mt-8
 
@@ -60,36 +61,36 @@ export default function ContactHero() {
 
         {/* RIGHT */}
         <FadeIn delay={0.12}>
-          <div className={layout.contact.hero.right}>
+          <div className={layout.right}>
             <div
               className={`
                 relative
 
                 border
-                backdrop-blur-xl
+                backdrop-blur-sm
 
-                ${layout.contact.hero.card}
+                ${layout.card}
 
                 ${ui.borders.subtle}
                 ${ui.surfaces.panel}
               `}
             >
               <div
-                className='
+                className="
                   absolute
                   inset-0
 
                   opacity-[0.06]
-                '
+                "
                 style={{
                   background:
                     "radial-gradient(circle at top left, rgba(120,200,255,0.28), transparent 60%)",
                 }}
               />
 
-              <div className='relative z-10 space-y-8'>
+              <div className="relative z-10 space-y-8">
                 {/* EMAIL */}
-                <div className={layout.contact.hero.infoGroup}>
+                <div className={layout.infoGroup}>
                   <div
                     className={`
                       text-[10px]
@@ -121,7 +122,7 @@ export default function ContactHero() {
                 </div>
 
                 {/* AVAILABILITY */}
-                <div className={layout.contact.hero.infoGroup}>
+                <div className={layout.infoGroup}>
                   <div
                     className={`
                       text-[10px]

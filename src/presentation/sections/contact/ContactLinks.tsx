@@ -2,14 +2,16 @@ import FadeIn from "@/presentation/animation/FadeIn";
 
 import { contactContent } from "@/content/contact";
 
-import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import type { ResolvedContactLayout } from "@/runtime/presentation/layout/contracts";
 
 import { ui } from "@/theme";
 
-export default function ContactLinks() {
-  const { links } = contactContent;
+type Props = {
+  layout: ResolvedContactLayout["links"];
+};
 
-  const layout = resolvePageLayoutRuntime();
+export default function ContactLinks({ layout }: Props) {
+  const { links } = contactContent;
 
   return (
     <div
@@ -20,13 +22,13 @@ export default function ContactLinks() {
         ${ui.borders.faint}
       `}
     >
-      <div className={layout.contact.links.list}>
+      <div className={layout.list}>
         {links.items.map((link, index) => (
           <FadeIn key={link.label} delay={index * 0.06}>
             <a
               href={link.href}
-              target='_blank'
-              rel='noreferrer'
+              target="_blank"
+              rel="noreferrer"
               className={`
                 group
                 block
@@ -37,7 +39,7 @@ export default function ContactLinks() {
             >
               <div
                 className={`
-                  ${layout.contact.links.row}
+                  ${layout.row}
 
                   px-6
                   py-8
@@ -47,7 +49,7 @@ export default function ContactLinks() {
               >
                 {/* LEFT */}
                 <div>
-                  <div className={layout.contact.links.top}>
+                  <div className={layout.top}>
                     <span
                       className={`
                         text-[10px]
@@ -60,15 +62,15 @@ export default function ContactLinks() {
                       {link.label}
                     </span>
 
-                    <div className={layout.contact.links.status}>
+                    <div className={layout.status}>
                       <div
-                        className='
+                        className="
                           h-2
                           w-2
                           rounded-full
 
                           bg-cyan-300
-                        '
+                        "
                       />
 
                       <span
