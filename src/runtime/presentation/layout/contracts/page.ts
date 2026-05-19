@@ -104,8 +104,6 @@ export type ResolvedContactLayout = {
 
     right: string;
 
-    card: string;
-
     infoGroup: string;
   };
 

@@ -200,44 +200,126 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
 
     contact: {
       root: `
-    ${contactStack.root}
-    ${contactSpacing.root}
+    relative
+    overflow-hidden
   `,
 
       content: `
-    ${contactStack.content}
+    relative
+    z-10
 
+    flex
+    flex-col
+
+    ${contactSpacing.root}
     ${contactSpacing.padding}
+
+    mx-auto
+    w-full
+    max-w-[1600px]
+
+    px-6
+    md:px-10
+    xl:px-16
   `,
 
       grid: {
-        root: contactStack.grid.root,
+        root: `
+      grid
+      grid-cols-1
+      lg:grid-cols-12
 
-        left: contactStack.grid.left,
+      ${contactSpacing.grid}
+    `,
 
-        right: contactStack.grid.right,
+        left: `
+      relative
+
+      hidden
+      lg:flex
+
+      col-span-1
+      lg:col-span-4
+
+      min-h-[480px]
+      md:min-h-[560px]
+      lg:min-h-[620px]
+
+      overflow-hidden
+    `,
+
+        right: `
+      col-span-1
+      lg:col-span-8
+
+      ${contactStack.grid.right}
+    `,
       },
 
       hero: {
-        root: contactStack.hero.root,
+        root: `
+      relative
+      z-10
+    `,
 
-        content: contactStack.hero.content,
+        content: `
+      grid
+      grid-cols-1
 
-        left: contactStack.hero.left,
+      gap-16
 
-        right: contactStack.hero.right,
+      lg:grid-cols-12
+      lg:gap-20
+      lg:items-start
+    `,
 
-        card: contactStack.hero.card,
+        left: `
+      col-span-12
+      lg:col-span-7
+
+      ${contactStack.hero.left}
+    `,
+
+        right: `
+      col-span-12
+
+      lg:col-span-4
+      lg:col-start-9
+
+      ${contactStack.hero.right}
+    `,
+
+        card: `
+      relative
+      h-full
+      w-full
+    `,
 
         infoGroup: contactStack.hero.infoGroup,
       },
 
       links: {
-        root: contactStack.links.root,
+        root: `
+      relative
+      overflow-hidden
 
-        content: contactStack.links.content,
+      border
+    `,
 
-        label: contactStack.links.label,
+        content: `
+      relative
+      z-10
+
+      px-6
+      py-8
+
+      md:px-10
+      md:py-10
+    `,
+
+        label: `
+      mb-12
+    `,
 
         list: contactStack.links.list,
 
@@ -249,15 +331,39 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
       },
 
       availability: {
-        root: contactStack.availability.root,
+        root: `
+      relative
+
+      border-t
+
+      px-8
+      pt-8
+    `,
 
         content: contactStack.availability.content,
       },
 
       footer: {
-        root: contactStack.footer.root,
+        root: `
+      relative
 
-        content: contactStack.footer.content,
+      border-t
+
+      ${contactSpacing.footer}
+    `,
+
+        content: `
+      flex
+      flex-col
+
+      gap-10
+      md:gap-12
+      lg:gap-14
+
+      lg:flex-row
+      lg:items-end
+      lg:justify-between
+    `,
 
         left: contactStack.footer.left,
 
@@ -265,7 +371,17 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
 
         meta: contactStack.footer.meta,
 
-        cta: contactStack.footer.cta,
+        cta: `
+      group
+      inline-flex
+      items-center
+      gap-4
+
+      border
+
+      px-6
+      py-4
+    `,
       },
     },
 

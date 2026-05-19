@@ -35,6 +35,13 @@ export const sectionSpacingScale = {
       lg:space-y-20
     `,
 
+    grid: `
+    gap-y-10
+    md:gap-y-12
+    lg:gap-y-0
+    lg:gap-x-20
+  `,
+
     footer: `
       py-10
       md:py-12

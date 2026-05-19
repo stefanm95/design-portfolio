@@ -311,66 +311,13 @@ export const stackLayoutScale = {
   },
 
   contact: {
-    root: `
-    relative
-    overflow-hidden
-  `,
-
-    content: `
-    relative
-    z-10
-
-    flex
-    flex-col
-
-    gap-16
-    md:gap-20
-    lg:gap-28
-
-    py-20
-    md:py-24
-    lg:py-28
-    xl:py-36
-
-    mx-auto
-    w-full
-    max-w-[1600px]
-
-    px-6
-    md:px-10
-    xl:px-16
-  `,
-
     hero: {
-      root: `
-      relative
-      z-10
-    `,
-
-      content: `
-      grid
-      grid-cols-1
-
-      gap-16
-
-      lg:grid-cols-12
-      lg:gap-20
-      lg:items-start
-    `,
-
       left: `
-      lg:col-span-7
+      space-y-10
     `,
 
       right: `
-      lg:col-span-4
-      lg:col-start-9
-    `,
-
-      card: `
-      relative
-      h-full
-      w-full
+      space-y-8
     `,
 
       infoGroup: `
@@ -379,63 +326,20 @@ export const stackLayoutScale = {
     },
 
     grid: {
-      root: `
-      grid
-      grid-cols-1
-
-      gap-y-10
-      md:gap-y-12
-
-      lg:grid-cols-12
-      lg:gap-y-0
-      lg:gap-x-20
-    `,
-
-      left: `
-      relative
-
-      hidden
-      lg:flex
-
-      lg:col-span-4
-
-      min-h-[620px]
-
-      overflow-hidden
-    `,
-
       right: `
-      lg:col-span-8
-
       space-y-12
       md:space-y-16
       lg:space-y-20
     `,
     },
 
-    links: {
-      root: `
-      relative
-      overflow-hidden
-
-      border
-    `,
-
+    panel: {
       content: `
-      relative
-      z-10
-
-      px-6
-      py-8
-
-      md:px-10
-      md:py-10
+      space-y-6
     `,
+    },
 
-      label: `
-      mb-12
-    `,
-
+    links: {
       list: `
       space-y-8
     `,
@@ -444,7 +348,6 @@ export const stackLayoutScale = {
       flex
       items-end
       justify-between
-
       gap-6
     `,
 
@@ -464,44 +367,12 @@ export const stackLayoutScale = {
     },
 
     availability: {
-      root: `
-      relative
-
-      border-t
-
-      px-8
-      pt-8
-    `,
-
       content: `
       space-y-4
     `,
     },
 
     footer: {
-      root: `
-      relative
-
-      border-t
-
-      py-10
-      md:py-12
-      lg:py-14
-    `,
-
-      content: `
-      flex
-      flex-col
-
-      gap-10
-      md:gap-12
-      lg:gap-14
-
-      lg:flex-row
-      lg:items-end
-      lg:justify-between
-    `,
-
       left: `
       space-y-8
     `,
@@ -512,30 +383,17 @@ export const stackLayoutScale = {
       gap-8
 
       items-start
-      lg:items-end
+      xl:items-end
     `,
 
       meta: `
       flex
       flex-col
-
       gap-3
 
       md:flex-row
       md:items-center
       md:gap-8
-    `,
-
-      cta: `
-      group
-      inline-flex
-      items-center
-      gap-4
-
-      border
-
-      px-6
-      py-4
     `,
     },
   },
