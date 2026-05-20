@@ -8,6 +8,7 @@ import Text from "@/design/typography/Text";
 
 import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
+import Section from "@/design/layout/Section";
 import { ui } from "@/theme";
 
 export default function ContactHero() {
@@ -16,140 +17,131 @@ export default function ContactHero() {
   const layout = resolvePageLayoutRuntime();
 
   return (
-    <div className={layout.contact.hero.root}>
+    <Section className={layout.contact.hero.root}>
       <div className={layout.contact.hero.content}>
         {/* LEFT */}
-        <FadeIn>
-          <div className={layout.contact.hero.left}>
-            <Label className={ui.text.context}>{hero.label}</Label>
+        <div className={layout.contact.hero.left}>
+          <FadeIn>
+            <div className={layout.contact.hero.infoGroup}>
+              <Label
+                className={`
+                  text-[32px]
+                  uppercase
+                  tracking-[0.28em]
 
-            <Heading
-              as="h2"
-              className={`
-                mt-8
+                  ${ui.text.metadata}
+                `}
+              >
+                {hero.label}
+              </Label>
 
-                max-w-[10ch]
+              <Heading
+                as="h2"
+                className={`
+                  max-w-[11ch]
 
-                text-[clamp(3rem,7vw,7rem)]
+                  text-4xl
+                  sm:text-5xl
+                  md:text-6xl
+                  lg:text-7xl
+                  xl:text-[6.5rem]
 
-                leading-[0.9]
-                tracking-[-0.06em]
+                  leading-[0.92]
 
-                ${ui.text.strong}
-              `}
-            >
-              {hero.title}
-            </Heading>
+                  ${ui.text.primary}
+                `}
+              >
+                {hero.title}
+              </Heading>
 
-            <Text
-              className={`
-                mt-10
+              <Text
+                className={`
+                  max-w-[34ch]
 
-                max-w-[34rem]
+                  text-base
+                  md:text-sm
 
-                text-sm
-                leading-[1.9]
+                  leading-[1.9]
 
-                ${ui.text.muted}
-              `}
-            >
-              {hero.description}
-            </Text>
-          </div>
-        </FadeIn>
+                  ${ui.text.tertiary}
+                `}
+              >
+                {hero.description}
+              </Text>
+            </div>
+          </FadeIn>
+        </div>
 
         {/* RIGHT */}
-        <FadeIn delay={0.12}>
-          <div className={layout.contact.hero.right}>
+        <div className={layout.contact.hero.right}>
+          <FadeIn delay={0.18}>
             <div
               className={`
                 relative
 
-                border
-                backdrop-blur-xl
-
                 ${layout.contact.hero.card}
 
-                ${ui.borders.subtle}
-                ${ui.surfaces.panel}
+                ${ui.borders.focus}
+                ${ui.borders.focusMd}
               `}
             >
-              <div
-                className="
-                  absolute
-                  inset-0
-
-                  opacity-[0.06]
-                "
-                style={{
-                  background:
-                    "radial-gradient(circle at top left, rgba(120,200,255,0.28), transparent 60%)",
-                }}
-              />
-
-              <div className="relative z-10 space-y-8">
-                {/* EMAIL */}
+              <div className="relative z-10">
                 <div className={layout.contact.hero.infoGroup}>
-                  <div
-                    className={`
-                      text-[10px]
-                      uppercase
-                      tracking-[0.28em]
+                  {/* EMAIL */}
+                  <div className={layout.contact.hero.infoGroup}>
+                    <div
+                      className={`
+                        text-[11px]
+                        uppercase
+                        tracking-[0.28em]
 
-                      ${ui.text.annotation}
-                    `}
-                  >
-                    {hero.email.label}
+                        ${ui.text.annotation}
+                      `}
+                    >
+                      {hero.email.label}
+                    </div>
+
+                    <a
+                      href={hero.email.href}
+                      className={`
+                        text-lg
+
+                        transition-opacity
+                        duration-500
+
+                        hover:opacity-60
+
+                        ${ui.text.interactive}
+                      `}
+                    >
+                      {hero.email.value}
+                    </a>
                   </div>
 
-                  <a
-                    href={hero.email.href}
-                    className={`
-                      text-sm
-                      leading-[1.8]
+                  {/* AVAILABILITY */}
+                  <div className={layout.contact.hero.infoGroup}>
+                    <div
+                      className={`
+                        text-[11px]
+                        uppercase
+                        tracking-[0.28em]
 
-                      transition-opacity
-                      duration-500
+                        ${ui.text.annotation}
+                      `}
+                    >
+                      {hero.availability.label}
+                    </div>
 
-                      hover:opacity-80
-
-                      ${ui.text.secondary}
-                    `}
-                  >
-                    {hero.email.value}
-                  </a>
-                </div>
-
-                {/* AVAILABILITY */}
-                <div className={layout.contact.hero.infoGroup}>
-                  <div
-                    className={`
-                      text-[10px]
-                      uppercase
-                      tracking-[0.28em]
-
-                      ${ui.text.annotation}
-                    `}
-                  >
-                    {hero.availability.label}
-                  </div>
-
-                  <div
-                    className={`
-                      text-sm
-                      leading-[1.8]
-
-                      ${ui.text.secondary}
-                    `}
-                  >
-                    {hero.availability.value}
+                    <p className={ui.text.supporting}>
+                      {hero.availability.value}
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </FadeIn>
+          </FadeIn>
+        </div>
       </div>
-    </div>
+    </Section>
   );
 }

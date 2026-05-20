@@ -4,125 +4,220 @@ import { contactContent } from "@/content/contact";
 
 import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
-import { ui } from "@/theme";
+import { useTheme } from "@/theme";
 
 export default function ContactLinks() {
   const { links } = contactContent;
 
   const layout = resolvePageLayoutRuntime();
 
+  const { theme } = useTheme();
+
+  const contact = theme.contactLinks;
+
   return (
     <div
       className={`
-        relative
+        ${layout.contact.links.root}
 
-        border-t
-        ${ui.borders.faint}
+        ${contact.surface.base}
+        ${contact.surface.border}
+        ${contact.surface.blur}
       `}
     >
-      <div className={layout.contact.links.list}>
-        {links.items.map((link, index) => (
-          <FadeIn key={link.label} delay={index * 0.06}>
-            <a
-              href={link.href}
-              target="_blank"
-              rel="noreferrer"
-              className={`
-                group
-                block
+      {/* TEXTURE PANEL */}
+      <div
+        className="
+          absolute
+          inset-y-0
+          right-0
 
-                border-b
-                ${ui.borders.hairline}
-              `}
-            >
-              <div
+          hidden
+          lg:block
+
+          w-[42%]
+
+          opacity-[0.14]
+        "
+        style={{
+          backgroundImage: `url(${contact.textures.panel})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+
+      {/* TEXTURE FADE */}
+      <div
+        className="
+          absolute
+          inset-y-0
+          right-0
+
+          hidden
+          lg:block
+
+          w-[42%]
+        "
+        style={{
+          background: contact.overlays.textureFade,
+        }}
+      />
+
+      {/* ATMOSPHERIC GLOW */}
+      <div
+        className="
+          absolute
+          right-[10%]
+          top-1/2
+
+          h-[18rem]
+          w-[18rem]
+
+          -translate-y-1/2
+
+          rounded-full
+          blur-sm
+
+          opacity-40
+        "
+        style={{
+          background: contact.atmosphere.glow,
+        }}
+      />
+
+      {/* REFLECTION */}
+      <div
+        className="
+          absolute
+          inset-0
+
+          opacity-20
+          mix-blend-screen
+        "
+        style={{
+          background: contact.overlays.reflection,
+        }}
+      />
+
+      {/* CONTENT */}
+      <div
+        className="
+          relative
+          z-10
+
+          px-6
+          py-8
+
+          md:px-10
+          md:py-10
+        "
+      >
+        {/* SECTION LABEL */}
+        <div
+          className={`
+            mb-12
+
+            text-[11px]
+            uppercase
+            tracking-[0.28em]
+
+            ${contact.typography.label}
+          `}
+        >
+          {links.label}
+        </div>
+
+        <div className={layout.contact.links.list}>
+          {links.items.map((link, index) => (
+            <FadeIn key={link.label} delay={0.08 * index}>
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
                 className={`
-                  ${layout.contact.links.row}
+                  group
+                  block
 
-                  px-6
-                  py-8
+                  border-b
+                  border-white/[0.06]
 
-                  md:px-8
+                  pb-7
+
+                  ${contact.motion.card}
                 `}
               >
-                {/* LEFT */}
-                <div>
-                  <div className={layout.contact.links.top}>
+                {/* TOP ROW */}
+                <div className={layout.contact.links.top}>
+                  <div
+                    className={`
+                      text-[10px]
+                      uppercase
+                      tracking-[0.28em]
+
+                      ${contact.typography.label}
+                    `}
+                  >
+                    {link.label}
+                  </div>
+
+                  <div className={layout.contact.links.status}>
+                    <div
+                      className={`
+                        h-1.5
+                        w-1.5
+                        rounded-full
+
+                        ${contact.indicators.online}
+                      `}
+                    />
+
                     <span
                       className={`
                         text-[10px]
-                        uppercase
-                        tracking-[0.28em]
 
-                        ${ui.text.annotation}
+                        ${contact.typography.meta}
                       `}
                     >
-                      {link.label}
+                      {link.status}
                     </span>
-
-                    <div className={layout.contact.links.status}>
-                      <div
-                        className="
-                          h-2
-                          w-2
-                          rounded-full
-
-                          bg-cyan-300
-                        "
-                      />
-
-                      <span
-                        className={`
-                          text-[10px]
-                          uppercase
-                          tracking-[0.24em]
-
-                          ${ui.text.quiet}
-                        `}
-                      >
-                        {link.status}
-                      </span>
-                    </div>
                   </div>
+                </div>
 
-                  <div
+                {/* VALUE */}
+                <div className={layout.contact.links.row}>
+                  <span
                     className={`
-                      text-xl
-                      md:text-2xl
+                      text-lg
+                      md:text-[22px]
 
-                      transition-all
+                      tracking-[-0.03em]
+
+                      transition-colors
                       duration-500
 
-                      ${ui.text.primary}
-
-                      group-hover:translate-x-1
+                      ${contact.typography.value}
+                      ${contact.typography.hover}
                     `}
                   >
                     {link.value}
-                  </div>
+                  </span>
+
+                  <span
+                    className={`
+                      text-xl
+
+                      ${contact.typography.meta}
+
+                      ${contact.motion.arrow}
+                    `}
+                  >
+                    →
+                  </span>
                 </div>
-
-                {/* RIGHT */}
-                <div
-                  className={`
-                    text-[11px]
-                    uppercase
-                    tracking-[0.28em]
-
-                    transition-transform
-                    duration-500
-
-                    ${ui.text.metadata}
-
-                    group-hover:translate-x-1
-                  `}
-                >
-                  →
-                </div>
-              </div>
-            </a>
-          </FadeIn>
-        ))}
+              </a>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </div>
   );

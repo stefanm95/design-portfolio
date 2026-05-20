@@ -17,65 +17,23 @@ export const sectionSpacingScale = {
 
   contact: {
     root: `
-      gap-16
-      md:gap-20
-      lg:gap-28
-    `,
+    gap-16
+    md:gap-20
+    lg:gap-28
+  `,
 
     padding: `
-      py-20
-      md:py-24
-      lg:py-28
-      xl:py-36
-    `,
-
-    hero: `
-      py-12
-      md:py-16
-      xl:py-20
-    `,
-
-    heroContent: `
-      gap-y-20
-    `,
-
-    heroLeft: `
-      px-8
-    `,
-
-    heroRight: `
-      px-8
-    `,
-
-    heroCard: `
-      pt-8
-    `,
-
-    grid: `
-      gap-y-10
-      md:gap-y-12
-      lg:gap-y-0
-      lg:gap-x-20
-    `,
-
-    content: `
-      space-y-12
-      md:space-y-16
-      lg:space-y-20
-    `,
-
-    linksPanel: `
-      px-6
-      py-8
-
-      md:px-10
-      md:py-10
-    `,
+    py-20
+    md:py-24
+    lg:py-28
+    xl:py-36
+  `,
 
     footer: `
-      py-10
-      md:py-12
-      lg:py-14
+      py-12
+      md:py-14
+      lg:py-16
+      mt-8
     `,
   },
 

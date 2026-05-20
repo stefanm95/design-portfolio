@@ -1,5 +1,6 @@
 // runtime/presentation/layout/resolvers/resolveLayoutRuntime.ts
 
+import { resolveContactStack } from "@/runtime/presentation/layout/realization/stack/resolveContactStack";
 import type { ResolvedPageLayoutRuntime } from "../contracts";
 
 import { resolveSectionSpacing } from "./resolveSectionSpacing";
@@ -52,6 +53,22 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
 
   const contactSpacing = resolveSectionSpacing({
     section: "contact",
+  });
+
+  const contactHeroStack = resolveContactStack({
+    section: "hero",
+  });
+
+  const contactFooterStack = resolveContactStack({
+    section: "footer",
+  });
+
+  const contactLinksStack = resolveContactStack({
+    section: "links",
+  });
+
+  const contactAvailabilityStack = resolveContactStack({
+    section: "availability",
   });
 
   //
@@ -200,60 +217,93 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
     },
 
     contact: {
-      section: contactSpacing.root,
+      section: `
+
+  `,
+
+      //
+      // GRID
+      //
+
+      grid: {
+        root: contactLayout.grid.root,
+
+        panel: contactLayout.grid.panel,
+
+        stack: contactLayout.grid.stack,
+      },
+
+      panel: {
+        content: contactLayout.panel.content,
+        top: contactLayout.panel.top,
+      },
+
+      //
+      // HERO
+      //
 
       hero: {
-        root: `
-      ${contactLayout.hero.root}
-      ${contactSpacing.hero}
-    `,
+        root: contactLayout.hero.root,
 
-        content: contactSpacing.heroContent,
+        content: contactLayout.hero.content,
 
         left: `
       ${contactLayout.hero.left}
-      ${contactSpacing.heroLeft}
+      ${contactHeroStack.left}
     `,
 
         right: `
       ${contactLayout.hero.right}
-      ${contactSpacing.heroRight}
+      ${contactHeroStack.right}
     `,
 
         card: `
       ${contactLayout.hero.card}
-      ${contactSpacing.heroCard}
     `,
 
-        infoGroup: contactLayout.hero.infoGroup,
+        infoGroup: contactHeroStack.infoGroup,
       },
+
+      //
+      // LINKS
+      //
 
       links: {
-        list: contactLayout.links.list,
+        root: contactLayout.links.root,
 
-        row: contactLayout.links.row,
+        list: contactLinksStack.list,
 
-        top: contactLayout.links.top,
+        row: contactLinksStack.row,
 
-        status: contactLayout.links.status,
+        top: contactLinksStack.top,
+
+        status: contactLinksStack.status,
       },
+
+      //
+      // AVAILABILITY
+      //
 
       availability: {
-        root: contactSpacing.heroCard,
+        root: contactLayout.availability.root,
 
-        content: contactLayout.availability.content,
+        content: contactAvailabilityStack.content,
       },
+
+      //
+      // FOOTER
+      //
 
       footer: {
         root: contactSpacing.footer,
 
         content: contactLayout.footer.content,
 
-        left: contactLayout.footer.left,
+        left: contactFooterStack.left,
 
-        right: contactLayout.footer.right,
+        right: contactFooterStack.right,
 
-        meta: contactLayout.footer.meta,
+        meta: contactFooterStack.meta,
       },
     },
 

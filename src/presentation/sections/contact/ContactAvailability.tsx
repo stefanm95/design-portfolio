@@ -20,8 +20,6 @@ export default function ContactAvailability() {
           border-t
           ${ui.borders.hairline}
 
-          px-8
-
           ${layout.contact.availability.root}
         `}
       >

@@ -7,3 +7,5 @@ export { sectionSpacingScale } from "./sectionSpacingScale";
 export { stackSpacingScale } from "./stackSpacingScale";
 
 export * from "./scales";
+
+export { contactStackScale } from "./stack/contact.stack";

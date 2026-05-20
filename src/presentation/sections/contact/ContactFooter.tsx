@@ -1,5 +1,3 @@
-// ContactFooter.tsx
-
 import { contactContent } from "@/content/contact";
 
 import Text from "@/design/typography/Text";
@@ -85,6 +83,7 @@ export default function ContactFooter() {
             <div
               className={`
                 max-w3xl
+
                 sm:text-4xl
                 md:text-5xl
                 lg:text-6xl
@@ -113,8 +112,9 @@ export default function ContactFooter() {
 
           {/* RIGHT */}
           <div className={layout.contact.footer.right}>
+            {/* CTA */}
             <a
-              href="mailto:hello@yourstudio.dev"
+              href={footer.cta.href}
               className={`
                 group
                 inline-flex
@@ -156,6 +156,7 @@ export default function ContactFooter() {
               </span>
             </a>
 
+            {/* META */}
             <div
               className={`
                 ${layout.contact.footer.meta}

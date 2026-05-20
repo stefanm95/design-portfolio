@@ -1,71 +1,99 @@
-// contact.scale.ts
-
 export const contactScale = {
-  hero: {
+  grid: {
     root: `
-      relative
-      z-10
-
       grid
       grid-cols-1
 
-      gap-16
+      gap-y-10
+      md:gap-y-12
 
       lg:grid-cols-12
-      lg:gap-20
-      lg:items-start
+      lg:gap-y-0
+      lg:gap-x-20
+    `,
+
+    panel: `
+      relative
+
+      hidden
+      lg:flex
+
+      col-span-1
+      lg:col-span-4
+
+      min-h-[480px]
+      md:min-h-[560px]
+      lg:min-h-[620px]
+
+      overflow-hidden
+    `,
+
+    stack: `
+      col-span-1
+      lg:col-span-8
+    `,
+  },
+
+  panel: {
+    content: `
+      relative
+      z-10
+
+      flex
+      h-full
+      flex-col
+      justify-between
+
+      p-10
+    `,
+
+    top: "space-y-6",
+  },
+
+  hero: {
+    root: `
+      relative
+      overflow-hidden
+    `,
+
+    content: `
+      grid
+      grid-cols-12
+
+      gap-y-20
     `,
 
     left: `
-      lg:col-span-7
+      col-span-12
+      xl:col-span-7
     `,
 
     right: `
-      lg:col-span-4
-      lg:col-start-9
+      col-span-12
+
+      xl:col-span-4
+      xl:col-start-9
     `,
 
     card: `
-      p-8
-      md:p-10
-    `,
-
-    infoGroup: `
-      space-y-2
+      border-t
     `,
   },
 
   links: {
-    list: `
-      space-y-8
-    `,
+    root: `
+      relative
+      overflow-hidden
 
-    row: `
-      flex
-      items-end
-      justify-between
-
-      gap-6
-    `,
-
-    top: `
-      mb-4
-
-      flex
-      items-center
-      justify-between
-    `,
-
-    status: `
-      flex
-      items-center
-      gap-2
+      border
     `,
   },
 
   availability: {
-    content: `
-      space-y-4
+    root: `
+      relative
+
+      border-t
     `,
   },
 
@@ -74,37 +102,9 @@ export const contactScale = {
       flex
       flex-col
 
-      gap-10
-      md:gap-12
-      lg:gap-14
-
       lg:flex-row
       lg:items-end
       lg:justify-between
-    `,
-
-    left: `
-      space-y-8
-    `,
-
-    right: `
-      flex
-      flex-col
-      gap-8
-
-      items-start
-      lg:items-end
-    `,
-
-    meta: `
-      flex
-      flex-col
-
-      gap-3
-
-      md:flex-row
-      md:items-center
-      md:gap-8
     `,
   },
 } as const;

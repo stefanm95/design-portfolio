@@ -81,9 +81,21 @@ export type ResolvedExperienceLayout = {
     description: string;
   };
 };
-
 export type ResolvedContactLayout = {
   section: string;
+
+  grid: {
+    root: string;
+
+    panel: string;
+
+    stack: string;
+  };
+
+  panel: {
+    content: string;
+    top: string;
+  };
 
   hero: {
     root: string;
@@ -100,6 +112,8 @@ export type ResolvedContactLayout = {
   };
 
   links: {
+    root: string;
+
     list: string;
 
     row: string;
@@ -127,6 +141,7 @@ export type ResolvedContactLayout = {
     meta: string;
   };
 };
+
 export type ResolvedAboutLayout = {
   section: string;
 
