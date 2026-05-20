@@ -1,7 +1,7 @@
 import type {
   CompositionRhythm,
   RhythmProfile,
-} from "@/runtime/presentation/composition/orchestration/contracts/types";
+} from "@/runtime/presentation/composition/orchestration";
 import type { CompositionReactivityContextType } from "@/runtime/presentation/composition/reactivity";
 import type {
   AtmosphericDepth,

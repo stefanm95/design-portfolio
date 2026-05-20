@@ -13,12 +13,8 @@ import type { SceneRuntime } from "@/runtime/presentation/scene";
 import type { ResolvedSurfaceRealization } from "@/runtime/presentation/surfaces";
 
 import type { CompositionContract } from "@/runtime/presentation/composition/contract";
-import type {
-  RuntimeAtmosphere,
-  RuntimeBreathing,
-  RuntimeCadence,
-  RuntimePressure,
-} from "@/runtime/presentation/execution/contracts/types";
+import type { AtmosphereState } from "@/runtime/presentation/resolvers";
+import type { CompositionReactivityContextType } from "@/runtime/presentation/composition";
 import type { ResolvedPageLayoutRuntime } from "@/runtime/presentation/layout";
 import type { ResolvedProjectLayoutRuntime } from "@/runtime/presentation/layout/contracts";
 import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
@@ -30,7 +26,7 @@ import type {
 } from "@/runtime/presentation/system";
 
 export type PresentationRuntimeSnapshot = {
-  atmosphere: RuntimeAtmosphere;
+  atmosphere: AtmosphereState;
 
   layout: {
     page: ResolvedPageLayoutRuntime;
@@ -47,11 +43,11 @@ export type PresentationRuntimeSnapshot = {
   profile: PresentationProfileVariant;
 
   spatial: {
-    cadence: RuntimeCadence;
+    cadence: CompositionContract["orchestration"]["rhythm"];
 
-    pressure: RuntimePressure;
+    pressure: CompositionContract["orchestration"]["sceneIntensity"];
 
-    breathing: RuntimeBreathing;
+    breathing: CompositionReactivityContextType["breathing"];
 
     openness: number;
 

@@ -7,8 +7,10 @@ import type { CompositionSemanticMap } from "@/runtime/presentation/semantics";
 import type { SceneRuntime } from "@/runtime/presentation/scene";
 
 import type { CompositionContract } from "@/runtime/presentation/composition/contract/types";
-import type { ResolvedPresentationBlockRuntime } from "@/runtime/presentation/execution/blocks/contracts/types";
-import { resolvePresentationBlockRuntime } from "@/runtime/presentation/execution/blocks/resolvers";
+import {
+  resolvePresentationBlockRuntime,
+  type ResolvedPresentationBlockRuntime,
+} from "@/runtime/presentation/execution/blocks";
 import { resolvePresentationSnapshot } from "@/runtime/presentation/execution/snapshot";
 import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
 import { resolveBlockRelationships } from "../../../interpreter/relationships";

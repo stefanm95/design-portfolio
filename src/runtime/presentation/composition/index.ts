@@ -31,6 +31,8 @@ export {
   resolveContextualSpacing,
   resolveSpatialBehavior,
   resolveSpatialPressure,
+  type SpatialBehavior,
+  type SpatialPressure,
 } from "./spacing";
 
 //
@@ -43,8 +45,6 @@ export type {
   EnvironmentalPressure,
   MotionRestraint,
   SceneIntensity,
-  SpatialBehavior,
-  SpatialPressure,
   TransitionIntensity,
 } from "./contract/orchestration/types.shared";
 

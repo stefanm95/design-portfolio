@@ -10,8 +10,6 @@ export type {
   EnvironmentalPressure,
   MotionRestraint,
   SceneIntensity,
-  SpatialBehavior,
-  SpatialPressure,
   TransitionIntensity,
 } from "./orchestration";
 

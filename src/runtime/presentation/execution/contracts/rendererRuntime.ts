@@ -19,7 +19,7 @@ import type { RuntimeLayerSet } from "@/runtime/presentation/layers";
 
 import type { SceneRuntime } from "@/runtime/presentation/scene";
 
-import type { RuntimeAtmosphere } from "@/runtime/presentation/execution/contracts/types";
+import type { AtmosphereState } from "@/runtime/presentation/resolvers";
 
 import type { ResolvedVisualTreatment } from "@/runtime/presentation/semantics";
 
@@ -54,7 +54,7 @@ export type PresentationRendererRuntime = {
 
   scene: SceneRuntime;
 
-  atmosphere: RuntimeAtmosphere;
+  atmosphere: AtmosphereState;
 
   visualTreatment: ResolvedVisualTreatment;
 

@@ -1,6 +1,1 @@
-export type {
-  RuntimeAtmosphere,
-  RuntimeBreathing,
-  RuntimeCadence,
-  RuntimePressure,
-} from "./types";
+export type { PresentationRendererRuntime } from "./rendererRuntime";
