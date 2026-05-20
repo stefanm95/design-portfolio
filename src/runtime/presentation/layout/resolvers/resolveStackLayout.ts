@@ -1,15 +1,15 @@
 // runtime/presentation/layout/resolvers/resolveStackLayout.ts
 
-import { stackLayoutScale } from "../realization";
+import { layoutScales } from "../realization/scales";
 
-type StackLayoutKey = keyof typeof stackLayoutScale;
+type LayoutKey = keyof typeof layoutScales;
 
-type Props<TLayout extends StackLayoutKey> = {
+type Props<TLayout extends LayoutKey> = {
   layout: TLayout;
 };
 
-export function resolveStackLayout<TLayout extends StackLayoutKey>({
+export function resolveStackLayout<TLayout extends LayoutKey>({
   layout,
-}: Props<TLayout>): (typeof stackLayoutScale)[TLayout] {
-  return stackLayoutScale[layout];
+}: Props<TLayout>): (typeof layoutScales)[TLayout] {
+  return layoutScales[layout];
 }

@@ -83,17 +83,7 @@ export type ResolvedExperienceLayout = {
 };
 
 export type ResolvedContactLayout = {
-  root: string;
-
-  content: string;
-
-  grid: {
-    root: string;
-
-    left: string;
-
-    right: string;
-  };
+  section: string;
 
   hero: {
     root: string;
@@ -104,16 +94,12 @@ export type ResolvedContactLayout = {
 
     right: string;
 
+    card: string;
+
     infoGroup: string;
   };
 
   links: {
-    root: string;
-
-    content: string;
-
-    label: string;
-
     list: string;
 
     row: string;
@@ -139,8 +125,6 @@ export type ResolvedContactLayout = {
     right: string;
 
     meta: string;
-
-    cta: string;
   };
 };
 export type ResolvedAboutLayout = {

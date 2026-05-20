@@ -1,140 +1,128 @@
-// ContactLinks.tsx
-
 import FadeIn from "@/presentation/animation/FadeIn";
 
 import { contactContent } from "@/content/contact";
 
-import type { ResolvedContactLayout } from "@/runtime/presentation/layout/contracts";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import { ui } from "@/theme";
 
-type Props = {
-  layout: ResolvedContactLayout["links"];
-};
-
-export default function ContactLinks({ layout }: Props) {
+export default function ContactLinks() {
   const { links } = contactContent;
+
+  const layout = resolvePageLayoutRuntime();
 
   return (
     <div
       className={`
-        ${layout.root}
+        relative
 
+        border-t
         ${ui.borders.faint}
       `}
     >
-      <div className={layout.content}>
-        {/* SECTION LABEL */}
-        <div
-          className={`
-            ${layout.label}
+      <div className={layout.contact.links.list}>
+        {links.items.map((link, index) => (
+          <FadeIn key={link.label} delay={index * 0.06}>
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              className={`
+                group
+                block
 
-            text-[11px]
-            uppercase
-            tracking-[0.28em]
-
-            ${ui.text.annotation}
-          `}
-        >
-          Communication Channels
-        </div>
-
-        {/* LINKS */}
-        <div className={layout.list}>
-          {links.items.map((link, index) => (
-            <FadeIn key={link.label} delay={index * 0.06}>
-              <a
-                href={link.href}
-                target='_blank'
-                rel='noreferrer'
+                border-b
+                ${ui.borders.hairline}
+              `}
+            >
+              <div
                 className={`
-                  group
-                  block
+                  ${layout.contact.links.row}
 
-                  border-b
-                  ${ui.borders.hairline}
+                  px-6
+                  py-8
+
+                  md:px-8
                 `}
               >
-                <div className={layout.row}>
-                  {/* LEFT */}
-                  <div>
-                    <div className={layout.top}>
+                {/* LEFT */}
+                <div>
+                  <div className={layout.contact.links.top}>
+                    <span
+                      className={`
+                        text-[10px]
+                        uppercase
+                        tracking-[0.28em]
+
+                        ${ui.text.annotation}
+                      `}
+                    >
+                      {link.label}
+                    </span>
+
+                    <div className={layout.contact.links.status}>
+                      <div
+                        className="
+                          h-2
+                          w-2
+                          rounded-full
+
+                          bg-cyan-300
+                        "
+                      />
+
                       <span
                         className={`
                           text-[10px]
                           uppercase
-                          tracking-[0.28em]
+                          tracking-[0.24em]
 
-                          ${ui.text.annotation}
+                          ${ui.text.quiet}
                         `}
                       >
-                        {link.label}
+                        {link.status}
                       </span>
-
-                      <div className={layout.status}>
-                        <div
-                          className='
-                            h-2
-                            w-2
-                            rounded-full
-
-                            bg-cyan-300
-                          '
-                        />
-
-                        <span
-                          className={`
-                            text-[10px]
-                            uppercase
-                            tracking-[0.24em]
-
-                            ${ui.text.quiet}
-                          `}
-                        >
-                          {link.status}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div
-                      className={`
-                        text-xl
-                        md:text-2xl
-
-                        transition-all
-                        duration-500
-
-                        ${ui.text.primary}
-
-                        group-hover:translate-x-1
-                      `}
-                    >
-                      {link.value}
                     </div>
                   </div>
 
-                  {/* RIGHT */}
                   <div
                     className={`
-                      text-[11px]
-                      uppercase
-                      tracking-[0.28em]
+                      text-xl
+                      md:text-2xl
 
-                      transition-transform
+                      transition-all
                       duration-500
 
-                      ${ui.text.metadata}
+                      ${ui.text.primary}
 
                       group-hover:translate-x-1
                     `}
                   >
-                    →
+                    {link.value}
                   </div>
                 </div>
-              </a>
-            </FadeIn>
-          ))}
-        </div>
+
+                {/* RIGHT */}
+                <div
+                  className={`
+                    text-[11px]
+                    uppercase
+                    tracking-[0.28em]
+
+                    transition-transform
+                    duration-500
+
+                    ${ui.text.metadata}
+
+                    group-hover:translate-x-1
+                  `}
+                >
+                  →
+                </div>
+              </div>
+            </a>
+          </FadeIn>
+        ))}
       </div>
     </div>
   );

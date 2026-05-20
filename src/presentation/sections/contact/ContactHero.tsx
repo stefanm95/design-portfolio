@@ -6,102 +6,90 @@ import Heading from "@/design/typography/Heading";
 import Label from "@/design/typography/Label";
 import Text from "@/design/typography/Text";
 
-import type { ResolvedContactLayout } from "@/runtime/presentation/layout/contracts";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
 
 import { ui } from "@/theme";
 
-type Props = {
-  layout: ResolvedContactLayout["hero"];
-};
-
-export default function ContactHero({ layout }: Props) {
+export default function ContactHero() {
   const { hero } = contactContent;
 
+  const layout = resolvePageLayoutRuntime();
+
   return (
-    <div className={layout.root}>
-      <div className={layout.content}>
+    <div className={layout.contact.hero.root}>
+      <div className={layout.contact.hero.content}>
         {/* LEFT */}
         <FadeIn>
-          <div className={layout.left}>
-            <div className='space-y-10'>
-              <Label
-                className={`
-                  text-[11px]
-                  uppercase
-                  tracking-[0.28em]
+          <div className={layout.contact.hero.left}>
+            <Label className={ui.text.context}>{hero.label}</Label>
 
-                  ${ui.text.context}
-                `}
-              >
-                {hero.label}
-              </Label>
+            <Heading
+              as="h2"
+              className={`
+                mt-8
 
-              <Heading
-                as='h2'
-                className={`
-                  max-w-[10ch]
+                max-w-[10ch]
 
-                  text-[clamp(3rem,7vw,7rem)]
+                text-[clamp(3rem,7vw,7rem)]
 
-                  leading-[0.9]
-                  tracking-[-0.06em]
+                leading-[0.9]
+                tracking-[-0.06em]
 
-                  ${ui.text.strong}
-                `}
-              >
-                {hero.title}
-              </Heading>
+                ${ui.text.strong}
+              `}
+            >
+              {hero.title}
+            </Heading>
 
-              <Text
-                className={`
-                  max-w-[34rem]
+            <Text
+              className={`
+                mt-10
 
-                  text-sm
-                  leading-[1.9]
+                max-w-[34rem]
 
-                  ${ui.text.muted}
-                `}
-              >
-                {hero.description}
-              </Text>
-            </div>
+                text-sm
+                leading-[1.9]
+
+                ${ui.text.muted}
+              `}
+            >
+              {hero.description}
+            </Text>
           </div>
         </FadeIn>
 
         {/* RIGHT */}
         <FadeIn delay={0.12}>
-          <div className={layout.right}>
+          <div className={layout.contact.hero.right}>
             <div
               className={`
                 relative
 
-                border-t
-                pt-8
+                border
+                backdrop-blur-xl
 
-                ${layout.card}
+                ${layout.contact.hero.card}
 
-                ${ui.borders.focus}
-                ${ui.borders.focusMd}
+                ${ui.borders.subtle}
+                ${ui.surfaces.panel}
               `}
             >
-              {/* ATMOSPHERIC BLOOM */}
               <div
-                className='
+                className="
                   absolute
                   inset-0
 
                   opacity-[0.06]
-                '
+                "
                 style={{
                   background:
                     "radial-gradient(circle at top left, rgba(120,200,255,0.28), transparent 60%)",
                 }}
               />
 
-              {/* CONTENT */}
-              <div className='relative z-10 space-y-8'>
+              <div className="relative z-10 space-y-8">
                 {/* EMAIL */}
-                <div className={layout.infoGroup}>
+                <div className={layout.contact.hero.infoGroup}>
                   <div
                     className={`
                       text-[10px]
@@ -117,14 +105,15 @@ export default function ContactHero({ layout }: Props) {
                   <a
                     href={hero.email.href}
                     className={`
-                      text-lg
+                      text-sm
+                      leading-[1.8]
 
                       transition-opacity
                       duration-500
 
-                      hover:opacity-60
+                      hover:opacity-80
 
-                      ${ui.text.interactive}
+                      ${ui.text.secondary}
                     `}
                   >
                     {hero.email.value}
@@ -132,7 +121,7 @@ export default function ContactHero({ layout }: Props) {
                 </div>
 
                 {/* AVAILABILITY */}
-                <div className={layout.infoGroup}>
+                <div className={layout.contact.hero.infoGroup}>
                   <div
                     className={`
                       text-[10px]
@@ -150,7 +139,7 @@ export default function ContactHero({ layout }: Props) {
                       text-sm
                       leading-[1.8]
 
-                      ${ui.text.supporting}
+                      ${ui.text.secondary}
                     `}
                   >
                     {hero.availability.value}

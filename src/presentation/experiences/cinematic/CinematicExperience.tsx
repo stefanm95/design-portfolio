@@ -19,7 +19,6 @@ import { sceneDefinitions } from "@/runtime/presentation/scene";
 
 import { resolvePresentationSnapshot } from "@/runtime/presentation/execution/snapshot";
 
-import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers";
 import type { ProjectPresentation } from "@/types/presentation";
 
 export default function CinematicExperience() {
@@ -77,8 +76,6 @@ export default function CinematicExperience() {
     profile: profileVariant,
   });
 
-  const layout = resolvePageLayoutRuntime();
-
   //
   // RENDER
   //
@@ -103,7 +100,7 @@ export default function CinematicExperience() {
 
         <About />
 
-        <Contact layout={layout.contact} />
+        <Contact />
       </SectionMotionProvider>
     </main>
   );

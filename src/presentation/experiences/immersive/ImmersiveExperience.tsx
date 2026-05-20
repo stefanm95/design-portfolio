@@ -5,15 +5,7 @@ import Philosophy from "@/presentation/sections/philosophy/Philosophy";
 
 import { SectionMotionProvider } from "@/runtime/presentation";
 
-import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers";
-
 export default function ImmersiveExperience() {
-  //
-  // LAYOUT
-  //
-
-  const layout = resolvePageLayoutRuntime();
-
   return (
     <main>
       <SectionMotionProvider>
@@ -25,7 +17,7 @@ export default function ImmersiveExperience() {
 
         <Experience />
 
-        <Contact layout={layout.contact} />
+        <Contact />
       </SectionMotionProvider>
     </main>
   );

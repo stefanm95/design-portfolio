@@ -1,7 +1,8 @@
+// runtime/presentation/layout/resolvers/resolveLayoutRuntime.ts
+
 import type { ResolvedPageLayoutRuntime } from "../contracts";
 
 import { resolveSectionSpacing } from "./resolveSectionSpacing";
-
 import { resolveStackLayout } from "./resolveStackLayout";
 
 export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
@@ -9,7 +10,7 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
   // HERO
   //
 
-  const heroStack = resolveStackLayout({
+  const heroLayout = resolveStackLayout({
     layout: "hero",
   });
 
@@ -21,7 +22,7 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
   // PHILOSOPHY
   //
 
-  const philosophyStack = resolveStackLayout({
+  const philosophyLayout = resolveStackLayout({
     layout: "philosophy",
   });
 
@@ -33,7 +34,7 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
   // EXPERIENCE
   //
 
-  const experienceStack = resolveStackLayout({
+  const experienceLayout = resolveStackLayout({
     layout: "experience",
   });
 
@@ -45,7 +46,7 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
   // CONTACT
   //
 
-  const contactStack = resolveStackLayout({
+  const contactLayout = resolveStackLayout({
     layout: "contact",
   });
 
@@ -57,7 +58,7 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
   // ABOUT
   //
 
-  const aboutStack = resolveStackLayout({
+  const aboutLayout = resolveStackLayout({
     layout: "about",
   });
 
@@ -69,12 +70,12 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
   // PROJECTS
   //
 
-  const projectsSpacing = resolveSectionSpacing({
-    section: "projects",
+  const projectsLayout = resolveStackLayout({
+    layout: "projects",
   });
 
-  const projectsStack = resolveStackLayout({
-    layout: "projects",
+  const projectsSpacing = resolveSectionSpacing({
+    section: "projects",
   });
 
   //
@@ -84,31 +85,31 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
   return {
     hero: {
       root: `
-        ${heroStack.root}
+        ${heroLayout.root}
         ${heroSpacing.root}
       `,
 
-      grid: heroStack.grid,
+      grid: heroLayout.grid,
 
-      content: heroStack.content,
+      content: heroLayout.content,
 
-      meta: heroStack.meta,
+      meta: heroLayout.meta,
 
       display: `
-        ${heroStack.display}
+        ${heroLayout.display}
         ${heroSpacing.display}
       `,
 
       description: `
-        ${heroStack.description}
+        ${heroLayout.description}
         ${heroSpacing.description}
       `,
 
-      marker: heroStack.marker,
+      marker: heroLayout.marker,
 
-      copy: heroStack.copy,
+      copy: heroLayout.copy,
 
-      availability: heroStack.availability,
+      availability: heroLayout.availability,
     },
 
     philosophy: {
@@ -118,22 +119,22 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
 
       ambientBloom: philosophySpacing.ambientBloom,
 
-      stack: philosophyStack.root,
+      stack: philosophyLayout.root,
 
-      left: philosophyStack.left,
+      left: philosophyLayout.left,
 
-      right: philosophyStack.right,
+      right: philosophyLayout.right,
 
-      heading: philosophyStack.heading,
+      heading: philosophyLayout.heading,
 
-      body: philosophyStack.body,
+      body: philosophyLayout.body,
 
       metadata: `
-        ${philosophyStack.metadata}
+        ${philosophyLayout.metadata}
         ${philosophySpacing.metadata}
       `,
 
-      metadataItem: philosophyStack.metadataItem,
+      metadataItem: philosophyLayout.metadataItem,
     },
 
     projects: {
@@ -142,20 +143,20 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
       bloom: projectsSpacing.bloom,
 
       content: `
-    ${projectsStack.content}
-    ${projectsSpacing.content}
-  `,
+        ${projectsLayout.content}
+        ${projectsSpacing.content}
+      `,
     },
 
     experience: {
       section: experienceSpacing.root,
 
-      root: experienceStack.root,
+      root: experienceLayout.root,
 
       hero: {
-        content: experienceStack.hero.content,
+        content: experienceLayout.hero.content,
 
-        titleWrap: experienceStack.hero.titleWrap,
+        titleWrap: experienceLayout.hero.titleWrap,
 
         glow: experienceSpacing.heroGlow,
 
@@ -164,224 +165,95 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
         description: experienceSpacing.description,
 
         tags: `
+          ${experienceLayout.hero.tags}
           ${experienceSpacing.tags}
-          ${experienceStack.hero.tags}
         `,
       },
 
       visual: {
         root: `
-          ${experienceStack.visual.root}
+          ${experienceLayout.visual.root}
           ${experienceSpacing.visualRoot}
         `,
 
-        desktopBackground: experienceStack.visual.desktopBackground,
+        desktopBackground: experienceLayout.visual.desktopBackground,
 
-        mobileBackground: experienceStack.visual.mobileBackground,
+        mobileBackground: experienceLayout.visual.mobileBackground,
 
         content: `
-          ${experienceStack.visual.content}
+          ${experienceLayout.visual.content}
           ${experienceSpacing.visualContent}
         `,
 
-        stack: experienceStack.visual.stack,
+        stack: experienceLayout.visual.stack,
       },
 
       panel: {
-        root: experienceStack.panel.root,
+        root: experienceLayout.panel.root,
 
-        content: experienceStack.panel.content,
+        content: experienceLayout.panel.content,
 
-        title: experienceStack.panel.title,
+        title: experienceLayout.panel.title,
 
-        description: experienceStack.panel.description,
+        description: experienceLayout.panel.description,
       },
     },
 
     contact: {
-      root: `
-    relative
-    overflow-hidden
-  `,
-
-      content: `
-    relative
-    z-10
-
-    flex
-    flex-col
-
-    ${contactSpacing.root}
-    ${contactSpacing.padding}
-
-    mx-auto
-    w-full
-    max-w-[1600px]
-
-    px-6
-    md:px-10
-    xl:px-16
-  `,
-
-      grid: {
-        root: `
-      grid
-      grid-cols-1
-      lg:grid-cols-12
-
-      ${contactSpacing.grid}
-    `,
-
-        left: `
-      relative
-
-      hidden
-      lg:flex
-
-      col-span-1
-      lg:col-span-4
-
-      min-h-[480px]
-      md:min-h-[560px]
-      lg:min-h-[620px]
-
-      overflow-hidden
-    `,
-
-        right: `
-      col-span-1
-      lg:col-span-8
-
-      ${contactStack.grid.right}
-    `,
-      },
+      section: contactSpacing.root,
 
       hero: {
         root: `
-      relative
-      z-10
+      ${contactLayout.hero.root}
+      ${contactSpacing.hero}
     `,
 
-        content: `
-      grid
-      grid-cols-1
-
-      gap-16
-
-      lg:grid-cols-12
-      lg:gap-20
-      lg:items-start
-    `,
+        content: contactSpacing.heroContent,
 
         left: `
-      col-span-12
-      lg:col-span-7
-
-      ${contactStack.hero.left}
+      ${contactLayout.hero.left}
+      ${contactSpacing.heroLeft}
     `,
 
         right: `
-      col-span-12
-
-      lg:col-span-4
-      lg:col-start-9
-
-      ${contactStack.hero.right}
+      ${contactLayout.hero.right}
+      ${contactSpacing.heroRight}
     `,
 
         card: `
-      relative
-      h-full
-      w-full
+      ${contactLayout.hero.card}
+      ${contactSpacing.heroCard}
     `,
 
-        infoGroup: contactStack.hero.infoGroup,
+        infoGroup: contactLayout.hero.infoGroup,
       },
 
       links: {
-        root: `
-      relative
-      overflow-hidden
+        list: contactLayout.links.list,
 
-      border
-    `,
+        row: contactLayout.links.row,
 
-        content: `
-      relative
-      z-10
+        top: contactLayout.links.top,
 
-      px-6
-      py-8
-
-      md:px-10
-      md:py-10
-    `,
-
-        label: `
-      mb-12
-    `,
-
-        list: contactStack.links.list,
-
-        row: contactStack.links.row,
-
-        top: contactStack.links.top,
-
-        status: contactStack.links.status,
+        status: contactLayout.links.status,
       },
 
       availability: {
-        root: `
-      relative
+        root: contactSpacing.heroCard,
 
-      border-t
-
-      px-8
-      pt-8
-    `,
-
-        content: contactStack.availability.content,
+        content: contactLayout.availability.content,
       },
 
       footer: {
-        root: `
-      relative
+        root: contactSpacing.footer,
 
-      border-t
+        content: contactLayout.footer.content,
 
-      ${contactSpacing.footer}
-    `,
+        left: contactLayout.footer.left,
 
-        content: `
-      flex
-      flex-col
+        right: contactLayout.footer.right,
 
-      gap-10
-      md:gap-12
-      lg:gap-14
-
-      lg:flex-row
-      lg:items-end
-      lg:justify-between
-    `,
-
-        left: contactStack.footer.left,
-
-        right: contactStack.footer.right,
-
-        meta: contactStack.footer.meta,
-
-        cta: `
-      group
-      inline-flex
-      items-center
-      gap-4
-
-      border
-
-      px-6
-      py-4
-    `,
+        meta: contactLayout.footer.meta,
       },
     },
 
@@ -391,45 +263,45 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
       stack: aboutSpacing.stack,
 
       hero: {
-        root: aboutStack.hero.root,
+        root: aboutLayout.hero.root,
 
-        label: aboutStack.hero.label,
+        label: aboutLayout.hero.label,
 
-        statement: aboutStack.hero.statement,
+        statement: aboutLayout.hero.statement,
       },
 
       philosophy: {
-        root: aboutStack.philosophy.root,
+        root: aboutLayout.philosophy.root,
 
-        left: aboutStack.philosophy.left,
+        left: aboutLayout.philosophy.left,
 
-        right: aboutStack.philosophy.right,
+        right: aboutLayout.philosophy.right,
 
-        content: aboutStack.philosophy.content,
+        content: aboutLayout.philosophy.content,
       },
 
       principles: {
         root: `
-      ${aboutStack.principles.root}
-      ${aboutSpacing.principles}
-    `,
+          ${aboutLayout.principles.root}
+          ${aboutSpacing.principles}
+        `,
 
         content: `
-      ${aboutStack.principles.content}
-      ${aboutSpacing.principlesContent}
-    `,
+          ${aboutLayout.principles.content}
+          ${aboutSpacing.principlesContent}
+        `,
 
-        right: aboutStack.principles.right,
+        right: aboutLayout.principles.right,
 
-        stack: aboutStack.principles.stack,
+        stack: aboutLayout.principles.stack,
 
-        list: aboutStack.principles.list,
+        list: aboutLayout.principles.list,
       },
 
       stackFooter: `
-    ${aboutStack.stackFooter}
-    ${aboutSpacing.stackFooter}
-  `,
+        ${aboutLayout.stackFooter}
+        ${aboutSpacing.stackFooter}
+      `,
     },
   };
 }
