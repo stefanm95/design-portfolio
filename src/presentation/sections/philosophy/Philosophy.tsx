@@ -10,7 +10,7 @@ import Text from "@/design/typography/Text";
 
 import LeftSideVisual from "@/design/visuals/LeftSideVisual";
 
-import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout";
 import { dividersGradients, ui } from "@/theme";
 
 export default function Philosophy() {

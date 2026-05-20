@@ -7,7 +7,7 @@ import { aboutContent } from "@/content/about";
 import Heading from "@/design/typography/Heading";
 import Text from "@/design/typography/Text";
 
-import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout";
 
 import { ui } from "@/theme";
 

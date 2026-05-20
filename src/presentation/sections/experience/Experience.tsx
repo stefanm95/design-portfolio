@@ -11,7 +11,7 @@ import { experienceContent } from "@/content/experience";
 
 import { dividersGradients, ui } from "@/theme";
 
-import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout";
 
 import ExperienceVisual from "./ExperienceVisual";
 

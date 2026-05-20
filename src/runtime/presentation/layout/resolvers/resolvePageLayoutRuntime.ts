@@ -1,59 +1,42 @@
-// runtime/presentation/layout/resolvers/resolveLayoutRuntime.ts
+// runtime/presentation/layout/resolvers/resolvePageLayoutRuntime.ts
 
 import { resolveContactStack } from "@/runtime/presentation/layout/realization/stack/resolveContactStack";
 import type { ResolvedPageLayoutRuntime } from "../contracts";
-
-import { resolveSectionSpacing } from "./resolveSectionSpacing";
-import { resolveStackLayout } from "./resolveStackLayout";
+import { layoutScales } from "../realization/scales";
+import { sectionSpacingScale } from "../realization";
 
 export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
   //
   // HERO
   //
 
-  const heroLayout = resolveStackLayout({
-    layout: "hero",
-  });
+  const heroLayout = layoutScales.hero;
 
-  const heroSpacing = resolveSectionSpacing({
-    section: "hero",
-  });
+  const heroSpacing = sectionSpacingScale.hero;
 
   //
   // PHILOSOPHY
   //
 
-  const philosophyLayout = resolveStackLayout({
-    layout: "philosophy",
-  });
+  const philosophyLayout = layoutScales.philosophy;
 
-  const philosophySpacing = resolveSectionSpacing({
-    section: "philosophy",
-  });
+  const philosophySpacing = sectionSpacingScale.philosophy;
 
   //
   // EXPERIENCE
   //
 
-  const experienceLayout = resolveStackLayout({
-    layout: "experience",
-  });
+  const experienceLayout = layoutScales.experience;
 
-  const experienceSpacing = resolveSectionSpacing({
-    section: "experience",
-  });
+  const experienceSpacing = sectionSpacingScale.experience;
 
   //
   // CONTACT
   //
 
-  const contactLayout = resolveStackLayout({
-    layout: "contact",
-  });
+  const contactLayout = layoutScales.contact;
 
-  const contactSpacing = resolveSectionSpacing({
-    section: "contact",
-  });
+  const contactSpacing = sectionSpacingScale.contact;
 
   const contactHeroStack = resolveContactStack({
     section: "hero",
@@ -75,25 +58,17 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
   // ABOUT
   //
 
-  const aboutLayout = resolveStackLayout({
-    layout: "about",
-  });
+  const aboutLayout = layoutScales.about;
 
-  const aboutSpacing = resolveSectionSpacing({
-    section: "about",
-  });
+  const aboutSpacing = sectionSpacingScale.about;
 
   //
   // PROJECTS
   //
 
-  const projectsLayout = resolveStackLayout({
-    layout: "projects",
-  });
+  const projectsLayout = layoutScales.projects;
 
-  const projectsSpacing = resolveSectionSpacing({
-    section: "projects",
-  });
+  const projectsSpacing = sectionSpacingScale.projects;
 
   //
   // RETURN
@@ -217,9 +192,7 @@ export function resolvePageLayoutRuntime(): ResolvedPageLayoutRuntime {
     },
 
     contact: {
-      section: `
-
-  `,
+      section: contactSpacing.root,
 
       //
       // GRID

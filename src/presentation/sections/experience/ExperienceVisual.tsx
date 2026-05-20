@@ -2,7 +2,7 @@ import FadeIn from "@/presentation/animation/FadeIn";
 
 import { experienceContent } from "@/content/experience";
 
-import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout";
 
 import ExperiencePanel from "./ExperiencePanel";
 import ExperienceVisualBackground from "./ExperienceVisualBackground";

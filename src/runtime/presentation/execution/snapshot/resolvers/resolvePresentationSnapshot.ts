@@ -10,7 +10,7 @@ import { resolveAtmosphericModulation } from "@/runtime/presentation/atmosphere"
 
 import { resolveAtmosphere } from "@/runtime/presentation/resolvers";
 
-import { resolveRenderingAttributes } from "@/runtime/presentation/rendering";
+import { resolveRenderingRuntime } from "@/runtime/presentation/rendering";
 
 import { resolveRuntimeSurfaces } from "@/runtime/presentation/surfaces";
 
@@ -23,7 +23,7 @@ import {
   resolveTypographyRendering,
 } from "@/runtime/presentation/system";
 
-import { resolveLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolveLayoutRuntime";
+import { resolveLayoutRuntime } from "@/runtime/presentation/layout";
 import type { PresentationProfileVariant } from "@/runtime/presentation/profiles";
 import type { PresentationRuntimeSnapshot } from "../contracts";
 
@@ -98,7 +98,7 @@ export function resolvePresentationSnapshot({
   // RENDERING
   //
 
-  const rendering = resolveRenderingAttributes({
+  const rendering = resolveRenderingRuntime({
     atmospheric: atmosphericModulation,
 
     environment: scene.environment,

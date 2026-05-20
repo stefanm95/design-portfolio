@@ -15,9 +15,6 @@ export {
 //
 
 export {
-  resolveCompositionBreathing,
-  resolveCompositionDensity,
-  resolveCompositionPacing,
   resolveCompositionReactivity,
   type CompositionBreathing,
   type CompositionDensityReactivity,

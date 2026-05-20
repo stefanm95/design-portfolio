@@ -1,4 +1,4 @@
-import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout";
 
 import Section from "@/design/layout/Section";
 
@@ -84,9 +84,7 @@ export default function Contact() {
           flex
           flex-col
 
-          gap-16
-          md:gap-20
-          lg:gap-28
+          ${layout.contact.section}
         `}
       >
         {/* HERO */}

@@ -4,7 +4,7 @@ import { aboutContent } from "@/content/about";
 
 import FadeIn from "@/presentation/animation/FadeIn";
 
-import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout";
 
 import { opacityClass, ui } from "@/theme";
 

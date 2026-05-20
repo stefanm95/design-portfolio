@@ -11,7 +11,7 @@ import RightSideVisual from "@/design/visuals/RightSideVisual";
 
 import { heroContent } from "@/content/hero";
 
-import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout";
 import { dividersGradients, opacityClass, ui } from "@/theme";
 
 export default function Hero() {

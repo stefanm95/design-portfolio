@@ -2,7 +2,7 @@ import FadeIn from "@/presentation/animation/FadeIn";
 
 import { contactContent } from "@/content/contact";
 
-import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout";
 
 import { useTheme } from "@/theme";
 

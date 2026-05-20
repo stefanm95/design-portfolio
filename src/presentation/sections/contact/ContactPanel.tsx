@@ -1,6 +1,6 @@
 import { contactContent } from "@/content/contact";
 
-import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout";
 
 import { rgba, ui } from "@/theme";
 

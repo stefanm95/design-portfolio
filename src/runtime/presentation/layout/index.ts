@@ -14,16 +14,14 @@ export type {
 
 export {
   gridSpacingScale,
+  layoutScales,
   projectLayoutRealization,
   sectionSpacingScale,
-  stackLayoutScale,
   stackSpacingScale,
 } from "./realization";
 
 export {
-  resolveGridSpacing,
-  resolveProjectLayout,
-  resolveSectionSpacing,
-  resolveStackLayout,
-  resolveStackSpacing,
+  resolveLayoutRuntime,
+  resolvePageLayoutRuntime,
+  resolveProjectLayoutRuntime,
 } from "./resolvers";

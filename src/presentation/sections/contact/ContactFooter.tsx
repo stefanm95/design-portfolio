@@ -2,9 +2,7 @@ import { contactContent } from "@/content/contact";
 
 import Text from "@/design/typography/Text";
 
-import FadeIn from "@/presentation/animation/FadeIn";
-
-import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout/resolvers/resolvePageLayoutRuntime";
+import { resolvePageLayoutRuntime } from "@/runtime/presentation/layout";
 
 import { opacityClass, ui } from "@/theme";
 
@@ -57,124 +55,123 @@ export default function ContactFooter() {
         }}
       />
 
-      <FadeIn>
-        <div
-          className={`
-            relative
-            z-10
+      <div
+        className={`
+          relative
+          z-10
 
-            ${layout.contact.footer.content}
-          `}
-        >
-          {/* LEFT */}
-          <div className={layout.contact.footer.left}>
-            <div
-              className={`
-                text-[11px]
-                uppercase
-                tracking-[0.34em]
+          ${layout.contact.footer.content}
+        `}
+      >
+        {/* LEFT */}
+        <div className={layout.contact.footer.left}>
+          <div
+            className={`
+              text-[11px]
+              uppercase
+              tracking-[0.34em]
 
-                ${ui.text.annotation}
-              `}
-            >
-              {footer.label}
-            </div>
-
-            <div
-              className={`
-                max-w3xl
-
-                sm:text-4xl
-                md:text-5xl
-                lg:text-6xl
-
-                leading-[0.95]
-
-                ${ui.text.accent}
-              `}
-            >
-              {footer.title}
-            </div>
-
-            <p
-              className={`
-                max-w-[34ch]
-
-                text-sm
-                leading-[1.9]
-
-                ${ui.text.muted}
-              `}
-            >
-              {footer.description}
-            </p>
+              ${ui.text.annotation}
+            `}
+          >
+            {footer.label}
           </div>
 
-          {/* RIGHT */}
-          <div className={layout.contact.footer.right}>
-            {/* CTA */}
-            <a
-              href={footer.cta.href}
-              className={`
-                group
-                inline-flex
-                items-center
-                gap-4
+          <div
+            className={`
+              max-w-3xl
 
-                border
-                ${ui.borders.focus}
+              text-3xl
+              sm:text-4xl
+              md:text-5xl
+              lg:text-6xl
 
-                px-6
-                py-4
+              leading-[0.95]
 
-                text-[11px]
-                uppercase
-                tracking-[0.28em]
+              ${ui.text.accent}
+            `}
+          >
+            {footer.title}
+          </div>
 
-                ${ui.text.secondary}
+          <p
+            className={`
+              max-w-[34ch]
 
-                transition-all
+              text-sm
+              leading-[1.9]
+
+              ${ui.text.muted}
+            `}
+          >
+            {footer.description}
+          </p>
+        </div>
+
+        {/* RIGHT */}
+        <div className={layout.contact.footer.right}>
+          {/* CTA */}
+          <a
+            href={footer.cta.href}
+            className={`
+              group
+              inline-flex
+              items-center
+              gap-4
+
+              border
+              ${ui.borders.focus}
+
+              px-6
+              py-4
+
+              text-[11px]
+              uppercase
+              tracking-[0.28em]
+
+              ${ui.text.secondary}
+
+              transition-all
+              duration-500
+
+              ${ui.borders.hover}
+              ${ui.surfaces.hover}
+
+              hover:text-white
+            `}
+          >
+            {footer.cta.label}
+
+            <span
+              className="
+                transition-transform
                 duration-500
 
-                ${ui.borders.hover}
-                ${ui.surfaces.hover}
-
-                hover:text-white
-              `}
+                group-hover:translate-x-1
+              "
             >
-              {footer.cta.label}
+              {"->"}
+            </span>
+          </a>
 
-              <span
-                className="
-                  transition-transform
-                  duration-500
+          {/* META */}
+          <div
+            className={`
+              ${layout.contact.footer.meta}
 
-                  group-hover:translate-x-1
-                "
-              >
-                →
-              </span>
-            </a>
+              text-[11px]
+              uppercase
+              tracking-[0.24em]
 
-            {/* META */}
-            <div
-              className={`
-                ${layout.contact.footer.meta}
+              ${ui.text.quiet}
+            `}
+          >
+            <Text>{footer.meta.author}</Text>
 
-                text-[11px]
-                uppercase
-                tracking-[0.24em]
-
-                ${ui.text.quiet}
-              `}
-            >
-              <Text>{footer.meta.author}</Text>
-
-              <Text className="text-lg">{footer.meta.copyright}</Text>
-            </div>
+            <Text className="text-lg">{footer.meta.copyright}</Text>
           </div>
         </div>
-      </FadeIn>
+      </div>
     </footer>
   );
 }
